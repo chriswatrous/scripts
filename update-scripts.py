@@ -16,15 +16,13 @@ scripts = [(os.path.expanduser('~/.bashrc'), os.path.realpath('.bashrc')),
            (os.path.expanduser('~/.pythonrc.py'), os.path.realpath('.pythonrc.py')),
            (os.path.expanduser('~/.octaverc'), os.path.realpath('.octaverc'))]
 
-if home_cygwin:
-    scripts.append(('/cygdrive/c/Users/Chris/Documents/AutoHotkey.ahk', os.path.realpath('AutoHotkey.ahk')))
-    scripts.append(('/cygdrive/c/Users/Chris/Documents/AutoHotkey/Lib/PlaceActiveWindow.ahk', os.path.realpath('PlaceActiveWindow.ahk')))
+cygwin = os.path.exists('/cygdrive')
+if cygwin:
+    winhome = os.environ['USERPROFILE'] 
+    scripts.append((os.path.join(winhome, 'Documents/AutoHotkey.ahk'), os.path.realpath('AutoHotkey.ahk')))
+    scripts.append((os.path.join(winhome, 'Documents/AutoHotkey/Lib/PlaceActiveWindow.ahk'), os.path.realpath('PlaceActiveWindow.ahk')))
 
-if work_cygwin:
-    scripts.append(('/cygdrive/c/Users/cwatrous/Documents/AutoHotkey.ahk', os.path.realpath('AutoHotkey.ahk')))
-    scripts.append(('/cygdrive/c/Users/cwatrous/Documents/AutoHotkey/Lib/PlaceActiveWindow.ahk', os.path.realpath('PlaceActiveWindow.ahk')))
-
-if home_linux or work_linux:
+if not cygwin:
     scripts.append((os.path.expanduser('~/.vimrc'), os.path.realpath('.vimrc')))
 
 for installed, checkout in scripts:
@@ -38,14 +36,9 @@ for installed, checkout in scripts:
         print 'Copying %s -> %s' % (checkout, installed)
         call(['cp', '-p', checkout, installed])
 
-if home_cygwin or work_cygwin:
-    if home_cygwin:
-        winhome = '/cygdrive/c/Users/Chris/'
-    elif work_cygwin:
-        winhome = '/cygdrive/c/Users/cwatrous/'
-
+if cygwin:
     lin = os.path.expanduser('~/.vimrc')
-    win = winhome + '_vimrc'
+    win = os.path.join(winhome, '_vimrc')
     chk = '.vimrc'
 
     lin_mtime = os.stat(lin).st_mtime
