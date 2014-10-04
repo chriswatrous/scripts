@@ -7,11 +7,6 @@ from pdb import set_trace
 # change to the directory of this script
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
-def isfile(file):
-    return os.path.isfile(os.path.expanduser(file))
-files = ['~/.home_cygwin', '~/.work_cygwin', '~/.home_linux', '~/.work_linux']
-home_cygwin, work_cygwin, home_linux, work_linux = map(isfile, files) 
-
 scripts = [(os.path.expanduser('~/.bashrc'), os.path.realpath('.bashrc')),
            (os.path.expanduser('~/.pythonrc.py'), os.path.realpath('.pythonrc.py')),
            (os.path.expanduser('~/.octaverc'), os.path.realpath('.octaverc'))]
