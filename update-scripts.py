@@ -1,28 +1,28 @@
 #! /usr/bin/python
 
-import os
 from subprocess import call
-from pdb import set_trace
+from os import chdir, environ, stat
+from os.path import realpath, expanduser, exists, dirname, join
 
 # change to the directory of this script
-os.chdir(os.path.dirname(os.path.realpath(__file__)))
+chdir(dirname(realpath(__file__)))
 
-scripts = [(os.path.expanduser('~/.bashrc'), os.path.realpath('.bashrc')),
-           (os.path.expanduser('~/.pythonrc.py'), os.path.realpath('.pythonrc.py')),
-           (os.path.expanduser('~/.octaverc'), os.path.realpath('.octaverc'))]
+scripts = [(expanduser('~/.bashrc'), realpath('.bashrc')),
+           (expanduser('~/.pythonrc.py'), realpath('.pythonrc.py')),
+           (expanduser('~/.octaverc'), realpath('.octaverc'))]
 
-cygwin = os.path.exists('/cygdrive')
+cygwin = exists('/cygdrive')
 if cygwin:
-    winhome = os.environ['USERPROFILE'] 
-    scripts.append((os.path.join(winhome, 'Documents/AutoHotkey.ahk'), os.path.realpath('AutoHotkey.ahk')))
-    scripts.append((os.path.join(winhome, 'Documents/AutoHotkey/Lib/PlaceActiveWindow.ahk'), os.path.realpath('PlaceActiveWindow.ahk')))
+    winhome = environ['USERPROFILE'] 
+    scripts.append((join(winhome, 'Documents/AutoHotkey.ahk'), realpath('AutoHotkey.ahk')))
+    scripts.append((join(winhome, 'Documents/AutoHotkey/Lib/PlaceActiveWindow.ahk'), realpath('PlaceActiveWindow.ahk')))
 
 if not cygwin:
-    scripts.append((os.path.expanduser('~/.vimrc'), os.path.realpath('.vimrc')))
+    scripts.append((expanduser('~/.vimrc'), realpath('.vimrc')))
 
 for installed, checkout in scripts:
-    installed_mtime = os.stat(installed).st_mtime
-    checkout_mtime = os.stat(checkout).st_mtime
+    installed_mtime = stat(installed).st_mtime
+    checkout_mtime = stat(checkout).st_mtime
 
     if installed_mtime > checkout_mtime:
         print 'Copying %s -> %s' % (installed, checkout)
@@ -32,16 +32,16 @@ for installed, checkout in scripts:
         call(['cp', '-p', checkout, installed])
 
 if cygwin:
-    lin = os.path.expanduser('~/.vimrc')
-    win = os.path.join(winhome, '_vimrc')
+    lin = expanduser('~/.vimrc')
+    win = join(winhome, '_vimrc')
     chk = '.vimrc'
 
-    lin_mtime = os.stat(lin).st_mtime
-    win_mtime = os.stat(win).st_mtime
-    chk_mtime = os.stat(chk).st_mtime
+    lin_mtime = stat(lin).st_mtime
+    win_mtime = stat(win).st_mtime
+    chk_mtime = stat(chk).st_mtime
 
     files = [lin, win, chk]
-    mtimes = [os.stat(x).st_mtime for x in files]
+    mtimes = [stat(x).st_mtime for x in files]
     if len(set(mtimes)) > 1:
         i = mtimes.index(max(mtimes))
         source = files[i]
