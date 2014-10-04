@@ -118,7 +118,7 @@ my_cd()
 
 select_recent_dir()
 {
-    cat -n ~/.recent_dirs
+    cat -n ~/.recent_dirs | tac
     read -p 'Enter the number of the directory to cd to: ' n
     num_lines=`wc -l < ~/.recent_dirs`
     if [[ $n =~ ^[0-9]+$ ]] && [ $n -gt 0 ] && [ $n -le $num_lines ]; then
