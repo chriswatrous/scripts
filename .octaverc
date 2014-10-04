@@ -1,0 +1,4 @@
+addpath("~/octavelib");
+more off
+PS1('\[\e[1;34m\]\s:\#>\[\e[0m\] ')
+format long
