@@ -16,7 +16,8 @@ if 'pythonrc_guard' not in globals():
         readline.parse_and_bind("tab: complete")
 
     # read local .pythonrc.py
-    pythonrc_guard = None
-    with open('.pythonrc.py') as f:
-        exec(f.read())
-    del pythonrc_guard
+    if os.path.exists('.pythonrc.py'):
+        pythonrc_guard = None
+        with open('.pythonrc.py') as f:
+            exec(f.read())
+        del pythonrc_guard
