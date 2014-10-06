@@ -59,7 +59,7 @@ function! SetFiletypeOptions()
        nmap <F4> :s/\(^\s*\)\@<=-- /<Enter>:noh<Enter>
        vmap <F4> :s/\(^\s*\)\@<=-- /<Enter>:noh<Enter>
     endif
-    if &filetype == 'autohotkey'
+    if &filetype == 'autohotkey' || &filetype == 'dosini'
        "commenting and uncommenting that uses ';'
        nmap <F2> :norm I;<Enter>
        vmap <F2> :norm I;<Enter>
