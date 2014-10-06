@@ -62,6 +62,10 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
 fi
 export PATH="bin:${PATH}:."
 
+if [[ -e /home/cwatrous ]]; then
+    # make git push work on work linux
+    unset SSH_ASKPASS
+fi
 
 alias ls='ls -F --color=auto'
 alias l='ls -alh'
