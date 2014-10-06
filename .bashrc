@@ -54,10 +54,14 @@ export EDITOR=vim
 export LC_ALL=C
 export LESS='-M'
 export PAGER=less
-[[ -e /cygdrive/c/Users/Chris ]] && export PATH="${PATH}:/cygdrive/c/Program Files (x86)/SMPlayer"
-export PATH="~/bin:${PATH}:."
-[[ -e /cygdrive/c/Users/Chris ]] && export PRINTER=DCP7040
 export PYTHONSTARTUP=~/.pythonrc.py
+if [[ -e /cygdrive/c/Users/Chris ]]; then
+    export PRINTER=DCP7040
+    export PATH="${PATH}:/cygdrive/c/Program Files (x86)/SMPlayer"
+    export PATH="${PATH}:/cygdrive/c/Program Files (x86)/Audacity"
+fi
+export PATH="bin:${PATH}:."
+
 
 alias ls='ls -F --color=auto'
 alias l='ls -alh'
