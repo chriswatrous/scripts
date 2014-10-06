@@ -54,8 +54,9 @@ export EDITOR=vim
 export LC_ALL=C
 export LESS='-M'
 export PAGER=less
-export PATH="${PATH}:."
-export PATH=~/bin:$PATH
+[[ -e /cygdrive/c/Users/Chris ]] && export PATH="${PATH}:/cygdrive/c/Program Files (x86)/SMPlayer"
+export PATH="~/bin:${PATH}:."
+[[ -e /cygdrive/c/Users/Chris ]] && export PRINTER=DCP7040
 export PYTHONSTARTUP=~/.pythonrc.py
 
 alias ls='ls -F --color=auto'
@@ -84,11 +85,6 @@ alias c....='cd ../../../..'
 alias c.....='cd ../../../../..'
 alias c......='cd ../../../../../..'
 alias r=select_recent_dir
-
-# things for specific environments
-if [[ -e .home-cygwin ]]; then
-    export PRINTER=DCP7040
-fi
 
 update_recent_dirs()
 {
