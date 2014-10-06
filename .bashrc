@@ -92,7 +92,11 @@ alias r=select_recent_dir
 
 update_recent_dirs()
 {
-    readarray -t recent_dirs < $HOME/.recent_dirs
+    recent_dirs=()
+    while read -r line
+    do
+        recent_dirs+=("$line")
+    done < "$HOME/.recent_dirs"
     new_dirs=()
     new_dirs+=($PWD)
     count=0
