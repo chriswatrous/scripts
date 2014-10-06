@@ -31,7 +31,7 @@ set tabstop=4
 syntax on
 
 function! SetFiletypeOptions()
-    if &filetype == 'python' || &filetype == 'pyrex' || &filetype == 'sh' || &filetype == 'make'
+    if &filetype == 'python' || &filetype == 'pyrex' || &filetype == 'sh' || &filetype == 'make' || &filetype == 'gitconfig'
        "commenting and uncommenting that uses '#'
        nmap <F2> :norm I#<Enter>
        nmap <F4> :s/\(^\s*\)\@<=#/<Enter>:noh<Enter>
