@@ -10,7 +10,7 @@ echo -ne '\e]4;4;#8080FF\a'   # blue
 echo -ne '\e]4;12;#A0A0FF\a'  # bold blue
 
 # History options
-HISTCONTROL=ignoredups:ignorespace
+HISTCONTROL=erasedups:ignorespace
 HISTFILESIZE=5000
 HISTSIZE=5000
 shopt -s histappend
