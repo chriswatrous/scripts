@@ -12,6 +12,8 @@ if FileExist("C:/Users/Chris") != ""
 if FileExist("C:/Users/cwatrous") != ""
 {
     Work = 1
+    WordProcessor = C:\Program Files (x86)\Microsoft Office\Office15\WINWORD.EXE
+    Spreadsheet = C:\Program Files (x86)\Microsoft Office\Office15\EXCEL.EXE
 }
 Return
 
