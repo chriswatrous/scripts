@@ -1,6 +1,6 @@
 if 'pythonrc_guard' not in globals():
     import os, sys
-    from subprocess import call
+    from subprocess import *
     from pprint import *
 
     def pdir(obj):
