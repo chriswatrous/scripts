@@ -86,7 +86,6 @@ alias p3=python3
 alias vi=vim
 alias vim='vim -p'
 alias tree='tree -C'
-alias gitdiff='git --no-pager diff --color'
 alias hd='hexdump -C'
 alias pdb='python -m pdb'
 
