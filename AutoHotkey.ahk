@@ -200,7 +200,7 @@ RemoteLogin()
     global Home, Work
     if Home
     {
-        Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico /usr/bin/ssh chris@192.168.56.101
+        Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico /usr/bin/ssh chris@fe80::a00:27ff:fe7d:51d1
     }
     if Work
     {
