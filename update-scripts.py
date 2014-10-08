@@ -12,6 +12,7 @@ scripts = [[expanduser('~/.bashrc'), realpath('.bashrc')],
 
 if exists('/cygdrive'):
     winhome = environ['USERPROFILE']
+    winhome = join('/cygdrive/c/Users', environ['USER'])
     scripts.extend(
         [[join(winhome, 'Documents/AutoHotkey.ahk'), realpath('AutoHotkey.ahk')],
          [join(winhome, 'Documents/AutoHotkey/Lib/PlaceActiveWindow.ahk'), realpath('PlaceActiveWindow.ahk')],
