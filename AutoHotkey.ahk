@@ -40,6 +40,7 @@ Capslock::LCtrl
 #z::Run Firefox
 #]::WinMinimize A
 
++Space::_
 
 
 
