@@ -107,11 +107,11 @@ update_recent_dirs()
         recent_dirs+=("$line")
     done < "$HOME/.recent_dirs"
     new_dirs=()
-    new_dirs+=($PWD)
+    new_dirs+=("$PWD")
     count=0
     for s in "${recent_dirs[@]}"; do
         if [ "$PWD" != "$s" ] && [ $count -lt 20 ]; then
-            new_dirs+=($s)
+            new_dirs+=("$s")
         fi
         ((count++))
     done
@@ -134,7 +134,7 @@ select_recent_dir()
     num_lines=`wc -l < ~/.recent_dirs`
     if [[ $n =~ ^[0-9]+$ ]] && [ $n -gt 0 ] && [ $n -le $num_lines ]; then
     #if [ $n -gt 0 ] && [ $n -le $num_lines ]; then
-        cd `sed -n ${n}p ~/.recent_dirs`
+        cd "`sed -n ${n}p ~/.recent_dirs`"
     else
         echo Bad number
     fi
@@ -143,7 +143,7 @@ select_recent_dir()
 # Record the working directory aftereach command and start new bash instances in that directory
 export PROMPT_COMMAND='echo $PWD > ~/.last_dir'
 if [ -e ~/.last_dir ]; then
-    cd `cat ~/.last_dir`
+    cd "`cat ~/.last_dir`"
 fi
 
 ################## old color prompt stuff ########################################
