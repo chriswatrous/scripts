@@ -53,7 +53,7 @@ stty -ixon
 
 export EDITOR=vim
 export LC_ALL=C
-export LESS='-M'
+export LESS='-M -r'
 export PAGER=less
 export PYTHONSTARTUP=~/.pythonrc.py
 if [[ -e /cygdrive/c/Users/Chris ]]; then
