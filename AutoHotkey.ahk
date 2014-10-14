@@ -28,7 +28,9 @@ Capslock::LCtrl
 #g::Run %GoogleEarth%
 #h::Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico -
 #+h::Run %A_MyDocuments%/../Program Files/Cygwin-setup-x86_64.exe
-#j::RemoteLogin()
+#j::RemoteLogin1()
+#+j::RemoteLogin2()
+#^j::RemoteLogin3()
 #n::Run Notepad
 #o::StartOctave()
 #q::Run Explorer %A_MyDocuments%
@@ -196,7 +198,7 @@ ToggleWindowBorder()
 ;    DllCall("SystemParametersInfo",UInt,SPI_SETACTIVEWINDOWTRACKING,UInt,0,UInt,enabled,UInt,SPIF_UPDATEINIFILE | SPIF_SENDCHANGE)
 ;}
 
-RemoteLogin()
+RemoteLogin1()
 {
     global Home, Work
     if Home
@@ -205,12 +207,36 @@ RemoteLogin()
     }
     if Work
     {
-        SetWinDelay 10
-        Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico --title mintty /usr/bin/ssh cwatrous@t14hstbuild04
-        WinWait mintty
-        SendInput . .bashrc{Enter}
+        WorkLogin("t14hstbuild01")
     }
 }
+
+RemoteLogin2()
+{
+    global Work
+    if Work
+    {
+        WorkLogin("t14hstbuild04")
+    }
+}
+
+RemoteLogin3()
+{
+    global Work
+    if Work
+    {
+        WorkLogin("peologin06")
+    }
+}
+
+WorkLogin(server)
+{
+    SetWinDelay 10
+    Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico --title mintty /usr/bin/ssh cwatrous@%server%
+    WinWait mintty
+    SendInput . .bashrc{Enter}
+}
+
 
 StartOctave()
 {
