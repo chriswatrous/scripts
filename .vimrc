@@ -91,6 +91,14 @@ nmap <F3> :noh<Enter>
 imap <C-s> :w
 nmap <C-s> :w
 
+" change text color when in insert mode
+inoremap <C-c> <ESC>
+"au InsertEnter * hi Normal ctermfg=darkgreen
+"au InsertLeave * hi Normal ctermfg=grey
+au InsertEnter * set cursorline
+au InsertLeave * set nocursorline
+"hi CursorLine ctermfg=cyan
+
 " Highlight all instances of word under cursor, when idle.
 " Useful when studying strange source code.
 " Type z/ to toggle highlighting on/off.
