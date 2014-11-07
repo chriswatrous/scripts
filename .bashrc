@@ -61,7 +61,7 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/SMPlayer"
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/Audacity"
 fi
-export PATH="bin:${PATH}:."
+export PATH="~/bin:${PATH}:."
 
 # stuff for work linux
 if [[ -e /home/cwatrous ]]; then

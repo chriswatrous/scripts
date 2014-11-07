@@ -70,8 +70,8 @@ function! SetFiletypeOptions()
     if &filetype == 'make'
         " GNU make needs actual tabs for indentation. Urgh.
         set noexpandtab
-	else
-		set expandtab
+    else
+        set expandtab
     endif
 endfunction
 
