@@ -12,6 +12,7 @@ set viminfo='100,f1
 set guioptions=eg
 set directory=C:/Users/Chris/vimbackup,C:/Users/cwatrous/vimbackup,~/.vimbackup,.
 set backupdir=C:/Users/Chris/vimbackup,C:/Users/cwatrous/vimbackup,~/.vimbackup,.
+set showtabline=2
 
 " search settings
 set hlsearch
