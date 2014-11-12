@@ -1,5 +1,6 @@
 " set this at the very beginning
 set nocompatible
+autocmd!
 
 set backspace=indent,eol,start
 set guifont=DejaVu_Sans_Mono:h10:cANSI
