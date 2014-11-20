@@ -93,6 +93,9 @@ nmap <F3> :noh<Enter>
 imap <C-s> :w
 nmap <C-s> :w
 
+" check open files for modification outside the editor
+nmap <F6> :checktime<Enter>
+
 " change text color when in insert mode
 inoremap <C-c> <ESC>
 au InsertEnter * hi LineNr ctermfg=cyan
