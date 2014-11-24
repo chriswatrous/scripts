@@ -92,6 +92,7 @@ alias pdb='python -m pdb'
 # aliases for git
 alias g='git status'
 alias gb='git branch'
+alias gd='git diff'
 
 # aliases for changing directories
 alias cd='my_cd'
@@ -137,7 +138,6 @@ select_recent_dir()
     read -p 'Enter the number of the directory to cd to: ' n
     num_lines=`wc -l < ~/.recent_dirs`
     if [[ $n =~ ^[0-9]+$ ]] && [ $n -gt 0 ] && [ $n -le $num_lines ]; then
-    #if [ $n -gt 0 ] && [ $n -le $num_lines ]; then
         cd "`sed -n ${n}p ~/.recent_dirs`"
     else
         echo Bad number
