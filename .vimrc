@@ -3,7 +3,6 @@ set nocompatible
 autocmd!
 
 set backspace=indent,eol,start
-set guifont=DejaVu_Sans_Mono:h10:cANSI
 set mouse=a
 set number
 set ruler
@@ -29,6 +28,10 @@ set smarttab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
+
+" gui fonts
+" This one works at home.
+set guifont=Liberation_Mono:h10:cANSI
 
 syntax on
 
