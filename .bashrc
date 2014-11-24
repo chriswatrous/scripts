@@ -89,6 +89,10 @@ alias tree='tree -C'
 alias hd='hexdump -C'
 alias pdb='python -m pdb'
 
+# aliases for git
+alias g='git status'
+alias gb='git branch'
+
 # aliases for changing directories
 alias cd='my_cd'
 alias c.='cd ..'
