@@ -7,7 +7,10 @@ set mouse=a
 set number
 set ruler
 set scrolloff=5
-set timeoutlen=200
+
+" Take this out for now. It seems to make it more unreliable.
+" set timeoutlen=200
+
 set viminfo='100,f1
 set guioptions=eg
 set directory=C:/Users/Chris/vimbackup,C:/Users/cwatrous/vimbackup,~/.vimbackup,.
