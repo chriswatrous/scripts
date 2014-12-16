@@ -71,6 +71,8 @@ if [[ -e /home/cwatrous ]]; then
 
     # fix curl
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/lib64
+
+    export JAVA_HOME=/build/applications/jdk/1.8.0_05fullcrypto/linux/x86_64/
 fi
 
 
@@ -94,6 +96,7 @@ alias pdb='python -m pdb'
 alias g='git status'
 alias gb='git branch'
 alias gd='git diff'
+alias gl='git log --decorate'
 
 # aliases for changing directories
 alias cd='my_cd'
