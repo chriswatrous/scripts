@@ -39,6 +39,7 @@ Capslock::LCtrl
 #w::Run %WordProcessor%
 #x::Run %Spreadsheet%
 #y::Run powershell
+#+y::Run "C:\Program Files (x86)\Vim\vim74\gvim.exe" C:\Users\Chris\Documents\WindowsPowerShell\profile.ps1
 #z::Run Firefox
 #]::WinMinimize A
 

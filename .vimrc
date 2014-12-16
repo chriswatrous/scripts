@@ -50,7 +50,7 @@ function! SetFiletypeOptions()
        vmap <F2> :norm I"<Enter>
        vmap <F4> :s/\(^\s*\)\@<="/<Enter>:noh<Enter>
     endif
-    if &filetype == 'c' || &filetype == 'cpp'
+    if &filetype == 'c' || &filetype == 'cpp' || &filetype == 'java'
        "commenting and uncommenting that uses '//'
        nmap <F2> :norm I//<Enter>
        vmap <F2> :norm I//<Enter>
