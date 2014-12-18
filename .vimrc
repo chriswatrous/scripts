@@ -47,7 +47,7 @@ function! SetFiletypeOptions()
        vmap <F4> :s/\(^\s*\)\@<=#/<Enter>:noh<Enter>
     endif
     if &filetype == 'vim'
-       "commenting and uncommenting that uses '"' 
+       "commenting and uncommenting that uses '"'
        nmap <F2> :norm I"<Enter>
        nmap <F4> :s/\(^\s*\)\@<="/<Enter>:noh<Enter>
        vmap <F2> :norm I"<Enter>
@@ -101,6 +101,9 @@ nmap <C-s> :w
 
 " check open files for modification outside the editor
 nmap <F6> :checktime<Enter>
+
+" Delete spaces at the ends of lines. Execute this command repeatadely until it says pattern not found.
+nmap <F5> :%s/ $//g<Enter>:noh<Enter>
 
 " change text color when in insert mode
 inoremap <C-c> <ESC>
