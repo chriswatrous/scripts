@@ -6,8 +6,13 @@
 [[ "$-" != *i* ]] && return
 
 # Make blue text readable
-echo -ne '\e]4;4;#8080FF\a'   # blue
-echo -ne '\e]4;12;#A0A0FF\a'  # bold blue
+#echo -ne '\e]4;4;#8080FF\a'   # blue
+#echo -ne '\e]4;12;#A0A0FF\a'  # bold blue
+echo -ne '\e]4;4;#7AA8DE\a'   # blue
+echo -ne '\e]4;12;#85BDFF\a'  # bold blue
+
+
+#85BDFFp
 
 # History options
 HISTCONTROL=erasedups:ignorespace
