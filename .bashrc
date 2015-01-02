@@ -87,7 +87,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias df='df -h'
-alias du='du -h'
+alias du='du -BM'
 alias o="octave -q"
 alias p=python
 alias p3=python3
