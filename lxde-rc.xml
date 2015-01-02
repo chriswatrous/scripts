@@ -292,7 +292,7 @@
         <command>libreoffice -writer</command>
       </action>
     </keybind>
-    <keybind key="W-S-s">
+    <keybind key="Print">
       <action name="Execute">
         <command>gnome-screenshot -i</command>
       </action>
@@ -312,7 +312,7 @@
         <command>gmrun</command>
       </action>
     </keybind>
-    <keybind key="C-Escape">
+    <keybind key="W-Escape">
       <action name="Execute">
         <command>lxpanelctl menu</command>
       </action>
@@ -321,17 +321,6 @@
     <keybind key="A-C-Delete">
       <action name="Execute">
         <command>lxtask</command>
-      </action>
-    </keybind>
-    <!-- Keybinding for PrintScreen Key -->
-    <keybind key="Print">
-      <action name="Execute">
-        <execute>scrot</execute>
-      </action>
-    </keybind>
-    <keybind key="A-Print">
-      <action name="Execute">
-        <execute>scrot -s</execute>
       </action>
     </keybind>
     <!-- Keybinding for Volume management -->
@@ -345,7 +334,7 @@
         <command>amixer -q sset Master 3%-</command>
       </action>
     </keybind>
-    <keybind key="XF86AudioMute">
+    <!--<keybind key="XF86AudioMute">
       <action name="Execute">
         <command>amixer -q sset Master toggle</command>
       </action>
@@ -369,7 +358,7 @@
       <action name="Execute">
         <command>x-terminal-emulator</command>
       </action>
-    </keybind>
+    </keybind>-->
   </keyboard>
   <mouse>
     <dragThreshold>8</dragThreshold>
