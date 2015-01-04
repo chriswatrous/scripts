@@ -5,11 +5,13 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-# Make blue text readable
+# Adjust Colors
 #echo -ne '\e]4;4;#8080FF\a'   # blue
 #echo -ne '\e]4;12;#A0A0FF\a'  # bold blue
 echo -ne '\e]4;4;#7AA8DE\a'   # blue
-echo -ne '\e]4;12;#85BDFF\a'  # bold blue
+echo -ne '\e]4;12;#85BDFF\a'  # bright blue
+echo -ne '\e]4;2;#008000\a'   # green
+echo -ne '\e]4;10;#00FF00\a'  # bright green
 
 
 #85BDFFp
