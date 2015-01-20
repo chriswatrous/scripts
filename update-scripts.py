@@ -20,10 +20,13 @@ if exists('/cygdrive'):
 else:
     scripts.append([expanduser('~/.vimrc'), realpath('.vimrc')])
 
-path = expanduser('~/.config/openbox/lxde-rc.xml')
-if exists(path):
-    scripts.append([path, realpath('lxde-rc.xml')])
+def add_if_exists(install_dir, filename):
+    ipath = join(expanduser(install_dir), filename)
+    if exists(ipath):
+        scripts.append([ipath, filename])
 
+add_if_exists('~/.config/openbox', 'lxde-rc.xml')
+add_if_exists('~', '.ghci')
 
 for files in scripts:
     mtimes = [stat(x).st_mtime for x in files]
