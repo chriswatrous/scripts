@@ -7,6 +7,7 @@ set mouse=a
 set number
 set ruler
 set scrolloff=5
+set nofoldenable
 
 " Take this out for now. It seems to make it more unreliable.
 " set timeoutlen=200
@@ -67,7 +68,7 @@ function! SetFiletypeOptions()
        nmap <F4> :s/\(^\s*\)\@<=-- /<Enter>:noh<Enter>
        vmap <F4> :s/\(^\s*\)\@<=-- /<Enter>:noh<Enter>
     endif
-    if &filetype == 'autohotkey' || &filetype == 'dosini' || &filetype == 'asm'
+    if &filetype == 'autohotkey' || &filetype == 'dosini' || &filetype == 'asm' || &filetype == 'csound'
        "commenting and uncommenting that uses ';'
        nmap <F2> :norm I;<Enter>
        vmap <F2> :norm I;<Enter>
