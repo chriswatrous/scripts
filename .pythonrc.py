@@ -1,5 +1,5 @@
 if 'pythonrc_guard' not in globals():
-    import os, sys, re
+    import os, sys, re, pdb
     from subprocess import *
     from pprint import *
 
