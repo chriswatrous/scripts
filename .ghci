@@ -1,1 +1,2 @@
-:set prompt "\ESC[32m%s>\ESC[0m "
+-- :set prompt "\ESC[32m%s>\ESC[0m "
+:set prompt "\ESC[32mghci>\ESC[0m "
