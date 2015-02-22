@@ -1,14 +1,9 @@
 #! /usr/bin/python
-
 from subprocess import call
 from os import chdir, environ, stat
 from os.path import realpath, expanduser, exists, dirname, join, isdir
 
 chdir(dirname(realpath(__file__)))
-
-#scripts = [[expanduser('~/.bashrc'), realpath('.bashrc')],
-           #[expanduser('~/.pythonrc.py'), realpath('.pythonrc.py')],
-           #[expanduser('~/.octaverc'), realpath('.octaverc')]]
 
 winhome = join('/cygdrive/c/Users', environ['USER'])
 
@@ -37,7 +32,6 @@ def main():
                 print "    Path is a directory: '{}'".format(path)
                 scripts[name].remove(path)
 
-
     for name in scripts.keys():
         if scripts[name] == []:
             print "    Skipping '{}': no installed files found".format(name)
@@ -45,6 +39,7 @@ def main():
 
     print "Updating files:"
     updated = False
+
     for name in scripts:
         files = [name] + scripts[name]
         mtimes = [stat(x).st_mtime for x in files]
@@ -59,9 +54,6 @@ def main():
 
     if not updated:
         print '    Nothing to update.'
-
-
-
 
 
 if __name__ == '__main__':
