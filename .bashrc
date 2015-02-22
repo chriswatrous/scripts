@@ -68,6 +68,7 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
     export PRINTER=DCP7040
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/SMPlayer"
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/Audacity"
+    export PATH="${PATH}:/cygdrive/c/Program Files (x86)/CSound6/bin"
 fi
 export PATH="~/bin:~/stuff/bin:${PATH}:."
 
