@@ -6,6 +6,12 @@ if 'pythonrc_guard' not in globals():
     def pdir(obj):
         pprint(dir(obj))
 
+    def attrs(obj):
+        d = {}
+        for name in dir(obj):
+            d[name] = getattr(obj, name)
+        pprint(d)
+
     def reloadall():
         "Reload all modules"
         for x in list(sys.modules):
