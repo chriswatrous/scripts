@@ -5,16 +5,17 @@ from os.path import realpath, expanduser, exists, dirname, join, isdir
 
 chdir(dirname(realpath(__file__)))
 
-winhome = join('/cygdrive/c/Users', environ['USER'])
+def winhome(path):
+    return join('/cygdrive/c/Users', environ['USER'], path)
 
 scripts = {'.bashrc':               ['~/.bashrc'],
            '.pythonrc.py':          ['~/.pythonrc.py'],
            '.octaverc':             ['~/.octaverc'],
            '.ghci':                 ['~/.ghci'],
            '.pdbrc':                ['~/.pdbrc'],
-           'AutoHotkey.ahk':        [join(winhome, 'Documents/AutoHotkey.ahk')],
-           'PlaceActiveWindow.ahk': [join(winhome, 'Documents/AutoHotkey/Lib/PlaceActiveWindow.ahk')],
-           '.vimrc':                ['~/.vimrc', join(winhome, '_vimrc')],
+           'AutoHotkey.ahk':        [winhome('Documents/AutoHotkey.ahk')],
+           'PlaceActiveWindow.ahk': [winhome('Documents/AutoHotkey/Lib/PlaceActiveWindow.ahk')],
+           '.vimrc':                ['~/.vimrc', winhome('_vimrc')],
            'lxde-rc.xml':           ['~/.config/openbox/lxde-rc.xml']}
 
 def main():
