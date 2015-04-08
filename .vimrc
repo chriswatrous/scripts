@@ -39,6 +39,14 @@ set guifont=Liberation_Mono:h10:cANSI
 
 syntax on
 
+function! SetFiletype()
+    if bufname("%") =~ "SConstruct$"
+        set filetype=python
+    endif
+endfunction
+
+au BufRead * call SetFiletype()
+
 function! SetFiletypeOptions()
     if &filetype == 'python' || &filetype == 'pyrex' || &filetype == 'sh' || &filetype == 'make' || &filetype == 'gitconfig'
        "commenting and uncommenting that uses '#'
