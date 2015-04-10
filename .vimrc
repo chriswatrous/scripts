@@ -104,6 +104,10 @@ nmap <C-Down> 5<C-E>
 nmap <C-Up> 5<C-Y>
 nmap <F3> :noh<Enter>
 
+" tab moving
+nmap <C-F11> :execute "tabmove" tabpagenr()-2<Enter>
+nmap <C-F12> :execute "tabmove" tabpagenr()<Enter>
+
 " quick saving
 imap <C-s> :w
 nmap <C-s> :w
