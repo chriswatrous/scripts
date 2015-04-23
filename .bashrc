@@ -64,6 +64,11 @@ export LESS='-M -r'
 export PAGER=less
 export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONIOENCODING=utf_8
+
+if [[ -e /home/chris/linux-stuff/mycode/pytronica/lib ]]; then
+    export PYTHONPATH=/home/chris/linux-stuff/mycode/pytronica/lib
+fi
+
 if [[ -e /cygdrive/c/Users/Chris ]]; then
     export PRINTER=DCP7040
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/SMPlayer"
