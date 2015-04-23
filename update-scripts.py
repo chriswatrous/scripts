@@ -19,26 +19,23 @@ scripts = {'.bashrc':               ['~/.bashrc'],
            'lxde-rc.xml':           ['~/.config/openbox/lxde-rc.xml']}
 
 def main():
-    print "Checking for installed files:"
-
     for name in scripts:
         scripts[name] = map(expanduser, scripts[name])
 
     for name in scripts:
         for path in list(scripts[name]):
             if not exists(path):
-                print "    Installied file not found: '{}'".format(path)
                 scripts[name].remove(path)
             if isdir(path):
-                print "    Path is a directory: '{}'".format(path)
+                print "Path is a directory: '{}'".format(path)
                 scripts[name].remove(path)
 
     for name in scripts.keys():
         if scripts[name] == []:
-            print "    Skipping '{}': no installed files found".format(name)
+            print "Skipping '{}': no installed files found".format(name)
             del scripts[name]
 
-    print "Updating files:"
+    print
     updated = False
 
     for name in scripts:
@@ -50,11 +47,11 @@ def main():
             source = files[i]
             files.remove(source)
             for f in files:
-                print '    Copying %s -> %s' % (source, f)
+                print 'Copying %s -> %s' % (source, f)
                 call(['cp', '-p', source, f])
 
     if not updated:
-        print '    Nothing to update.'
+        print 'Nothing to update.'
 
 
 if __name__ == '__main__':
