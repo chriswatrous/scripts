@@ -13,20 +13,29 @@ if 'pythonrc_guard' not in globals():
         pprint(d)
 
     def reloadall():
-        "Reload all modules"
+        """Reload all modules"""
         for x in list(sys.modules):
             if x != '__main__' and type(sys.modules[x]) == type(sys):
                 reload(sys.modules[x])
 
     # enable syntax completion
-    try:
-        import readline
-    except ImportError:
-        print("Module readline not available.")
-    else:
-        import rlcompleter
-        readline.parse_and_bind("tab: complete")
+    def f():
+        try:
+            import readline
+        except ImportError:
+            print('Module readline not available.')
+        else:
+            import atexit, rlcompleter
 
+            readline.parse_and_bind('tab: complete')
+            path = os.path.expanduser('~/.pyhistory')
+
+            atexit.register(lambda: readline.write_history_file(path))
+
+            if os.path.exists(path):
+                readline.read_history_file(path)
+    f()
+    del f
 
     # set color prompt, see http://ascii-table.com/ansi-escape-sequences.php
     sys.ps1 = '\001\033[32m\002>>>\001\033[0m\002 '
