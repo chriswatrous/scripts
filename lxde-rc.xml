@@ -279,7 +279,8 @@
     </keybind>
     <keybind key="W-g">
       <action name="Execute">
-        <command>earth</command>
+        <!--<command>earth</command>-->
+        <command>zenity --error --text='Google Earth is disabled.'</command>
       </action>
     </keybind>
     <keybind key="W-x">
