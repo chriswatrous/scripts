@@ -6,7 +6,10 @@ from os.path import realpath, expanduser, exists, dirname, join, isdir
 chdir(dirname(realpath(__file__)))
 
 def winhome(path):
-    return join('/cygdrive/c', environ['HOMEPATH'], path)
+    if exists('/cygdrive'):
+        return join('/cygdrive/c', environ['HOMEPATH'], path)
+    else:
+        return ''
 
 scripts = {'.bashrc':               ['~/.bashrc'],
            '.pythonrc.py':          ['~/.pythonrc.py'],
