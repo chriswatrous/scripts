@@ -23,7 +23,7 @@ Capslock::LCtrl
 !#a::Run "C:\Program Files (x86)\Vim\vim74\gvim.exe" %A_MyDocuments%/AutoHotkey.ahk
 ^#a::Run AutoHotkey
 
-#a::Run %VisualStudioProjects%
+;#a::Run 
 #c::Run Chrome
 #g::Run %GoogleEarth%
 #h::Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico -
@@ -33,7 +33,7 @@ Capslock::LCtrl
 #^j::RemoteLogin3()
 #n::Run Notepad
 #o::StartOctave()
-#q::Run Explorer %A_MyDocuments%
+#q::Run Explorer %A_MyDocuments%\stuff
 #s::Run acrord32
 #v::Run C:\Program Files (x86)\JetBrains\PyCharm Community Edition 4.5.1\bin\pycharm.exe
 #w::Run %WordProcessor%
