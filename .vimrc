@@ -33,9 +33,9 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-" gui fonts
-" This one works at home.
+" gvim stuff
 set guifont=Liberation_Mono:h10:cANSI
+colorscheme torte
 
 syntax on
 
