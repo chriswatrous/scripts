@@ -14,6 +14,7 @@ if FileExist("C:/Users/IBM_ADMIN") != ""
     Work = 1
     WordProcessor = C:\Program Files (x86)\OpenOffice 4\program\swriter.exe
     Spreadsheet = C:\Program Files (x86)\OpenOffice 4\program\scalc.exe
+    GoogleEarth = C:\Program Files (x86)\Google\Google Earth Pro\client\googleearth.exe
 }
 Return
 
