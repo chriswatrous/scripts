@@ -19,6 +19,7 @@ scripts = {'.bashrc':               ['~/.bashrc'],
            'AutoHotkey.ahk':        [winhome('Documents/AutoHotkey.ahk')],
            'PlaceActiveWindow.ahk': [winhome('Documents/AutoHotkey/Lib/PlaceActiveWindow.ahk')],
            '.vimrc':                ['~/.vimrc', winhome('_vimrc')],
+           '.gvimrc':               ['~/.gvimrc', winhome('_gvimrc')],
            'lxde-rc.xml':           ['~/.config/openbox/lxde-rc.xml']}
 
 def main():
