@@ -3,73 +3,119 @@
 <Document>
 	<name>default_my_places</name>
 	<open>1</open>
-	<StyleMap id="msn_placemark_circle0">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_placemark_circle00</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_placemark_circle_highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="s_ylw-pushpin11">
+	<Style id="sn_donut02">
 		<IconStyle>
+			<color>ff7fffaa</color>
 			<scale>1.2</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/parks.png</href>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
 			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
 		</IconStyle>
 	</Style>
-	<StyleMap id="m_ylw-pushpin20">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin100</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl100</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="m_ylw-pushpin10">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin11</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl001</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sn_placemark_circle2">
+	<Style id="sn_placemark_circle00">
 		<IconStyle>
-			<color>ff00ffff</color>
+			<color>ffffff55</color>
 			<scale>1.2</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
 			</Icon>
 		</IconStyle>
 	</Style>
-	<Style id="s_ylw-pushpin_hl1">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-	</Style>
-	<StyleMap id="msn_placemark_circle">
+	<StyleMap id="msn_placemark_circle00">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_placemark_circle0</styleUrl>
+			<styleUrl>#sn_placemark_circle0001</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_placemark_circle_highlight000</styleUrl>
+			<styleUrl>#sh_placemark_circle_highlight201</styleUrl>
 		</Pair>
 	</StyleMap>
+	<Style id="sn_donut">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sn_donut01">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_placemark_square">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_placemark_square</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_placemark_square_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="m_ylw-pushpin8">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin2</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_donut010">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sh_placemark_circle_highlight201">
+		<IconStyle>
+			<color>ffffaa00</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sh_placemark_square_highlight">
+		<IconStyle>
+			<color>ff0000ff</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_square_highlight.png</href>
+			</Icon>
+		</IconStyle>
+		<ListStyle>
+		</ListStyle>
+	</Style>
+	<Style id="sn_placemark_circle0001">
+		<IconStyle>
+			<color>ffffaa00</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sh_donut0100">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
 	<StyleMap id="msn_homegardenbusiness1">
 		<Pair>
 			<key>normal</key>
@@ -80,71 +126,38 @@
 			<styleUrl>#sh_homegardenbusiness0</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sh_donut">
-		<IconStyle>
-			<color>ff4141ff</color>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sn_homegardenbusiness1">
-		<IconStyle>
-			<color>ff00ff00</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
-			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin_hl001">
-		<IconStyle>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/parks.png</href>
-			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-		</IconStyle>
-	</Style>
-	<StyleMap id="msn_placemark_circle2">
+	<StyleMap id="msn_donut01">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_placemark_circle2</styleUrl>
+			<styleUrl>#sn_donut</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_placemark_circle_highlight00</styleUrl>
+			<styleUrl>#sh_donut010</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sh_homegardenbusiness00">
+	<StyleMap id="msn_donut0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_donut03</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_donut01</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin200">
 		<IconStyle>
-			<color>ff00ff00</color>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
-			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-		</IconStyle>
-	</Style>
-	<Style id="sh_placemark_circle_highlight000">
-		<IconStyle>
-			<color>ff00ffff</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin_hl01">
-		<IconStyle>
-			<scale>1.3</scale>
+			<color>00ffffff</color>
+			<scale>1.1</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
 			</Icon>
 			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
+		<LabelStyle>
+			<color>00ffffff</color>
+		</LabelStyle>
 	</Style>
 	<Style id="s_ylw-pushpin2">
 		<IconStyle>
@@ -155,10 +168,28 @@
 			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 	</Style>
+	<Style id="sh_placemark_circle_highlight">
+		<IconStyle>
+			<color>ffffff55</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
 	<Style id="sn_donut0">
 		<IconStyle>
-			<color>ff4141ff</color>
+			<color>ff7fffaa</color>
 			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sh_donut01">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.4</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
 			</Icon>
@@ -174,52 +205,113 @@
 			<styleUrl>#s_ylw-pushpin_hl0020</styleUrl>
 		</Pair>
 	</StyleMap>
-	<StyleMap id="msn_donut0">
+	<StyleMap id="msn_donut">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_donut</styleUrl>
+			<styleUrl>#sn_donut01</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_donut0</styleUrl>
+			<styleUrl>#sh_donut00</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sn_placemark_circle0001">
+	<StyleMap id="msn_placemark_circle0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_placemark_circle00</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_placemark_circle_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_homegardenbusiness0">
 		<IconStyle>
-			<color>ffffaa00</color>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin010">
+		<IconStyle>
+			<color>ffffff55</color>
 			<scale>1.2</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
 			</Icon>
 		</IconStyle>
 	</Style>
-	<Style id="s_ylw-pushpin_hl100">
+	<Style id="sh_donut00">
 		<IconStyle>
-			<color>ff00aa55</color>
+			<color>ff7fffaa</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sh_donut">
+		<IconStyle>
+			<color>ff4141ff</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sn_donut00">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sh_donut0">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_donut000">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_donut00</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_donut</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl0020">
+		<IconStyle>
+			<color>ffffff55</color>
 			<scale>1.2</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
 			</Icon>
 		</IconStyle>
 	</Style>
-	<StyleMap id="msn_placemark_circle1">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_placemark_circle1</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_placemark_circle_highlight0</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_placemark_square_highlight">
+	<Style id="s_ylw-pushpin_hl10">
 		<IconStyle>
-			<color>ffffff55</color>
-			<scale>1.2</scale>
+			<color>00ffffff</color>
+			<scale>1.3</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_square_highlight.png</href>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
 			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
+		<LabelStyle>
+			<color>00ffffff</color>
+		</LabelStyle>
 	</Style>
 	<Style id="sh_homegardenbusiness0">
 		<IconStyle>
@@ -231,36 +323,7 @@
 			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
 		</IconStyle>
 	</Style>
-	<Style id="sn_homegardenbusiness0">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
-			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-		</IconStyle>
-	</Style>
-	<StyleMap id="msn_donut">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_donut0</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_donut</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_placemark_circle_highlight">
-		<IconStyle>
-			<color>ffffff55</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin_hl2">
+	<Style id="s_ylw-pushpin_hl0">
 		<IconStyle>
 			<scale>1.3</scale>
 			<Icon>
@@ -269,23 +332,14 @@
 			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 	</Style>
-	<Style id="s_ylw-pushpin00">
-		<IconStyle>
-			<color>ffffff55</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_square.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<StyleMap id="msn_placemark_circle3">
+	<StyleMap id="msn_donut010">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_placemark_circle</styleUrl>
+			<styleUrl>#sn_donut0</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_placemark_circle_highlight0000</styleUrl>
+			<styleUrl>#sh_donut0100</styleUrl>
 		</Pair>
 	</StyleMap>
 	<StyleMap id="m_ylw-pushpin00">
@@ -298,302 +352,35 @@
 			<styleUrl>#s_ylw-pushpin_hl10</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="s_ylw-pushpin">
+	<Style id="sn_donut03">
 		<IconStyle>
-			<scale>1.1</scale>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
 			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 	</Style>
-	<StyleMap id="msn_homegardenbusiness0">
+	<StyleMap id="msn_donut00">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_homegardenbusiness1</styleUrl>
+			<styleUrl>#sn_donut02</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_homegardenbusiness00</styleUrl>
+			<styleUrl>#sh_donut0</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sn_placemark_circle1">
-		<IconStyle>
-			<color>ff00ffff</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin_hl000">
-		<IconStyle>
-			<color>ffffff55</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_square_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sh_placemark_circle_highlight201">
-		<IconStyle>
-			<color>ffffaa00</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
 	<Style id="sn_placemark_square">
 		<IconStyle>
-			<color>ffffff55</color>
+			<color>ff0000ff</color>
 			<scale>1.2</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_square.png</href>
 			</Icon>
 		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin_hl0020">
-		<IconStyle>
-			<color>ffffff55</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sn_placemark_circle">
-		<IconStyle>
-			<color>ff00ffff</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<StyleMap id="m_ylw-pushpin11">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin21</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl01</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="s_ylw-pushpin10">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-	</Style>
-	<Style id="sn_placemark_circle0">
-		<IconStyle>
-			<color>ff00ffff</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin200">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin4">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin_hl0">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-	</Style>
-	<Style id="sh_placemark_circle_highlight0">
-		<IconStyle>
-			<color>ff00ffff</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin_hl11">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-	</Style>
-	<StyleMap id="msn_placemark_circle00">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_placemark_circle0001</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_placemark_circle_highlight201</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_donut0">
-		<IconStyle>
-			<color>ff0000ff</color>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sn_donut">
-		<IconStyle>
-			<color>ff0000ff</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<StyleMap id="m_ylw-pushpin100">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin00</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl000</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="s_ylw-pushpin010">
-		<IconStyle>
-			<color>ffffff55</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<StyleMap id="m_ylw-pushpin31">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin10</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl11</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="s_ylw-pushpin100">
-		<IconStyle>
-			<color>ff00aa55</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<StyleMap id="m_ylw-pushpin30">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin4</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl2</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="m_ylw-pushpin8">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin2</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl0</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="s_ylw-pushpin_hl10">
-		<IconStyle>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-	</Style>
-	<StyleMap id="m_ylw-pushpin0">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl1</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="msn_placemark_square">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_placemark_square</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_placemark_square_highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_placemark_circle_highlight0000">
-		<IconStyle>
-			<color>ff00ffff</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sn_placemark_circle00">
-		<IconStyle>
-			<color>ffffff55</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sh_placemark_circle_highlight00">
-		<IconStyle>
-			<color>ff00ffff</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin21">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
+		<ListStyle>
+		</ListStyle>
 	</Style>
 	<Folder>
 		<name>My Places</name>
@@ -649,1021 +436,6 @@
 			</Point>
 		</Placemark>
 		<Folder>
-			<name>Greensboro</name>
-			<visibility>0</visibility>
-			<Folder>
-				<name>Stores</name>
-				<visibility>0</visibility>
-				<Placemark>
-					<name>Village Laundry</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.88860455162988</longitude>
-						<latitude>36.08855599023264</latitude>
-						<altitude>0</altitude>
-						<heading>0.04475595748618748</heading>
-						<tilt>0</tilt>
-						<range>101.5232259708057</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin20</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.88865683867751,36.088571354911,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Best Buy</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.88899494850926</longitude>
-						<latitude>36.05410253090117</latitude>
-						<altitude>0</altitude>
-						<heading>0.03540422215405624</heading>
-						<tilt>0</tilt>
-						<range>299.1093923513371</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin20</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.889364854085,36.05420242069997,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Food Lion</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96151344371165</longitude>
-						<latitude>36.03308370337733</latitude>
-						<altitude>0</altitude>
-						<heading>-2.399957996032127e-005</heading>
-						<tilt>0</tilt>
-						<range>196.5961794896369</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin20</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96151637388554,36.03313030603999,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Harris Teeter</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96971550127569</longitude>
-						<latitude>36.0329217625406</latitude>
-						<altitude>0</altitude>
-						<heading>0.0002334072087889242</heading>
-						<tilt>0</tilt>
-						<range>387.2412713475178</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin20</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96981362979544,36.03291709483603,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Home Depot</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.90058834515098</longitude>
-						<latitude>36.05425982724248</latitude>
-						<altitude>0</altitude>
-						<heading>0.003118646334689079</heading>
-						<tilt>0</tilt>
-						<range>489.2853724275929</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin20</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.90050810507252,36.05434041561701,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Kohls</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.90706262470543</longitude>
-						<latitude>36.05793769849977</latitude>
-						<altitude>0</altitude>
-						<heading>0.02843559875326901</heading>
-						<tilt>0</tilt>
-						<range>326.5858977521714</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin20</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.90700578924894,36.05805174595142,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Lowes</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.8874772626002</longitude>
-						<latitude>36.05309144429543</latitude>
-						<altitude>0</altitude>
-						<heading>0.01083520412281365</heading>
-						<tilt>0</tilt>
-						<range>398.1826074008265</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin20</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.88747126721616,36.05333945750463,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Target</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.90704459950646</longitude>
-						<latitude>36.05633087661961</latitude>
-						<altitude>0</altitude>
-						<heading>0.02844620939835457</heading>
-						<tilt>0</tilt>
-						<range>327.6179118685092</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin20</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.90704459950646,36.0563308766196,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Wal-Mart</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.90059922852845</longitude>
-						<latitude>36.05706643846664</latitude>
-						<altitude>0</altitude>
-						<heading>0.003112312068465975</heading>
-						<tilt>0</tilt>
-						<range>460.2541446810301</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin20</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.90090745110535,36.0574042479642,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Wal-Mart Grocery</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96438487738227</longitude>
-						<latitude>36.02895843082955</latitude>
-						<altitude>0</altitude>
-						<heading>0.003368923687448297</heading>
-						<tilt>0</tilt>
-						<range>567.2357232372822</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin20</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96450604674111,36.02884222048971,0</coordinates>
-					</Point>
-				</Placemark>
-			</Folder>
-			<Folder>
-				<name>Restaurants</name>
-				<visibility>0</visibility>
-				<Placemark>
-					<name>Chipotle</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.90414314810577</longitude>
-						<latitude>36.05574468415163</latitude>
-						<altitude>0</altitude>
-						<heading>0.001026542827074901</heading>
-						<tilt>0</tilt>
-						<range>174.1931942010993</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.90414314810577,36.05574468415163,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Saladworks</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.90384753723497</longitude>
-						<latitude>36.05642737771895</latitude>
-						<altitude>0</altitude>
-						<heading>0.001200536118147763</heading>
-						<tilt>0</tilt>
-						<range>172.4421446934993</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.90389467054757,36.05641975770417,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Qdoba</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.83261556883174</longitude>
-						<latitude>36.08653442968552</latitude>
-						<altitude>0</altitude>
-						<heading>-0.0001108393509853812</heading>
-						<tilt>0</tilt>
-						<range>193.5397911736025</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.83256472908485,36.08657314457432,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Poblano&apos;s</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.82978857431196</longitude>
-						<latitude>36.08642583882798</latitude>
-						<altitude>0</altitude>
-						<heading>0.0238924843699513</heading>
-						<tilt>0</tilt>
-						<range>251.1948958978749</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.82959303915868,36.08649173755306,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Elizabeth&apos;s Pizza and Italian</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.90453726575348</longitude>
-						<latitude>36.05635460839221</latitude>
-						<altitude>0</altitude>
-						<heading>-0.0001318379314811547</heading>
-						<tilt>0</tilt>
-						<range>101.9564057350226</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.90452662340209,36.05639762737532,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Milano Pizza Buffet</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.9595895248621</longitude>
-						<latitude>36.06643448268898</latitude>
-						<altitude>0</altitude>
-						<heading>-0.01671541092787627</heading>
-						<tilt>0</tilt>
-						<range>225.0754345436934</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.9595895248621,36.06643448268897,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Pancho Villa&apos;s</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-80.29505958301184</longitude>
-						<latitude>36.08288345785316</latitude>
-						<altitude>0</altitude>
-						<heading>-0.001261423847473749</heading>
-						<tilt>0</tilt>
-						<range>593.0875623932687</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin31</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-80.2947216510791,36.08293539199934,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Rio Grande</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.87699559759257</longitude>
-						<latitude>36.11136649644617</latitude>
-						<altitude>0</altitude>
-						<heading>-0.02063900495579093</heading>
-						<tilt>0</tilt>
-						<range>323.5674885354695</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.87684246689828,36.11141582253864,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>La Pizzaria</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96249301746917</longitude>
-						<latitude>36.06343921410898</latitude>
-						<altitude>0</altitude>
-						<heading>-5.34128065429855e-005</heading>
-						<tilt>0</tilt>
-						<range>252.7228157712079</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96249301746917,36.06343921410899,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Ichiban</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.83879814875483</longitude>
-						<latitude>36.04822962566038</latitude>
-						<altitude>0</altitude>
-						<heading>-0.0002431242424403072</heading>
-						<tilt>0</tilt>
-						<range>543.015579946729</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.83879814875483,36.04822962566038,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>High Point Pizza &amp; Grill</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96975159789919</longitude>
-						<latitude>36.02723709968529</latitude>
-						<altitude>0</altitude>
-						<heading>0.0002603006475481518</heading>
-						<tilt>0</tilt>
-						<range>224.2496057986777</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.97015523773958,36.02735670462253,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Firehouse Subs</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96074591564393</longitude>
-						<latitude>36.03311120401094</latitude>
-						<altitude>0</altitude>
-						<heading>-0.0003139267328333296</heading>
-						<tilt>0</tilt>
-						<range>197.0362006270222</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96072146094576,36.03314363696871,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Marozzi&apos;s Pizza</name>
-					<visibility>0</visibility>
-					<Camera>
-						<longitude>-79.96069671823599</longitude>
-						<latitude>36.03291068292317</latitude>
-						<altitude>104.8861723325413</altitude>
-						<heading>-32.0490691406247</heading>
-						<tilt>0.08930770633638742</tilt>
-						<roll>-31.93614834929966</roll>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</Camera>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96069768181653,36.03291192759983,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Great Clips</name>
-					<visibility>0</visibility>
-					<Camera>
-						<longitude>-79.96998552990281</longitude>
-						<latitude>36.03259265398133</latitude>
-						<altitude>189.2964986354504</altitude>
-						<heading>-32.05497698379011</heading>
-						<tilt>0.0893790840994028</tilt>
-						<roll>-31.93658831945107</roll>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</Camera>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.97013330954565,36.03266087016782,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Subway</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.97001933520781</longitude>
-						<latitude>36.02459662300495</latitude>
-						<altitude>0</altitude>
-						<heading>-0.00499065672950816</heading>
-						<tilt>0</tilt>
-						<range>120.0317534904821</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.97001933520781,36.02459662300495,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Wallstreet Deli</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.92718874236711</longitude>
-						<latitude>36.08648709334889</latitude>
-						<altitude>0</altitude>
-						<heading>-0.03383579733575808</heading>
-						<tilt>0</tilt>
-						<range>326.0250795225801</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.92709280323069,36.08656835476124,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Starbucks</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96236376442154</longitude>
-						<latitude>36.03554254202311</latitude>
-						<altitude>0</altitude>
-						<heading>-0.04552584330139214</heading>
-						<tilt>0</tilt>
-						<range>242.9403453909053</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#msn_placemark_square</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96264351870788,36.0358355171376,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Wendy&apos;s</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.967301335413</longitude>
-						<latitude>36.03233894210803</latitude>
-						<altitude>0</altitude>
-						<heading>0.0001601676983204424</heading>
-						<tilt>0</tilt>
-						<range>102.4325501148867</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.967301335413,36.03233894210802,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Arby&apos;s</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96630323979414</longitude>
-						<latitude>36.0332189742188</latitude>
-						<altitude>0</altitude>
-						<heading>0.0007472954168677454</heading>
-						<tilt>0</tilt>
-						<range>456.1883712731814</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96622455651628,36.03337349630115,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Olive Garden</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.95891155750798</longitude>
-						<latitude>36.03247978275009</latitude>
-						<altitude>0</altitude>
-						<heading>0.0009706980850023554</heading>
-						<tilt>0</tilt>
-						<range>211.275929582845</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.95891155750798,36.03247978275009,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Burger King</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96003177409021</longitude>
-						<latitude>36.03216366592226</latitude>
-						<altitude>0</altitude>
-						<heading>0.0003117364479595935</heading>
-						<tilt>0</tilt>
-						<range>203.0546747756234</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.9600317740902,36.03216366592226,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Ham&apos;s</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96044531406149</longitude>
-						<latitude>36.034153360338</latitude>
-						<altitude>0</altitude>
-						<heading>6.845899297860749e-005</heading>
-						<tilt>0</tilt>
-						<range>233.8787697279957</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96048094520876,36.03420448150654,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Zaxby&apos;s</name>
-					<visibility>0</visibility>
-					<Camera>
-						<longitude>-79.96341175641314</longitude>
-						<latitude>36.03225030791129</latitude>
-						<altitude>97.25492195922075</altitude>
-						<heading>28.842305448487</heading>
-						<tilt>0.01826968074518799</tilt>
-						<roll>28.82117378894775</roll>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</Camera>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.9634115901853,36.03225055187198,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Chick-Fil-A</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96333120997655</longitude>
-						<latitude>36.03474832974185</latitude>
-						<altitude>0</altitude>
-						<heading>-0.0002294516382984386</heading>
-						<tilt>0</tilt>
-						<range>102.2270349896067</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96333120997655,36.03474832974185,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>McDonalds</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96239635464544</longitude>
-						<latitude>36.03614562258684</latitude>
-						<altitude>0</altitude>
-						<heading>-0.0002890139241071305</heading>
-						<tilt>0</tilt>
-						<range>103.6630343575333</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.962363939399,36.03617889253561,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Papa Johns</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96909704970689</longitude>
-						<latitude>36.03129169527318</latitude>
-						<altitude>0</altitude>
-						<heading>-1.137839192445788e-005</heading>
-						<tilt>0</tilt>
-						<range>64.59416857387785</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.9690815111676,36.03130279517535,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Moe&apos;s Southwest Grill</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.9618563653561</longitude>
-						<latitude>36.0376227631835</latitude>
-						<altitude>0</altitude>
-						<heading>0.000346061398155288</heading>
-						<tilt>0</tilt>
-						<range>167.2433747179821</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96188459686728,36.03772767003063,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Dickey&apos;s Barbecue</name>
-					<visibility>0</visibility>
-					<Camera>
-						<longitude>-79.96164609402278</longitude>
-						<latitude>36.03740533200228</latitude>
-						<altitude>211.7501261160891</altitude>
-						<heading>33.9948838923777</heading>
-						<tilt>0.09590103172531708</tilt>
-						<roll>33.866139141872</roll>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</Camera>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96159816414281,36.03737976205952,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>McAlister&apos;s Deli</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96152224179134</longitude>
-						<latitude>36.03666982118606</latitude>
-						<altitude>0</altitude>
-						<heading>0.0002547514713061933</heading>
-						<tilt>0</tilt>
-						<range>96.92052579601339</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96157275625571,36.03666133756622,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Buffalo Wild Wings</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96001776281682</longitude>
-						<latitude>36.03517165406815</latitude>
-						<altitude>0</altitude>
-						<heading>-2.328874135983911e-006</heading>
-						<tilt>0</tilt>
-						<range>150.5250598735439</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.95998390135553,36.03521419433622,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Mad Greek Grill</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.95896440046209</longitude>
-						<latitude>36.03422830815998</latitude>
-						<altitude>0</altitude>
-						<heading>0.015493402247804</heading>
-						<tilt>0</tilt>
-						<range>204.9815606601852</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.95889877751527,36.0342939422158,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Applebee&apos;s</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96296759038653</longitude>
-						<latitude>36.03522308866587</latitude>
-						<altitude>0</altitude>
-						<heading>-0.0001335770469715841</heading>
-						<tilt>0</tilt>
-						<range>102.4159452227225</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96296759038653,36.03522308866587,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>J &amp; S Cafeteria</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96186337025651</longitude>
-						<latitude>36.03410892366755</latitude>
-						<altitude>0</altitude>
-						<heading>-0.0003584738954922249</heading>
-						<tilt>0</tilt>
-						<range>96.6435900507868</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96186337025651,36.03410892366756,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Panera Bread</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96491237813581</longitude>
-						<latitude>36.03529457729329</latitude>
-						<altitude>0</altitude>
-						<heading>-0.002152088077239146</heading>
-						<tilt>0</tilt>
-						<range>305.8580141329916</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96491237813581,36.03529457729329,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Singha II Thai Bistro</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96534468657541</longitude>
-						<latitude>36.03443197790583</latitude>
-						<altitude>0</altitude>
-						<heading>0.002132868669885707</heading>
-						<tilt>0</tilt>
-						<range>318.2147222529255</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96524277661366,36.03451953287475,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Lubrano&apos;s</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96970421745617</longitude>
-						<latitude>36.03035679292592</latitude>
-						<altitude>0</altitude>
-						<heading>-0.02953698207614933</heading>
-						<tilt>0</tilt>
-						<range>325.9003068744308</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin30</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96964679372539,36.03044661758374,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Polo Pizza Pasta</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.95746862444283</longitude>
-						<latitude>36.0724742448126</latitude>
-						<altitude>0</altitude>
-						<heading>-1.752588910048319e-005</heading>
-						<tilt>0</tilt>
-						<range>162.9180102383674</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin100</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.95746862444283,36.0724742448126,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Fuddrucker&apos;s</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.89653595463165</longitude>
-						<latitude>36.05511118367005</latitude>
-						<altitude>0</altitude>
-						<heading>0.0317193354075607</heading>
-						<tilt>0</tilt>
-						<range>277.1898346202308</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin30</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.89650917455563,36.05516846114725,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Steak &apos;n Shake</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.89605279198827</longitude>
-						<latitude>36.05515576657218</latitude>
-						<altitude>0</altitude>
-						<heading>-0.003715085109867392</heading>
-						<tilt>0</tilt>
-						<range>204.0279887507424</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin30</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.89605279198827,36.05515576657218,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Home Slice Pizza and Subs</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.88975542614504</longitude>
-						<latitude>36.08755616122696</latitude>
-						<altitude>0</altitude>
-						<heading>-0.002807268839254114</heading>
-						<tilt>0</tilt>
-						<range>332.7871227955571</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin30</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.88966464691056,36.08757666267799,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Coldstone</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.96236376442154</longitude>
-						<latitude>36.03554254202311</latitude>
-						<altitude>0</altitude>
-						<heading>-0.04552584330139214</heading>
-						<tilt>0</tilt>
-						<range>242.9403453909053</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#msn_placemark_square</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.96272498758009,36.03572931829309,0</coordinates>
-					</Point>
-				</Placemark>
-				<Folder>
-					<name>Pizza</name>
-					<visibility>0</visibility>
-				</Folder>
-			</Folder>
-			<Folder>
-				<name>Culture</name>
-				<visibility>0</visibility>
-				<Placemark>
-					<name>Harlem Bistro</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-79.79027119838128</longitude>
-						<latitude>36.07075607504662</latitude>
-						<altitude>0</altitude>
-						<heading>-0.0007478040649498161</heading>
-						<tilt>0</tilt>
-						<range>125.2087499058938</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin11</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-79.79027119838128,36.07075607504662,0</coordinates>
-					</Point>
-				</Placemark>
-			</Folder>
-			<Placemark>
-				<name>Home</name>
-				<visibility>0</visibility>
-				<LookAt>
-					<longitude>-79.96830341249523</longitude>
-					<latitude>36.03407132369454</latitude>
-					<altitude>0</altitude>
-					<heading>-0.001293097236417693</heading>
-					<tilt>0</tilt>
-					<range>59.60789685805266</range>
-					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-				</LookAt>
-				<styleUrl>#msn_homegardenbusiness0</styleUrl>
-				<Point>
-					<gx:drawOrder>1</gx:drawOrder>
-					<coordinates>-79.96839891370487,36.03411342424199,0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<name>Work</name>
-				<visibility>0</visibility>
-				<LookAt>
-					<longitude>-79.96564066639579</longitude>
-					<latitude>36.08356563715197</latitude>
-					<altitude>0</altitude>
-					<heading>-32.05510511763944</heading>
-					<tilt>0</tilt>
-					<range>295.1495867987682</range>
-					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-				</LookAt>
-				<styleUrl>#msn_donut0</styleUrl>
-				<Point>
-					<gx:drawOrder>1</gx:drawOrder>
-					<coordinates>-79.96557816452616,36.08380037966196,0</coordinates>
-				</Point>
-			</Placemark>
-			<Folder>
-				<name>Parks</name>
-				<visibility>0</visibility>
-				<open>1</open>
-				<Placemark>
-					<name>Triad Park</name>
-					<visibility>0</visibility>
-					<LookAt>
-						<longitude>-80.03316625672943</longitude>
-						<latitude>36.11622844244602</latitude>
-						<altitude>0</altitude>
-						<heading>-0.06823246280065598</heading>
-						<tilt>0</tilt>
-						<range>1553.108031591323</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#m_ylw-pushpin10</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-80.03267425575574,36.11700727437297,0</coordinates>
-					</Point>
-				</Placemark>
-			</Folder>
-		</Folder>
-		<Folder>
 			<name>Austin</name>
 			<open>1</open>
 			<Placemark>
@@ -1686,26 +458,28 @@
 			</Placemark>
 			<Placemark>
 				<name>Work</name>
-				<Camera>
-					<longitude>-97.71472371866187</longitude>
-					<latitude>30.40141051717794</latitude>
-					<altitude>761.3327271391935</altitude>
-					<heading>15.07438363900864</heading>
-					<tilt>0.2932651781786963</tilt>
-					<roll>14.87378214751273</roll>
+				<LookAt>
+					<longitude>-97.71516626004198</longitude>
+					<latitude>30.40121567644781</latitude>
+					<altitude>35.14362977265854</altitude>
+					<heading>0.01405236157443902</heading>
+					<tilt>0</tilt>
+					<range>193.8686969512453</range>
 					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-				</Camera>
-				<styleUrl>#msn_donut</styleUrl>
+				</LookAt>
+				<styleUrl>#msn_placemark_square</styleUrl>
 				<Point>
 					<altitudeMode>relativeToGround</altitudeMode>
 					<gx:drawOrder>1</gx:drawOrder>
-					<coordinates>-97.71525173944454,30.40116998512344,31</coordinates>
+					<coordinates>-97.71519003373261,30.40118196118661,36</coordinates>
 				</Point>
 			</Placemark>
 			<Folder>
 				<name>Stores</name>
+				<visibility>0</visibility>
 				<Placemark>
 					<name>Walmart</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.78898019791147</longitude>
 						<latitude>30.46711198609316</latitude>
@@ -1723,6 +497,7 @@
 				</Placemark>
 				<Placemark>
 					<name>HEB</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.80222085978342</longitude>
 						<latitude>30.47782031431261</latitude>
@@ -1740,6 +515,7 @@
 				</Placemark>
 				<Placemark>
 					<name>HEB</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.70295542634597</longitude>
 						<latitude>30.41746271563506</latitude>
@@ -1757,6 +533,7 @@
 				</Placemark>
 				<Placemark>
 					<name>HEB</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.74236569556791</longitude>
 						<latitude>30.44143441095187</latitude>
@@ -1774,6 +551,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Target</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.7967899967104</longitude>
 						<latitude>30.47632382222392</latitude>
@@ -1791,6 +569,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Lowes</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.79246603258008</longitude>
 						<latitude>30.46754897798094</latitude>
@@ -1808,6 +587,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Home Depot</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.79859206383794</longitude>
 						<latitude>30.47719494368101</latitude>
@@ -1825,74 +605,256 @@
 				</Placemark>
 			</Folder>
 			<Folder>
-				<name>Restaurants</name>
+				<name>Music</name>
+				<visibility>0</visibility>
 				<open>1</open>
 				<Placemark>
-					<name>Torchy&apos;s</name>
+					<name>Brass House</name>
+					<visibility>0</visibility>
 					<LookAt>
-						<longitude>-97.75620690190357</longitude>
-						<latitude>30.37069662360618</latitude>
-						<altitude>2.81794017386936</altitude>
-						<heading>-0.008764471897470023</heading>
+						<longitude>-97.74168271004886</longitude>
+						<latitude>30.26330115383466</latitude>
+						<altitude>4.404329136021677</altitude>
+						<heading>0.002607799819024548</heading>
 						<tilt>0</tilt>
-						<range>123.0678718812301</range>
+						<range>173.0802530989946</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
+					<styleUrl>#msn_placemark_circle00</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-97.75623745882047,30.37070384803521,0</coordinates>
+						<coordinates>-97.74168271004886,30.26330115383466,147.7256736678633</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
-					<name>Torchy&apos;s</name>
+					<name>Elephent Room</name>
+					<visibility>0</visibility>
 					<LookAt>
-						<longitude>-97.8274629200638</longitude>
-						<latitude>30.45301466957552</latitude>
+						<longitude>-97.74337974063933</longitude>
+						<latitude>30.26553514277525</latitude>
 						<altitude>0</altitude>
-						<heading>-0.04490724978925547</heading>
+						<heading>0.0007782219785428576</heading>
 						<tilt>0</tilt>
-						<range>158.8414887267918</range>
+						<range>172.2007171527</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
+					<styleUrl>#msn_placemark_circle00</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-97.82751509391962,30.45292830006169,0</coordinates>
+						<coordinates>-97.74344389915376,30.26562476480817,0</coordinates>
+					</Point>
+				</Placemark>
+			</Folder>
+			<Folder>
+				<name>Restaurants</name>
+				<Placemark>
+					<name>?</name>
+					<LookAt>
+						<longitude>-97.7195385862797</longitude>
+						<latitude>30.39604104011375</latitude>
+						<altitude>5.616247670887177</altitude>
+						<heading>3.763454184621229e-005</heading>
+						<tilt>0</tilt>
+						<range>83.34327014901027</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut01</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.71959469541878,30.39603962499648,6</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
-					<name>The Salt Lick</name>
+					<name>?</name>
 					<LookAt>
-						<longitude>-97.63253564753278</longitude>
-						<latitude>30.52541742298101</latitude>
+						<longitude>-97.7195385862797</longitude>
+						<latitude>30.39604104011375</latitude>
+						<altitude>5.616247670887177</altitude>
+						<heading>3.763454184621229e-005</heading>
+						<tilt>0</tilt>
+						<range>83.34327014901027</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut01</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.71957362634012,30.39613114650834,6</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Abel&apos;s North</name>
+					<LookAt>
+						<longitude>-97.715050986796</longitude>
+						<latitude>30.42356363901589</latitude>
 						<altitude>0</altitude>
-						<heading>0.05404479881376992</heading>
+						<heading>0.0004517287066215972</heading>
 						<tilt>0</tilt>
-						<range>221.3471208606164</range>
+						<range>242.7461139808585</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
+					<styleUrl>#msn_donut000</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-97.63265022978142,30.52543525473815,0</coordinates>
+						<coordinates>-97.7151538747364,30.42368447025229,0</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
-					<name>Chuy&apos;s</name>
+					<name>Bamboo Bistro</name>
 					<LookAt>
-						<longitude>-97.74768182460251</longitude>
-						<latitude>30.41859891765096</latitude>
-						<altitude>5.346021922201371</altitude>
-						<heading>-0.009278182829031353</heading>
+						<longitude>-97.71955265826411</longitude>
+						<latitude>30.39575186286277</latitude>
+						<altitude>5.130838061223285</altitude>
+						<heading>-0.004519914895477684</heading>
 						<tilt>0</tilt>
-						<range>148.9816372957054</range>
+						<range>218.4720015270974</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.71960471164213,30.39577575602182,4</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>BJ&apos;s Restaurant &amp; Brewhouse</name>
+					<LookAt>
+						<longitude>-97.7322141600027</longitude>
+						<latitude>30.39221739859391</latitude>
+						<altitude>0</altitude>
+						<heading>0.002295761433213624</heading>
+						<tilt>0</tilt>
+						<range>321.0194307604575</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut0</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-97.74777442739455,30.41856934581744,0</coordinates>
+						<coordinates>-97.73221416000271,30.39221739859391,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Canary Hut Pub</name>
+					<LookAt>
+						<longitude>-97.72018773637382</longitude>
+						<latitude>30.39431289692794</latitude>
+						<altitude>4.780137255687762</altitude>
+						<heading>0.0001090595953213998</heading>
+						<tilt>0</tilt>
+						<range>72.62947890009163</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut01</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.72027995675298,30.39433432269438,4</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Chick-fill-A</name>
+					<LookAt>
+						<longitude>-97.70328912008534</longitude>
+						<latitude>30.41902397941175</latitude>
+						<altitude>0</altitude>
+						<heading>1.738063609190564e-005</heading>
+						<tilt>0</tilt>
+						<range>106.2002372025658</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.70328912008534,30.41902397941175,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>China Buffet</name>
+					<LookAt>
+						<longitude>-97.72028841515757</longitude>
+						<latitude>30.39403584542739</latitude>
+						<altitude>4.801795695642022</altitude>
+						<heading>0.0001063024967028855</heading>
+						<tilt>0</tilt>
+						<range>39.68691883915243</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut01</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.72035625882431,30.39403490381306,4</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Tacodeli</name>
+					<LookAt>
+						<longitude>-97.71317652653198</longitude>
+						<latitude>30.40760140553515</latitude>
+						<altitude>5.134012731518168</altitude>
+						<heading>0.008944902133192991</heading>
+						<tilt>0</tilt>
+						<range>285.9645424455228</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut0</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.71323359504929,30.40770651073813,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Tacos Durango</name>
+					<LookAt>
+						<longitude>-97.70400063024151</longitude>
+						<latitude>30.40001954930545</latitude>
+						<altitude>0</altitude>
+						<heading>-0.0003904769657214057</heading>
+						<tilt>0</tilt>
+						<range>227.9991971588373</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut0</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.70409674898716,30.40026751396996,4</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>China House Buffet</name>
+					<Camera>
+						<longitude>-97.72409274938181</longitude>
+						<latitude>30.37870753467009</latitude>
+						<altitude>499.9544370686025</altitude>
+						<heading>57.03525652379798</heading>
+						<tilt>0.01628104024354616</tilt>
+						<roll>57.00229503939241</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut00</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.72472432355094,30.3785127380692,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Mangia Pizza</name>
+					<LookAt>
+						<longitude>-97.71342519237781</longitude>
+						<latitude>30.40744562399939</latitude>
+						<altitude>4.392416446981049</altitude>
+						<heading>0.007780847484889136</heading>
+						<tilt>0</tilt>
+						<range>104.8170002821049</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut01</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.71346547635031,30.4074473658598,0</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
@@ -1906,7 +868,7 @@
 						<range>210.2495275071675</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
 						<coordinates>-97.80038444609622,30.478344025923,0</coordinates>
@@ -1923,10 +885,27 @@
 						<range>151.2196094643478</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
 						<coordinates>-97.74406192219195,30.44573653929902,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Moonie&apos;s Burger House</name>
+					<LookAt>
+						<longitude>-97.71310440135196</longitude>
+						<latitude>30.40713444701274</latitude>
+						<altitude>0</altitude>
+						<heading>0.008981410982196098</heading>
+						<tilt>0</tilt>
+						<range>180.7651929284229</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut0</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.71313259806077,30.40716977827421,0</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
@@ -1940,7 +919,7 @@
 						<range>265.7364556102431</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
 						<coordinates>-97.73329693407555,30.38965381657976,0</coordinates>
@@ -1957,10 +936,97 @@
 						<range>81.03658646556193</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
 						<coordinates>-97.68771426066738,30.41300525863645,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Cafe Java</name>
+					<Camera>
+						<longitude>-97.70421828520425</longitude>
+						<latitude>30.40010075236052</latitude>
+						<altitude>103.5878596386889</altitude>
+						<heading>-29.01865099641691</heading>
+						<tilt>0.06464373942722855</tilt>
+						<roll>-28.94689394909634</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut0</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.70421884636318,30.40010162486545,4</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Chipotle</name>
+					<LookAt>
+						<longitude>-97.73325686519551</longitude>
+						<latitude>30.38979499453885</latitude>
+						<altitude>6.694941368719547</altitude>
+						<heading>0.0001338012543518491</heading>
+						<tilt>0</tilt>
+						<range>209.0876474544811</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut00</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.73335740482938,30.3899487693743,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Chuy&apos;s</name>
+					<LookAt>
+						<longitude>-97.74768182460251</longitude>
+						<latitude>30.41859891765096</latitude>
+						<altitude>5.346021922201371</altitude>
+						<heading>-0.009278182829031353</heading>
+						<tilt>0</tilt>
+						<range>148.9816372957054</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut010</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.74777442739455,30.41856934581744,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Cool River Cafe</name>
+					<LookAt>
+						<longitude>-97.71520162559934</longitude>
+						<latitude>30.42381640159204</latitude>
+						<altitude>0</altitude>
+						<heading>4.770069180308945e-005</heading>
+						<tilt>0</tilt>
+						<range>154.7226168675343</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.71524728548371,30.42384067243413,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Culver&apos;s</name>
+					<Camera>
+						<longitude>-97.71392196772644</longitude>
+						<latitude>30.39142366815927</latitude>
+						<altitude>133.6577434688453</altitude>
+						<heading>12.28094994268042</heading>
+						<tilt>0.5554610644476797</tilt>
+						<roll>12.00497203650424</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.7139192481329,30.39143444455677,4</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
@@ -1974,7 +1040,7 @@
 						<range>273.975962705796</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
 						<coordinates>-97.78628607017186,30.4461924746098,0</coordinates>
@@ -1991,7 +1057,7 @@
 						<range>397.352198288714</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
 						<coordinates>-97.82691330299218,30.52313517034712,0</coordinates>
@@ -2008,61 +1074,28 @@
 						<range>244.0021558554638</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
 						<coordinates>-97.70421464881594,30.40028991943873,0</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
-					<name>Jersey Mike&apos;s</name>
-					<LookAt>
-						<longitude>-97.82005268400214</longitude>
-						<latitude>30.5252985111167</latitude>
-						<altitude>7.883081047205129</altitude>
-						<heading>-0.06714914101686816</heading>
-						<tilt>0</tilt>
-						<range>200.8369272070622</range>
+					<name>Firehouse Subs</name>
+					<Camera>
+						<longitude>-97.71955529013901</longitude>
+						<latitude>30.39560148765027</latitude>
+						<altitude>317.881540441586</altitude>
+						<heading>64.90679928816935</heading>
+						<tilt>0.4274303420512813</tilt>
+						<roll>63.99585879150079</roll>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#msn_placemark_circle1</styleUrl>
+					</Camera>
+					<styleUrl>#msn_donut01</styleUrl>
 					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
 						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-97.82029597829722,30.52534710558192,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Jersey Mike&apos;s</name>
-					<LookAt>
-						<longitude>-97.82633809788388</longitude>
-						<latitude>30.45273241390433</latitude>
-						<altitude>6.109077421285526</altitude>
-						<heading>-0.07028298493683555</heading>
-						<tilt>0</tilt>
-						<range>238.4171896876334</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-97.82650947078778,30.45275131854494,0</coordinates>
-					</Point>
-				</Placemark>
-				<Placemark>
-					<name>Jersey Mike&apos;s</name>
-					<LookAt>
-						<longitude>-97.74505189508852</longitude>
-						<latitude>30.39245511829551</latitude>
-						<altitude>4.787849088986591</altitude>
-						<heading>-0.02899545969561575</heading>
-						<tilt>0</tilt>
-						<range>237.7795455603958</range>
-						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
-					<Point>
-						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-97.74525177048614,30.3925254717059,0</coordinates>
+						<coordinates>-97.71965217011484,30.39569199677917,4</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
@@ -2076,7 +1109,7 @@
 						<range>271.5976711353248</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
 						<coordinates>-97.74831294464775,30.3909026602698,0</coordinates>
@@ -2093,10 +1126,27 @@
 						<range>247.6158976572301</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
 						<coordinates>-97.67198413004205,30.47756081106951,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Five Guys</name>
+					<LookAt>
+						<longitude>-97.74826874462589</longitude>
+						<latitude>30.3908877448502</latitude>
+						<altitude>6.157937567260643</altitude>
+						<heading>-0.01926748360836002</heading>
+						<tilt>0</tilt>
+						<range>145.7632599911414</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut0</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.74826874462589,30.3908877448502,0</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
@@ -2110,79 +1160,338 @@
 						<range>133.8125565100893</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle2</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
 						<coordinates>-97.80497670802151,30.46701457676839,0</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
-					<name>Subway</name>
+					<name>Garden Spot</name>
 					<LookAt>
-						<longitude>-97.76165033243694</longitude>
-						<latitude>30.4679991789066</latitude>
-						<altitude>12.54350811682341</altitude>
-						<heading>-0.03748146889698552</heading>
+						<longitude>-97.72478650753233</longitude>
+						<latitude>30.37795846306899</latitude>
+						<altitude>10.23186529959587</altitude>
+						<heading>3.401139863969939e-006</heading>
 						<tilt>0</tilt>
-						<range>144.6987561195126</range>
+						<range>158.5226297545859</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle1</styleUrl>
+					<styleUrl>#msn_donut00</styleUrl>
 					<Point>
 						<altitudeMode>relativeToGround</altitudeMode>
 						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-97.76172137366251,30.46800808714797,16</coordinates>
+						<coordinates>-97.72483065792683,30.37806058535158,7</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
-					<name>Vertskebap</name>
+					<name>Gloria&apos;s</name>
 					<LookAt>
-						<longitude>-97.7439313667408</longitude>
-						<latitude>30.4455745617577</latitude>
-						<altitude>2.935830458994298</altitude>
-						<heading>-0.0001632124910332912</heading>
+						<longitude>-97.72595172797948</longitude>
+						<latitude>30.40020644320829</latitude>
+						<altitude>8.071721587639059</altitude>
+						<heading>-0.0001093777117591897</heading>
 						<tilt>0</tilt>
-						<range>151.2196094643478</range>
+						<range>75.59148758549635</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle</styleUrl>
+					<styleUrl>#msn_donut000</styleUrl>
 					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
 						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-97.74396656819815,30.44555742993923,0</coordinates>
+						<coordinates>-97.72595172797948,30.40020644320829,6</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
-					<name>Whataburger</name>
+					<name>It&apos;s a Grind Coffee House</name>
+					<Camera>
+						<longitude>-97.71583146885803</longitude>
+						<latitude>30.42497354132024</latitude>
+						<altitude>103.1051834607051</altitude>
+						<heading>-54.67863069777209</heading>
+						<tilt>0.02060557265564371</tilt>
+						<roll>-54.6383030355453</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.7158317840054,30.42497373389447,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Jersey Mike&apos;s</name>
 					<LookAt>
-						<longitude>-97.74382928598064</longitude>
-						<latitude>30.4452716630879</latitude>
-						<altitude>6.766215897777312</altitude>
-						<heading>-0.0001114879321871959</heading>
+						<longitude>-97.82005268400214</longitude>
+						<latitude>30.5252985111167</latitude>
+						<altitude>7.883081047205129</altitude>
+						<heading>-0.06714914101686816</heading>
 						<tilt>0</tilt>
-						<range>147.8039573295937</range>
+						<range>200.8369272070622</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle3</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-97.74382928598064,30.4452716630879,0</coordinates>
+						<coordinates>-97.82029597829722,30.52534710558192,0</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
-					<name>Smokey Mo&apos;s BBQ</name>
+					<name>Jersey Mike&apos;s</name>
 					<LookAt>
-						<longitude>-97.74495108063317</longitude>
-						<latitude>30.4416887021023</latitude>
+						<longitude>-97.82633809788388</longitude>
+						<latitude>30.45273241390433</latitude>
+						<altitude>6.109077421285526</altitude>
+						<heading>-0.07028298493683555</heading>
+						<tilt>0</tilt>
+						<range>238.4171896876334</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut010</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.82650947078778,30.45275131854494,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Jersey Mike&apos;s</name>
+					<LookAt>
+						<longitude>-97.74505189508852</longitude>
+						<latitude>30.39245511829551</latitude>
+						<altitude>4.787849088986591</altitude>
+						<heading>-0.02899545969561575</heading>
+						<tilt>0</tilt>
+						<range>237.7795455603958</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut010</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.74525177048614,30.3925254717059,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Jersey Mike&apos;s</name>
+					<Camera>
+						<longitude>-97.74520346592452</longitude>
+						<latitude>30.39252270424196</latitude>
+						<altitude>117.9500422212207</altitude>
+						<heading>64.89408583728066</heading>
+						<tilt>0.427576376596942</tilt>
+						<roll>63.99598646990633</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.74529605541937,30.39247754495041,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Kebab Time</name>
+					<Camera>
+						<longitude>-97.71663248589844</longitude>
+						<latitude>30.4253782842248</latitude>
+						<altitude>145.9588325847182</altitude>
+						<heading>-84.01597869537096</heading>
+						<tilt>0.04141337071256947</tilt>
+						<roll>-83.92052754822049</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.71692286099206,30.42545870178509,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Kolache Factory</name>
+					<LookAt>
+						<longitude>-97.71697145585306</longitude>
+						<latitude>30.42546635886134</latitude>
 						<altitude>0</altitude>
-						<heading>0.0003703767846998902</heading>
+						<heading>-0.0001855703997250802</heading>
 						<tilt>0</tilt>
-						<range>213.8530491971856</range>
+						<range>106.9538125123608</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle</styleUrl>
+					<styleUrl>#msn_donut000</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-97.74500017334326,30.44178111331521,0</coordinates>
+						<coordinates>-97.71698745252655,30.42548089814924,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>La Madeleine Contry French Cafe</name>
+					<Camera>
+						<longitude>-97.7472487438986</longitude>
+						<latitude>30.39579154991146</latitude>
+						<altitude>150.8155819169497</altitude>
+						<heading>-51.52642417557101</heading>
+						<tilt>0.1143109622164562</tilt>
+						<roll>-51.31307655376912</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.74725109320768,30.39579316032296,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Macaroni Grill</name>
+					<LookAt>
+						<longitude>-97.74757538194508</longitude>
+						<latitude>30.39451265563482</latitude>
+						<altitude>6.130753272646587</altitude>
+						<heading>-0.0001149360767619316</heading>
+						<tilt>0</tilt>
+						<range>97.63793539970683</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.74757538194508,30.39451265563482,6</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Maki Toki</name>
+					<Camera>
+						<longitude>-97.70696330038601</longitude>
+						<latitude>30.39303190996574</latitude>
+						<altitude>106.5669391718011</altitude>
+						<heading>46.18842708908595</heading>
+						<tilt>0.2840754437657534</tilt>
+						<roll>45.70005813007754</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.70695953338502,30.39303502723292,4</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Marie Callender&apos;s Restaurant &amp; Bakery</name>
+					<LookAt>
+						<longitude>-97.7415817260749</longitude>
+						<latitude>30.38596891908598</latitude>
+						<altitude>4.402035436713851</altitude>
+						<heading>-0.001398543754447868</heading>
+						<tilt>0</tilt>
+						<range>126.4111914092621</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut0</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.74158837372977,30.38600199798042,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>McDonald&apos;s</name>
+					<Camera>
+						<longitude>-97.72064140292758</longitude>
+						<latitude>30.39142806841311</latitude>
+						<altitude>102.4779474084855</altitude>
+						<heading>17.91411509038083</heading>
+						<tilt>0.05567844487084939</tilt>
+						<roll>17.87285071553765</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.72064109555238,30.39142888857953,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Naanfull Indian Grill</name>
+					<LookAt>
+						<longitude>-97.71964851703859</longitude>
+						<latitude>30.39565646405976</latitude>
+						<altitude>4.479557433704259</altitude>
+						<heading>-1.383123946932588e-005</heading>
+						<tilt>0</tilt>
+						<range>139.9254073834037</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut01</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.7197309623955,30.39562532287836,6</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Opal Divine&apos;s</name>
+					<LookAt>
+						<longitude>-97.70206712798078</longitude>
+						<latitude>30.42365158507545</latitude>
+						<altitude>0</altitude>
+						<heading>0.0002280135916031018</heading>
+						<tilt>0</tilt>
+						<range>101.8311119761856</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.70206712798077,30.42365158507544,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>P. Terry&apos;s</name>
+					<Camera>
+						<longitude>-97.70527242772616</longitude>
+						<latitude>30.41456048870856</latitude>
+						<altitude>102.1262693841594</altitude>
+						<heading>56.09436472304724</heading>
+						<tilt>0.01796233803223126</tilt>
+						<roll>56.0585326067231</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.7052721509681,30.41456064909952,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Panda Express</name>
+					<Camera>
+						<longitude>-97.70211846989933</longitude>
+						<latitude>30.41834742439288</latitude>
+						<altitude>134.4917358334105</altitude>
+						<heading>81.44578992195069</heading>
+						<tilt>0.07058538887315562</tilt>
+						<roll>81.27763023837746</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.70207587093918,30.41837896258067,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Pita House</name>
+					<Camera>
+						<longitude>-97.71663248589844</longitude>
+						<latitude>30.4253782842248</latitude>
+						<altitude>145.9588325847182</altitude>
+						<heading>-84.01597869537096</heading>
+						<tilt>0.04141337071256947</tilt>
+						<roll>-83.92052754822049</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.71682407599427,30.42542436641048,0</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
@@ -2196,10 +1505,44 @@
 						<range>213.3021603834113</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
 						<coordinates>-97.74550736940272,30.44156753609622,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>River City Donut</name>
+					<LookAt>
+						<longitude>-97.70387231136122</longitude>
+						<latitude>30.40067231710373</latitude>
+						<altitude>4.537398640841619</altitude>
+						<heading>-9.791016962647066e-005</heading>
+						<tilt>0</tilt>
+						<range>170.5014499383735</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.70387713830489,30.40069194386776,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Schlotzky&apos;s</name>
+					<Camera>
+						<longitude>-97.74568087493904</longitude>
+						<latitude>30.40744828825142</latitude>
+						<altitude>201.4453559892455</altitude>
+						<heading>-13.22222483358476</heading>
+						<tilt>0.1000374479985399</tilt>
+						<roll>-13.16792654557508</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.74585914916636,30.40754969253708,0</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
@@ -2213,10 +1556,44 @@
 						<range>153.707409332474</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
 						<coordinates>-97.74396900854501,30.44423333239373,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Silver Grill</name>
+					<Camera>
+						<longitude>-97.71618777759899</longitude>
+						<latitude>30.42511174028795</latitude>
+						<altitude>98.05023760467928</altitude>
+						<heading>-83.65009476389596</heading>
+						<tilt>0.1735224208857046</tilt>
+						<roll>-83.2413097536565</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.71617232001131,30.42512411204752,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Smokey Mo&apos;s BBQ</name>
+					<LookAt>
+						<longitude>-97.74495108063317</longitude>
+						<latitude>30.4416887021023</latitude>
+						<altitude>0</altitude>
+						<heading>0.0003703767846998902</heading>
+						<tilt>0</tilt>
+						<range>213.8530491971856</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut010</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.74500017334326,30.44178111331521,0</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
@@ -2230,48 +1607,320 @@
 						<range>138.5537090269098</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle3</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
 						<coordinates>-97.74366883285185,30.44483664102015,0</coordinates>
 					</Point>
 				</Placemark>
-			</Folder>
-			<Folder>
-				<name>Music</name>
-				<open>1</open>
 				<Placemark>
-					<name>Elephent Room</name>
+					<name>Subway</name>
 					<LookAt>
-						<longitude>-97.74337974063933</longitude>
-						<latitude>30.26553514277525</latitude>
-						<altitude>0</altitude>
-						<heading>0.0007782219785428576</heading>
+						<longitude>-97.76165033243694</longitude>
+						<latitude>30.4679991789066</latitude>
+						<altitude>12.54350811682341</altitude>
+						<heading>-0.03748146889698552</heading>
 						<tilt>0</tilt>
-						<range>172.2007171527</range>
+						<range>144.6987561195126</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#m_ylw-pushpin0</styleUrl>
+					<styleUrl>#msn_donut010</styleUrl>
 					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
 						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-97.74344389915376,30.26562476480817,0</coordinates>
+						<coordinates>-97.76172137366251,30.46800808714797,16</coordinates>
 					</Point>
 				</Placemark>
 				<Placemark>
-					<name>Brass House</name>
+					<name>Subway</name>
 					<LookAt>
-						<longitude>-97.74168271004886</longitude>
-						<latitude>30.26330115383466</latitude>
-						<altitude>4.404329136021677</altitude>
-						<heading>0.002607799819024548</heading>
+						<longitude>-97.70220796185372</longitude>
+						<latitude>30.41824201976892</latitude>
+						<altitude>0</altitude>
+						<heading>1.314429090322677e-005</heading>
 						<tilt>0</tilt>
-						<range>173.0802530989946</range>
+						<range>97.18065978086293</range>
 						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 					</LookAt>
-					<styleUrl>#msn_placemark_circle00</styleUrl>
+					<styleUrl>#msn_donut000</styleUrl>
 					<Point>
 						<gx:drawOrder>1</gx:drawOrder>
-						<coordinates>-97.74168271004886,30.26330115383466,147.7256736678633</coordinates>
+						<coordinates>-97.70216435409607,30.41826946140736,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Subway</name>
+					<Camera>
+						<longitude>-97.70664171107404</longitude>
+						<latitude>30.39292766942112</latitude>
+						<altitude>146.1746069239652</altitude>
+						<heading>1.836070157122219</heading>
+						<tilt>0.1670671595845577</tilt>
+						<roll>1.823382453242171</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.70664157415342,30.39293135301969,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Subway</name>
+					<Camera>
+						<longitude>-97.72017637020687</longitude>
+						<latitude>30.39457415632504</latitude>
+						<altitude>170.5033089224952</altitude>
+						<heading>59.87881994793374</heading>
+						<tilt>0.1489234878372786</tilt>
+						<roll>59.57252440617491</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut01</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.72016098629483,30.39461085386445,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Taco Bell</name>
+					<Camera>
+						<longitude>-97.72011029333011</longitude>
+						<latitude>30.39122533934206</latitude>
+						<altitude>104.3572713089215</altitude>
+						<heading>17.914383779943</heading>
+						<tilt>0.05567844487084939</tilt>
+						<roll>17.87285071555882</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.72010998059882,30.39122617377081,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Taco Cabana</name>
+					<LookAt>
+						<longitude>-97.74297770908643</longitude>
+						<latitude>30.38824591259956</latitude>
+						<altitude>5.248039538722807</altitude>
+						<heading>7.027399829359044e-005</heading>
+						<tilt>0</tilt>
+						<range>79.6548238337551</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut0</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.74298060828171,30.3882667535986,4</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Thai Cuisine</name>
+					<LookAt>
+						<longitude>-97.71701372161098</longitude>
+						<latitude>30.42548704131473</latitude>
+						<altitude>0</altitude>
+						<heading>-0.0002052986858567089</heading>
+						<tilt>0</tilt>
+						<range>99.22439580229603</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.71704379019742,30.42551020326465,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>The Salt Lick</name>
+					<LookAt>
+						<longitude>-97.63253564753278</longitude>
+						<latitude>30.52541742298101</latitude>
+						<altitude>0</altitude>
+						<heading>0.05404479881376992</heading>
+						<tilt>0</tilt>
+						<range>221.3471208606164</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut010</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.63265022978142,30.52543525473815,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Thomas Super Buffet</name>
+					<LookAt>
+						<longitude>-97.70212309830923</longitude>
+						<latitude>30.42211260001518</latitude>
+						<altitude>0</altitude>
+						<heading>-0.0003009516169287041</heading>
+						<tilt>0</tilt>
+						<range>188.1134643484658</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.70220165997812,30.42217771355135,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Thundercloud Subs</name>
+					<LookAt>
+						<longitude>-97.70246689109668</longitude>
+						<latitude>30.4220222081157</latitude>
+						<altitude>0</altitude>
+						<heading>-1.572784289983709e-012</heading>
+						<tilt>0</tilt>
+						<range>100.3343538139868</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.70238551101967,30.42201836763498,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Torchy&apos;s</name>
+					<LookAt>
+						<longitude>-97.8274629200638</longitude>
+						<latitude>30.45301466957552</latitude>
+						<altitude>0</altitude>
+						<heading>-0.04490724978925547</heading>
+						<tilt>0</tilt>
+						<range>158.8414887267918</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut010</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.82751509391962,30.45292830006169,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Torchy&apos;s Tacos</name>
+					<LookAt>
+						<longitude>-97.75618154309176</longitude>
+						<latitude>30.37072345194414</latitude>
+						<altitude>2.727840275001861</altitude>
+						<heading>-0.02036061085020723</heading>
+						<tilt>0</tilt>
+						<range>93.87633068339723</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut0</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.75624994799749,30.3707185933059,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Vertskebap</name>
+					<LookAt>
+						<longitude>-97.7439313667408</longitude>
+						<latitude>30.4455745617577</latitude>
+						<altitude>2.935830458994298</altitude>
+						<heading>-0.0001632124910332912</heading>
+						<tilt>0</tilt>
+						<range>151.2196094643478</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut010</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.74396656819815,30.44555742993923,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Wendy&apos;s</name>
+					<Camera>
+						<longitude>-97.7067864669762</longitude>
+						<latitude>30.3922083236347</latitude>
+						<altitude>87.1968105296716</altitude>
+						<heading>1.835952116875919</heading>
+						<tilt>0.1670294770626773</tilt>
+						<roll>1.823335682177986</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.7067893810823,30.39223607922995,4</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Wendy&apos;s</name>
+					<Camera>
+						<longitude>-97.70360822408506</longitude>
+						<latitude>30.4186340860509</latitude>
+						<altitude>86.33775542194329</altitude>
+						<heading>34.90702835583404</heading>
+						<tilt>0.06803532157384946</tilt>
+						<roll>34.81305177095195</roll>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</Camera>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.70360761305732,30.41863484118598,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Whataburger</name>
+					<LookAt>
+						<longitude>-97.74382928598064</longitude>
+						<latitude>30.4452716630879</latitude>
+						<altitude>6.766215897777312</altitude>
+						<heading>-0.0001114879321871959</heading>
+						<tilt>0</tilt>
+						<range>147.8039573295937</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut010</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.74382928598064,30.4452716630879,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Whataburger</name>
+					<LookAt>
+						<longitude>-97.71954127413433</longitude>
+						<latitude>30.39102371527757</latitude>
+						<altitude>4.590624076547183</altitude>
+						<heading>-3.56719809084071e-005</heading>
+						<tilt>0</tilt>
+						<range>83.38035134831476</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<altitudeMode>relativeToGround</altitudeMode>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.71954127413433,30.39102371527757,4</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark>
+					<name>Zoes Kitchen</name>
+					<LookAt>
+						<longitude>-97.74926855928428</longitude>
+						<latitude>30.39283068896844</latitude>
+						<altitude>6.058096671795552</altitude>
+						<heading>-0.0001310529840418991</heading>
+						<tilt>0</tilt>
+						<range>146.7191289725671</range>
+						<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					</LookAt>
+					<styleUrl>#msn_donut000</styleUrl>
+					<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+						<coordinates>-97.74931660947981,30.39288032276446,0</coordinates>
 					</Point>
 				</Placemark>
 			</Folder>

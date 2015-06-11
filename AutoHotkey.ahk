@@ -9,11 +9,12 @@ if FileExist("C:/Users/Chris") != ""
     VisualStudioProjects = Explorer C:\Users\chris\Documents\Visual Studio 2012\Projects
     GoogleEarth = C:\Program Files (x86)\Google\Google Earth\client\googleearth.exe
 }
-if FileExist("C:/Users/cwatrous") != ""
+if FileExist("C:/Users/IBM_ADMIN") != ""
 {
     Work = 1
-    WordProcessor = C:\Program Files (x86)\Microsoft Office\Office15\WINWORD.EXE
-    Spreadsheet = C:\Program Files (x86)\Microsoft Office\Office15\EXCEL.EXE
+    WordProcessor = C:\Program Files (x86)\OpenOffice 4\program\swriter.exe
+    Spreadsheet = C:\Program Files (x86)\OpenOffice 4\program\scalc.exe
+    GoogleEarth = C:\Program Files (x86)\Google\Google Earth Pro\client\googleearth.exe
 }
 Return
 
@@ -23,7 +24,7 @@ Capslock::LCtrl
 !#a::Run "C:\Program Files (x86)\Vim\vim74\gvim.exe" %A_MyDocuments%/AutoHotkey.ahk
 ^#a::Run AutoHotkey
 
-#a::Run %VisualStudioProjects%
+;#a::Run 
 #c::Run Chrome
 #g::Run %GoogleEarth%
 #h::Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico -
@@ -33,12 +34,13 @@ Capslock::LCtrl
 #^j::RemoteLogin3()
 #n::Run Notepad
 #o::StartOctave()
-#q::Run Explorer %A_MyDocuments%
+#q::Run Explorer %A_MyDocuments%\stuff
 #s::Run acrord32
-#v::Run %VisualStudio%
+#v::Run C:\Program Files (x86)\JetBrains\PyCharm Community Edition 4.5.1\bin\pycharm.exe
 #w::Run %WordProcessor%
 #x::Run %Spreadsheet%
 #y::Run powershell
+#^y::Run cmd
 #+y::Run "C:\Program Files (x86)\Vim\vim74\gvim.exe" C:\Users\Chris\Documents\WindowsPowerShell\profile.ps1
 #z::Run Firefox
 #]::WinMinimize A
@@ -215,6 +217,10 @@ RemoteLogin1()
 RemoteLogin2()
 {
     global Work
+    if Home
+    {
+        Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico /usr/bin/ssh chris@192.168.56.101
+    }
     if Work
     {
         WorkLogin("t14hstbuild04")
