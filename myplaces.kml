@@ -3,73 +3,15 @@
 <Document>
 	<name>default_my_places</name>
 	<open>1</open>
-	<StyleMap id="msn_placemark_square">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_placemark_square</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_placemark_square_highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="msn_donut01">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_donut</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_donut010</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sn_donut02">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin2">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin010">
+	<Style id="s_ylw-pushpin_hl0020">
 		<IconStyle>
 			<color>ffffff55</color>
 			<scale>1.2</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
 			</Icon>
 		</IconStyle>
 	</Style>
-	<Style id="sh_homegardenbusiness0">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
-			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-		</IconStyle>
-	</Style>
-	<StyleMap id="msn_placemark_circle00">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_placemark_circle0001</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_placemark_circle_highlight201</styleUrl>
-		</Pair>
-	</StyleMap>
 	<StyleMap id="msn_donut000">
 		<Pair>
 			<key>normal</key>
@@ -80,23 +22,18 @@
 			<styleUrl>#sh_donut</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sn_donut01">
+	<Style id="s_ylw-pushpin200">
 		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.2</scale>
+			<color>00ffffff</color>
+			<scale>1.1</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
 			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
-	</Style>
-	<Style id="sn_donut">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
+		<LabelStyle>
+			<color>00ffffff</color>
+		</LabelStyle>
 	</Style>
 	<StyleMap id="msn_donut">
 		<Pair>
@@ -108,16 +45,44 @@
 			<styleUrl>#sh_donut00</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sn_homegardenbusiness0">
+	<Style id="sh_placemark_circle_highlight201">
 		<IconStyle>
-			<color>ff7fffaa</color>
+			<color>ffffaa00</color>
 			<scale>1.2</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
 			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
 		</IconStyle>
 	</Style>
+	<Style id="sh_placemark_circle_highlight">
+		<IconStyle>
+			<color>ffffff55</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_homegardenbusiness1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_homegardenbusiness0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_homegardenbusiness0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_donut00">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_donut02</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_donut0</styleUrl>
+		</Pair>
+	</StyleMap>
 	<StyleMap id="m_ylw-pushpin8">
 		<Pair>
 			<key>normal</key>
@@ -138,183 +103,7 @@
 			<styleUrl>#sh_placemark_circle_highlight</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="s_ylw-pushpin_hl10">
-		<IconStyle>
-			<color>00ffffff</color>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LabelStyle>
-			<color>00ffffff</color>
-		</LabelStyle>
-	</Style>
-	<Style id="s_ylw-pushpin200">
-		<IconStyle>
-			<color>00ffffff</color>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LabelStyle>
-			<color>00ffffff</color>
-		</LabelStyle>
-	</Style>
-	<Style id="sn_placemark_circle00">
-		<IconStyle>
-			<color>ffffff55</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<StyleMap id="m_ylw-pushpin4">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin010</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl0020</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="s_ylw-pushpin_hl0020">
-		<IconStyle>
-			<color>ffffff55</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<StyleMap id="msn_donut0">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_donut03</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_donut01</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_donut0">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
-			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-		</IconStyle>
-	</Style>
-	<Style id="sh_placemark_square_highlight">
-		<IconStyle>
-			<color>ff0000ff</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_square_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sh_donut01">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sn_placemark_square">
-		<IconStyle>
-			<color>ff0000ff</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_square.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sn_donut00">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<StyleMap id="msn_donut00">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_donut02</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_donut0</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="msn_homegardenbusiness1">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_homegardenbusiness0</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_homegardenbusiness0</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_placemark_circle_highlight201">
-		<IconStyle>
-			<color>ffffaa00</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sn_donut0">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sn_donut03">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sh_donut">
-		<IconStyle>
-			<color>ff4141ff</color>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<StyleMap id="m_ylw-pushpin00">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin200</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl10</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sh_donut0100">
+	<Style id="sh_donut010">
 		<IconStyle>
 			<color>ff7fffaa</color>
 			<scale>1.4</scale>
@@ -333,7 +122,77 @@
 			<styleUrl>#sh_donut0100</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sh_donut010">
+	<Style id="sn_donut00">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sn_donut">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin2">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin00">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin200</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl10</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl10">
+		<IconStyle>
+			<color>00ffffff</color>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>00ffffff</color>
+		</LabelStyle>
+	</Style>
+	<StyleMap id="msn_donut01">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_donut</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_donut010</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_homegardenbusiness0">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_donut0100">
 		<IconStyle>
 			<color>ff7fffaa</color>
 			<scale>1.4</scale>
@@ -342,21 +201,134 @@
 			</Icon>
 		</IconStyle>
 	</Style>
-	<Style id="sh_placemark_circle_highlight">
+	<Style id="sn_donut01">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_placemark_square">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_placemark_square</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_placemark_square_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_donut">
+		<IconStyle>
+			<color>ff4141ff</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sn_placemark_square">
+		<IconStyle>
+			<color>ff0000ff</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_square.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sn_donut02">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_placemark_circle00">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_placemark_circle0001</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_placemark_circle_highlight201</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_donut03">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sh_donut01">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin4">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin010</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl0020</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_homegardenbusiness0">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_placemark_square_highlight">
+		<IconStyle>
+			<color>ff0000ff</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_square_highlight.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_donut0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_donut03</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_donut01</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_placemark_circle00">
 		<IconStyle>
 			<color>ffffff55</color>
 			<scale>1.2</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sh_donut00">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
 			</Icon>
 		</IconStyle>
 	</Style>
@@ -369,13 +341,41 @@
 			</Icon>
 		</IconStyle>
 	</Style>
-	<Style id="s_ylw-pushpin_hl0">
+	<Style id="s_ylw-pushpin010">
 		<IconStyle>
-			<scale>1.3</scale>
+			<color>ffffff55</color>
+			<scale>1.2</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
 			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_donut0">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_donut0">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sh_donut00">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
 		</IconStyle>
 	</Style>
 	<Folder>
@@ -643,9 +643,11 @@
 			</Folder>
 			<Folder>
 				<name>Restaurants</name>
+				<visibility>0</visibility>
 				<open>1</open>
 				<Placemark>
 					<name>?</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.7195385862797</longitude>
 						<latitude>30.39604104011375</latitude>
@@ -664,6 +666,7 @@
 				</Placemark>
 				<Placemark>
 					<name>?</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.7195385862797</longitude>
 						<latitude>30.39604104011375</latitude>
@@ -682,6 +685,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Abel&apos;s North</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.715050986796</longitude>
 						<latitude>30.42356363901589</latitude>
@@ -699,6 +703,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Bamboo Bistro</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.71955265826411</longitude>
 						<latitude>30.39575186286277</latitude>
@@ -717,6 +722,7 @@
 				</Placemark>
 				<Placemark>
 					<name>BJ&apos;s Restaurant &amp; Brewhouse</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.7322141600027</longitude>
 						<latitude>30.39221739859391</latitude>
@@ -734,6 +740,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Canary Hut Pub</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.72018773637382</longitude>
 						<latitude>30.39431289692794</latitude>
@@ -752,6 +759,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Chick-fill-A</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.70328912008534</longitude>
 						<latitude>30.41902397941175</latitude>
@@ -769,6 +777,7 @@
 				</Placemark>
 				<Placemark>
 					<name>China Buffet</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.72028841515757</longitude>
 						<latitude>30.39403584542739</latitude>
@@ -787,6 +796,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Tacodeli</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.71317652653198</longitude>
 						<latitude>30.40760140553515</latitude>
@@ -804,6 +814,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Tacos Durango</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.70400063024151</longitude>
 						<latitude>30.40001954930545</latitude>
@@ -822,6 +833,7 @@
 				</Placemark>
 				<Placemark>
 					<name>China House Buffet</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.72409274938181</longitude>
 						<latitude>30.37870753467009</latitude>
@@ -839,6 +851,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Mangia Pizza</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.71342519237781</longitude>
 						<latitude>30.40744562399939</latitude>
@@ -856,6 +869,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Chipotle</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.80019500793813</longitude>
 						<latitude>30.47828522564533</latitude>
@@ -873,6 +887,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Chipotle</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.7439313667408</longitude>
 						<latitude>30.4455745617577</latitude>
@@ -890,6 +905,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Moonie&apos;s Burger House</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.71310440135196</longitude>
 						<latitude>30.40713444701274</latitude>
@@ -907,6 +923,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Chipotle</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.68769461780062</longitude>
 						<latitude>30.41298973024686</latitude>
@@ -924,6 +941,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Cafe Java</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.70421828520425</longitude>
 						<latitude>30.40010075236052</latitude>
@@ -942,6 +960,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Chipotle</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.73325686519551</longitude>
 						<latitude>30.38979499453885</latitude>
@@ -959,6 +978,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Chuy&apos;s</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.74768182460251</longitude>
 						<latitude>30.41859891765096</latitude>
@@ -976,6 +996,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Cool River Cafe</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.71520162559934</longitude>
 						<latitude>30.42381640159204</latitude>
@@ -993,6 +1014,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Culver&apos;s</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.71392196772644</longitude>
 						<latitude>30.39142366815927</latitude>
@@ -1011,6 +1033,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Double Dave&apos;s Pizza</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.78603160787368</longitude>
 						<latitude>30.44619361875675</latitude>
@@ -1028,6 +1051,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Double Dave&apos;s Pizza</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.82666117833952</longitude>
 						<latitude>30.52313950962999</latitude>
@@ -1045,6 +1069,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Double Dave&apos;s Pizza</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.70402889136575</longitude>
 						<latitude>30.40017396281774</latitude>
@@ -1062,6 +1087,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Firehouse Subs</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.71955529013901</longitude>
 						<latitude>30.39560148765027</latitude>
@@ -1080,6 +1106,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Five Guys</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.7480495265141</longitude>
 						<latitude>30.3908128581025</latitude>
@@ -1097,6 +1124,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Five Guys</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.67188595849204</longitude>
 						<latitude>30.47759101461503</latitude>
@@ -1114,6 +1142,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Five Guys</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.74826874462589</longitude>
 						<latitude>30.3908877448502</latitude>
@@ -1131,6 +1160,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Fuddruckers</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.80497670802151</longitude>
 						<latitude>30.46701457676839</latitude>
@@ -1148,6 +1178,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Garden Spot</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.72478650753233</longitude>
 						<latitude>30.37795846306899</latitude>
@@ -1166,6 +1197,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Gloria&apos;s</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.72595172797948</longitude>
 						<latitude>30.40020644320829</latitude>
@@ -1184,6 +1216,7 @@
 				</Placemark>
 				<Placemark>
 					<name>It&apos;s a Grind Coffee House</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.71583146885803</longitude>
 						<latitude>30.42497354132024</latitude>
@@ -1201,6 +1234,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Jersey Mike&apos;s</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.82005268400214</longitude>
 						<latitude>30.5252985111167</latitude>
@@ -1218,6 +1252,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Jersey Mike&apos;s</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.82633809788388</longitude>
 						<latitude>30.45273241390433</latitude>
@@ -1235,6 +1270,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Jersey Mike&apos;s</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.74505189508852</longitude>
 						<latitude>30.39245511829551</latitude>
@@ -1252,6 +1288,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Jersey Mike&apos;s</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.74520346592452</longitude>
 						<latitude>30.39252270424196</latitude>
@@ -1269,6 +1306,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Kebab Time</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.71663248589844</longitude>
 						<latitude>30.4253782842248</latitude>
@@ -1286,6 +1324,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Kolache Factory</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.71697145585306</longitude>
 						<latitude>30.42546635886134</latitude>
@@ -1303,6 +1342,7 @@
 				</Placemark>
 				<Placemark>
 					<name>La Madeleine Contry French Cafe</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.7472487438986</longitude>
 						<latitude>30.39579154991146</latitude>
@@ -1320,6 +1360,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Macaroni Grill</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.74757538194508</longitude>
 						<latitude>30.39451265563482</latitude>
@@ -1338,6 +1379,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Maki Toki</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.70696330038601</longitude>
 						<latitude>30.39303190996574</latitude>
@@ -1356,6 +1398,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Marie Callender&apos;s Restaurant &amp; Bakery</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.7415817260749</longitude>
 						<latitude>30.38596891908598</latitude>
@@ -1373,6 +1416,7 @@
 				</Placemark>
 				<Placemark>
 					<name>McDonald&apos;s</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.72064140292758</longitude>
 						<latitude>30.39142806841311</latitude>
@@ -1390,6 +1434,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Naanfull Indian Grill</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.71964851703859</longitude>
 						<latitude>30.39565646405976</latitude>
@@ -1408,6 +1453,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Opal Divine&apos;s</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.70206712798078</longitude>
 						<latitude>30.42365158507545</latitude>
@@ -1425,6 +1471,7 @@
 				</Placemark>
 				<Placemark>
 					<name>P. Terry&apos;s</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.70527242772616</longitude>
 						<latitude>30.41456048870856</latitude>
@@ -1442,6 +1489,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Panda Express</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.70211846989933</longitude>
 						<latitude>30.41834742439288</latitude>
@@ -1459,6 +1507,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Pita House</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.71663248589844</longitude>
 						<latitude>30.4253782842248</latitude>
@@ -1476,6 +1525,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Pizza?</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.74533474245227</longitude>
 						<latitude>30.44152892412892</latitude>
@@ -1493,6 +1543,7 @@
 				</Placemark>
 				<Placemark>
 					<name>River City Donut</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.70387231136122</longitude>
 						<latitude>30.40067231710373</latitude>
@@ -1510,6 +1561,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Schlotzky&apos;s</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.74568087493904</longitude>
 						<latitude>30.40744828825142</latitude>
@@ -1527,6 +1579,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Schlotzky&apos;s</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.74398666779531</longitude>
 						<latitude>30.44418207474313</latitude>
@@ -1544,6 +1597,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Silver Grill</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.71618777759899</longitude>
 						<latitude>30.42511174028795</latitude>
@@ -1561,6 +1615,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Smokey Mo&apos;s BBQ</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.74495108063317</longitude>
 						<latitude>30.4416887021023</latitude>
@@ -1578,6 +1633,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Starbucks</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.7435966044749</longitude>
 						<latitude>30.44483618340171</latitude>
@@ -1595,6 +1651,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Subway</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.76165033243694</longitude>
 						<latitude>30.4679991789066</latitude>
@@ -1613,6 +1670,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Subway</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.70220796185372</longitude>
 						<latitude>30.41824201976892</latitude>
@@ -1630,6 +1688,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Subway</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.70664171107404</longitude>
 						<latitude>30.39292766942112</latitude>
@@ -1647,6 +1706,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Subway</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.72017637020687</longitude>
 						<latitude>30.39457415632504</latitude>
@@ -1664,6 +1724,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Taco Bell</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.72011029333011</longitude>
 						<latitude>30.39122533934206</latitude>
@@ -1681,6 +1742,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Taco Cabana</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.74297770908643</longitude>
 						<latitude>30.38824591259956</latitude>
@@ -1699,6 +1761,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Thai Cuisine</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.71701372161098</longitude>
 						<latitude>30.42548704131473</latitude>
@@ -1716,6 +1779,7 @@
 				</Placemark>
 				<Placemark>
 					<name>The Salt Lick</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.63253564753278</longitude>
 						<latitude>30.52541742298101</latitude>
@@ -1733,6 +1797,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Thomas Super Buffet</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.70212309830923</longitude>
 						<latitude>30.42211260001518</latitude>
@@ -1750,6 +1815,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Thundercloud Subs</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.70246689109668</longitude>
 						<latitude>30.4220222081157</latitude>
@@ -1767,6 +1833,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Torchy&apos;s</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.8274629200638</longitude>
 						<latitude>30.45301466957552</latitude>
@@ -1784,6 +1851,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Torchy&apos;s Tacos</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.75618154309176</longitude>
 						<latitude>30.37072345194414</latitude>
@@ -1801,6 +1869,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Vertskebap</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.7439313667408</longitude>
 						<latitude>30.4455745617577</latitude>
@@ -1818,6 +1887,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Wendy&apos;s</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.7067864669762</longitude>
 						<latitude>30.3922083236347</latitude>
@@ -1836,6 +1906,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Wendy&apos;s</name>
+					<visibility>0</visibility>
 					<Camera>
 						<longitude>-97.70360822408506</longitude>
 						<latitude>30.4186340860509</latitude>
@@ -1853,6 +1924,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Whataburger</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.74382928598064</longitude>
 						<latitude>30.4452716630879</latitude>
@@ -1870,6 +1942,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Whataburger</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.71954127413433</longitude>
 						<latitude>30.39102371527757</latitude>
@@ -1888,6 +1961,7 @@
 				</Placemark>
 				<Placemark>
 					<name>Zoes Kitchen</name>
+					<visibility>0</visibility>
 					<LookAt>
 						<longitude>-97.74926855928428</longitude>
 						<latitude>30.39283068896844</latitude>
