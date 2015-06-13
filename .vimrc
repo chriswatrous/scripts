@@ -33,10 +33,6 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-" gui fonts
-" This one works at home.
-set guifont=Liberation_Mono:h10:cANSI
-
 syntax on
 
 function! SetFiletype()
@@ -48,7 +44,7 @@ endfunction
 au BufRead * call SetFiletype()
 
 function! SetFiletypeOptions()
-    if &filetype == 'python' || &filetype == 'pyrex' || &filetype == 'sh' || &filetype == 'make' || &filetype == 'gitconfig'
+    if &filetype == 'python' || &filetype == 'pyrex' || &filetype == 'sh' || &filetype == 'make' || &filetype == 'gitconfig' || &filetype == 'conf'
        "commenting and uncommenting that uses '#'
        nmap <F2> :norm I#<Enter>
        nmap <F4> :s/\(^\s*\)\@<=#/<Enter>:noh<Enter>
