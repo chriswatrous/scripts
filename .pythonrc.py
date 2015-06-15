@@ -2,6 +2,7 @@ if 'pythonrc_guard' not in globals():
     import os, sys, re, pdb
     from subprocess import *
     from pprint import *
+    from datetime import *
 
     def pdir(obj):
         pprint(dir(obj))

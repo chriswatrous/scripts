@@ -20,7 +20,8 @@ scripts = {'.bashrc':               ['~/.bashrc'],
            'PlaceActiveWindow.ahk': [winhome('Documents/AutoHotkey/Lib/PlaceActiveWindow.ahk')],
            '.vimrc':                ['~/.vimrc', winhome('_vimrc')],
            '.gvimrc':               ['~/.gvimrc', winhome('_gvimrc')],
-           'lxde-rc.xml':           ['~/.config/openbox/lxde-rc.xml']}
+           'lxde-rc.xml':           ['~/.config/openbox/lxde-rc.xml'],
+           'myplaces.kml':          [winhome('AppData/LocalLow/Google/GoogleEarth/myplaces.kml')]}
 
 def main():
     for name in scripts:
