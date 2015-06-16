@@ -73,7 +73,7 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
 fi
 
 # for work project
-export PATH="${PATH}:/home/chris/gitrepos/Alchemy-container-test-temp"
+export PYTHONPATH="${PYTHONPATH}:/home/chris/gitrepos/Alchemy-container-test-temp"
 
 export PATH="~/bin:~/stuff/bin:${PATH}:."
 
