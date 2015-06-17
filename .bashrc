@@ -71,6 +71,10 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/Audacity"
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/CSound6/bin"
 fi
+
+# for work project
+export PYTHONPATH="${PYTHONPATH}:/home/chris/gitrepos/Alchemy-container-test-temp"
+
 export PATH="~/bin:~/stuff/bin:${PATH}:."
 
 # stuff for work linux

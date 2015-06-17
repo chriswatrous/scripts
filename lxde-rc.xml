@@ -790,9 +790,11 @@
     <application name="*">
       <decor>yes</decor>
       <focus>yes</focus>
-      <maximized>true</maximized>
     </application>
     <application name="Navigator">
+      <maximized>true</maximized>
+    </application>
+    <application type="normal">
       <maximized>true</maximized>
     </application>
 <!--<application name="gmrun">
