@@ -107,6 +107,9 @@ nmap <C-Down> 5<C-E>
 nmap <C-Up> 5<C-Y>
 nmap <F3> :noh<Enter>
 
+" search for too long lines
+nmap <F7> /.\{80,}<Enter>
+
 " tab moving
 nmap <C-F11> :execute "tabmove" tabpagenr()-2<Enter>
 nmap <C-F12> :execute "tabmove" tabpagenr()<Enter>
