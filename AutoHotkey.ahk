@@ -210,7 +210,8 @@ RemoteLogin1()
     }
     if Work
     {
-        WorkLogin("t14hstbuild01")
+        ;WorkLogin("t14hstbuild01")
+        Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico /usr/bin/ssh chris@192.168.56.101
     }
 }
 
