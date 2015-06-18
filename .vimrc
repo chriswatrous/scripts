@@ -46,10 +46,10 @@ au BufRead * call SetFiletype()
 function! SetFiletypeOptions()
     if &filetype == 'python' || &filetype == 'pyrex' || &filetype == 'sh' || &filetype == 'make' || &filetype == 'gitconfig' || &filetype == 'conf'
        "commenting and uncommenting that uses '#'
-       nmap <F2> :norm I#<Enter>j
-       nmap <F4> :s/\(^\s*\)\@<=#/<Enter>:noh<Enter>j
-       vmap <F2> :norm I#<Enter>j
-       vmap <F4> :s/\(^\s*\)\@<=#/<Enter>:noh<Enter>j
+       nmap <F2> :norm I# <Enter>j
+       nmap <F4> :s/\(^\s*\)\@<=# /<Enter>:noh<Enter>j
+       vmap <F2> :norm I# <Enter>j
+       vmap <F4> :s/\(^\s*\)\@<=# /<Enter>:noh<Enter>j
     endif
     if &filetype == 'vim'
        "commenting and uncommenting that uses '"'
@@ -108,7 +108,7 @@ nmap <C-Up> 5<C-Y>
 nmap <F3> :noh<Enter>
 
 " search for too long lines
-nmap <F7> /.\{80,}<Enter>
+nmap <F7> /^.\{80}<Enter>
 
 " tab moving
 nmap <C-F11> :execute "tabmove" tabpagenr()-2<Enter>
