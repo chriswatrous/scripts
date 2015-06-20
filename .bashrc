@@ -74,6 +74,7 @@ fi
 
 # for work project
 export PYTHONPATH="${PYTHONPATH}:/home/chris/gitrepos/Alchemy-container-test-temp"
+export DONOTLOGOUT=true
 
 export PATH="~/bin:~/stuff/bin:${PATH}:."
 
