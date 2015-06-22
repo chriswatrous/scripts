@@ -124,6 +124,9 @@ nmap <F6> :checktime<Enter>
 " Delete extra spaces at the ends of lines.
 nmap <F5> :%s/ \+$//g<Enter>:noh<Enter>
 
+" open a file
+nmap <F8> :tabe .<Enter>
+
 " change text color when in insert mode
 inoremap <C-c> <ESC>
 au InsertEnter * hi LineNr ctermfg=cyan
