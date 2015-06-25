@@ -107,6 +107,9 @@ nmap <C-Down> 5<C-E>
 nmap <C-Up> 5<C-Y>
 nmap <F3> :noh<Enter>
 
+" search for too long lines
+nmap <F7> /^.\{80}<Enter>
+
 " tab moving
 nmap <C-F11> :execute "tabmove" tabpagenr()-2<Enter>
 nmap <C-F12> :execute "tabmove" tabpagenr()<Enter>
@@ -120,6 +123,9 @@ nmap <F6> :checktime<Enter>
 
 " Delete extra spaces at the ends of lines.
 nmap <F5> :%s/ \+$//g<Enter>:noh<Enter>
+
+" open a file
+nmap <F8> :tabe .<Enter>
 
 " change text color when in insert mode
 inoremap <C-c> <ESC>
