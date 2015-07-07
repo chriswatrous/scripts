@@ -3,26 +3,17 @@
 <Document>
 	<name>default_my_places</name>
 	<open>1</open>
-	<StyleMap id="msn_donut000">
+	<StyleMap id="msn_donut01">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_donut0000</styleUrl>
+			<styleUrl>#sn_donut</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_donut</styleUrl>
+			<styleUrl>#sh_donut010</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sh_donut00">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sn_donut02">
+	<Style id="sn_donut">
 		<IconStyle>
 			<color>ff7fffaa</color>
 			<scale>1.2</scale>
@@ -31,44 +22,17 @@
 			</Icon>
 		</IconStyle>
 	</Style>
-	<Style id="sh_donut">
-		<IconStyle>
-			<color>ff4141ff</color>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sh_donut01">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<StyleMap id="msn_donut">
+	<StyleMap id="m_ylw-pushpin00">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_donut01</styleUrl>
+			<styleUrl>#s_ylw-pushpin200</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_donut00</styleUrl>
+			<styleUrl>#s_ylw-pushpin_hl10</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sn_donut0">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sh_donut01000">
+	<Style id="sh_donut01001">
 		<IconStyle>
 			<color>ff7fffaa</color>
 			<scale>1.4</scale>
@@ -87,92 +51,29 @@
 			<styleUrl>#s_ylw-pushpin_hl0020</styleUrl>
 		</Pair>
 	</StyleMap>
-	<StyleMap id="msn_donut0">
+	<StyleMap id="msn_placemark_square">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_donut03</styleUrl>
+			<styleUrl>#sn_placemark_square</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_donut01</styleUrl>
+			<styleUrl>#sh_placemark_square_highlight</styleUrl>
 		</Pair>
 	</StyleMap>
-	<StyleMap id="msn_donut00">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_donut02</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_donut0</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sn_donut00">
+	<Style id="s_ylw-pushpin_hl10">
 		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<StyleMap id="msn_donut0100">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_donut0</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_donut0100</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sn_donut000">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin_hl0">
-		<IconStyle>
+			<color>00ffffff</color>
 			<scale>1.3</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
 			</Icon>
 			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
+		<LabelStyle>
+			<color>00ffffff</color>
+		</LabelStyle>
 	</Style>
-	<Style id="s_ylw-pushpin2">
-		<IconStyle>
-			<scale>1.1</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-	</Style>
-	<StyleMap id="msn_placemark_circle00">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_placemark_circle0001</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_placemark_circle_highlight201</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="msn_donut01">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_donut</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_donut010</styleUrl>
-		</Pair>
-	</StyleMap>
 	<Style id="sh_donut010">
 		<IconStyle>
 			<color>ff7fffaa</color>
@@ -180,63 +81,6 @@
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
 			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sh_placemark_square_highlight">
-		<IconStyle>
-			<color>ff0000ff</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_square_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<StyleMap id="m_ylw-pushpin8">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin2</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl0</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="sn_donut01">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sh_homegardenbusiness0">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
-			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-		</IconStyle>
-	</Style>
-	<Style id="sn_donut03">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sh_donut0">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.4</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
-			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
 		</IconStyle>
 	</Style>
 	<Style id="s_ylw-pushpin200">
@@ -252,12 +96,107 @@
 			<color>00ffffff</color>
 		</LabelStyle>
 	</Style>
-	<Style id="sh_donut0100">
+	<Style id="sh_placemark_circle_highlight201">
+		<IconStyle>
+			<color>ffffaa00</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sn_donut000">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_placemark_circle00">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_placemark_circle0001</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_placemark_circle_highlight201</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_donut0">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_homegardenbusiness0">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/homegardenbusiness.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_donut01000">
 		<IconStyle>
 			<color>ff7fffaa</color>
 			<scale>1.4</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_donut0100">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_donut0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_donut0100</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_placemark_circle_highlight">
+		<IconStyle>
+			<color>ffffff55</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_donut">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_donut01</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_donut00</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_donut03">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sh_placemark_square_highlight">
+		<IconStyle>
+			<color>ff0000ff</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_square_highlight.png</href>
 			</Icon>
 		</IconStyle>
 	</Style>
@@ -271,34 +210,12 @@
 			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
 		</IconStyle>
 	</Style>
-	<Style id="sn_donut">
-		<IconStyle>
-			<color>ff7fffaa</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="s_ylw-pushpin_hl10">
-		<IconStyle>
-			<color>00ffffff</color>
-			<scale>1.3</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-		</IconStyle>
-		<LabelStyle>
-			<color>00ffffff</color>
-		</LabelStyle>
-	</Style>
-	<Style id="s_ylw-pushpin_hl0020">
+	<Style id="s_ylw-pushpin010">
 		<IconStyle>
 			<color>ffffff55</color>
 			<scale>1.2</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
 			</Icon>
 		</IconStyle>
 	</Style>
@@ -322,44 +239,42 @@
 			<styleUrl>#sh_donut01001</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sh_placemark_circle_highlight201">
+	<Style id="s_ylw-pushpin_hl0020">
 		<IconStyle>
-			<color>ffffaa00</color>
+			<color>ffffff55</color>
 			<scale>1.2</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
 			</Icon>
 		</IconStyle>
 	</Style>
-	<Style id="s_ylw-pushpin010">
+	<Style id="s_ylw-pushpin_hl0">
 		<IconStyle>
-			<color>ffffff55</color>
-			<scale>1.2</scale>
+			<scale>1.3</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_donut00">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
 			</Icon>
 		</IconStyle>
 	</Style>
-	<StyleMap id="msn_donut010">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#sn_donut000</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#sh_donut01000</styleUrl>
-		</Pair>
-	</StyleMap>
-	<StyleMap id="m_ylw-pushpin00">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#s_ylw-pushpin200</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#s_ylw-pushpin_hl10</styleUrl>
-		</Pair>
-	</StyleMap>
+	<Style id="sn_donut01">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
 	<Style id="sn_placemark_circle0001">
 		<IconStyle>
 			<color>ffffaa00</color>
@@ -369,12 +284,48 @@
 			</Icon>
 		</IconStyle>
 	</Style>
-	<Style id="sn_donut0000">
+	<Style id="sn_donut0">
 		<IconStyle>
 			<color>ff7fffaa</color>
 			<scale>1.2</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sn_donut02">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sn_donut00">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sh_donut">
+		<IconStyle>
+			<color>ff4141ff</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sn_placemark_square">
+		<IconStyle>
+			<color>ff0000ff</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_square.png</href>
 			</Icon>
 		</IconStyle>
 	</Style>
@@ -387,16 +338,35 @@
 			</Icon>
 		</IconStyle>
 	</Style>
-	<StyleMap id="msn_placemark_square">
+	<StyleMap id="msn_donut000">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#sn_placemark_square</styleUrl>
+			<styleUrl>#sn_donut0000</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#sh_placemark_square_highlight</styleUrl>
+			<styleUrl>#sh_donut</styleUrl>
 		</Pair>
 	</StyleMap>
+	<StyleMap id="m_ylw-pushpin8">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin2</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_donut0000">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
 	<StyleMap id="msn_homegardenbusiness1">
 		<Pair>
 			<key>normal</key>
@@ -407,25 +377,7 @@
 			<styleUrl>#sh_homegardenbusiness0</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sn_placemark_square">
-		<IconStyle>
-			<color>ff0000ff</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_square.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sh_placemark_circle_highlight">
-		<IconStyle>
-			<color>ffffff55</color>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
-			</Icon>
-		</IconStyle>
-	</Style>
-	<Style id="sh_donut01001">
+	<Style id="sh_donut01">
 		<IconStyle>
 			<color>ff7fffaa</color>
 			<scale>1.4</scale>
@@ -434,6 +386,54 @@
 			</Icon>
 		</IconStyle>
 	</Style>
+	<StyleMap id="msn_donut0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_donut03</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_donut01</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_donut0100">
+		<IconStyle>
+			<color>ff7fffaa</color>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/donut.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin2">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_donut00">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_donut02</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_donut0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_donut010">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_donut000</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_donut01000</styleUrl>
+		</Pair>
+	</StyleMap>
 	<Folder>
 		<name>My Places</name>
 		<open>1</open>

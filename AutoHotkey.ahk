@@ -64,7 +64,7 @@ Capslock::LCtrl
 ;#\
 ;#Backspace
 ;#Enter
-;#Insert
+#Insert::ClipText()
 ;#Delete
 ;#Home
 ;#End
@@ -206,12 +206,14 @@ RemoteLogin1()
     global Home, Work
     if Home
     {
-        Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico /usr/bin/ssh chris@192.168.1.101
+        ;Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico /usr/bin/ssh chris@192.168.1.101
+        Run C:\cygwin64\bin\mintty.exe -w max /usr/bin/ssh chris@192.168.1.101
     }
     if Work
     {
         ;WorkLogin("t14hstbuild01")
-        Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico /usr/bin/ssh chris@192.168.56.101
+        ;Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico /usr/bin/ssh chris@192.168.56.101
+        Run C:\cygwin64\bin\mintty.exe -w max /usr/bin/ssh chris@192.168.56.101
     }
 }
 
@@ -251,4 +253,9 @@ StartOctave()
     Run C:\cygwin64\bin\mintty.exe --title mintty -w max -i /Cygwin-Terminal.ico -
     WinWait mintty
     SendInput octave -q{Enter}
+}
+
+ClipText()
+{
+    clipboard = %clipboard%
 }
