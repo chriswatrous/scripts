@@ -64,7 +64,7 @@ Capslock::LCtrl
 ;#\
 ;#Backspace
 ;#Enter
-;#Insert
+#Insert::ClipText()
 ;#Delete
 ;#Home
 ;#End
@@ -253,4 +253,9 @@ StartOctave()
     Run C:\cygwin64\bin\mintty.exe --title mintty -w max -i /Cygwin-Terminal.ico -
     WinWait mintty
     SendInput octave -q{Enter}
+}
+
+ClipText()
+{
+    clipboard = %clipboard%
 }
