@@ -108,6 +108,7 @@ alias vim='vim -p'
 alias tree='tree -C'
 alias hd='hexdump -C'
 alias pdb='python -m pdb'
+alias pep8-all='pep8 `find -name "*.py"`'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
