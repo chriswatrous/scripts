@@ -72,9 +72,12 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/CSound6/bin"
 fi
 
-# for work project
-export PYTHONPATH="${PYTHONPATH}:/home/chris/gitrepos/Alchemy-container-test-temp"
-export DONOTLOGOUT=true
+# Work stuff
+#export PYTHONPATH="${PYTHONPATH}:/home/chris/gitrepos/Alchemy-container-test-temp"
+#export DONOTLOGOUT=true
+#export TEST_PROD=true
+export PYTHONPATH="${PYTHONPATH}:/media/sf_VirtualBox_Share/gitrepos/CAMS-AT"
+export PYTHONPATH="${PYTHONPATH}:."
 
 export PATH="~/bin:~/stuff/bin:${PATH}:."
 
