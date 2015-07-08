@@ -229,7 +229,8 @@
     <!-- Keybindings for running applications -->
     <keybind key="W-A-a">
       <action name="Execute">
-        <command>terminator -x vim -c '/running applications' /home/chris/.config/openbox/lxde-rc.xml</command>
+        <!--<command>terminator -x vim -c '/running applications' /home/chris/.config/openbox/lxde-rc.xml</command>-->
+        <command>gvim -c '/running applications' /home/chris/.config/openbox/lxde-rc.xml</command>
       </action>
     </keybind>
     <keybind key="W-h">
@@ -293,6 +294,11 @@
         <command>libreoffice -writer</command>
       </action>
     </keybind>
+    <keybind key="W-n">
+      <action name="Execute">
+        <command>gedit</command>
+      </action>
+    </keybind>
     <keybind key="Print">
       <action name="Execute">
         <command>gnome-screenshot -i</command>
@@ -300,11 +306,12 @@
     </keybind>
     <keybind key="W-q">
       <action name="Execute">
-        <startupnotify>
+        <!--<startupnotify>
           <enabled>true</enabled>
           <name>PCManFM</name>
         </startupnotify>
-        <command>pcmanfm</command>
+        <command>pcmanfm</command>-->
+        <command>nautilus</command>
       </action>
     </keybind>
     <!--keybindings for LXPanel -->
