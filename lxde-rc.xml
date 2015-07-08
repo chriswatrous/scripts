@@ -801,6 +801,9 @@
     <application name="Navigator">
       <maximized>true</maximized>
     </application>
+    <application type="normal">
+      <maximized>true</maximized>
+    </application>
 <!--<application name="gmrun">
       <focus>yes</focus>
     </application>

@@ -6,7 +6,10 @@ from os.path import realpath, expanduser, exists, dirname, join, isdir
 chdir(dirname(realpath(__file__)))
 
 def winhome(path):
-    return join('/cygdrive/c/Users', environ['USER'], path)
+    if exists('/cygdrive'):
+        return join('/cygdrive/c', environ['HOMEPATH'], path)
+    else:
+        return ''
 
 scripts = {'.bashrc':               ['~/.bashrc'],
            '.pythonrc.py':          ['~/.pythonrc.py'],
@@ -16,7 +19,9 @@ scripts = {'.bashrc':               ['~/.bashrc'],
            'AutoHotkey.ahk':        [winhome('Documents/AutoHotkey.ahk')],
            'PlaceActiveWindow.ahk': [winhome('Documents/AutoHotkey/Lib/PlaceActiveWindow.ahk')],
            '.vimrc':                ['~/.vimrc', winhome('_vimrc')],
-           'lxde-rc.xml':           ['~/.config/openbox/lxde-rc.xml']}
+           '.gvimrc':               ['~/.gvimrc', winhome('_gvimrc')],
+           'lxde-rc.xml':           ['~/.config/openbox/lxde-rc.xml'],
+           'myplaces.kml':          [winhome('AppData/LocalLow/Google/GoogleEarth/myplaces.kml')]}
 
 def main():
     for name in scripts:

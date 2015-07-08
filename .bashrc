@@ -71,6 +71,14 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/Audacity"
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/CSound6/bin"
 fi
+
+# Work stuff
+#export PYTHONPATH="${PYTHONPATH}:/home/chris/gitrepos/Alchemy-container-test-temp"
+#export DONOTLOGOUT=true
+#export TEST_PROD=true
+export PYTHONPATH="${PYTHONPATH}:/media/sf_VirtualBox_Share/gitrepos/CAMS-AT"
+export PYTHONPATH="${PYTHONPATH}:."
+
 export PATH="~/bin:~/stuff/bin:${PATH}:."
 
 # stuff for work linux
@@ -93,13 +101,27 @@ alias egrep='egrep --color=auto'
 alias df='df -h'
 alias du='du -BM'
 alias o="octave -q"
-alias p=python
-alias p3="python3 -q"
+#alias p=python
+#alias p3="python3 -q"
 alias vi=vim
 alias vim='vim -p'
 alias tree='tree -C'
 alias hd='hexdump -C'
 alias pdb='python -m pdb'
+alias pep8-all='pep8 `find -name "*.py"`'
+
+# Use ipython if it exists.
+if which ipython &> /dev/null; then
+    alias p=ipython
+else
+    alias p=python
+fi
+if which ipython3 &> /dev/null; then
+    alias p3=ipython3
+else
+    alias p3=python3
+fi
+
 
 # aliases for git
 alias g='git status'
