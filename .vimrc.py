@@ -203,7 +203,10 @@ def move_by(rows, columns):
     row, col = vim.current.window.cursor
     row += rows
     col += columns
-    vim.current.window.cursor = (row, col)
+    try:
+        vim.current.window.cursor = (row, col)
+    except:
+        pass
 
 
 def inspect(obj):
