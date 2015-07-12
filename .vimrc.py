@@ -43,7 +43,7 @@ vim.command('set smarttab')
 vim.command('set softtabstop=4')
 vim.command('set tabstop=4')
 
-# Line number colors
+# Change line number colors in insert mode.
 color = 'darkgreen'
 vim.command('hi LineNr ctermfg=' + color)
 vim.command('au InsertEnter * hi LineNr ctermfg=black')
