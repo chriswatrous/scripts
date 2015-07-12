@@ -108,7 +108,6 @@ alias vim='vim -p'
 alias tree='tree -C'
 alias hd='hexdump -C'
 alias pdb='python -m pdb'
-alias pep8-all='pep8 `find -name "*.py"`'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
@@ -127,7 +126,8 @@ fi
 alias g='git status'
 alias gb='git branch'
 alias gd='git diff'
-alias gl='git log --decorate'
+alias gl='git log --decorate --graph'
+alias gc='git checkout'
 
 # aliases for changing directories
 alias cd='my_cd'
