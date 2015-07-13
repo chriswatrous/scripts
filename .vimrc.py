@@ -1,7 +1,7 @@
 # Vim startup script written in python.
 import vim
 import sys
-from subprocess import Popen, call
+from subprocess import Popen, call, PIPE
 from time import sleep
 
 # Set this option first.
@@ -70,6 +70,7 @@ def do_keybindings():
     nmap('<C-s>', ':w<Enter>')
 
     # Alt-keys
+    nmap('<Esc>a', ':py copy_comment_line()<Enter>')
     nmap('<Esc>o', 'O<Esc>')
     nmap('<Esc>R', ':source $MYVIMRC<Enter>')
 
@@ -197,6 +198,13 @@ def uncomment_line():
         text = text.replace('#', '', 1)
     vim.current.line = text
     move_by(1, 0)
+
+
+def copy_comment_line():
+    row, col = vim.current.window.cursor
+    vim.command('norm yypk')
+    comment_line()
+    vim.current.window.cursor = (row + 1, col)
 
 
 def move_by(rows, columns):
