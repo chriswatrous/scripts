@@ -56,44 +56,44 @@ vim.command('autocmd BufRead * :py set_file_type()')
 
 def do_keybindings():
     # Replace some built in vim commands with more useful commands.
-    nmap(')', '/[)}\]({\[]<Enter>:noh<Enter>')
-    nmap('(', '?[)}\]({\[]<Enter>:noh<Enter>')
+    nnoremap(')', '/[)}\]({\[]<Enter>:noh<Enter>')
+    nnoremap('(', '?[)}\]({\[]<Enter>:noh<Enter>')
 
     # Arrow Keys
-    nmap('<S-Right>', '/\<[a-zA-Z_]<Enter>:noh<Enter>')
-    nmap('<S-Left>', '?\<[a-zA-Z_]<Enter>:noh<Enter>')
-    nmap('<C-Down>', '5<C-E>')
-    nmap('<C-Up>', '5<C-Y>')
+    nnoremap('<S-Right>', '/\<[a-zA-Z_]<Enter>:noh<Enter>')
+    nnoremap('<S-Left>', '?\<[a-zA-Z_]<Enter>:noh<Enter>')
+    nnoremap('<C-Down>', '5<C-E>')
+    nnoremap('<C-Up>', '5<C-Y>')
 
     # Control-keys
-    imap('<C-s>', '<Esc>:w<Enter>')
-    nmap('<C-s>', ':w<Enter>')
+    inoremap('<C-s>', '<Esc>:w<Enter>')
+    nnoremap('<C-s>', ':w<Enter>')
 
     # Alt-keys
-    nmap('<Esc>a', ':py copy_comment_line()<Enter>')
-    nmap('<Esc>b', ':set relativenumber!<Enter>')
-    nmap('<Esc>o', 'O<Esc>')  # Insert blank line at cursor.
-    nmap('<Esc>r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
-    nmap('<Esc>R', ':source $MYVIMRC<Enter>')  # Reload .vimrc
+    nnoremap('<Esc>a', ':py copy_comment_line()<Enter>')
+    nnoremap('<Esc>b', ':set relativenumber!<Enter>')
+    nnoremap('<Esc>o', 'O<Esc>')  # Insert blank line at cursor.
+    nnoremap('<Esc>r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
+    nnoremap('<Esc>R', ':source $MYVIMRC<Enter>')  # Reload .vimrc
 
     # Function keys
-    nmap('<F2>', comment_line)
-    nmap('<F3>', ':noh<Enter>')
-    nmap('<F4>', uncomment_line)
-    nmap('<F5>', ':%s/ \+$//g<Enter>:noh<Enter>')
-    nmap('<F6>', ':checktime<Enter>')
-    nmap('<F7>', toggle_overlength_highlight)
-    nmap('<F8>', ':tabe .<Enter>')
-    nmap('<F9>', exec_current_block)
-    nmap('<F10>', exec_current_buffer)
-    nmap('<F11>', python_shell)
-    nmap('<F12>', ':!bash<Enter>')
+    nnoremap('<F2>', comment_line)
+    nnoremap('<F3>', ':noh<Enter>')
+    nnoremap('<F4>', uncomment_line)
+    nnoremap('<F5>', ':%s/ \+$//g<Enter>:noh<Enter>')
+    nnoremap('<F6>', ':checktime<Enter>')
+    nnoremap('<F7>', toggle_overlength_highlight)
+    nnoremap('<F8>', ':tabe .<Enter>')  # Open file in new tab, starting from current working directory.
+    nnoremap('<F9>', exec_current_block)
+    nnoremap('<F10>', exec_current_buffer)
+    nnoremap('<F11>', python_shell)
+    nnoremap('<F12>', ':!bash<Enter>')
 
     # Shift function keys
-    nmap('<Esc>[1;2P', ':rightb vnew<Enter>')  # <S-F1>
-    nmap('<Esc>[1;2Q', ':rightb new<Enter>')  # <S-F1>
-    nmap('<Esc>[1;2R', pep8_first_error)  # <S-F3>
-    nmap('<Esc>[19;2~', ':tabe ~/<Enter>')  # <S-F8>
+    nnoremap('<Esc>[1;2P', ':rightb vnew<Enter>')  # <S-F1> New file in vertical split to right.
+    nnoremap('<Esc>[1;2Q', ':rightb new<Enter>')  # <S-F2> New file in horizontal split below.
+    nnoremap('<Esc>[1;2R', pep8_first_error)  # <S-F3> Jump to first pep8 error.
+    nnoremap('<Esc>[19;2~', ':tabe ~/<Enter>')  # <S-F8> Open file in new tab, starting from home directory.
 
     # Make sure ^C toggles the line number colors the way escape would.
     inoremap('<C-c>', '<ESC>')
@@ -250,9 +250,8 @@ def map_func(map_cmd):
             cmd = ':py {}()<Enter>'.format(cmd.__name__)
         vim.command('{} {} {}'.format(map_cmd, key, cmd))
     return f
-nmap = map_func('nmap')
-vmap = map_func('vmap')
-imap = map_func('imap')
+nnoremap = map_func('nnoremap')
+vnoremap = map_func('vnoremap')
 inoremap = map_func('inoremap')
 
 
