@@ -71,8 +71,10 @@ def do_keybindings():
 
     # Alt-keys
     nmap('<Esc>a', ':py copy_comment_line()<Enter>')
-    nmap('<Esc>o', 'O<Esc>')
-    nmap('<Esc>R', ':source $MYVIMRC<Enter>')
+    nmap('<Esc>b', ':set relativenumber!<Enter>')
+    nmap('<Esc>o', 'O<Esc>')  # Insert blank line at cursor.
+    nmap('<Esc>r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
+    nmap('<Esc>R', ':source $MYVIMRC<Enter>')  # Reload .vimrc
 
     # Function keys
     nmap('<F2>', comment_line)
@@ -88,9 +90,10 @@ def do_keybindings():
     nmap('<F12>', ':!bash<Enter>')
 
     # Shift function keys
-    nmap('<ESC>[1;2P', ':rightb vnew<Enter>')  # <S-F1>
-    nmap('<ESC>[1;2Q', ':rightb new<Enter>')  # <S-F1>
-    nmap('<ESC>[1;2R', pep8_first_error)  # <S-F3>
+    nmap('<Esc>[1;2P', ':rightb vnew<Enter>')  # <S-F1>
+    nmap('<Esc>[1;2Q', ':rightb new<Enter>')  # <S-F1>
+    nmap('<Esc>[1;2R', pep8_first_error)  # <S-F3>
+    nmap('<Esc>[19;2~', ':tabe ~/<Enter>')  # <S-F8>
 
     # Make sure ^C toggles the line number colors the way escape would.
     inoremap('<C-c>', '<ESC>')
@@ -138,20 +141,18 @@ def exec_current_block():
 _ov_toggle = False
 
 
-def toggle_overlength_highlight(print_message=True):
+def toggle_overlength_highlight():
     global _ov_toggle
     if _ov_toggle:
         _ov_toggle = False
         vim.command('highlight clear OverLength')
-        if print_message:
-            print 'overlength highlight off'
+        print 'overlength highlight off'
     else:
         _ov_toggle = True
         vim.command('highlight OverLength '
                     'ctermbg=red ctermfg=white guibg=#592929')
         vim.command('match OverLength /\%80v.\+/')
-        if print_message:
-            print 'overlength highlight on'
+        print 'overlength highlight on'
 
 
 def python_shell():
@@ -169,8 +170,8 @@ def pep8_first_error():
         print 'no pep8 errors'
     else:
         error = out.split('\n')[0]
-        line = int(error.split(':')[1])
-        vim.current.window.cursor = line, 1
+        row, col = (int(x) for x in error.split(':')[1:3])
+        vim.current.window.cursor = row, col - 1
         print error
 
 
@@ -225,6 +226,22 @@ def inspect(obj):
             print '{}: {}'.format(attr, getattr(obj, attr))
         except:
             print '{}: could not get value'.format(attr)
+
+
+key_codes = {
+    '<S-F1>': '<Esc>[1;2P',
+    '<S-F2>': '<Esc>[1;2Q',
+    '<S-F3>': '<Esc>[1;2Q',
+    '<S-F4>': '<Esc>[1;2S',
+    '<S-F5>': '<Esc>[15;2~',
+    '<S-F6>': '<Esc>[17;2~',
+    '<S-F7>': '<Esc>[18;2~',
+    '<S-F8>': '<Esc>[19;2~',
+    '<S-F9>': '<Esc>[20~',
+    '<S-F10>': '<Esc>[21~',
+    '<S-F11>': '<Esc>[23~',
+    '<S-F12>': '<Esc>[24~',
+    }
 
 
 def map_func(map_cmd):
