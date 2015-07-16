@@ -206,13 +206,10 @@ RemoteLogin1()
     global Home, Work
     if Home
     {
-        ;Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico /usr/bin/ssh chris@192.168.1.101
-        Run C:\cygwin64\bin\mintty.exe -w max /usr/bin/ssh chris@192.168.1.101
+        Run C:\cygwin64\bin\mintty.exe -w max /usr/bin/ssh chris@192.168.1.100
     }
     if Work
     {
-        ;WorkLogin("t14hstbuild01")
-        ;Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico /usr/bin/ssh chris@192.168.56.101
         Run C:\cygwin64\bin\mintty.exe -w max /usr/bin/ssh chris@192.168.56.101
     }
 }
