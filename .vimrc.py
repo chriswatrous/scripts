@@ -44,12 +44,9 @@ vim.command('set softtabstop=4')
 vim.command('set tabstop=4')
 
 # Change line number colors in insert mode.
-color = 'darkgreen'
-vim.command('hi LineNr ctermfg=' + color)
-vim.command('au InsertEnter * hi LineNr ctermfg=black')
-vim.command('au InsertEnter * hi LineNr ctermbg=' + color)
-vim.command('au InsertLeave * hi LineNr ctermfg=' + color)
-vim.command('au InsertLeave * hi LineNr ctermbg=black')
+vim.command('au InsertEnter * hi LineNr ctermfg=0 ctermbg=darkgreen')
+vim.command('au InsertLeave * hi LineNr ctermfg=darkgreen ctermbg=8')
+vim.command('hi LineNr ctermfg=darkgreen ctermbg=8')
 
 vim.command('autocmd BufRead * :py set_file_type()')
 
