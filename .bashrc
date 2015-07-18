@@ -101,13 +101,12 @@ alias egrep='egrep --color=auto'
 alias df='df -h'
 alias du='du -BM'
 alias o="octave -q"
-#alias p=python
-#alias p3="python3 -q"
 alias vi=vim
 alias vim='vim -p'
 alias tree='tree -C'
 alias hd='hexdump -C'
 alias pdb='python -m pdb'
+alias wt='watch -n 1'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
