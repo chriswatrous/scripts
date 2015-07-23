@@ -33,6 +33,7 @@ def main():
         'gconf-editor',
         'geda',
         'ghc',
+        'htop',
         'jack',
         'octave',
         'python-pip',
@@ -43,6 +44,7 @@ def main():
         'tree',
         'unity-tweak-tool',
         'vim-gtk',
+        'mesa-utils',
         ]
     for package in apt_get_packages:
         call(['sudo', 'apt-get', 'install', '-y', package])
