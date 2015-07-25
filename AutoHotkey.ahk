@@ -204,7 +204,7 @@ RemoteLogin1()
     global Home, Work
     if Home
     {
-        Run C:\cygwin64\bin\mintty.exe -w max /usr/bin/ssh chris@192.168.1.101
+        Run C:\cygwin64\bin\mintty.exe -w max /usr/bin/ssh chris@192.168.1.50
     }
     if Work
     {
