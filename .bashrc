@@ -27,7 +27,7 @@ shopt -s checkwinsize
 
 shopt -s dotglob
 
-setterm -blank 0
+which setterm &> /dev/null && setterm -blank 0
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
