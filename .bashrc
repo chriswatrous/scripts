@@ -111,6 +111,7 @@ alias tree='tree -C'
 alias hd='hexdump -C'
 alias pdb='python -m pdb'
 alias wt='watch -n 1'
+alias du2='du -BM -d 1 | sort -n'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
