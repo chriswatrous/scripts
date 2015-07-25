@@ -30,8 +30,6 @@ Capslock::LCtrl
 #h::Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico -
 #+h::Run %A_MyDocuments%/../Program Files/Cygwin-setup-x86_64.exe
 #j::RemoteLogin1()
-#+j::RemoteLogin2()
-#^j::RemoteLogin3()
 #n::Run Notepad
 #o::StartOctave()
 #q::Run Explorer %A_MyDocuments%\stuff
@@ -206,33 +204,11 @@ RemoteLogin1()
     global Home, Work
     if Home
     {
-        Run C:\cygwin64\bin\mintty.exe -w max /usr/bin/ssh chris@192.168.1.100
+        Run C:\cygwin64\bin\mintty.exe -w max /usr/bin/ssh chris@192.168.1.101
     }
     if Work
     {
         Run C:\cygwin64\bin\mintty.exe -w max /usr/bin/ssh chris@192.168.56.101
-    }
-}
-
-RemoteLogin2()
-{
-    global Work
-    if Home
-    {
-        Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico /usr/bin/ssh chris@192.168.56.101
-    }
-    if Work
-    {
-        WorkLogin("t14hstbuild04")
-    }
-}
-
-RemoteLogin3()
-{
-    global Work
-    if Work
-    {
-        WorkLogin("peologin06")
     }
 }
 
