@@ -1,0 +1,28 @@
+Both:
+    curl
+    ghc
+    htop
+    octave
+    python-pip
+    python3
+    python3-pip
+    sshfs
+    tree
+
+Server:
+    samba
+    vim
+
+Workstation:
+    ardour
+    audacity
+    flashplugin-installer
+    gconf-editor
+    geda
+    gimp
+    jack
+    mesa-utils
+    terminator
+    unity-tweak-tool
+    vim-gtk
+    wine
