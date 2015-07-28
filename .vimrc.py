@@ -72,6 +72,8 @@ def do_keybindings():
     # Alt-keys
     nnoremap('<Esc>a', ':py copy_comment_line()<Enter>')
     nnoremap('<Esc>b', ':set relativenumber!<Enter>')
+    nnoremap('<Esc>c', replace_string_contents)
+    nnoremap('<Esc>d', ':norm oimport ipdb<Enter>:norm oipdb.set_trace()<Enter>')
     nnoremap('<Esc>o', 'O<Esc>')  # Insert blank line at cursor.
     nnoremap('<Esc>r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
     nnoremap('<Esc>R', ':source $MYVIMRC<Enter>')  # Reload .vimrc
@@ -97,6 +99,44 @@ def do_keybindings():
 
     # Make sure ^C toggles the line number colors the way escape would.
     inoremap('<C-c>', '<ESC>')
+
+
+def replace_string_contents():
+    """
+    Delete the contents of a string literal and go into insert mode.
+
+    Does not work for string literals spanning more than one line or
+    for Python tripple quoted string literals.
+    """
+    in_string = []
+    current_quote = None
+    last_char = ''
+    for char in vim.current.line:
+        if current_quote == None:
+            if char in ['"', "'"]:
+                current_quote = char
+            in_string.append(False)
+        else:
+            if char == current_quote and last_char != '\\':
+                current_quote = None
+                in_string.append(False)
+            else:
+                in_string.append(True)
+        last_char = char
+    _, pos = vim.current.window.cursor
+    if not in_string[pos]:
+        print 'not currently in a string literal'
+    else:
+        pos1 = pos
+        while in_string[pos1 - 1]:
+            pos1 -= 1
+        pos2 = pos
+        while in_string[pos2 + 1]:
+            pos2 += 1
+        print vim.current.line[pos1 : pos2 + 1]
+
+
+# 'asdfsd' "weqrwqerqwe" 'as"dfsd' "weqr'wqerqwe" 'as\'dfsd' "weqr\"wqerqwe"
 
 
 def set_file_type():
