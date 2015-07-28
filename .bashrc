@@ -25,6 +25,10 @@ shopt -s histappend
 # Update window size after commands
 shopt -s checkwinsize
 
+shopt -s dotglob
+
+which setterm &> /dev/null && setterm -blank 0
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -101,13 +105,13 @@ alias egrep='egrep --color=auto'
 alias df='df -h'
 alias du='du -BM'
 alias o="octave -q"
-#alias p=python
-#alias p3="python3 -q"
 alias vi=vim
 alias vim='vim -p'
 alias tree='tree -C'
 alias hd='hexdump -C'
 alias pdb='python -m pdb'
+alias wt='watch -n 1'
+alias du2='du -BM -d 1 | sort -n'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
