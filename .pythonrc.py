@@ -1,8 +1,14 @@
 if 'pythonrc_guard' not in globals():
-    import os, sys, re, pdb
+    import base64
+    import json
+    import os
+    import pdb
+    import re
+    import sys
     from subprocess import *
     from datetime import *
     from pprint import *
+
 
     def pdir(obj):
         pprint(dir(obj))
