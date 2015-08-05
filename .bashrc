@@ -77,9 +77,11 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
 fi
 
 # Work stuff
-export PYTHONPATH="${PYTHONPATH}:/media/sf_VirtualBox_Share/gitrepos/CAMS-AT"
-export PYTHONPATH="${PYTHONPATH}:/media/sf_VirtualBox_Share/gitrepos/cams-api"
-export PYTHONPATH="${PYTHONPATH}:."
+# export PYTHONPATH="${PYTHONPATH}:/media/sf_VirtualBox_Share/gitrepos/CAMS-AT"
+# export PYTHONPATH="${PYTHONPATH}:/media/sf_VirtualBox_Share/gitrepos/cams-api"
+# export PYTHONPATH='/media/sf_VirtualBox_Share/gitrepos/cams-at2/CAMS-AT'
+# export PYTHONPATH="${PYTHONPATH}:."
+export PYTHONPATH='.:..:../..:../../..:../../../..:../../../../..:../../../../../..:../../../../../../..'
 
 export PATH="~/bin:~/stuff/bin:${PATH}:."
 
