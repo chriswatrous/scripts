@@ -13,7 +13,6 @@ echo -ne '\e]4;12;#85BDFF\a'  # bright blue
 echo -ne '\e]4;2;#008000\a'   # green
 echo -ne '\e]4;10;#00FF00\a'  # bright green
 
-
 #85BDFFp
 
 # History options
@@ -102,7 +101,7 @@ alias l='ls -alh'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias df='df -h'
+alias df='df -Th'
 alias du='du -BM'
 alias o="octave -q"
 alias vi=vim
