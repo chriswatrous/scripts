@@ -66,14 +66,16 @@ def do_keybindings():
     inoremap('<C-s>', '<Esc>:w<Enter>')
     nnoremap('<C-s>', ':w<Enter>')
 
-    # Alt-keys
-    nnoremap('<Esc>a', ':py copy_comment_line()<Enter>')
-    nnoremap('<Esc>b', ':set relativenumber!<Enter>')
-    nnoremap('<Esc>c', replace_string_contents)
-    nnoremap('<Esc>d', ':norm oimport ipdb<Enter>:norm oipdb.set_trace()<Enter>')
-    nnoremap('<Esc>o', 'O<Esc>')  # Insert blank line at cursor.
-    nnoremap('<Esc>r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
-    nnoremap('<Esc>R', ':source $MYVIMRC<Enter>')  # Reload .vimrc
+    # Don't use bind to alt-keys since alt+key sends ESC, key.
+
+    # backslash bindings
+    nnoremap('\\a', ':py copy_comment_line()<Enter>')
+    nnoremap('\\b', ':set relativenumber!<Enter>')
+    nnoremap('\\c', replace_string_contents)
+    nnoremap('\\d', ':norm oimport ipdb<Enter>:norm oipdb.set_trace()<Enter>')
+    nnoremap('\\o', 'O<Esc>')  # Insert blank line at cursor.
+    nnoremap('\\r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
+    nnoremap('\\R', ':source $MYVIMRC<Enter>')  # Reload .vimrc
 
     # Function keys
     nnoremap('<F2>', comment_line)
