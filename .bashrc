@@ -75,26 +75,8 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/CSound6/bin"
 fi
 
-# Work stuff
-# export PYTHONPATH="${PYTHONPATH}:/media/sf_VirtualBox_Share/gitrepos/CAMS-AT"
-# export PYTHONPATH="${PYTHONPATH}:/media/sf_VirtualBox_Share/gitrepos/cams-api"
-# export PYTHONPATH='/media/sf_VirtualBox_Share/gitrepos/cams-at2/CAMS-AT'
-# export PYTHONPATH="${PYTHONPATH}:."
 export PYTHONPATH='.:..:../..:../../..:../../../..:../../../../..:../../../../../..:../../../../../../..'
-
 export PATH="~/bin:~/stuff/bin:${PATH}:."
-
-# stuff for work linux
-if [[ -e /home/cwatrous ]]; then
-    # make git push work on work linux
-    unset SSH_ASKPASS
-
-    # fix curl
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/lib64
-
-    export JAVA_HOME=/build/applications/jdk/1.8.0_05fullcrypto/linux/x86_64/
-fi
-
 
 alias ls='ls -F --color=auto'
 alias l='ls -alh'
@@ -124,10 +106,9 @@ else
     alias p3=python3
 fi
 
-
 # aliases for git
 alias g='git status'
-alias gb='git branch'
+alias gb='git branch -vv'
 alias gd='git diff'
 alias gl='git log --decorate --graph'
 alias gc='git checkout'
