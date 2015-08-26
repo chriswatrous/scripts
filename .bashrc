@@ -108,7 +108,7 @@ fi
 
 # aliases for git
 alias g='git status'
-alias gb='git branch -vv'
+alias gb='git branch'
 alias gd='git diff'
 alias gl='git log --decorate --graph'
 alias gc='git checkout'
