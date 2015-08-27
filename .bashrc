@@ -33,7 +33,7 @@ shopt -s dotglob
 
 # Set color prompt. There may be a rare terminal where this doesn't work. I'll cross that bridge when I come to it.
 # See http://ascii-table.com/ansi-escape-sequences.php
-PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[0m\]\[\e[33m\]\[\e[0m\]] '
+PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[01;31m\]$(git-br)\e[0m\]] '
 
 # Non-color prompt
 #PS1='[\u@\h ${PWD}] '
@@ -93,6 +93,7 @@ alias hd='hexdump -C'
 alias pdb='python -m pdb'
 alias wt='watch -n 1'
 alias du2='du -BM -d 1 | sort -n'
+alias ag='ag --color-match "1;31"'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
@@ -168,6 +169,18 @@ export PROMPT_COMMAND='echo $PWD > ~/.last_dir'
 if [ -e ~/.last_dir ]; then
     cd "`cat ~/.last_dir`"
 fi
+
+
+git-br()
+{
+    set -f
+    var=`git branch 2> /dev/null | grep *`
+    var=${var:2}
+    if [ ! -z "$var" ]; then
+        var=" $var"
+    fi
+    echo "$var"
+}
 
 ################## old color prompt stuff ########################################
 # uncomment for a colored prompt, if the terminal has the capability; turned
