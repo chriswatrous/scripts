@@ -33,7 +33,7 @@ shopt -s dotglob
 
 # Set color prompt. There may be a rare terminal where this doesn't work. I'll cross that bridge when I come to it.
 # See http://ascii-table.com/ansi-escape-sequences.php
-PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[01;31m\]$(git-br)\e[0m\]] '
+PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[01;31m\]$(git-br)\[\e[0m\]] '
 
 # Non-color prompt
 #PS1='[\u@\h ${PWD}] '
