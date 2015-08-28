@@ -112,6 +112,7 @@ alias g='git status'
 alias gb='git branch'
 alias gd='git diff'
 alias gl='git log --decorate --graph'
+alias gla='git log --decorate --graph --all --oneline'
 alias gc='git checkout'
 
 # aliases for changing directories
