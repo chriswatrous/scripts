@@ -172,18 +172,46 @@ if [ -e ~/.last_dir ]; then
 fi
 
 
+# git-br()
+# {
+#   set -f
+#   var=`git branch 2> /dev/null | grep *`
+#   var=${var:2}
+#   if [ ! -z "$var" ]; then
+#       var=" $var"
+#   fi
+#   echo "$var"
+# }
+
+
+# Maybe faster version. We'll see.
 git-br()
 {
-    set -f
-    var=`git branch 2> /dev/null | grep *`
-    var=${var:2}
-    if [ ! -z "$var" ]; then
-        var=" $var"
+    # Find the .git directory.
+    while true; do
+        if [ -e .git ]; then
+            break
+        fi
+        last_pwd="$PWD"
+        cd ..
+        if [ "$last_pwd" = "$PWD" ]; then
+            break
+        fi
+    done
+
+    # Read .git/HEAD
+    if [ -e .git ]; then
+        head=`cat .git/HEAD`
+        if [[ "$head" == "ref: refs/heads/master"* ]]; then
+            echo " "${head:16}
+        else
+            echo " "$head
+        fi
     fi
-    echo "$var"
 }
 
-################## old color prompt stuff ########################################
+
+################## old color prompt stuff #####################################
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
