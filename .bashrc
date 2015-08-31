@@ -207,7 +207,7 @@ git-br()
     # Read .git/HEAD
     if [ -e .git ]; then
         head=`cat .git/HEAD`
-        if [[ "$head" == "ref: refs/heads/master"* ]]; then
+        if [[ "$head" == "ref: refs/heads/"* ]]; then
             echo " "${head:16}
         else
             echo " "$head
