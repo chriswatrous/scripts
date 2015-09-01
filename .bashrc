@@ -119,6 +119,7 @@ alias gd='git diff'
 alias gl='git log --decorate --graph'
 alias gla='git log --decorate --graph --all --oneline'
 alias gc='git checkout'
+alias ga='git add -A :/'
 
 # aliases for changing directories
 alias cd='my_cd'
