@@ -199,7 +199,7 @@ git-br()
             break
         fi
         last_pwd="$PWD"
-        cd ..
+        \cd ..  # Don't use the cd alias for my_cd.
         if [ "$last_pwd" = "$PWD" ]; then
             break
         fi
