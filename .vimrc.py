@@ -72,7 +72,7 @@ def do_keybindings():
     nnoremap('\\a', ':py copy_comment_line()<Enter>')
     nnoremap('\\b', ':set relativenumber!<Enter>')
     nnoremap('\\c', replace_string_contents)
-    nnoremap('\\d', ':norm oimport ipdb<Enter>:norm oipdb.set_trace()<Enter>')
+    nnoremap('\\d', 'Oimport ipdb<Enter>ipdb.set_trace()<Esc>^')
     nnoremap('\\o', 'O<Esc>')  # Insert blank line at cursor.
     nnoremap('\\r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
     nnoremap('\\R', ':source $MYVIMRC<Enter>')  # Reload .vimrc
