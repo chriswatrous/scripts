@@ -2,7 +2,6 @@
 import vim
 import sys
 from subprocess import Popen, call, PIPE
-from time import sleep
 
 # Set this option first.
 vim.command('set nocompatible')
@@ -53,12 +52,12 @@ vim.command('autocmd BufRead * :py set_file_type()')
 
 def do_keybindings():
     # Replace some built in vim commands with more useful commands.
-    nnoremap(')', '/[)}\]({\[]<Enter>:noh<Enter>')
-    nnoremap('(', '?[)}\]({\[]<Enter>:noh<Enter>')
+    nnoremap(')', r'/[)}\]({\[]<Enter>:noh<Enter>')
+    nnoremap('(', r'?[)}\]({\[]<Enter>:noh<Enter>')
 
     # Arrow Keys
-    nnoremap('<S-Right>', '/\<[a-zA-Z_]<Enter>:noh<Enter>')
-    nnoremap('<S-Left>', '?\<[a-zA-Z_]<Enter>:noh<Enter>')
+    nnoremap('<S-Right>', r'/\<[a-zA-Z_]<Enter>:noh<Enter>')
+    nnoremap('<S-Left>', r'?\<[a-zA-Z_]<Enter>:noh<Enter>')
     nnoremap('<C-Down>', '5<C-E>')
     nnoremap('<C-Up>', '5<C-Y>')
 
@@ -72,7 +71,7 @@ def do_keybindings():
     nnoremap('\\a', ':py copy_comment_line()<Enter>')
     nnoremap('\\b', ':set relativenumber!<Enter>')
     nnoremap('\\c', replace_string_contents)
-    nnoremap('\\d', 'Oimport ipdb<Enter>ipdb.set_trace()<Esc>^')
+    nnoremap('\\d', insert_set_trace)
     nnoremap('\\o', 'O<Esc>')  # Insert blank line at cursor.
     nnoremap('\\r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
     nnoremap('\\R', ':source $MYVIMRC<Enter>')  # Reload .vimrc
@@ -81,7 +80,7 @@ def do_keybindings():
     nnoremap('<F2>', comment_line)
     nnoremap('<F3>', ':noh<Enter>')
     nnoremap('<F4>', uncomment_line)
-    nnoremap('<F5>', ':%s/ \+$//g<Enter>:noh<Enter>')
+    nnoremap('<F5>', r':%s/ \+$//g<Enter>:noh<Enter>')
     nnoremap('<F6>', ':checktime<Enter>')
     nnoremap('<F7>', toggle_overlength_highlight)
     nnoremap('<F8>', ':tabe .<Enter>')  # Open file in new tab, starting from current working directory.
@@ -190,7 +189,7 @@ def toggle_overlength_highlight():
         _ov_toggle = True
         vim.command('highlight OverLength '
                     'ctermbg=red ctermfg=white guibg=#592929')
-        vim.command('match OverLength /\%80v.\+/')
+        vim.command(r'match OverLength /\%80v.\+/')
         print 'overlength highlight on'
 
 
@@ -212,6 +211,28 @@ def pep8_first_error():
         row, col = (int(x) for x in error.split(':')[1:3])
         vim.current.window.cursor = row, col - 1
         print error
+
+
+def insert_set_trace():
+    # Do we have ipdb?
+    if call('which ipdb > /dev/null 2>&1', shell=True) == 0:
+        lib = 'ipdb'
+    else:
+        lib = 'pdb'
+
+    # Find the indent amount.
+    current_line = vim.current.window.cursor[0] - 1
+    indent = 0
+    for line in vim.current.buffer[current_line:]:
+        if line.strip() != '':
+            while line[indent] == ' ':
+                indent += 1
+            break
+
+    # Insert the lines.
+    vim.current.range[0:0] = [
+        ' ' * indent + 'import ' + lib,
+        ' ' * indent + lib + '.set_trace()']
 
 
 def comment_line():
