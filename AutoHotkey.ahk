@@ -41,7 +41,8 @@ Capslock::LCtrl
 #z::Run Firefox
 #]::WinMinimize A
 
-+Space::_
+;I don't use this shortcut much and it can get anoying.
+;+Space::_
 
 
 
