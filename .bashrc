@@ -81,24 +81,25 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
 fi
 
 export PYTHONPATH='.:..:../..:../../..:../../../..:../../../../..:../../../../../..:../../../../../../..'
-export PATH="~/bin:~/stuff/bin:${PATH}:."
+export PATH="~/bin:~/stuff/bin:$PATH"
 
-alias ls='ls -F --color=auto'
-alias l='ls -alh'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias ag='ag --color-match "1;31"'
 alias df='df -Th'
+alias du2='du -BM -d 1 | sort -n'
 alias du='du -BM'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias hd='hexdump -C'
+alias install='sudo apt-get install -y'
+alias l='ls -alh'
+alias ls='ls -F --color=auto'
 alias o="octave -q"
+alias pdb='python -m pdb'
+alias tree='tree -C'
 alias vi=vim
 alias vim='vim -p'
-alias tree='tree -C'
-alias hd='hexdump -C'
-alias pdb='python -m pdb'
 alias wt='watch -n 1'
-alias du2='du -BM -d 1 | sort -n'
-alias ag='ag --color-match "1;31"'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
