@@ -81,7 +81,7 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
 fi
 
 export PYTHONPATH='.:..:../..:../../..:../../../..:../../../../..:../../../../../..:../../../../../../..'
-export PATH="~/bin:~/stuff/bin:$PATH"
+export PATH="~/bin:~/stuff/bin:$PATH:."
 
 alias ag='ag --color-match "1;31"'
 alias df='df -Th'

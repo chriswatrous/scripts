@@ -58,8 +58,15 @@ def do_keybindings():
     # Arrow Keys
     nnoremap('<S-Right>', r'/\<[a-zA-Z_]<Enter>:noh<Enter>')
     nnoremap('<S-Left>', r'?\<[a-zA-Z_]<Enter>:noh<Enter>')
-    nnoremap('<C-Down>', '5<C-E>')
-    nnoremap('<C-Up>', '5<C-Y>')
+
+    # Fast up down with shift arrow keys
+    jump_amount = 5
+    nnoremap('<S-Down>', '{}<Down>'.format(jump_amount))
+    nnoremap('<S-Up>', '{}<Up>'.format(jump_amount))
+    vnoremap('<S-Down>', '{}<Down>'.format(jump_amount))
+    vnoremap('<S-Up>', '{}<Up>'.format(jump_amount))
+    inoremap('<S-Down>', '<Down>' * jump_amount)
+    inoremap('<S-Up>', '<Up>' * jump_amount)
 
     # Control-keys
     inoremap('<C-s>', '<Esc>:w<Enter>')
