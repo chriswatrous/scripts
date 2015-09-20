@@ -81,6 +81,7 @@ def do_keybindings():
     nnoremap('\\d', insert_set_trace)
     nnoremap('\\o', 'O<Esc>')  # Insert blank line at cursor.
     nnoremap('\\r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
+    nnoremap('\\s', ':set spell!<Enter>')
     nnoremap('\\R', ':source $MYVIMRC<Enter>')  # Reload .vimrc
 
     # Function keys
