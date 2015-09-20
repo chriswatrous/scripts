@@ -49,6 +49,9 @@ vim.command('hi LineNr ctermfg=darkgreen ctermbg=8')
 
 vim.command('autocmd BufRead * :py set_file_type()')
 
+# Set spellcheck highlight color.
+vim.command('hi clear SpellBad')
+vim.command('hi SpellBad ctermfg=white ctermbg=darkgreen')
 
 def do_keybindings():
     # Replace some built in vim commands with more useful commands.
@@ -80,6 +83,7 @@ def do_keybindings():
     nnoremap('\\c', replace_string_contents)
     nnoremap('\\d', insert_set_trace)
     nnoremap('\\o', 'O<Esc>')  # Insert blank line at cursor.
+    nnoremap('\\p', ':set paste!<Enter>')
     nnoremap('\\r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
     nnoremap('\\s', ':set spell!<Enter>')
     nnoremap('\\R', ':source $MYVIMRC<Enter>')  # Reload .vimrc
