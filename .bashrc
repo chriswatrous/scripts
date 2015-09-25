@@ -83,6 +83,8 @@ fi
 export PYTHONPATH='.:..:../..:../../..:../../../..:../../../../..:../../../../../..:../../../../../../..'
 export PATH="~/bin:~/stuff/bin:$PATH:."
 
+export REQUEST_STATS_FILE=~/request_stats
+
 alias ag='ag --color-match "1;31"'
 alias df='df -Th'
 alias du2='du -BM -d 1 | sort -n'

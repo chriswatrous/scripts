@@ -5,6 +5,7 @@ if 'pythonrc_guard' not in globals():
     import pdb
     import re
     import sys
+    import requests
     from subprocess import *
     from datetime import *
     from pprint import *
