@@ -1,6 +1,7 @@
 # Vim startup script written in python.
 import vim
 import sys
+import re
 from subprocess import Popen, call, PIPE
 
 # Set this option first.
@@ -53,6 +54,7 @@ vim.command('autocmd BufRead * :py set_file_type()')
 vim.command('hi clear SpellBad')
 vim.command('hi SpellBad ctermfg=white ctermbg=darkgreen')
 
+
 def do_keybindings():
     # Replace some built in vim commands with more useful commands.
     nnoremap(')', r'/[)}\]({\[]<Enter>:noh<Enter>')
@@ -95,7 +97,7 @@ def do_keybindings():
     nnoremap('<F5>', r':%s/ \+$//g<Enter>:noh<Enter>')
     nnoremap('<F6>', ':checktime<Enter>')
     nnoremap('<F7>', toggle_overlength_highlight)
-    nnoremap('<F8>', ':tabe .<Enter>')  # Open file in new tab, starting from current working directory.
+    nnoremap('<F8>', ':tabe .<Enter>')
     nnoremap('<F9>', exec_current_block)
     nnoremap('<F10>', exec_current_buffer)
     nnoremap('<F11>', python_shell)
@@ -249,12 +251,10 @@ def insert_set_trace():
 
 def comment_line():
     text = vim.current.line
-    if text == '':
-        text = '#'
-    elif text.startswith('  '):
-        text = '# ' + text[2:]
-    else:
-        text = '# ' + text
+    if text != '':
+        match = re.match(r'([\s\t]*)(.*)', text)
+        groups = match.groups()
+        text = groups[0] + '# ' + groups[1]
     vim.current.line = text
     move_by(1, 0)
 
@@ -263,12 +263,14 @@ def uncomment_line():
     text = vim.current.line
     if text == '#':
         text = ''
-    elif text.startswith('#'):
-        text = ' ' + text[1:]
-        if len(text) - len(text.lstrip()) < 4:
-            text = text.lstrip()
-    elif text.lstrip().startswith('#'):
-        text = text.replace('#', '', 1)
+    else:
+        match1 = re.match(r'#   (    )*.*', text)
+        match2 = re.match(r'( *)# (.*)', text)
+        if match1:
+            text = ' ' + text[1:]
+        elif match2:
+            groups = match2.groups()
+            text = groups[0] + groups[1]
     vim.current.line = text
     move_by(1, 0)
 
