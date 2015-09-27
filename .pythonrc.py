@@ -1,5 +1,11 @@
 if 'pythonrc_guard' not in globals():
-    import os, sys, re, pdb
+    import base64
+    import json
+    import os
+    import pdb
+    import re
+    import sys
+    import requests
     from subprocess import *
     from datetime import *
     from pprint import *
@@ -19,6 +25,9 @@ if 'pythonrc_guard' not in globals():
             if x != '__main__' and type(sys.modules[x]) == type(sys):
                 reload(sys.modules[x])
 
+    def b64j(_in):
+        pprint(json.loads(base64.b64decode(_in)))
+
     # enable syntax completion
     def f():
         try:
@@ -26,7 +35,8 @@ if 'pythonrc_guard' not in globals():
         except ImportError:
             print('Module readline not available.')
         else:
-            import atexit, rlcompleter
+            import atexit
+            import rlcompleter
 
             readline.parse_and_bind('tab: complete')
             path = os.path.expanduser('~/.pyhistory')
@@ -48,4 +58,3 @@ if 'pythonrc_guard' not in globals():
         with open('.pythonrc.py') as f:
             exec(f.read())
         del pythonrc_guard
-

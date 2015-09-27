@@ -1,4 +1,4 @@
 set guifont=Liberation_Mono:h10:cANSI
 colorscheme torte
-autocmd GUIEnter * simalt ~
+"autocmd GUIEnter * simalt ~
 set guioptions=eg

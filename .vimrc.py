@@ -1,8 +1,8 @@
 # Vim startup script written in python.
 import vim
 import sys
+import re
 from subprocess import Popen, call, PIPE
-from time import sleep
 
 # Set this option first.
 vim.command('set nocompatible')
@@ -50,37 +50,54 @@ vim.command('hi LineNr ctermfg=darkgreen ctermbg=8')
 
 vim.command('autocmd BufRead * :py set_file_type()')
 
+# Set spellcheck highlight color.
+vim.command('hi clear SpellBad')
+vim.command('hi SpellBad ctermfg=white ctermbg=darkgreen')
+
 
 def do_keybindings():
     # Replace some built in vim commands with more useful commands.
-    nnoremap(')', '/[)}\]({\[]<Enter>:noh<Enter>')
-    nnoremap('(', '?[)}\]({\[]<Enter>:noh<Enter>')
+    nnoremap(')', r'/[)}\]({\[]<Enter>:noh<Enter>')
+    nnoremap('(', r'?[)}\]({\[]<Enter>:noh<Enter>')
 
     # Arrow Keys
-    nnoremap('<S-Right>', '/\<[a-zA-Z_]<Enter>:noh<Enter>')
-    nnoremap('<S-Left>', '?\<[a-zA-Z_]<Enter>:noh<Enter>')
-    nnoremap('<C-Down>', '5<C-E>')
-    nnoremap('<C-Up>', '5<C-Y>')
+    nnoremap('<S-Right>', r'/\<[a-zA-Z_]<Enter>:noh<Enter>')
+    nnoremap('<S-Left>', r'?\<[a-zA-Z_]<Enter>:noh<Enter>')
+
+    # Fast up down with shift arrow keys
+    jump_amount = 5
+    nnoremap('<S-Down>', '{}<Down>'.format(jump_amount))
+    nnoremap('<S-Up>', '{}<Up>'.format(jump_amount))
+    vnoremap('<S-Down>', '{}<Down>'.format(jump_amount))
+    vnoremap('<S-Up>', '{}<Up>'.format(jump_amount))
+    inoremap('<S-Down>', '<Down>' * jump_amount)
+    inoremap('<S-Up>', '<Up>' * jump_amount)
 
     # Control-keys
     inoremap('<C-s>', '<Esc>:w<Enter>')
     nnoremap('<C-s>', ':w<Enter>')
 
-    # Alt-keys
-    nnoremap('<Esc>a', ':py copy_comment_line()<Enter>')
-    nnoremap('<Esc>b', ':set relativenumber!<Enter>')
-    nnoremap('<Esc>o', 'O<Esc>')  # Insert blank line at cursor.
-    nnoremap('<Esc>r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
-    nnoremap('<Esc>R', ':source $MYVIMRC<Enter>')  # Reload .vimrc
+    # Don't use bind to alt-keys since alt+key sends ESC, key.
+
+    # backslash bindings
+    nnoremap('\\a', ':py copy_comment_line()<Enter>')
+    nnoremap('\\b', ':set relativenumber!<Enter>')
+    nnoremap('\\c', replace_string_contents)
+    nnoremap('\\d', insert_set_trace)
+    nnoremap('\\o', 'O<Esc>')  # Insert blank line at cursor.
+    nnoremap('\\p', ':set paste!<Enter>')
+    nnoremap('\\r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
+    nnoremap('\\s', ':set spell!<Enter>')
+    nnoremap('\\R', ':source $MYVIMRC<Enter>')  # Reload .vimrc
 
     # Function keys
     nnoremap('<F2>', comment_line)
     nnoremap('<F3>', ':noh<Enter>')
     nnoremap('<F4>', uncomment_line)
-    nnoremap('<F5>', ':%s/ \+$//g<Enter>:noh<Enter>')
+    nnoremap('<F5>', r':%s/ \+$//g<Enter>:noh<Enter>')
     nnoremap('<F6>', ':checktime<Enter>')
     nnoremap('<F7>', toggle_overlength_highlight)
-    nnoremap('<F8>', ':tabe .<Enter>')  # Open file in new tab, starting from current working directory.
+    nnoremap('<F8>', ':tabe .<Enter>')
     nnoremap('<F9>', exec_current_block)
     nnoremap('<F10>', exec_current_buffer)
     nnoremap('<F11>', python_shell)
@@ -94,6 +111,44 @@ def do_keybindings():
 
     # Make sure ^C toggles the line number colors the way escape would.
     inoremap('<C-c>', '<ESC>')
+
+
+def replace_string_contents():
+    """
+    Delete the contents of a string literal and go into insert mode.
+
+    Does not work for string literals spanning more than one line or
+    for Python tripple quoted string literals.
+    """
+    in_string = []
+    current_quote = None
+    last_char = ''
+    for char in vim.current.line:
+        if current_quote == None:
+            if char in ['"', "'"]:
+                current_quote = char
+            in_string.append(False)
+        else:
+            if char == current_quote and last_char != '\\':
+                current_quote = None
+                in_string.append(False)
+            else:
+                in_string.append(True)
+        last_char = char
+    _, pos = vim.current.window.cursor
+    if not in_string[pos]:
+        print 'not currently in a string literal'
+    else:
+        pos1 = pos
+        while in_string[pos1 - 1]:
+            pos1 -= 1
+        pos2 = pos
+        while in_string[pos2 + 1]:
+            pos2 += 1
+        print vim.current.line[pos1 : pos2 + 1]
+
+
+# 'asdfsd' "weqrwqerqwe" 'as"dfsd' "weqr'wqerqwe" 'as\'dfsd' "weqr\"wqerqwe"
 
 
 def set_file_type():
@@ -148,7 +203,7 @@ def toggle_overlength_highlight():
         _ov_toggle = True
         vim.command('highlight OverLength '
                     'ctermbg=red ctermfg=white guibg=#592929')
-        vim.command('match OverLength /\%80v.\+/')
+        vim.command(r'match OverLength /\%80v.\+/')
         print 'overlength highlight on'
 
 
@@ -172,14 +227,34 @@ def pep8_first_error():
         print error
 
 
+def insert_set_trace():
+    # Do we have ipdb?
+    if call('which ipdb > /dev/null 2>&1', shell=True) == 0:
+        lib = 'ipdb'
+    else:
+        lib = 'pdb'
+
+    # Find the indent amount.
+    current_line = vim.current.window.cursor[0] - 1
+    indent = 0
+    for line in vim.current.buffer[current_line:]:
+        if line.strip() != '':
+            while line[indent] == ' ':
+                indent += 1
+            break
+
+    # Insert the lines.
+    vim.current.range[0:0] = [
+        ' ' * indent + 'import ' + lib,
+        ' ' * indent + lib + '.set_trace()']
+
+
 def comment_line():
     text = vim.current.line
-    if text == '':
-        text = '#'
-    elif text.startswith('  '):
-        text = '# ' + text[2:]
-    else:
-        text = '# ' + text
+    if text != '':
+        match = re.match(r'([\s\t]*)(.*)', text)
+        groups = match.groups()
+        text = groups[0] + '# ' + groups[1]
     vim.current.line = text
     move_by(1, 0)
 
@@ -188,12 +263,14 @@ def uncomment_line():
     text = vim.current.line
     if text == '#':
         text = ''
-    elif text.startswith('#'):
-        text = ' ' + text[1:]
-        if len(text) - len(text.lstrip()) < 4:
-            text = text.lstrip()
-    elif text.lstrip().startswith('#'):
-        text = text.replace('#', '', 1)
+    else:
+        match1 = re.match(r'#   (    )*.*', text)
+        match2 = re.match(r'( *)# (.*)', text)
+        if match1:
+            text = ' ' + text[1:]
+        elif match2:
+            groups = match2.groups()
+            text = groups[0] + groups[1]
     vim.current.line = text
     move_by(1, 0)
 

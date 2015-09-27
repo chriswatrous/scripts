@@ -13,7 +13,6 @@ echo -ne '\e]4;12;#85BDFF\a'  # bright blue
 echo -ne '\e]4;2;#008000\a'   # green
 echo -ne '\e]4;10;#00FF00\a'  # bright green
 
-
 #85BDFFp
 
 # History options
@@ -27,13 +26,19 @@ shopt -s checkwinsize
 
 shopt -s dotglob
 
+# which setterm &> /dev/null && setterm -blank 0
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Set color prompt. There may be a rare terminal where this doesn't work. I'll cross that bridge when I come to it.
 # See http://ascii-table.com/ansi-escape-sequences.php
-PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[0m\]\[\e[33m\]\[\e[0m\]] '
+# Disble git branch in prompt if on cygwin.
+if [ -z "$WINDIR" ]; then  # if WINDER is empty
+    PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[01;31m\]$(git-br)\[\e[0m\]] '
+else
+    PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[0m\]] '
+fi
 
 # Non-color prompt
 #PS1='[\u@\h ${PWD}] '
@@ -63,7 +68,7 @@ stty -ixon
 
 export EDITOR=vim
 export LC_ALL=C
-export LESS='-M -r'
+export LESS='-M -R'
 export PAGER=less
 export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONIOENCODING=utf_8
@@ -75,40 +80,27 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/CSound6/bin"
 fi
 
-# Work stuff
-#export PYTHONPATH="${PYTHONPATH}:/home/chris/gitrepos/Alchemy-container-test-temp"
-#export DONOTLOGOUT=true
-#export TEST_PROD=true
-export PYTHONPATH="${PYTHONPATH}:/media/sf_VirtualBox_Share/gitrepos/CAMS-AT"
-export PYTHONPATH="${PYTHONPATH}:."
+export PYTHONPATH='.:..:../..:../../..:../../../..:../../../../..:../../../../../..:../../../../../../..'
+export PATH="~/bin:~/stuff/bin:$PATH:."
 
-export PATH="~/bin:~/stuff/bin:${PATH}:."
+export REQUEST_STATS_FILE=~/request_stats
 
-# stuff for work linux
-if [[ -e /home/cwatrous ]]; then
-    # make git push work on work linux
-    unset SSH_ASKPASS
-
-    # fix curl
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/lib64
-
-    export JAVA_HOME=/build/applications/jdk/1.8.0_05fullcrypto/linux/x86_64/
-fi
-
-
-alias ls='ls -F --color=auto'
-alias l='ls -alh'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias df='df -h'
+alias ag='ag --color-match "1;31"'
+alias df='df -Th'
+alias du2='du -BM -d 1 | sort -n'
 alias du='du -BM'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias hd='hexdump -C'
+alias install='sudo apt-get install -y'
+alias l='ls -alh'
+alias ls='ls -F --color=auto'
 alias o="octave -q"
+alias pdb='python -m pdb'
+alias tree='tree -C'
 alias vi=vim
 alias vim='vim -p'
-alias tree='tree -C'
-alias hd='hexdump -C'
-alias pdb='python -m pdb'
 alias wt='watch -n 1'
 
 # Use ipython if it exists.
@@ -123,13 +115,14 @@ else
     alias p3=python3
 fi
 
-
 # aliases for git
 alias g='git status'
 alias gb='git branch'
 alias gd='git diff'
 alias gl='git log --decorate --graph'
+alias gla='git log --decorate --graph --all --oneline'
 alias gc='git checkout'
+alias ga='git add -A :/'
 
 # aliases for changing directories
 alias cd='my_cd'
@@ -187,7 +180,47 @@ if [ -e ~/.last_dir ]; then
     cd "`cat ~/.last_dir`"
 fi
 
-################## old color prompt stuff ########################################
+
+# git-br()
+# {
+#   set -f
+#   var=`git branch 2> /dev/null | grep *`
+#   var=${var:2}
+#   if [ ! -z "$var" ]; then
+#       var=" $var"
+#   fi
+#   echo "$var"
+# }
+
+
+# Maybe faster version. We'll see.
+git-br()
+{
+    # Find the .git directory.
+    while true; do
+        if [ -e .git ]; then
+            break
+        fi
+        last_pwd="$PWD"
+        \cd ..  # Don't use the cd alias for my_cd.
+        if [ "$last_pwd" = "$PWD" ]; then
+            break
+        fi
+    done
+
+    # Read .git/HEAD
+    if [ -e .git ]; then
+        head=`cat .git/HEAD`
+        if [[ "$head" == "ref: refs/heads/"* ]]; then
+            echo " "${head:16}
+        else
+            echo " "$head
+        fi
+    fi
+}
+
+
+################## old color prompt stuff #####################################
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt

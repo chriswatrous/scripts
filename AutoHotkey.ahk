@@ -7,14 +7,12 @@ if FileExist("C:/Users/Chris") != ""
     Spreadsheet = C:\Program Files (x86)\LibreOffice 4\program\scalc.exe
     VisualStudio = C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\devenv.exe
     VisualStudioProjects = Explorer C:\Users\chris\Documents\Visual Studio 2012\Projects
-    GoogleEarth = C:\Program Files (x86)\Google\Google Earth\client\googleearth.exe
 }
 if FileExist("C:/Users/IBM_ADMIN") != ""
 {
     Work = 1
     WordProcessor = C:\Program Files (x86)\OpenOffice 4\program\swriter.exe
     Spreadsheet = C:\Program Files (x86)\OpenOffice 4\program\scalc.exe
-    GoogleEarth = C:\Program Files (x86)\Google\Google Earth Pro\client\googleearth.exe
 }
 Return
 
@@ -26,12 +24,10 @@ Capslock::LCtrl
 
 ;#a::Run 
 #c::Run Chrome
-#g::Run %GoogleEarth%
+#g::Run C:\Program Files (x86)\Google\Google Earth Pro\client\googleearth.exe
 #h::Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico -
 #+h::Run %A_MyDocuments%/../Program Files/Cygwin-setup-x86_64.exe
 #j::RemoteLogin1()
-#+j::RemoteLogin2()
-#^j::RemoteLogin3()
 #n::Run Notepad
 #o::StartOctave()
 #q::Run Explorer %A_MyDocuments%\stuff
@@ -45,7 +41,8 @@ Capslock::LCtrl
 #z::Run Firefox
 #]::WinMinimize A
 
-+Space::_
+;I don't use this shortcut much and it can get anoying.
+;+Space::_
 
 
 
@@ -206,33 +203,11 @@ RemoteLogin1()
     global Home, Work
     if Home
     {
-        Run C:\cygwin64\bin\mintty.exe -w max /usr/bin/ssh chris@192.168.1.100
+        Run C:\cygwin64\bin\mintty.exe -w max /usr/bin/ssh chris@192.168.1.50
     }
     if Work
     {
         Run C:\cygwin64\bin\mintty.exe -w max /usr/bin/ssh chris@192.168.56.101
-    }
-}
-
-RemoteLogin2()
-{
-    global Work
-    if Home
-    {
-        Run C:\cygwin64\bin\mintty.exe -w max -i /Cygwin-Terminal.ico /usr/bin/ssh chris@192.168.56.101
-    }
-    if Work
-    {
-        WorkLogin("t14hstbuild04")
-    }
-}
-
-RemoteLogin3()
-{
-    global Work
-    if Work
-    {
-        WorkLogin("peologin06")
     }
 }
 
