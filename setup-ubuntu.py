@@ -45,6 +45,10 @@ def main():
         'unity-tweak-tool',
         'vim-gtk',
         'mesa-utils',
+        'python-dev',
+        'python3-dev',
+        'mplayer2',
+        'gimp',
         ]
     for package in apt_get_packages:
         call(['sudo', 'apt-get', 'install', '-y', package])
@@ -62,6 +66,7 @@ def main():
         'requests',
         'ipython',
         'ipdb',
+        'cython',
         ]
     for package in pip_packages:
         call(['sudo', 'pip', 'install', package])
