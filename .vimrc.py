@@ -245,8 +245,9 @@ def insert_set_trace():
 
     # Insert the lines.
     vim.current.range[0:0] = [
-        ' ' * indent + 'import ' + lib,
-        ' ' * indent + lib + '.set_trace()']
+        ' ' * indent + 'import ' + lib + '; ' + lib + '.set_trace()']
+
+    move_by(-1,0)
 
 
 def comment_line():
