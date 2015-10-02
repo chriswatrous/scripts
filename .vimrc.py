@@ -251,21 +251,18 @@ def insert_set_trace():
 
 
 def comment_line():
-
-    indent = len(vim.current.line) - len(vim.current.line.lstrip())
-
-    row = vim.current.window.cursor[0] - 2
-    while row >= 0:
-        line = vim.current.buffer[row]
-        if line.strip() != '':
-            if line.lstrip().startswith('#'):
-                indent = min(indent, line.find('#'))
-            break
-        row -= 1
-
-    vim.current.line = vim.current.line[:indent] + '# ' + \
-                       vim.current.line[indent:]
-
+    if vim.current.line.strip() != '':
+        indent = len(vim.current.line) - len(vim.current.line.lstrip())
+        row = vim.current.window.cursor[0] - 2
+        while row >= 0:
+            line = vim.current.buffer[row]
+            if line.strip() != '':
+                if line.lstrip().startswith('#'):
+                    indent = min(indent, line.find('#'))
+                break
+            row -= 1
+        vim.current.line = vim.current.line[:indent] + '# ' + \
+                           vim.current.line[indent:]
     move_by(1, 0)
 
 
