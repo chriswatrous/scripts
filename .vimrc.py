@@ -251,12 +251,21 @@ def insert_set_trace():
 
 
 def comment_line():
-    text = vim.current.line
-    if text != '':
-        match = re.match(r'([\s\t]*)(.*)', text)
-        groups = match.groups()
-        text = groups[0] + '# ' + groups[1]
-    vim.current.line = text
+
+    indent = len(vim.current.line) - len(vim.current.line.lstrip())
+
+    row = vim.current.window.cursor[0] - 2
+    while row >= 0:
+        line = vim.current.buffer[row]
+        if line.strip() != '':
+            if line.lstrip().startswith('#'):
+                indent = min(indent, line.find('#'))
+            break
+        row -= 1
+
+    vim.current.line = vim.current.line[:indent] + '# ' + \
+                       vim.current.line[indent:]
+
     move_by(1, 0)
 
 
@@ -265,8 +274,8 @@ def uncomment_line():
     if text == '#':
         text = ''
     else:
-        match1 = re.match(r'#   (    )*.*', text)
-        match2 = re.match(r'( *)# (.*)', text)
+        match1 = re.match(r'#   (    )*[^ ].*', text)
+        match2 = re.match(r'( *)# ?(.*)', text)
         if match1:
             text = ' ' + text[1:]
         elif match2:
