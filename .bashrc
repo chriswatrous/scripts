@@ -72,6 +72,8 @@ export LESS='-M -R'
 export PAGER=less
 export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONIOENCODING=utf_8
+export DB_NAME=chris_local
+
 
 if [[ -e /cygdrive/c/Users/Chris ]]; then
     export PRINTER=DCP7040
