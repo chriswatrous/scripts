@@ -271,11 +271,11 @@ def uncomment_line():
     if text == '#':
         text = ''
     else:
-        match1 = re.match(r'#   (    )*[^ ].*', text)
+        # match1 = re.match(r'#   (    )*[^ ].*', text)
         match2 = re.match(r'( *)# ?(.*)', text)
-        if match1:
-            text = ' ' + text[1:]
-        elif match2:
+        # if match1:
+        #     text = ' ' + text[1:]
+        if match2:
             groups = match2.groups()
             text = groups[0] + groups[1]
     vim.current.line = text
