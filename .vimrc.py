@@ -84,6 +84,7 @@ def do_keybindings():
     nnoremap('\\b', ':set relativenumber!<Enter>')
     nnoremap('\\c', replace_string_contents)
     nnoremap('\\d', insert_set_trace)
+    nnoremap('\\e', get_file_listing)
     nnoremap('\\o', 'O<Esc>')  # Insert blank line at cursor.
     nnoremap('\\p', ':set paste!<Enter>')
     nnoremap('\\r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
@@ -111,6 +112,16 @@ def do_keybindings():
 
     # Make sure ^C toggles the line number colors the way escape would.
     inoremap('<C-c>', '<ESC>')
+
+
+def get_file_listing():
+    vim.command(r'r!find -type f')
+    vim.command(r'%g/\.git\//d')
+    vim.command(r'%g/\.pyc/d')
+    vim.command(r'%g/\.sw/d')
+    vim.command(r'%g/logs\//d')
+    vim.command('1d')
+    # vim.command('1')
 
 
 def replace_string_contents():
