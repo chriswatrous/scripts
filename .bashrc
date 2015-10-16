@@ -75,6 +75,7 @@ export PYTHONIOENCODING=utf_8
 export DB_NAME=chris_local
 export NO_LOG_HEADER=true
 
+unset JAVA_TOOL_OPTIONS
 
 if [[ -e /cygdrive/c/Users/Chris ]]; then
     export PRINTER=DCP7040
