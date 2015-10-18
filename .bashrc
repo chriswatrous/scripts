@@ -73,6 +73,7 @@ export PAGER=less
 export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONIOENCODING=utf_8
 export DB_NAME=chris_local
+export NO_LOG_HEADER=true
 
 unset JAVA_TOOL_OPTIONS
 
