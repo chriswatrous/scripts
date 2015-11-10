@@ -119,8 +119,10 @@ def get_file_listing():
     vim.command(r'%g/\.git\//d')
     vim.command(r'%g/\.pyc/d')
     vim.command(r'%g/\.sw/d')
+    vim.command(r'%g/coverage-report\//d')
     vim.command(r'%g/logs\//d')
     vim.command('1d')
+    vim.command('sort')
     # vim.command('1')
 
 
