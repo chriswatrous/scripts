@@ -86,7 +86,7 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/CSound6/bin"
 fi
 
-export PYTHONPATH='.:..:../..:../../..:../../../..:../../../../..:../../../../../..:../../../../../../..'
+# export PYTHONPATH='.:..:../..:../../..:../../../..:../../../../..:../../../../../..:../../../../../../..'
 export PATH="~/bin:~/stuff/bin:$PATH:."
 
 export REQUEST_STATS_FILE=~/request_stats
