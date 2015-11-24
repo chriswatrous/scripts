@@ -6,6 +6,7 @@ from subprocess import Popen, call, PIPE
 
 # Set this option first.
 vim.command('set nocompatible')
+vim.command('let loaded_matchparen = 1')
 
 # Clear mappings and auto commands in case we are reloading the file.
 vim.command('mapclear')
@@ -13,6 +14,9 @@ vim.command('imapclear')
 vim.command('autocmd!')
 
 # General options
+vim.command('execute pathogen#infect()')
+vim.command('syntax on')
+vim.command('filetype plugin indent on')
 vim.command('set backspace=indent,eol,start')
 vim.command('set mouse=a')
 vim.command('set nofoldenable')
@@ -20,7 +24,13 @@ vim.command('set number')
 vim.command('set ruler')
 vim.command('set scrolloff=5')
 vim.command('set showtabline=2')
-vim.command('syntax on')
+vim.command('let mapleader="-"')
+
+# Rainbow Parenthesis options.
+vim.command('au VimEnter * RainbowParenthesesToggle')
+vim.command('au Syntax * RainbowParenthesesLoadRound')
+vim.command('au Syntax * RainbowParenthesesLoadSquare')
+vim.command('au Syntax * RainbowParenthesesLoadBraces')
 
 # Swap dirs
 swap_dirs = ['.', '~/.vim/backup']
@@ -105,10 +115,17 @@ def do_keybindings():
     nnoremap('<F12>', ':!bash<Enter>')
 
     # Shift function keys
-    nnoremap('<Esc>[1;2P', ':rightb vnew<Enter>')  # <S-F1> New file in vertical split to right.
-    nnoremap('<Esc>[1;2Q', ':rightb new<Enter>')  # <S-F2> New file in horizontal split below.
-    nnoremap('<Esc>[1;2R', pep8_first_error)  # <S-F3> Jump to first pep8 error.
-    nnoremap('<Esc>[19;2~', ':tabe ~/<Enter>')  # <S-F8> Open file in new tab, starting from home directory.
+    # <S-F1> New file in vertical split to right.
+    nnoremap('<Esc>[1;2P', ':rightb vnew<Enter>')
+    nnoremap('<Esc>O1;2P', ':rightb vnew<Enter>')
+    # <S-F2> New file in horizontal split below.
+    nnoremap('<Esc>[1;2Q', ':rightb new<Enter>')
+    nnoremap('<Esc>O1;2Q', ':rightb new<Enter>')
+    # <S-F3> Jump to first pep8 error.
+    nnoremap('<Esc>[1;2R', pep8_first_error)
+    nnoremap('<Esc>O1;2R', pep8_first_error)
+    # <S-F8> Open file in new tab, starting from home directory.
+    nnoremap('<Esc>[19;2~', ':tabe ~/<Enter>')
 
     # Make sure ^C toggles the line number colors the way escape would.
     inoremap('<C-c>', '<ESC>')
@@ -264,35 +281,45 @@ def insert_set_trace():
 
 
 def comment_line():
+    comment_start = get_comment_start()
+
     if vim.current.line.strip() != '':
         indent = len(vim.current.line) - len(vim.current.line.lstrip())
         row = vim.current.window.cursor[0] - 2
         while row >= 0:
             line = vim.current.buffer[row]
             if line.strip() != '':
-                if line.lstrip().startswith('#'):
-                    indent = min(indent, line.find('#'))
+                if line.lstrip().startswith(comment_start):
+                    indent = min(indent, line.find(comment_start))
                 break
             row -= 1
-        vim.current.line = vim.current.line[:indent] + '# ' + \
+        vim.current.line = vim.current.line[:indent] + comment_start + ' ' + \
                            vim.current.line[indent:]
     move_by(1, 0)
 
 
 def uncomment_line():
+    comment_start = get_comment_start()
+
     text = vim.current.line
-    if text == '#':
+    if text == comment_start:
         text = ''
     else:
-        # match1 = re.match(r'#   (    )*[^ ].*', text)
-        match2 = re.match(r'( *)# ?(.*)', text)
-        # if match1:
-        #     text = ' ' + text[1:]
-        if match2:
-            groups = match2.groups()
+        match = re.match(r'( *)' + get_comment_start() + r' ?(.*)', text)
+        if match:
+            groups = match.groups()
             text = groups[0] + groups[1]
     vim.current.line = text
     move_by(1, 0)
+
+
+def get_comment_start():
+    filetype = vim.eval('&filetype')
+
+    if filetype == 'clojure':
+        return ';'
+    else:
+        return '#'
 
 
 def copy_comment_line():

@@ -108,6 +108,7 @@ alias tree='tree -C'
 alias vi=vim
 alias vim='vim -p'
 alias wt='watch -n 1'
+alias emacs='emacs -nw'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
