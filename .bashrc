@@ -74,8 +74,8 @@ export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONIOENCODING=utf_8
 export DB_NAME=chris_local
 export NO_LOG_HEADER=true
-export GIT_PULL_CMD=time-git-pull
-export GIT_REVIEW_CMD=time-git-review
+export GIT_PULL_CMD=tgp
+export GIT_REVIEW_CMD=tgr
 
 unset JAVA_TOOL_OPTIONS
 
