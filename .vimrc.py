@@ -14,7 +14,7 @@ vim.command('imapclear')
 vim.command('autocmd!')
 
 # General options
-vim.command('execute pathogen#infect()')
+# vim.command('execute pathogen#infect()')
 vim.command('syntax on')
 vim.command('filetype plugin indent on')
 vim.command('set backspace=indent,eol,start')
@@ -27,10 +27,10 @@ vim.command('set showtabline=2')
 vim.command('let mapleader="-"')
 
 # Rainbow Parenthesis options.
-vim.command('au VimEnter * RainbowParenthesesToggle')
-vim.command('au Syntax * RainbowParenthesesLoadRound')
-vim.command('au Syntax * RainbowParenthesesLoadSquare')
-vim.command('au Syntax * RainbowParenthesesLoadBraces')
+# vim.command('au VimEnter * RainbowParenthesesToggle')
+# vim.command('au Syntax * RainbowParenthesesLoadRound')
+# vim.command('au Syntax * RainbowParenthesesLoadSquare')
+# vim.command('au Syntax * RainbowParenthesesLoadBraces')
 
 # Swap dirs
 swap_dirs = ['.', '~/.vim/backup']
@@ -95,6 +95,7 @@ def do_keybindings():
     nnoremap('\\c', replace_string_contents)
     nnoremap('\\d', insert_set_trace)
     nnoremap('\\e', get_file_listing)
+    nnoremap('\\f', ':buffers<Enter>:b ')
     nnoremap('\\o', 'O<Esc>')  # Insert blank line at cursor.
     nnoremap('\\p', ':set paste!<Enter>')
     nnoremap('\\r', ':tabe ~/.vimrc.py<Enter>')  # Edit .vimrc.py
