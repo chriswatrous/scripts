@@ -22,8 +22,7 @@
   (setq linum-format "%d "))
 
 (comment
-
- list-colors-display)  ; list color names
+  (list-colors-display)  ; list color names
   (list-faces-display)   ; list current faces
   )
 (add-to-list 'default-frame-alist '(foreground-color . "#E0E0E0"))
