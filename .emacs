@@ -76,11 +76,11 @@
 (set-face-attribute 'fringe nil :background "#111133")
 
 ;; Rainbow delimiters colors
-(let ((i 1))
+(let ((i 1)
+      (face (lambda (x) (intern (format "rainbow-delimiters-depth-%d-face" i)))))
   (dolist (c '("#ff0000" "#00ff00" "#0066ff" "#ffff00" "#ff00ff"
 	       "#00ffff" "#880000" "#008800" "#0000ff"))
-    (set-face-attribute (intern (format "rainbow-delimiters-depth-%d-face" i))
-			nil :foreground c)
+    (set-face-attribute (face i) nil :foreground c)
     (setq i (1+ i))))
 (dolist (s '(rainbow-delimiters-mismatched-face rainbow-delimiters-unmatched-face))
   (set-face-attribute s nil :foreground "white" :background "red"))
@@ -108,6 +108,9 @@
 (evil-define-key 'motion global-map (kbd "C-c") 'evil-esc)
 (evil-define-key 'operator global-map (kbd "C-c") 'evil-esc)
 (evil-define-key 'visual global-map (kbd "C-c") 'evil-esc)
+(evil-define-key 'normal global-map (kbd "C-w C-q") 'evil-quit)
+(evil-define-key 'normal global-map (kbd "C-M-x") 'eval-defun)
+(evil-define-key 'normal global-map (kbd "M-x") 'execute-extended-command)
 
 
 ;;;; Useful Functions
