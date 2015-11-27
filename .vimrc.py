@@ -16,7 +16,7 @@ vim.command('autocmd!')
 # General options
 # vim.command('execute pathogen#infect()')
 vim.command('syntax on')
-vim.command('filetype plugin indent on')
+# vim.command('filetype plugin indent on')
 vim.command('set backspace=indent,eol,start')
 vim.command('set mouse=a')
 vim.command('set nofoldenable')
@@ -25,6 +25,9 @@ vim.command('set ruler')
 vim.command('set scrolloff=5')
 vim.command('set showtabline=2')
 vim.command('let mapleader="-"')
+
+# Comma separated list of regexes.
+vim.command(r"let g:netrw_list_hide='\.sw.$,\.pyc$'")
 
 # Rainbow Parenthesis options.
 # vim.command('au VimEnter * RainbowParenthesesToggle')
