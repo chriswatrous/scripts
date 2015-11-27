@@ -2,7 +2,7 @@
   (add-to-list 'load-path default-directory)
   (normal-top-level-add-subdirs-to-load-path))
 
-;;;; Install packages
+;;;; Prepare package manager
 (require 'package)
 (add-to-list 'package-archives '("melpa stable" . "http://melpa-stable.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -18,11 +18,14 @@
 (require 'rainbow-delimiters)
 (require 'uniquify)
 (require 'powerline)
+(require 'powerline-evil)
+
 
 ;;;; Macros
 (defmacro comment (&rest args) nil)
 
 
+;;;; Useful info
 (comment
   (print-list load-path)  ; Print the current load path
   (list-colors-display)   ; list color names
@@ -38,8 +41,13 @@
 (global-linum-mode t)
 (setq inhibit-startup-message t)  ; Bypass emacs start screen
 (setq uniquify-buffer-name-style 'forward)
+
+;; Evil mode
 (evil-mode 1)
-(powerline-default-theme)
+(setq evil-default-cursor t)  ; fix cursor color
+(set-cursor-color "white")    ; fix cursor color
+
+(powerline-evil-vim-color-theme)
 
 ;; Suppress "Symbolic link to Git-controlled source file; follow link?"
 (setq vc-follow-symlinks nil)
@@ -95,13 +103,11 @@
   (other-window 1)))
 (global-set-key (kbd "C-x 3") 'my-split-window-right)
 
-(global-set-key (kbd "C-.") 'repeat)
-
 ;;; Evil-mode key bindings
 (evil-define-key 'insert global-map (kbd "C-c") 'evil-esc)
-
-;;; Clear some keys
-(global-unset-key (kbd "C-z"))
+(evil-define-key 'motion global-map (kbd "C-c") 'evil-esc)
+(evil-define-key 'operator global-map (kbd "C-c") 'evil-esc)
+(evil-define-key 'visual global-map (kbd "C-c") 'evil-esc)
 
 
 ;;;; Useful Functions
