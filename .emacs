@@ -2,22 +2,27 @@
   (add-to-list 'load-path default-directory)
   (normal-top-level-add-subdirs-to-load-path))
 
-(require 'rainbow-delimiters)
-(require 'package)
-
 ;;;; Install packages
+(require 'package)
 (add-to-list 'package-archives '("melpa stable" . "http://melpa-stable.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
+;; Installed:
+;;   clojure-mode
+;;   evil
+;;   powerline
+;;   powerline-evil
 
-(setq my-packages '("clojure-mode"))
-(dolist (p my-packages)
-  (unless (package-installed-p p) (package-install p)))
-
+(require 'evil)
+(require 'rainbow-delimiters)
+(require 'uniquify)
+(require 'powerline)
 
 ;;;; Macros
 (defmacro comment (&rest args) nil)
 
 
-;;;; Useful info
 (comment
   (print-list load-path)  ; Print the current load path
   (list-colors-display)   ; list color names
@@ -32,6 +37,9 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (global-linum-mode t)
 (setq inhibit-startup-message t)  ; Bypass emacs start screen
+(setq uniquify-buffer-name-style 'forward)
+(evil-mode 1)
+(powerline-default-theme)
 
 ;; Suppress "Symbolic link to Git-controlled source file; follow link?"
 (setq vc-follow-symlinks nil)
@@ -51,24 +59,23 @@
 
 
 ;;;; Colors
-(add-to-list 'default-frame-alist '(foreground-color . "#E0E0E0"))
-(add-to-list 'default-frame-alist '(background-color . "#000000"))
+;; Default colors for new frames
+(setq default-frame-alist
+      '((foreground-color . "#E0E0E0")
+	(background-color . "#000000")))
+
 (set-face-attribute 'linum nil :foreground "#00cc00")
+(set-face-attribute 'fringe nil :background "#111133")
 
 ;; Rainbow delimiters colors
-(set-face-attribute 'rainbow-delimiters-depth-1-face nil :foreground "#ff0000")
-(set-face-attribute 'rainbow-delimiters-depth-2-face nil :foreground "#00ff00")
-(set-face-attribute 'rainbow-delimiters-depth-3-face nil :foreground "#0066ff")
-(set-face-attribute 'rainbow-delimiters-depth-4-face nil :foreground "#ffff00")
-(set-face-attribute 'rainbow-delimiters-depth-5-face nil :foreground "#ff00ff")
-(set-face-attribute 'rainbow-delimiters-depth-6-face nil :foreground "#00ffff")
-(set-face-attribute 'rainbow-delimiters-depth-7-face nil :foreground "#880000")
-(set-face-attribute 'rainbow-delimiters-depth-8-face nil :foreground "#008800")
-(set-face-attribute 'rainbow-delimiters-depth-9-face nil :foreground "#0000ff")
-(set-face-attribute 'rainbow-delimiters-mismatched-face nil
-		    :foreground "white" :background "red")
-(set-face-attribute 'rainbow-delimiters-unmatched-face nil
-		    :foreground "white" :background "red")
+(let ((i 1))
+  (dolist (c '("#ff0000" "#00ff00" "#0066ff" "#ffff00" "#ff00ff"
+	       "#00ffff" "#880000" "#008800" "#0000ff"))
+    (set-face-attribute (intern (format "rainbow-delimiters-depth-%d-face" i))
+			nil :foreground c)
+    (setq i (1+ i))))
+(dolist (s '(rainbow-delimiters-mismatched-face rainbow-delimiters-unmatched-face))
+  (set-face-attribute s nil :foreground "white" :background "red"))
 
 
 ;;;; Key bindings
@@ -88,8 +95,10 @@
   (other-window 1)))
 (global-set-key (kbd "C-x 3") 'my-split-window-right)
 
-;;; Custom key bindings
 (global-set-key (kbd "C-.") 'repeat)
+
+;;; Evil-mode key bindings
+(evil-define-key 'insert global-map (kbd "C-c") 'evil-esc)
 
 ;;; Clear some keys
 (global-unset-key (kbd "C-z"))
@@ -98,6 +107,5 @@
 ;;;; Useful Functions
 (defun print-list (list)
   (while list
-    (princ (car list))
-    (princ "\n")
+    (princ-list (car list) "\n")
     (setq list (cdr list))))
