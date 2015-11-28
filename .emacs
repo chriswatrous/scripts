@@ -29,7 +29,7 @@
 ;;   powerline-evil
 ;;   cider
 ;;   projectile
-;;   linum-relative
+;;   linum-relative (melpa latest)
 
 
 (require 'evil)
