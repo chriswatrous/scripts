@@ -1,6 +1,6 @@
-(let ((default-directory "~/.emacs.d/packages"))
-  (add-to-list 'load-path default-directory)
-  (normal-top-level-add-subdirs-to-load-path))
+;; (let ((default-directory "~/.emacs.d/packages"))
+;;   (add-to-list 'load-path default-directory)
+;;   (normal-top-level-add-subdirs-to-load-path))
 
 
 ;;;; Macros
@@ -10,35 +10,33 @@
 
 ;;;; Prepare package manager
 (require 'package)
-(let ((repos '(("melpa stable" . "http://melpa-stable.milkbox.net/packages/")
-	      ("melpa" . "http://melpa.milkbox.net/packages/")
-	      ("marmalade" . "http://marmalade-repo.org/packages/"))))
-  (dolist (repo repos)
-    (add-to-list 'package-archives repo)))
-(add-to-list 'package-archives '("melpa stable" . "http://melpa-stable.milkbox.net/packages/") t)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(setq package-archives
+      '(
+	("melpa stable" . "http://melpa-stable.milkbox.net/packages/")
+	("melpa" . "http://melpa.milkbox.net/packages/")
+	("marmalade" . "https://marmalade-repo.org/packages/")
+	("gnu" . "http://elpa.gnu.org/packages/")
+	))
 (package-initialize)
 (comment
  (package-list-packages)  ; list / install / uninstall packages
  )
-;; Installed:
-;;   clojure-mode
-;;   evil
-;;   powerline
-;;   powerline-evil
-;;   cider
-;;   projectile
-;;   linum-relative (melpa latest)
 
-
+;; Theses will fail if the package is not installed. Then install the package.
+(require 'clojure-mode)
+(require 'column-marker)
+(require 'dired+)
+(require 'dockerfile-mode)
 (require 'evil)
-(require 'rainbow-delimiters)
-(require 'uniquify)
+(require 'feature-mode)
+(require 'highlight-symbol)
+(require 'linum-relative)  ; need melpa version
 (require 'powerline)
 (require 'powerline-evil)
-(require 'dired+)
-(require 'linum-relative)
+(require 'projectile)
+(require 'rainbow-delimiters)
+(require 'uniquify)
+(require 'smooth-scrolling)
 
 
 ;;;; Useful info
@@ -47,6 +45,11 @@
   (list-colors-display)   ; list color names
   (list-faces-display)    ; list current faces
   )
+
+
+;;;; Predicates for telling which system I am on
+(defun windowsp () (eq system-type 'windows-nt))
+(defun work-windowsp () (file-exists-p "C:/Users/IBM_ADMIN"))
 
 
 ;;;; Options
@@ -59,6 +62,22 @@
 (setq uniquify-buffer-name-style 'reverse)
 (diredp-toggle-find-file-reuse-dir t)  ; Dired+ reuse buffer for changing dirs.
 (linum-relative-on)
+(cond ((eq system-type 'windows-nt)
+       (set-face-attribute 'default nil :font "Liberation Mono-10")))
+(setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil)))
+(setq mouse-wheel-progressive-speed nil)
+(setq smooth-scroll-margin 5)
+
+;; Put backup files and autosave files in temp dir.
+(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+
+;; Column marker stuff
+(dolist (s '(emacs-lisp-mode-hook python-mode-hook))
+  (add-hook s (lambda () (column-marker-1 79))))
+(set-face-attribute 'column-marker-1 nil :background "red" :foreground "white")
+;; aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdlfk
+;; (set-window-margins nil 0 (max (- (window-width) 80) 0))
 
 ;; Evil mode
 (evil-mode 1)
@@ -104,7 +123,8 @@
 	       "#00ffff" "#880000" "#008800" "#0000ff"))
     (set-face-attribute (face i) nil :foreground c)
     (setq i (1+ i))))
-(dolist (s '(rainbow-delimiters-mismatched-face rainbow-delimiters-unmatched-face))
+(dolist (s '(rainbow-delimiters-mismatched-face
+	     rainbow-delimiters-unmatched-face))
   (set-face-attribute s nil :foreground "white" :background "red"))
 
 
@@ -113,14 +133,14 @@
 ;; Open buffer list in same window.
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
 
-
 ;; Switch to new window after split.
 (global-set-key (kbd "C-x 2") (cmd (split-window-below) (other-window 1)))
 (global-set-key (kbd "C-x 3") (cmd (split-window-right) (other-window 1)))
 
 ;; Map C-c to ESC in all evil states but normal and emacs.
 (defun my-esc (prompt)
-  (cond ((or (evil-insert-state-p) (evil-replace-state-p) (evil-visual-state-p)) [escape])
+  (cond ((or (evil-insert-state-p) (evil-replace-state-p)
+	     (evil-visual-state-p)) [escape])
 	(t (kbd "C-c"))))
 (define-key key-translation-map (kbd "C-c") 'my-esc)
 ;; Evil operator state doesn't use the key-translation-map.
@@ -148,11 +168,29 @@
 ;; F9
 ;; F12
 
-;; C-q comibination
+;; Allow C-q to be used as a prefix key.
 (define-key global-map (kbd "C-q") nil)
-(define-key global-map (kbd "C-q s")
-  (cmd (find-file "/ssh:chris@192.168.1.50:/home/chris/stuff")))
+
 (define-key global-map (kbd "C-q q") 'linum-relative-toggle)
+
+;; Scroll by 5
+(dolist (k '("C-S-e" "<C-down>"))
+  (define-key global-map (kbd k) (cmd (evil-scroll-line-down 5))))
+(dolist (k '("C-S-y" "<C-up>"))
+  (define-key global-map (kbd k) (cmd (evil-scroll-line-up 5))))
+
+;; Open main work location in dired.
+(define-key global-map (kbd "C-q a")
+  (cmd (if (work-windowsp)
+	   (find-file "C:/Users/IBM_ADMIN/VirtualBox Share/gitrepos")
+	   (find-file "/ssh:chris@192.168.1.50:/home/chris/stuff"))))
+
+;; Bindings for highlight-symbol
+(define-key global-map (kbd "C-q C-w") 'highlight-symbol)
+(define-key global-map (kbd "C-q w") 'highlight-symbol-remove-all)
+(define-key global-map (kbd "C->") 'highlight-symbol-next)
+(define-key global-map (kbd "C-<") 'highlight-symbol-prev)
+
 
 ;; Dired / Dired+
 (define-key dired-mode-map (kbd "<backspace>") 'diredp-kill-this-tree)
@@ -163,4 +201,3 @@
   (while list
     (princ-list (car list) "\n")
     (setq list (cdr list))))
-(put 'dired-find-alternate-file 'disabled nil)
