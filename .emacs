@@ -76,8 +76,6 @@
 (dolist (s '(emacs-lisp-mode-hook python-mode-hook))
   (add-hook s (lambda () (column-marker-1 79))))
 (set-face-attribute 'column-marker-1 nil :background "red" :foreground "white")
-;; aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdlfk
-;; (set-window-margins nil 0 (max (- (window-width) 80) 0))
 
 ;; Evil mode
 (evil-mode 1)
