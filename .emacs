@@ -11,12 +11,10 @@
 ;;;; Prepare package manager
 (require 'package)
 (setq package-archives
-      '(
-	("melpa stable" . "http://melpa-stable.milkbox.net/packages/")
+      '(("melpa stable" . "http://melpa-stable.milkbox.net/packages/")
 	("melpa" . "http://melpa.milkbox.net/packages/")
 	("marmalade" . "https://marmalade-repo.org/packages/")
-	("gnu" . "http://elpa.gnu.org/packages/")
-	))
+	("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 (comment
  (package-list-packages)  ; list / install / uninstall packages
@@ -37,6 +35,7 @@
 (require 'rainbow-delimiters)
 (require 'uniquify)
 (require 'smooth-scrolling)
+(require 'zoom-frm)
 
 
 ;;;; Useful info
@@ -99,9 +98,6 @@
 	clojure-mode-hook))
 (dolist (h rainbow-hooks)
   (add-hook h #'rainbow-delimiters-mode))
-
-;; Don't hide details in dired.
-;; (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode 0)))
 
 
 ;;;; Colors
@@ -176,6 +172,10 @@
   (define-key global-map (kbd k) (cmd (evil-scroll-line-down 5))))
 (dolist (k '("C-S-y" "<C-up>"))
   (define-key global-map (kbd k) (cmd (evil-scroll-line-up 5))))
+
+;; Better zoom in/out
+;; (dolist (k '("C-x C-=" "C-x C--" "C-x C-0" "C-x C-+"))
+;;   (define-key global-map (kbd k) 'zoom-in/out))
 
 ;; Open main work location in dired.
 (define-key global-map (kbd "C-q a")
