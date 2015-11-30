@@ -72,8 +72,6 @@
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
 ;; Column marker stuff
-(dolist (s '(emacs-lisp-mode-hook python-mode-hook))
-  (add-hook s (lambda () (column-marker-1 79))))
 (set-face-attribute 'column-marker-1 nil :background "red" :foreground "white")
 
 ;; Evil mode
@@ -91,13 +89,14 @@
 
 
 ;;;; Hooks
-;; Activate rainbow delimiters.
-(setq rainbow-hooks
-      '(emacs-lisp-mode-hook
-	python-mode-hook
-	clojure-mode-hook))
-(dolist (h rainbow-hooks)
-  (add-hook h #'rainbow-delimiters-mode))
+(defconst mode-hooks
+  '(emacs-lisp-mode-hook
+    python-mode-hook
+    clojure-mode-hook))
+
+(dolist (h mode-hooks)
+  (add-hook h #'rainbow-delimiters-mode)
+  (add-hook h (lambda () (column-marker-1 79))))
 
 
 ;;;; Colors
