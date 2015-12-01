@@ -120,6 +120,10 @@
 	     rainbow-delimiters-unmatched-face))
   (set-face-attribute s nil :foreground "white" :background "red"))
 
+;; Terminal mode colors
+(set-face-attribute 'term-color-blue nil
+		    :foreground "#55aaff"
+		    :background "#55aaff")
 
 ;;;; Key bindings
 ;;; Tweak some existing commands
