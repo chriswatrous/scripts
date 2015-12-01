@@ -173,8 +173,8 @@
   (define-key global-map (kbd k) (cmd (evil-scroll-line-up 5))))
 
 ;; Better zoom in/out
-;; (dolist (k '("C-x C-=" "C-x C--" "C-x C-0" "C-x C-+"))
-;;   (define-key global-map (kbd k) 'zoom-in/out))
+(dolist (k '("C-x C-=" "C-x C--" "C-x C-0" "C-x C-+"))
+  (define-key global-map (kbd k) 'zoom-in/out))
 
 ;; Open main work location in dired.
 (define-key global-map (kbd "C-q a")
