@@ -49,6 +49,8 @@
 ;;;; Predicates for telling which system I am on
 (defun windowsp () (eq system-type 'windows-nt))
 (defun work-windowsp () (file-exists-p "C:/Users/IBM_ADMIN"))
+(defun work-linuxp () (file-exists-p "/media/sf_VirtualBox_Share"))
+(defun home-linuxp () (file-exists-p "/home/chris/stuff"))
 
 
 ;;;; Options
@@ -98,6 +100,7 @@
   (add-hook h #'rainbow-delimiters-mode)
   (add-hook h (lambda () (column-marker-1 79))))
 
+(add-hook 'dired-mode-hook #'dired-omit-mode)
 
 ;;;; Colors
 ;; Default colors for new frames
@@ -121,9 +124,10 @@
   (set-face-attribute s nil :foreground "white" :background "red"))
 
 ;; Terminal mode colors
-(set-face-attribute 'term-color-blue nil
-		    :foreground "#55aaff"
-		    :background "#55aaff")
+(add-hook 'term-mode-hook
+	  (cmd (set-face-attribute 'term-color-blue nil
+				   :foreground "#55aaff"
+				   :background "#55aaff")))
 
 ;;;; Key bindings
 ;;; Tweak some existing commands
@@ -182,9 +186,13 @@
 
 ;; Open main work location in dired.
 (define-key global-map (kbd "C-q a")
-  (cmd (if (work-windowsp)
-	   (find-file "C:/Users/IBM_ADMIN/VirtualBox Share/gitrepos")
-	   (find-file "/ssh:chris@192.168.1.50:/home/chris/stuff"))))
+  (cmd (cond
+	((work-windowsp)
+	 (find-file "C:/Users/IBM_ADMIN/VirtualBox Share/gitrepos"))
+	((work-linuxp)
+	 (find-file "/media/sf_VirtualBox_Share/gitrepos"))
+	((home-linuxp)
+	 (find-file "/ssh:chris@192.168.1.50:/home/chris/stuff")))))
 
 ;; Bindings for highlight-symbol
 (define-key global-map (kbd "C-q C-w") 'highlight-symbol)
