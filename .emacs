@@ -87,6 +87,7 @@
 ;; Start term mode in line mode and evil emacs mode.
 (defadvice term (after advice-term-line-mode activate)
   ;; (term-line-mode)
+  (evil-normal-state)
   (evil-emacs-state))
 
 ;; Activate rainbow delimiters and column marker for programming language
