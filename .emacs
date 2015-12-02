@@ -1,8 +1,3 @@
-;; (let ((default-directory "~/.emacs.d/packages"))
-;;   (add-to-list 'load-path default-directory)
-;;   (normal-top-level-add-subdirs-to-load-path))
-
-
 ;;;; Macros
 (defmacro comment (&rest args) nil)
 (defmacro cmd (&rest args) `(lambda () (interactive) (progn ,@args)))
@@ -89,14 +84,14 @@
 ;; Add space after line numbers when used from terminal.
 (unless window-system (setq linum-format "%d "))
 
+;; Start term mode in line mode and evil emacs mode.
+(defadvice term (after advice-term-line-mode activate)
+  ;; (term-line-mode)
+  (evil-emacs-state))
 
-;;;; Hooks
-(defconst mode-hooks
-  '(emacs-lisp-mode-hook
-    python-mode-hook
-    clojure-mode-hook))
-
-(dolist (h mode-hooks)
+;; Activate rainbow delimiters and column marker for programming language
+;; modes.
+(dolist (h '(emacs-lisp-mode-hook python-mode-hook clojure-mode-hook))
   (add-hook h #'rainbow-delimiters-mode)
   (add-hook h (lambda () (column-marker-1 79))))
 
@@ -123,7 +118,7 @@
 	     rainbow-delimiters-unmatched-face))
   (set-face-attribute s nil :foreground "white" :background "red"))
 
-;; Terminal mode colors
+;; Term mode colors
 (add-hook 'term-mode-hook
 	  (cmd (set-face-attribute 'term-color-blue nil
 				   :foreground "#55aaff"
@@ -154,7 +149,6 @@
 ;; C-k - kill line
 ;; C-\ - toggle input method
 ;; C-l - current line to center / top / bottom
-;; C-;
 ;; C-=
 ;; C-'
 ;; C-Return
@@ -194,6 +188,10 @@
 	((home-linuxp)
 	 (find-file "/ssh:chris@192.168.1.50:/home/chris/stuff")))))
 
+(define-key global-map (kbd "C-q C-t") (cmd (term "/bin/bash")))
+(define-key global-map (kbd "C-;") 'buffer-menu)
+(define-key global-map (kbd "C-'") 'find-file)
+
 ;; Bindings for highlight-symbol
 (define-key global-map (kbd "C-q C-w") 'highlight-symbol)
 (define-key global-map (kbd "C-q w") 'highlight-symbol-remove-all)
@@ -207,6 +205,6 @@
 
 ;;;; Useful Functions
 (defun print-list (list)
-  (while list
-    (princ-list (car list) "\n")
-    (setq list (cdr list))))
+  (dolist (item list)
+    (princ item)
+    (princ "\n")))
