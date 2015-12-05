@@ -72,6 +72,7 @@ export LESS='-M -R'
 export PAGER=less
 export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONIOENCODING=utf_8
+export PYTHONPATH=.
 export DB_NAME=chris_local
 export NO_LOG_HEADER=true
 export GIT_PULL_CMD=tgp

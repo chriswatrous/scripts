@@ -192,6 +192,7 @@
 (define-key global-map (kbd "C-q C-t") (cmd (term "/bin/bash")))
 (define-key global-map (kbd "C-;") 'buffer-menu)
 (define-key global-map (kbd "C-'") 'find-file)
+(define-key global-map (kbd "C-,") 'async-shell-command)
 
 ;; Bindings for highlight-symbol
 (define-key global-map (kbd "C-q C-w") 'highlight-symbol)
