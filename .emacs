@@ -7,9 +7,9 @@
 (require 'package)
 (setq package-archives
       '(("melpa stable" . "http://melpa-stable.milkbox.net/packages/")
-	("melpa" . "http://melpa.milkbox.net/packages/")
-	("marmalade" . "https://marmalade-repo.org/packages/")
-	("gnu" . "http://elpa.gnu.org/packages/")))
+        ("melpa" . "http://melpa.milkbox.net/packages/")
+        ("marmalade" . "https://marmalade-repo.org/packages/")
+        ("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 (comment
  (package-list-packages)  ; list / install / uninstall packages
@@ -27,6 +27,7 @@
 (require 'powerline)
 (require 'powerline-evil)
 (require 'projectile)
+(require 'python-mode)
 (require 'rainbow-delimiters)
 (require 'uniquify)
 (require 'smooth-scrolling)
@@ -43,9 +44,9 @@
 
 ;;;; Predicates for telling which system I am on
 (defun windowsp () (eq system-type 'windows-nt))
-(defun work-windowsp () (file-exists-p "C:/Users/IBM_ADMIN"))
-(defun work-linuxp () (file-exists-p "/media/sf_VirtualBox_Share"))
-(defun home-linuxp () (file-exists-p "/home/chris/stuff"))
+(defun work-windows? () (file-exists-p "C:/Users/IBM_ADMIN"))
+(defun work-linux? () (file-exists-p "/media/sf_VirtualBox_Share"))
+(defun home-linux? () (file-exists-p "/home/chris/stuff"))
 
 
 ;;;; Options
@@ -63,6 +64,7 @@
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
 (setq smooth-scroll-margin 5)
+(setq-default indent-tabs-mode nil)
 
 ;; Put backup files and autosave files in temp dir.
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
@@ -98,34 +100,49 @@
 
 (add-hook 'dired-mode-hook #'dired-omit-mode)
 
+(add-hook 'python-mode-hook
+          (cmd (highlight-regexp "import ipdb; ipdb\.set_trace()"
+                                 'highlight)))
+
 ;;;; Colors
 ;; Default colors for new frames
 (setq default-frame-alist
       '((foreground-color . "#E0E0E0")
-	(background-color . "#000000")))
+        (background-color . "#000000")))
 
 (set-face-attribute 'linum nil :foreground "#00cc00")
 (set-face-attribute 'fringe nil :background "#111133")
+(set-face-attribute 'highlight nil :background "#007700")
 
 ;; Rainbow delimiters colors
-(defun face (i)
-  (intern (format "rainbow-delimiters-depth-%d-face" i)))
+(defconst rainbow-colors
+  '("#ff0000"
+    "#00ff00"
+    "#0066ff"
+    "#ffff00"
+    "#ff00ff"
+    "#00ffff"
+    "#880000"
+    "#008800"
+    "#0000ff"))
 (let ((i 1))
-  (dolist (c '("#ff0000" "#00ff00" "#0066ff" "#ffff00" "#ff00ff"
-	       "#00ffff" "#880000" "#008800" "#0000ff"))
-    (set-face-attribute (face i) nil :foreground c)
+  (dolist (c rainbow-colors)
+    (set-face-attribute (intern (format "rainbow-delimiters-depth-%d-face" i))
+                        nil :foreground c)
     (setq i (1+ i))))
 (dolist (s '(rainbow-delimiters-mismatched-face
-	     rainbow-delimiters-unmatched-face))
+             rainbow-delimiters-unmatched-face))
   (set-face-attribute s nil :foreground "white" :background "red"))
 
 ;; Term mode colors
 (add-hook 'term-mode-hook
-	  (cmd (set-face-attribute 'term-color-blue nil
-				   :foreground "#55aaff"
-				   :background "#55aaff")))
+          (cmd (set-face-attribute 'term-color-blue nil
+                                   :foreground "#55aaff"
+                                   :background "#55aaff")))
 
 ;;;; Key bindings
+(defun leader+ (key) (kbd (concat "<C-return> " key)))
+
 ;;; Tweak some existing commands
 ;; Open buffer list in same window.
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
@@ -137,8 +154,8 @@
 ;; Map C-c to ESC in all evil states but normal and emacs.
 (defun my-esc (prompt)
   (cond ((or (evil-insert-state-p) (evil-replace-state-p)
-	     (evil-visual-state-p)) [escape])
-	(t (kbd "C-c"))))
+             (evil-visual-state-p)) [escape])
+        (t (kbd "C-c"))))
 (define-key key-translation-map (kbd "C-c") 'my-esc)
 ;; Evil operator state doesn't use the key-translation-map.
 (define-key evil-operator-state-map (kbd "C-c") 'keyboard-quit)
@@ -150,10 +167,8 @@
 ;; C-k - kill line
 ;; C-\ - toggle input method
 ;; C-l - current line to center / top / bottom
+;; C-q - quoted-insert
 ;; C-=
-;; C-'
-;; C-Return
-;; C-,
 ;; C-`
 ;; C-Tab
 ;; C-S-Tab
@@ -164,10 +179,7 @@
 ;; F9
 ;; F12
 
-;; Allow C-q to be used as a prefix key.
-(define-key global-map (kbd "C-q") nil)
-
-(define-key global-map (kbd "C-q q") 'linum-relative-toggle)
+(define-key global-map (leader+ "q") 'linum-relative-toggle)
 
 ;; Scroll by 5
 (dolist (k '("C-S-e" "<C-down>"))
@@ -180,29 +192,41 @@
   (define-key global-map (kbd k) 'zoom-in/out))
 
 ;; Open main work location in dired.
-(define-key global-map (kbd "C-q a")
+(define-key global-map (leader+ "a")
   (cmd (cond
-	((work-windowsp)
-	 (find-file "C:/Users/IBM_ADMIN/VirtualBox Share/gitrepos"))
-	((work-linuxp)
-	 (find-file "/media/sf_VirtualBox_Share/gitrepos"))
-	((home-linuxp)
-	 (find-file "/ssh:chris@192.168.1.50:/home/chris/stuff")))))
+        ((work-windows?)
+         (find-file "C:/Users/IBM_ADMIN/VirtualBox Share/gitrepos"))
+        ((work-linux?)
+         (find-file "/media/sf_VirtualBox_Share/gitrepos"))
+        ((home-linux?)
+         (find-file "/ssh:chris@192.168.1.50:/home/chris/stuff")))))
 
-(define-key global-map (kbd "C-q C-t") (cmd (term "/bin/bash")))
+(define-key global-map (leader+ "C-t") (cmd (term "/bin/bash")))
 (define-key global-map (kbd "C-;") 'buffer-menu)
 (define-key global-map (kbd "C-'") 'find-file)
 (define-key global-map (kbd "C-,") 'async-shell-command)
+(define-key global-map (leader+ "C-h") 'evil-window-left)
+(define-key global-map (leader+ "C-l") 'evil-window-right)
+(define-key global-map (leader+ "C-k") 'evil-window-up)
+(define-key global-map (leader+ "C-j") 'evil-window-down)
 
 ;; Bindings for highlight-symbol
-(define-key global-map (kbd "C-q C-w") 'highlight-symbol)
-(define-key global-map (kbd "C-q w") 'highlight-symbol-remove-all)
+(define-key global-map (leader+ "C-w") 'highlight-symbol)
+(define-key global-map (leader+ "w") 'highlight-symbol-remove-all)
 (define-key global-map (kbd "C->") 'highlight-symbol-next)
 (define-key global-map (kbd "C-<") 'highlight-symbol-prev)
 
-
 ;; Dired / Dired+
 (define-key dired-mode-map (kbd "<backspace>") 'diredp-kill-this-tree)
+
+;; python-mode insert breakpoint
+(define-key python-mode-map (leader+ "C-d")
+  (cmd (let ((indent (current-indent)))
+         (beginning-of-line)
+         (insert (concat (str* " " indent)
+                         "import ipdb; ipdb.set_trace()\n"))
+         (forward-line -1)
+         (goto-char (+ (point) indent)))))
 
 
 ;;;; Useful Functions
@@ -210,3 +234,53 @@
   (dolist (item list)
     (princ item)
     (princ "\n")))
+
+(defun lstrip (s)
+  (let ((l (length s))
+        (i 0))
+    (while (and (< i l)
+                (whitespace-char? (aref s i)))
+      (setq i (1+ i)))
+    (substring s i l)))
+
+(defun rstrip (s)
+  (let ((i (length s)))
+    (while (and (> i 0)
+                (whitespace-char? (aref s (1- i))))
+      (setq i (1- i)))
+    (substring s 0 i)))
+
+(defun strip (s) (rstrip (lstrip s)))
+
+(defun whitespace-char? (c) (or (= c ? ) (= c ?\t) (= c ?\n)))
+
+(defun move-down-to-nonempty-line ()
+  (while (and (not (at-last-line?)) (current-line-whitespace?))
+    (forward-line 1)))
+
+(defun move-up-to-nonempty-line ()
+  (while (and (not (at-first-line?)) (current-line-whitespace?))
+    (forward-line -1)))
+
+(defun current-line-whitespace? ()
+  (= (length (strip (current-line))) 0))
+
+(defun at-first-line? () (= (line-beginning-position) 1))
+(defun at-last-line? () (= (line-end-position) (buffer-end 1)))
+
+(defun current-line ()
+    (buffer-substring-no-properties (line-beginning-position)
+                                    (line-end-position)))
+
+(defun current-indent ()
+  (let ((old-pos (point)))
+    (move-down-to-nonempty-line)
+    (let ((s (current-line)))
+      (goto-char old-pos)
+      (- (length s) (length (lstrip s))))))
+
+(defun str* (str n)
+  (let ((retval ""))
+    (dotimes (i n)
+      (setq retval (concat retval str)))
+    retval))
