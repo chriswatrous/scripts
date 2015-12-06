@@ -1,6 +1,24 @@
 ;;;; Macros
 (defmacro comment (&rest args) nil)
 (defmacro cmd (&rest args) `(lambda () (interactive) (progn ,@args)))
+(defmacro define-key-cmd (keymap key &rest body)
+  `(define-key ,keymap ,key (lambda () (interactive) (progn ,@body))))
+
+(defmacro ->> (&rest body)
+  (let ((result (pop body)))
+    (dolist (form body result)
+      (let ((lform (list-wrap form)))
+        (setq result (append lform (list result)))))))
+
+(defmacro -> (&rest body)
+  (let ((result (pop body)))
+    (dolist (form body result)
+      (let ((lform (list-wrap form)))
+        (setq result (append (list (car lform) result)
+                             (cdr lform)))))))
+
+;; Used in the above macros
+(defun list-wrap (x) (if (listp x) x (list x)))
 
 
 ;;;; Prepare package manager
@@ -24,6 +42,7 @@
 (require 'feature-mode)
 (require 'highlight-symbol)
 (require 'linum-relative)  ; need melpa version
+(require 'popup)
 (require 'powerline)
 (require 'powerline-evil)
 (require 'projectile)
@@ -65,6 +84,7 @@
 (setq mouse-wheel-progressive-speed nil)
 (setq smooth-scroll-margin 5)
 (setq-default indent-tabs-mode nil)
+(setq require-final-newline t)
 
 ;; Put backup files and autosave files in temp dir.
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
@@ -88,7 +108,6 @@
 
 ;; Start term mode in line mode and evil emacs mode.
 (defadvice term (after advice-term-line-mode activate)
-  ;; (term-line-mode)
   (evil-normal-state)
   (evil-emacs-state))
 
@@ -112,7 +131,7 @@
 
 (set-face-attribute 'linum nil :foreground "#00cc00")
 (set-face-attribute 'fringe nil :background "#111133")
-(set-face-attribute 'highlight nil :background "#007700")
+(set-face-attribute 'highlight nil :background "#005500")
 
 ;; Rainbow delimiters colors
 (defconst rainbow-colors
@@ -192,14 +211,13 @@
   (define-key global-map (kbd k) 'zoom-in/out))
 
 ;; Open main work location in dired.
-(define-key global-map (leader+ "a")
-  (cmd (cond
-        ((work-windows?)
+(define-key-cmd global-map (leader+ "a")
+  (cond ((work-windows?)
          (find-file "C:/Users/IBM_ADMIN/VirtualBox Share/gitrepos"))
         ((work-linux?)
          (find-file "/media/sf_VirtualBox_Share/gitrepos"))
         ((home-linux?)
-         (find-file "/ssh:chris@192.168.1.50:/home/chris/stuff")))))
+         (find-file "/ssh:chris@192.168.1.50:/home/chris/stuff"))))
 
 (define-key global-map (leader+ "C-t") (cmd (term "/bin/bash")))
 (define-key global-map (kbd "C-;") 'buffer-menu)
@@ -220,13 +238,24 @@
 (define-key dired-mode-map (kbd "<backspace>") 'diredp-kill-this-tree)
 
 ;; python-mode insert breakpoint
-(define-key python-mode-map (leader+ "C-d")
-  (cmd (let ((indent (current-indent)))
+(define-key-cmd python-mode-map (leader+ "C-b")
+  (let ((indent (current-indent)))
          (beginning-of-line)
          (insert (concat (str* " " indent)
                          "import ipdb; ipdb.set_trace()\n"))
          (forward-line -1)
-         (goto-char (+ (point) indent)))))
+         (forward-char indent)))
+
+;; Go to first pep8 error
+(define-key-cmd python-mode-map (kbd "<f5>")
+  (let ((result (call-process-buffer-str "pep8" "-")))
+    (if (/= (length (strip result)) 0)
+        (let ((parts (parse-pep8 result)))
+          (beginning-of-buffer)
+          (forward-line (1- (nth 0 parts)))
+          (forward-char (1- (nth 1 parts)))
+          (popup-tip (nth 2 parts)))
+      (popup-tip "No pep8 errors."))))
 
 
 ;;;; Useful Functions
@@ -245,8 +274,7 @@
 
 (defun rstrip (s)
   (let ((i (length s)))
-    (while (and (> i 0)
-                (whitespace-char? (aref s (1- i))))
+    (while (and (> i 0) (whitespace-char? (aref s (1- i))))
       (setq i (1- i)))
     (substring s 0 i)))
 
@@ -273,6 +301,7 @@
                                     (line-end-position)))
 
 (defun current-indent ()
+  "Get the indent of the first non-blank line at or below point."
   (let ((old-pos (point)))
     (move-down-to-nonempty-line)
     (let ((s (current-line)))
@@ -280,7 +309,38 @@
       (- (length s) (length (lstrip s))))))
 
 (defun str* (str n)
+  "Repeat the string str n times."
   (let ((retval ""))
-    (dotimes (i n)
-      (setq retval (concat retval str)))
+    (dotimes (i n) (setq retval (concat retval str)))
     retval))
+
+(defun call-process-buffer-str (cmd &rest args)
+  "Call an external program, sending the current buffer as input and returning
+   the output as a string."
+  (let ((b-name (format "temp-%d" (random 1000000000)))
+        linum column message)
+    (eval (append '(call-process-region 1 (buffer-end 1) cmd
+                                        nil b-name nil)
+                  args))
+    (with-current-buffer b-name
+      (let ((result (buffer-substring-no-properties 1 (buffer-end 1))))
+        (kill-buffer b-name)
+        result))))
+
+(defun str-find-char (str char)
+  "Return a list of the indices in str matching char."
+  (let ((i 0) (idxs nil) (l (length str)))
+    (while (< i l)
+      (when (= (aref str i) char) (setq idxs (cons i idxs)))
+      (setq i (1+ i)))
+    (reverse idxs)))
+
+(defun parse-pep8-line (line)
+  "Return a list containing the line number, column, and message out of a pep8
+   error line."
+  (let ((idxs (str-find-char line ?:)))
+    (list (-> line (substring (1+ (nth 0 idxs)) (nth 1 idxs)) string-to-number)
+          (-> line (substring (1+ (nth 1 idxs)) (nth 2 idxs)) string-to-number)
+          (substring line (1+ (nth 2 idxs))))))
+
+(defun parse-pep8 (str) (-> str (split-string "\n") car parse-pep8-line))
