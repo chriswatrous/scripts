@@ -268,7 +268,7 @@
           (forward-line (1- (nth 0 parts)))
           (forward-char (1- (nth 1 parts)))
           (popup-tip (nth 2 parts)))
-      (popup-tip "No pep8 errors."))))
+      (princ "No pep8 errors."))))
 
 
 ;;;; Useful Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
