@@ -35,6 +35,7 @@
 
 ;; Theses will fail if the package is not installed. Then install the package.
 (require 'clojure-mode)
+(require 'cider)
 (require 'column-marker)
 (require 'dired+)
 (require 'dockerfile-mode)
@@ -68,7 +69,7 @@
 (defun home-linux? () (file-exists-p "/home/chris/stuff"))
 
 
-;;;; Options
+;;;; Options ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (tool-bar-mode -1)  ; Turn off toolbar
 (menu-bar-mode -1)  ; Turn off menu
 (xterm-mouse-mode 1)  ; Turn on mouse support in terminal
@@ -123,7 +124,12 @@
           (cmd (highlight-regexp "import ipdb; ipdb\.set_trace()"
                                  'highlight)))
 
-;;;; Colors
+(add-hook 'cider-docview-mode-hook #'evil-emacs-state)
+(add-hook 'cider-repl-mode-hook #'evil-emacs-state)
+(add-hook 'cider-stacktrace-mode-hook #'evil-emacs-state)
+
+
+;;;; Colors ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Default colors for new frames
 (setq default-frame-alist
       '((foreground-color . "#E0E0E0")
@@ -159,7 +165,8 @@
                                    :foreground "#55aaff"
                                    :background "#55aaff")))
 
-;;;; Key bindings
+
+;;;; Key bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun leader+ (key) (kbd (concat "<C-return> " key)))
 
 ;;; Tweak some existing commands
@@ -197,6 +204,12 @@
 ;; F8
 ;; F9
 ;; F12
+
+;; Change cider-repl C-return to C-S-return so it doesn't interfere with my
+;; leader key.
+(define-key cider-repl-mode-map (kbd "<C-return>") nil)
+(define-key cider-repl-mode-map (kbd "<C-S-return>")
+  'cider-repl-closing-return)
 
 (define-key global-map (leader+ "q") 'linum-relative-toggle)
 
@@ -258,7 +271,7 @@
       (popup-tip "No pep8 errors."))))
 
 
-;;;; Useful Functions
+;;;; Useful Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun print-list (list)
   (dolist (item list)
     (princ item)
