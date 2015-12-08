@@ -35,7 +35,7 @@ shopt -s dotglob
 # See http://ascii-table.com/ansi-escape-sequences.php
 # Disble git branch in prompt if on cygwin.
 if [ -z "$WINDIR" ]; then  # if WINDER is empty
-    PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[01;31m\]$(git-br)\[\e[0m\]] '
+    PS1='\n[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[01;31m\]$(git-br)\[\e[0m\]]\n>>> '
 else
     PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[0m\]] '
 fi
