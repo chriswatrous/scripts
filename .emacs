@@ -140,21 +140,23 @@
 (set-face-attribute 'highlight nil :background "#005500")
 
 ;; Rainbow delimiters colors
-(defconst rainbow-colors
-  '("#ff0000"
-    "#00ff00"
-    "#0066ff"
-    "#ffff00"
-    "#ff00ff"
-    "#00ffff"
-    "#880000"
-    "#008800"
-    "#0000ff"))
-(let ((i 1))
-  (dolist (c rainbow-colors)
-    (set-face-attribute (intern (format "rainbow-delimiters-depth-%d-face" i))
-                        nil :foreground c)
-    (setq i (1+ i))))
+(progn
+  (defconst rainbow-colors
+    '("#ff0000"
+      "#00ff00"
+      "#0066ff"
+      "#eeee00"
+      "#ff00ff"
+      "#00ffff"
+      "#ff6600"
+      "#88cc44"
+      "#7744ff"))
+  (let ((i 1))
+    (dolist (c rainbow-colors)
+      (set-face-attribute
+       (intern (format "rainbow-delimiters-depth-%d-face" i))
+       nil :foreground c)
+      (setq i (1+ i)))))
 (dolist (s '(rainbow-delimiters-mismatched-face
              rainbow-delimiters-unmatched-face))
   (set-face-attribute s nil :foreground "white" :background "red"))
