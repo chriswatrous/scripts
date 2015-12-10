@@ -86,6 +86,7 @@
 (setq smooth-scroll-margin 5)
 (setq-default indent-tabs-mode nil)
 (setq require-final-newline t)
+(setq-default line-spacing 1)
 
 ;; Put backup files and autosave files in temp dir.
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
