@@ -80,13 +80,17 @@
 (diredp-toggle-find-file-reuse-dir t)  ; Dired+ reuse buffer for changing dirs.
 (linum-relative-on)
 (cond ((eq system-type 'windows-nt)
-       (set-face-attribute 'default nil :font "Liberation Mono-10")))
+       (set-face-attribute 'default nil :font "Liberation Mono-10"))
+      ((eq system-type 'gnu/linux)
+       (set-face-attribute 'default nil :font "Liberation Mono-11"))
+
+      )
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
 (setq smooth-scroll-margin 5)
 (setq-default indent-tabs-mode nil)
 (setq require-final-newline t)
-(setq-default line-spacing 1)
+(setq-default line-spacing 2)
 
 ;; Put backup files and autosave files in temp dir.
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
@@ -148,9 +152,9 @@
       "#0066ff"
       "#eeee00"
       "#ff00ff"
-      "#00ffff"
+      "#00ff99"
       "#ff6600"
-      "#88cc44"
+      "#666666"
       "#7744ff"))
   (let ((i 1))
     (dolist (c rainbow-colors)
