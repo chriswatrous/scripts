@@ -204,7 +204,6 @@
 
 ;;; Custom key bindings
 ;; Keys I could use (with current binding)
-;; C-a - move to beginning of line
 ;; C-j - newline
 ;; C-k - kill line
 ;; C-\ - toggle input method
@@ -256,6 +255,8 @@
 (define-key global-map (leader+ "C-l") 'evil-window-right)
 (define-key global-map (leader+ "C-k") 'evil-window-up)
 (define-key global-map (leader+ "C-j") 'evil-window-down)
+(define-key global-map (leader+ "C-r") 'rename-uniquely)
+(define-key global-map (leader+ "C-c") 'kill-this-buffer)
 
 ;; Bindings for highlight-symbol
 (define-key global-map (leader+ "C-w") 'highlight-symbol)
@@ -373,5 +374,3 @@
           (substring line (1+ (nth 2 idxs))))))
 
 (defun parse-pep8 (str) (-> str (split-string "\n") car parse-pep8-line))
-
-(concat "asdf" "qwer")
