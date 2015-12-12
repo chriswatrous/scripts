@@ -82,9 +82,7 @@
 (cond ((eq system-type 'windows-nt)
        (set-face-attribute 'default nil :font "Liberation Mono-10"))
       ((eq system-type 'gnu/linux)
-       (set-face-attribute 'default nil :font "Liberation Mono-11"))
-
-      )
+       (set-face-attribute 'default nil :font "Liberation Mono-11")))
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
 (setq smooth-scroll-margin 5)
