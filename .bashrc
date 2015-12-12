@@ -142,6 +142,11 @@ alias c.....='cd ../../../../..'
 alias c......='cd ../../../../../..'
 alias r=select_recent_dir
 
+# Common directories
+alias c1='cd /media/sf_VirtualBox_Share/gitrepos/cams-api'
+alias c2='cd /media/sf_VirtualBox_Share/gitrepos/CAMS-AT'
+alias c3='cd /media/sf_VirtualBox_Share/gitrepos/cfs-python-utils'
+
 update_recent_dirs()
 {
     recent_dirs=()
