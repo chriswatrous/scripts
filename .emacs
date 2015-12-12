@@ -82,15 +82,25 @@
 (cond ((eq system-type 'windows-nt)
        (set-face-attribute 'default nil :font "Liberation Mono-10"))
       ((eq system-type 'gnu/linux)
-       (set-face-attribute 'default nil :font "Liberation Mono-11"))
+       (set-face-attribute 'default nil :font "Liberation Mono-11")))
 
-      )
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
 (setq smooth-scroll-margin 5)
 (setq-default indent-tabs-mode nil)
 (setq require-final-newline t)
-(setq-default line-spacing 2)
+(setq-default line-spacing 3)
+
+;; Fix terminal window height.
+;; This function needed to use (floor (window-screen-lines)) instead of
+;; (1- (window-height))
+;; This works for 24.4.1
+(require 'term)
+(defun term-check-size (process)
+  (when (or (/= term-height (floor (window-screen-lines)))
+	    (/= term-width (term-window-width)))
+    (term-reset-size (floor (window-screen-lines)) (term-window-width))
+    (set-process-window-size process term-height term-width)))
 
 ;; Put backup files and autosave files in temp dir.
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
