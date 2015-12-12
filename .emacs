@@ -88,7 +88,18 @@
 (setq smooth-scroll-margin 5)
 (setq-default indent-tabs-mode nil)
 (setq require-final-newline t)
-(setq-default line-spacing 2)
+(setq-default line-spacing 4)
+
+;; Fix terminal window height.
+;; This function needed to use (floor (window-screen-lines)) instead of
+;; (1- (window-height))
+;; This works for 24.4.1
+(require 'term)
+(defun term-check-size (process)
+  (when (or (/= term-height (floor (window-screen-lines)))
+	    (/= term-width (term-window-width)))
+    (term-reset-size (floor (window-screen-lines)) (term-window-width))
+    (set-process-window-size process term-height term-width)))
 
 ;; Put backup files and autosave files in temp dir.
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
@@ -362,3 +373,5 @@
           (substring line (1+ (nth 2 idxs))))))
 
 (defun parse-pep8 (str) (-> str (split-string "\n") car parse-pep8-line))
+
+(concat "asdf" "qwer")
