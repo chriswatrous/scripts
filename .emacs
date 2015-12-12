@@ -89,7 +89,7 @@
 (setq smooth-scroll-margin 5)
 (setq-default indent-tabs-mode nil)
 (setq require-final-newline t)
-(setq-default line-spacing 3)
+(setq-default line-spacing 4)
 
 ;; Fix terminal window height.
 ;; This function needed to use (floor (window-screen-lines)) instead of
