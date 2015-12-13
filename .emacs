@@ -263,6 +263,7 @@
 (define-key global-map (leader+ "w") 'highlight-symbol-remove-all)
 (define-key global-map (kbd "C->") 'highlight-symbol-next)
 (define-key global-map (kbd "C-<") 'highlight-symbol-prev)
+(define-key global-map (leader+ "C-s") (cmd (save-some-buffers t)))
 
 ;; Dired / Dired+
 (define-key dired-mode-map (kbd "<backspace>") 'diredp-kill-this-tree)

@@ -68,7 +68,7 @@ stty -ixon
 
 export EDITOR=vim
 export LC_ALL=C
-export LESS='-M -R'
+export LESS='-M -R -c'
 export PAGER=less
 export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONIOENCODING=utf_8
