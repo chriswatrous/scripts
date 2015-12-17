@@ -89,6 +89,9 @@
 (setq-default indent-tabs-mode nil)
 (setq require-final-newline t)
 (setq-default line-spacing 4)
+(setq term-buffer-maximum-size 0)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
 ;; Fix terminal window height.
 ;; This function needed to use (floor (window-screen-lines)) instead of
@@ -145,9 +148,8 @@
 
 ;;;; Colors ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Default colors for new frames
-(setq default-frame-alist
-      '((foreground-color . "#E0E0E0")
-        (background-color . "#000000")))
+(add-to-list 'default-frame-alist '(foreground-color . "#E0E0E0"))
+(add-to-list 'default-frame-alist '(background-color . "#000000"))
 
 (set-face-attribute 'linum nil :foreground "#00cc00")
 (set-face-attribute 'fringe nil :background "#111133")
