@@ -259,6 +259,7 @@
 (define-key global-map (leader+ "C-j") 'evil-window-down)
 (define-key global-map (leader+ "C-r") 'rename-uniquely)
 (define-key global-map (leader+ "C-c") 'kill-this-buffer)
+(define-key global-map (leader+ "C-f") 'make-frame)
 
 ;; Bindings for highlight-symbol
 (define-key global-map (leader+ "C-w") 'highlight-symbol)
