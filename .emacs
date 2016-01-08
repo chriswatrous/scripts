@@ -154,6 +154,8 @@
 (set-face-attribute 'linum nil :foreground "#00cc00")
 (set-face-attribute 'fringe nil :background "#111133")
 (set-face-attribute 'highlight nil :background "#005500")
+; (set-face-attribute 'cider-stacktrace-face nil :foreground "gray")
+(setq cider-stacktrace-frames-background-color "black")
 
 ;; Rainbow delimiters colors
 (progn
@@ -249,14 +251,14 @@
         ((home-linux?)
          (find-file "/ssh:chris@192.168.1.50:/home/chris/stuff"))))
 
-(define-key global-map (leader+ "C-t") (cmd (term "/bin/bash")))
+(define-key global-map (kbd "C-S-t") (cmd (term "/bin/bash")))
 (define-key global-map (kbd "C-;") 'buffer-menu)
 (define-key global-map (kbd "C-'") 'find-file)
 (define-key global-map (kbd "C-,") 'async-shell-command)
-(define-key global-map (leader+ "C-h") 'evil-window-left)
-(define-key global-map (leader+ "C-l") 'evil-window-right)
-(define-key global-map (leader+ "C-k") 'evil-window-up)
-(define-key global-map (leader+ "C-j") 'evil-window-down)
+(define-key global-map (kbd "C-S-h") 'evil-window-left)
+(define-key global-map (kbd "C-S-l") 'evil-window-right)
+(define-key global-map (kbd "C-S-k") 'evil-window-up)
+(define-key global-map (kbd "C-S-j") 'evil-window-down)
 (define-key global-map (leader+ "C-r") 'rename-uniquely)
 (define-key global-map (leader+ "C-c") 'kill-this-buffer)
 (define-key global-map (leader+ "C-f") 'make-frame)
@@ -266,7 +268,7 @@
 (define-key global-map (leader+ "w") 'highlight-symbol-remove-all)
 (define-key global-map (kbd "C->") 'highlight-symbol-next)
 (define-key global-map (kbd "C-<") 'highlight-symbol-prev)
-(define-key global-map (leader+ "C-s") (cmd (save-some-buffers t)))
+(define-key global-map (kbd "C-S-s") (cmd (save-some-buffers t)))
 
 ;; Dired / Dired+
 (define-key dired-mode-map (kbd "<backspace>") 'diredp-kill-this-tree)
