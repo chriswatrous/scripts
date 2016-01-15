@@ -51,6 +51,7 @@
 (require 'rainbow-delimiters)
 (require 'uniquify)
 (require 'smooth-scrolling)
+(require 'yaml-mode)
 (require 'zoom-frm)
 
 
@@ -189,6 +190,9 @@
 ;;;; Key bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun leader+ (key) (kbd (concat "<C-return> " key)))
 
+;;; Disable some built in keys
+(global-unset-key (kbd "C-j"))
+
 ;;; Tweak some existing commands
 ;; Open buffer list in same window.
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
@@ -213,6 +217,7 @@
 ;; C-\ - toggle input method
 ;; C-l - current line to center / top / bottom
 ;; C-q - quoted-insert
+
 ;; C-=
 ;; C-`
 ;; C-Tab

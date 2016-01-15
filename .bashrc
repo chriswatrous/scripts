@@ -88,7 +88,7 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
 fi
 
 # export PYTHONPATH='.:..:../..:../../..:../../../..:../../../../..:../../../../../..:../../../../../../..'
-export PATH="~/bin:~/stuff/bin:$PATH:."
+export PATH="~/bin:~/stuff/bin:$PATH:~/gitrepos/cams-test/tools:."
 
 export REQUEST_STATS_FILE=~/request_stats
 
@@ -146,6 +146,7 @@ alias r=select_recent_dir
 alias c1='cd /media/sf_VirtualBox_Share/gitrepos/cams-api'
 alias c2='cd /media/sf_VirtualBox_Share/gitrepos/CAMS-AT'
 alias c3='cd /media/sf_VirtualBox_Share/gitrepos/cfs-python-utils'
+alias c4='cd /home/chris/gitrepos/cams-test'
 
 update_recent_dirs()
 {
