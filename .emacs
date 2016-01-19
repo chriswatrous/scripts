@@ -93,6 +93,7 @@
 (setq term-buffer-maximum-size 0)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+(global-auto-revert-mode t)
 
 ;; Fix terminal window height.
 ;; This function needed to use (floor (window-screen-lines)) instead of
