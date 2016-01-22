@@ -146,7 +146,7 @@ alias r=select_recent_dir
 alias c1='cd ~/gitrepos/cams/cams-api'
 alias c2='cd ~/gitrepos/cams/CAMS-AT'
 alias c3='cd ~/gitrepos/cams/cfs-python-utils'
-alias c4='cd ~/gitrepos/cams/cams-test'
+alias c4='cd ~/gitrepos/cams/cams-test/tools'
 
 update_recent_dirs()
 {
