@@ -198,10 +198,6 @@
 ;; Open buffer list in same window.
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
 
-;; Switch to new window after split.
-(global-set-key (kbd "C-x 2") (cmd (split-window-below) (other-window 1)))
-(global-set-key (kbd "C-x 3") (cmd (split-window-right) (other-window 1)))
-
 ;; Map C-c to ESC in all evil states but normal and emacs.
 (defun my-esc (prompt)
   (cond ((or (evil-insert-state-p) (evil-replace-state-p)
@@ -261,13 +257,25 @@
 (define-key global-map (kbd "C-;") 'buffer-menu)
 (define-key global-map (kbd "C-'") 'find-file)
 (define-key global-map (kbd "C-,") 'async-shell-command)
+
+;; Window switching
 (define-key global-map (kbd "C-S-h") 'evil-window-left)
 (define-key global-map (kbd "C-S-l") 'evil-window-right)
 (define-key global-map (kbd "C-S-k") 'evil-window-up)
 (define-key global-map (kbd "C-S-j") 'evil-window-down)
-(define-key global-map (leader+ "C-r") 'rename-uniquely)
-(define-key global-map (leader+ "C-c") 'kill-this-buffer)
-(define-key global-map (leader+ "C-f") 'make-frame)
+(define-key global-map (kbd "S-<left>") 'evil-window-left)
+(define-key global-map (kbd "S-<right>") 'evil-window-right)
+(define-key global-map (kbd "S-<up>") 'evil-window-up)
+(define-key global-map (kbd "S-<down>") 'evil-window-down)
+
+;; Window management
+(global-set-key (kbd "C-S-q") (cmd (split-window-below) (other-window 1)))
+(global-set-key (kbd "C-S-w") (cmd (split-window-right) (other-window 1)))
+(global-set-key (kbd "C-~") 'delete-window)
+
+(global-set-key (leader+ "C-r") 'rename-uniquely)
+(global-set-key (leader+ "C-c") 'kill-this-buffer)
+(global-set-key (leader+ "C-f") 'make-frame)
 
 ;; Bindings for highlight-symbol
 (define-key global-map (leader+ "C-w") 'highlight-symbol)
