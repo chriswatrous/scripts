@@ -7,10 +7,11 @@ if 'pythonrc_guard' not in globals():
     import sys
     import requests
     import pyrsistent
+    import itertools
+    import functools
     from subprocess import *
     from datetime import *
     from pprint import *
-
 
     def pdir(obj):
         pprint(dir(obj))
