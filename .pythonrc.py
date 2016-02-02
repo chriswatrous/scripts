@@ -6,6 +6,8 @@ if 'pythonrc_guard' not in globals():
     import re
     import sys
     import requests
+    import itertools
+    import functools
     from subprocess import *
     from datetime import *
     from time import *
@@ -14,6 +16,17 @@ if 'pythonrc_guard' not in globals():
     from concurrent.futures import *
     from base64 import *
     from uuid import *
+
+    try:
+        import pyrsistent
+        from pyrsistent import *
+    except ImportError:
+        pass
+
+    try:
+        import yaml
+    except ImportError:
+        pass
 
     def pdir(obj):
         pprint(dir(obj))
