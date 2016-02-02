@@ -256,6 +256,7 @@
 (define-key global-map (kbd "C-S-t") (cmd (term "/bin/bash")))
 (define-key global-map (kbd "C-;") 'buffer-menu)
 (define-key global-map (kbd "C-'") 'find-file)
+(define-key global-map (kbd "C-\"") 'find-file-other-window)
 (define-key global-map (kbd "C-,") 'async-shell-command)
 
 ;; Window switching
