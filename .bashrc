@@ -79,9 +79,9 @@ export GIT_REVIEW_CMD=tgr
 
 # Set default editor.
 if [ -e ~/scripts/bin/find-editor ]; then
-    export EDITOR='~/scripts/bin/find-editor'
+    export EDITOR="$HOME/scripts/bin/find-editor"
 else
-    export EDITOR='vim'
+    export EDITOR=vim
 fi
 export VISUAL="$EDITOR"
 export GIT_EDITOR="$EDITOR"
