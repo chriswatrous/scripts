@@ -134,6 +134,8 @@ fi
 alias g='git status'
 alias gb='git branch'
 alias gd='git diff'
+alias gd1='git diff `git merge-base master HEAD` HEAD'
+alias gd2='git diff `git merge-base master HEAD` .'
 alias gl='git log --decorate --graph'
 alias gla='git log --decorate --graph --all --oneline'
 alias gc='git checkout'

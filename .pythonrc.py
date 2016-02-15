@@ -8,9 +8,15 @@ if 'pythonrc_guard' not in globals():
     import requests
     import itertools
     import functools
+    import psutil
     from subprocess import *
     from datetime import *
+    from time import *
     from pprint import *
+    from collections import *
+    from concurrent.futures import *
+    from base64 import *
+    from uuid import *
 
     try:
         import pyrsistent
