@@ -66,7 +66,6 @@ complete -d cd
 # Disable handling of ^s
 stty -ixon
 
-export EDITOR=vim
 export LC_ALL=C
 export LESS='-M -R -c'
 export PAGER=less
@@ -78,6 +77,15 @@ export NO_LOG_HEADER=true
 export GIT_PULL_CMD=tgp
 export GIT_REVIEW_CMD=tgr
 
+# Set default editor.
+if [ -e ~/bin/find-editor ]; then
+    export EDITOR=edit
+else
+    export EDITOR=vim
+fi
+export VISUAL="$EDITOR"
+export GIT_EDITOR="$EDITOR"
+
 unset JAVA_TOOL_OPTIONS
 
 if [[ -e /cygdrive/c/Users/Chris ]]; then
@@ -88,7 +96,7 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
 fi
 
 # export PYTHONPATH='.:..:../..:../../..:../../../..:../../../../..:../../../../../..:../../../../../../..'
-export PATH="~/bin:~/stuff/bin:$PATH:~/gitrepos/cams/cams-test/tools:."
+export PATH="~/bin:~/scripts/bin:~/stuff/bin:$PATH:~/gitrepos/cams/cams-test/tools:."
 
 export REQUEST_STATS_FILE=~/request_stats
 
@@ -109,7 +117,6 @@ alias tree='tree -C'
 alias vi=vim
 alias vim='vim -p'
 alias wt='watch -n 1'
-alias emacs='emacs -nw'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then

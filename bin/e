@@ -1,0 +1,36 @@
+#! /usr/bin/python3
+import os
+import sys
+from subprocess import call, DEVNULL
+
+from edit_helpers import run_editor
+
+
+def main():
+    path = file_to_edit()
+    cmds = get_editors(path)
+    run_editor(cmds)
+
+
+def file_to_edit():
+    if len(sys.argv) == 1:
+        print('Specify the file to edit.')
+        sys.exit(1)
+    elif len(sys.argv) > 2:
+        print('This program requires exactly argument.')
+        sys.exit(1)
+    return sys.argv[1]
+
+
+def get_editors(path):
+    cmds = []
+    if os.getenv('INSIDE_EMACS'):
+        lisp = '(find-file-other-window "{}")'.format(path)
+        cmds.append(['emacsclient', '-a', 'vim', '-e', lisp])
+    cmds.append(['vim', path])
+    cmds.append(['vi', path])
+    return cmds
+
+
+if __name__ == '__main__':
+    main()

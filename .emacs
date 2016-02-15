@@ -50,6 +50,7 @@
 (require 'python-mode)
 (require 'rainbow-delimiters)
 (require 'uniquify)
+(require 'server)
 (require 'smooth-scrolling)
 (require 'yaml-mode)
 (require 'zoom-frm)
@@ -94,6 +95,7 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (global-auto-revert-mode t)
+(unless (server-running-p) (server-start))
 
 ;; Fix terminal window height.
 ;; This function needed to use (floor (window-screen-lines)) instead of
@@ -275,7 +277,13 @@
 (global-set-key (kbd "C-~") 'delete-window)
 
 (global-set-key (leader+ "C-r") 'rename-uniquely)
-(global-set-key (leader+ "C-c") 'kill-this-buffer)
+
+(global-set-key (leader+ "C-c")
+                (cmd (save-some-buffers t)
+                     (if server-buffer-clients
+                         (server-edit)
+                       (kill-this-buffer))))
+
 (global-set-key (leader+ "C-f") 'make-frame)
 
 ;; Bindings for highlight-symbol
@@ -291,11 +299,11 @@
 ;; python-mode insert breakpoint
 (define-key-cmd python-mode-map (leader+ "C-b")
   (let ((indent (current-indent)))
-         (beginning-of-line)
-         (insert (concat (str* " " indent)
-                         "import ipdb; ipdb.set_trace()\n"))
-         (forward-line -1)
-         (forward-char indent)))
+    (beginning-of-line)
+    (insert (concat (str* " " indent)
+                    "import ipdb; ipdb.set_trace()\n"))
+    (forward-line -1)
+    (forward-char indent)))
 
 ;; Go to first pep8 error
 (define-key-cmd python-mode-map (kbd "<f5>")
@@ -348,8 +356,8 @@
 (defun at-last-line? () (= (line-end-position) (buffer-end 1)))
 
 (defun current-line ()
-    (buffer-substring-no-properties (line-beginning-position)
-                                    (line-end-position)))
+  (buffer-substring-no-properties (line-beginning-position)
+                                  (line-end-position)))
 
 (defun current-indent ()
   "Get the indent of the first non-blank line at or below point."
