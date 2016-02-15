@@ -78,10 +78,10 @@ export GIT_PULL_CMD=tgp
 export GIT_REVIEW_CMD=tgr
 
 # Set default editor.
-if [ -e ~/bin/find-editor ]; then
-    export EDITOR=edit
+if [ -e ~/scripts/bin/find-editor ]; then
+    export EDITOR='~/scripts/bin/find-editor'
 else
-    export EDITOR=vim
+    export EDITOR='vim'
 fi
 export VISUAL="$EDITOR"
 export GIT_EDITOR="$EDITOR"
