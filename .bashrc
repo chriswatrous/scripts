@@ -75,7 +75,7 @@ export PYTHONPATH=.
 export DB_NAME=chris_local
 export NO_LOG_HEADER=true
 export GIT_PULL_CMD=tgp
-export GIT_REVIEW_CMD=tgr
+export GIT_REVIEW_CMD='git review'
 
 # Set default editor.
 if [ -e ~/scripts/bin/find-editor ]; then
@@ -132,7 +132,7 @@ fi
 
 # aliases for git
 alias g='git status'
-alias gb='git branch'
+alias gb='git branch -a -vv'
 alias gd='git diff'
 alias gd1='git diff `git merge-base master HEAD` HEAD'
 alias gd2='git diff `git merge-base master HEAD` .'

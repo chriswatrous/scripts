@@ -289,8 +289,10 @@
 ;; Bindings for highlight-symbol
 (define-key global-map (leader+ "C-w") 'highlight-symbol)
 (define-key global-map (leader+ "w") 'highlight-symbol-remove-all)
-(define-key global-map (kbd "C->") 'highlight-symbol-next)
-(define-key global-map (kbd "C-<") 'highlight-symbol-prev)
+;; (define-key global-map (kbd "C->") 'highlight-symbol-next)
+;; (define-key global-map (kbd "C-<") 'highlight-symbol-prev)
+(define-key global-map (kbd "C->") 'evil-search-word-forward)
+(define-key global-map (kbd "C-<") 'evil-search-word-backward)
 (define-key global-map (kbd "C-S-s") (cmd (save-some-buffers t)))
 
 ;; Dired / Dired+
