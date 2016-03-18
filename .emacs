@@ -27,7 +27,8 @@
       '(("melpa stable" . "http://melpa-stable.milkbox.net/packages/")
         ("melpa" . "http://melpa.milkbox.net/packages/")
         ("marmalade" . "https://marmalade-repo.org/packages/")
-        ("gnu" . "http://elpa.gnu.org/packages/")))
+        ("gnu" . "http://elpa.gnu.org/packages/")
+        ("elpy" . "https://jorgenschaefer.github.io/packages/")))
 (package-initialize)
 (comment
  (package-list-packages)  ; list / install / uninstall packages
@@ -73,6 +74,7 @@
 
 
 ;;;; Options ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (elpy-enable)
 (tool-bar-mode -1)  ; Turn off toolbar
 (menu-bar-mode -1)  ; Turn off menu
 (xterm-mouse-mode 1)  ; Turn on mouse support in terminal

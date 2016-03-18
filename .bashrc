@@ -31,11 +31,16 @@ shopt -s dotglob
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Set color prompt. There may be a rare terminal where this doesn't work. I'll cross that bridge when I come to it.
+# Set color prompt. There may be a rare terminal where this doesn't
+# work. I'll cross that bridge when I come to it.
 # See http://ascii-table.com/ansi-escape-sequences.php
 # Disble git branch in prompt if on cygwin.
 if [ -z "$WINDIR" ]; then  # if WINDER is empty
-    PS1='\n[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[01;31m\]$(git-br)\[\e[0m\]]\n>>> '
+    user_and_host='\[\e[3;33m\]\u@\h\e[0m'
+    working_dir='\[\e[01;34m\]${PWD}\e[0m'
+    git_branch='\[\e[01;31m\]$(git-br)\[\e[0m\]'
+    prompt='\e[36mbash>\e[0m'
+    PS1="\n[$user_and_host $working_dir$git_branch]\n$prompt "
 else
     PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[0m\]] '
 fi
@@ -76,6 +81,7 @@ export DB_NAME=chris_local
 export NO_LOG_HEADER=true
 export GIT_PULL_CMD=tgp
 export GIT_REVIEW_CMD='git review'
+export LOGGING_206_AS_ERROR=True
 
 # Set default editor.
 if [ -e ~/scripts/bin/find-editor ]; then
@@ -117,6 +123,7 @@ alias tree='tree -C'
 alias vi=vim
 alias vim='vim -p'
 alias wt='watch -n 1'
+alias ports='netstat -tulpn'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
@@ -156,6 +163,7 @@ alias c1='cd ~/gitrepos/cams/cams-api'
 alias c2='cd ~/gitrepos/cams/CAMS-AT'
 alias c3='cd ~/gitrepos/cams/cfs-python-utils'
 alias c4='cd ~/gitrepos/cams/cams-test/tools'
+alias c5='cd ~/gitrepos/cams/cams-dist/jenkins-config-manager'
 
 update_recent_dirs()
 {
