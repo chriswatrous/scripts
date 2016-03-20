@@ -36,14 +36,21 @@ shopt -s dotglob
 # See http://ascii-table.com/ansi-escape-sequences.php
 # Disble git branch in prompt if on cygwin.
 if [ -z "$WINDIR" ]; then  # if WINDER is empty
-    user_and_host='\[\e[3;33m\]\u@\h\e[0m'
-    working_dir='\[\e[01;34m\]${PWD}\e[0m'
-    git_branch='\[\e[01;31m\]$(git-br)\[\e[0m\]'
-    prompt='\e[36mbash>\e[0m'
-    PS1="\n[$user_and_host $working_dir$git_branch]\n$prompt "
+    # Old prompt
+    # user_and_host='\[\e[3;33m\]\u@\h\e[0m'
+    # working_dir='\[\e[01;34m\]${PWD}\e[0m'
+    # git_branch='\[\e[01;31m\]$(git-br)\[\e[0m\]'
+    # prompt='\e[36mbash>\e[0m'
+    # PS1="\n[$user_and_host $working_dir$git_branch]\n$prompt "
+
+    # New go prompt.
+    PS1='$(~/scripts/prompter/prompter)'
 else
     PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[0m\]] '
 fi
+
+# Reset the terminal color before every command.
+trap 'echo -n -e "\e[0m"' DEBUG
 
 # Non-color prompt
 #PS1='[\u@\h ${PWD}] '
@@ -77,11 +84,13 @@ export PAGER=less
 export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONIOENCODING=utf_8
 export PYTHONPATH=.
+export GOPATH="${HOME}/.go"
+
+# Work related stuff.
 export DB_NAME=chris_local
 export NO_LOG_HEADER=true
-export GIT_PULL_CMD=tgp
-export GIT_REVIEW_CMD='git review'
 export LOGGING_206_AS_ERROR=True
+export REQUEST_STATS_FILE=~/request_stats
 
 # Set default editor.
 if [ -e ~/scripts/bin/find-editor ]; then
@@ -101,10 +110,8 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
     export PATH="${PATH}:/cygdrive/c/Program Files (x86)/CSound6/bin"
 fi
 
-# export PYTHONPATH='.:..:../..:../../..:../../../..:../../../../..:../../../../../..:../../../../../../..'
-export PATH="~/bin:~/scripts/bin:~/stuff/bin:$PATH:~/gitrepos/cams/cams-test/tools:."
+export PATH="~/bin:~/scripts/bin:~/stuff/bin:$PATH:~/gitrepos/cams/cams-test/tools:~/.go/bin:."
 
-export REQUEST_STATS_FILE=~/request_stats
 
 alias ag='ag --color-match "1;31"'
 alias df='df -Th'
@@ -225,30 +232,30 @@ fi
 
 
 # Maybe faster version. We'll see.
-git-br()
-{
-    # Find the .git directory.
-    while true; do
-        if [ -e .git ]; then
-            break
-        fi
-        last_pwd="$PWD"
-        \cd ..  # Don't use the cd alias for my_cd.
-        if [ "$last_pwd" = "$PWD" ]; then
-            break
-        fi
-    done
+# git-br()
+# {
+#     # Find the .git directory.
+#     while true; do
+#         if [ -e .git ]; then
+#             break
+#         fi
+#         last_pwd="$PWD"
+#         \cd ..  # Don't use the cd alias for my_cd.
+#         if [ "$last_pwd" = "$PWD" ]; then
+#             break
+#         fi
+#     done
 
-    # Read .git/HEAD
-    if [ -e .git ]; then
-        head=`cat .git/HEAD`
-        if [[ "$head" == "ref: refs/heads/"* ]]; then
-            echo " "${head:16}
-        else
-            echo " "$head
-        fi
-    fi
-}
+#     # Read .git/HEAD
+#     if [ -e .git ]; then
+#         head=`cat .git/HEAD`
+#         if [[ "$head" == "ref: refs/heads/"* ]]; then
+#             echo " "${head:16}
+#         else
+#             echo " "$head
+#         fi
+#     fi
+# }
 
 
 ################## old color prompt stuff #####################################

@@ -43,6 +43,7 @@
 (require 'dockerfile-mode)
 (require 'evil)
 (require 'feature-mode)
+(require 'go-mode)
 (require 'highlight-symbol)
 (require 'linum-relative)  ; need melpa version
 (require 'popup)
@@ -75,6 +76,7 @@
 
 ;;;; Options ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (elpy-enable)
+(setq default-tab-width 4)
 (tool-bar-mode -1)  ; Turn off toolbar
 (menu-bar-mode -1)  ; Turn off menu
 (xterm-mouse-mode 1)  ; Turn on mouse support in terminal
@@ -138,7 +140,10 @@
 
 ;; Activate rainbow delimiters and column marker for programming language
 ;; modes.
-(dolist (h '(emacs-lisp-mode-hook python-mode-hook clojure-mode-hook))
+(dolist (h '(emacs-lisp-mode-hook
+             python-mode-hook
+             clojure-mode-hook
+             go-mode-hook))
   (add-hook h #'rainbow-delimiters-mode)
   (add-hook h (lambda () (column-marker-1 79))))
 
