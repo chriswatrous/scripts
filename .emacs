@@ -285,7 +285,7 @@
 (global-set-key (kbd "C-S-w") (cmd (split-window-right) (other-window 1)))
 (global-set-key (kbd "C-~") 'delete-window)
 
-(global-set-key (leader+ "C-r") 'rename-uniquely)
+(global-set-key (leader+ "C-r") 'revert-buffer)
 
 (global-set-key (leader+ "C-c")
                 (cmd (save-some-buffers t)
