@@ -36,8 +36,8 @@ func main() {
 	}
 
 	fmt.Print("\n[", strings.Join(statusParts, " "), "]\n")
-	fmt.Print(colorize(PROMPT_COLOR, "bash> "))
-	fmt.Print(colorSequence(COMMAND_COLOR))
+	// fmt.Print(colorize(PROMPT_COLOR, "bash> "))
+	// fmt.Print(colorSequence(COMMAND_COLOR))
 }
 
 func gitBranch() (out string) {

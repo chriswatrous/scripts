@@ -2,3 +2,5 @@
 *~
 __pycache__
 prompter/prompter
+*.hi
+*.o

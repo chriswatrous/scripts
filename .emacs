@@ -44,6 +44,7 @@
 (require 'evil)
 (require 'feature-mode)
 (require 'go-mode)
+(require 'haskell-mode)
 (require 'highlight-symbol)
 (require 'linum-relative)  ; need melpa version
 (require 'popup)
