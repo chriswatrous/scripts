@@ -88,7 +88,7 @@ export PYTHONPATH=.
 export GOPATH="${HOME}/.go"
 
 # Work related stuff.
-export DB_NAME=chris_local
+# export DB_NAME=chris_local
 export NO_LOG_HEADER=true
 export LOGGING_206_AS_ERROR=True
 export REQUEST_STATS_FILE=~/request_stats
