@@ -144,7 +144,8 @@
 (dolist (h '(emacs-lisp-mode-hook
              python-mode-hook
              clojure-mode-hook
-             go-mode-hook))
+             go-mode-hook
+             haskell-mode-hook))
   (add-hook h #'rainbow-delimiters-mode)
   (add-hook h (lambda () (column-marker-1 79))))
 
