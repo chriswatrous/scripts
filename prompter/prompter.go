@@ -1,19 +1,22 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"io/ioutil"
 	"os"
+	"os/exec"
+	"os/user"
 	"path"
 	"strconv"
 	"strings"
-	"os/user"
 )
 
 const DIR_COLOR = "blue"
 const PROMPT_COLOR = "cyan"
 const COMMAND_COLOR = "yellow"
-const GIT_BRANCH_COLOR = "green"
+const CLEAN_TREE_COLOR = "green"
+const DIRTY_TREE_COLOR = "red"
 const ROOT_WARNING_COLOR = "red"
 
 func main() {
@@ -23,7 +26,8 @@ func main() {
 
 	// Add root warning.
 	if os.Geteuid() == 0 {
-		statusParts = append(statusParts, colorize(ROOT_WARNING_COLOR, "(root)"))
+		statusParts = append(statusParts,
+			colorize(ROOT_WARNING_COLOR, "(root)"))
 	}
 
 	// Add working dir.
@@ -32,12 +36,20 @@ func main() {
 	// Add git branch.
 	branch := gitBranch()
 	if branch != "" {
-		statusParts = append(statusParts, colorize(GIT_BRANCH_COLOR, branch))
+		statusParts = append(statusParts, branch)
 	}
 
 	fmt.Print("\n[", strings.Join(statusParts, " "), "]\n")
-	// fmt.Print(colorize(PROMPT_COLOR, "bash> "))
-	// fmt.Print(colorSequence(COMMAND_COLOR))
+}
+
+func isTreeClean() (out bool) {
+	cmd := exec.Command("git", "status", "-s")
+	var outbuf, errbuf bytes.Buffer
+	cmd.Stdout = &outbuf
+	cmd.Stderr = &errbuf
+	err := cmd.Run()
+	check(err)
+	return strings.TrimSpace(outbuf.String() + errbuf.String()) == ""
 }
 
 func gitBranch() (out string) {
@@ -45,14 +57,20 @@ func gitBranch() (out string) {
 	if repoDir == "" {
 		return ""
 	}
+
 	head, err := ioutil.ReadFile(path.Join(repoDir, ".git/HEAD"))
 	check(err)
 	branch := strings.TrimSpace(string(head))
 	if strings.HasPrefix(branch, "ref: refs/heads/") {
-		return strings.TrimPrefix(branch, "ref: refs/heads/")
-	} else {
-		return branch
+		branch = strings.TrimPrefix(branch, "ref: refs/heads/")
 	}
+	var color string
+	if isTreeClean() {
+		color = CLEAN_TREE_COLOR
+	} else {
+		color = DIRTY_TREE_COLOR
+	}
+	return colorize(color, branch)
 }
 
 func gitRepoDir() (out string) {
