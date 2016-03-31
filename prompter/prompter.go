@@ -83,6 +83,7 @@ func gitRepoDir() (out string) {
 		}
 		oldRepoDir = repoDir
 		repoDir, _ = path.Split(repoDir)
+		repoDir = strings.TrimRight(repoDir, "/")
 	}
 
 	return ""
