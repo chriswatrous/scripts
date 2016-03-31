@@ -147,7 +147,7 @@ fi
 
 # aliases for git
 alias g='git status'
-alias gb='git branch -a -vv'
+alias gb='git branch -a -vv --color=always | perl -pe '\''s/^((?:(?>(?:\e\[.*?m)*).){'\''${COLUMNS}'\''}).*/$1\e[m/'\'
 alias gd='git diff'
 alias gd1='git diff `git merge-base master HEAD` HEAD'
 alias gd2='git diff `git merge-base master HEAD` .'
@@ -155,6 +155,7 @@ alias gl='git log --decorate --graph'
 alias gla='git log --decorate --graph --all --oneline'
 alias gc='git checkout'
 alias ga='git add -A :/'
+alias gf='git fetch --all'
 
 # aliases for changing directories
 alias cd='my_cd'
@@ -218,7 +219,6 @@ select_recent_dir()
 if [ -e ~/.last_dir ]; then
     cd "`cat ~/.last_dir`"
 fi
-
 
 # git-br()
 # {
