@@ -145,7 +145,8 @@
              python-mode-hook
              clojure-mode-hook
              go-mode-hook
-             haskell-mode-hook))
+             haskell-mode-hook
+             yaml-mode-hook))
   (add-hook h #'rainbow-delimiters-mode)
   (add-hook h (lambda () (column-marker-1 79))))
 
