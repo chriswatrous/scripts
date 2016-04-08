@@ -92,6 +92,7 @@ export GOPATH="${HOME}/.go"
 export NO_LOG_HEADER=true
 export LOGGING_206_AS_ERROR=True
 export REQUEST_STATS_FILE=~/request_stats
+export CFS_LOGS_DIR=logs/
 
 # Set default editor.
 if [ -e ~/scripts/bin/find-editor ]; then
