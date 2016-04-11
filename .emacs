@@ -47,6 +47,7 @@
 (require 'haskell-mode)
 (require 'highlight-symbol)
 (require 'linum-relative)  ; need melpa version
+(require 'markdown-mode)
 (require 'popup)
 (require 'powerline)
 (require 'powerline-evil)
