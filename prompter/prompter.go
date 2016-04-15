@@ -90,8 +90,11 @@ func gitRepoDir() (out string) {
 }
 
 func isGitRepo(dir string) (out bool) {
-	_, err := os.Stat(path.Join(dir + "/.git"))
-	return err == nil
+	file, err := os.Stat(path.Join(dir + "/.git"))
+	if err != nil {
+		return false
+	}
+	return file.IsDir()
 }
 
 func getwd() (out string) {
