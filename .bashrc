@@ -175,6 +175,7 @@ alias c3='cd ~/gitrepos/cams/cfs-python-utils'
 alias c4='cd ~/gitrepos/cams/cams-test/tools'
 alias c5='cd ~/gitrepos/cams/cams-dist/jenkins-config-manager'
 alias c6='cd ~/gitrepos/cams/cams-config'
+alias c7='cd ~/gitrepos/cams/acs-utils'
 
 update_recent_dirs()
 {
