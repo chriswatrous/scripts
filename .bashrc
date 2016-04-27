@@ -158,6 +158,12 @@ alias gc='git checkout'
 alias ga='git add -A :/'
 alias gf='git fetch --all'
 
+git-brd()
+{
+    git branch -d $1 && git push --delete origin $1
+}
+
+
 # aliases for changing directories
 alias cd='my_cd'
 alias c.='cd ..'
