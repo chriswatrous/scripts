@@ -152,11 +152,13 @@ alias gb='git branch -a -vv --color=always | perl -pe '\''s/^((?:(?>(?:\e\[.*?m)
 alias gd='git diff'
 alias gd1='git diff `git merge-base master HEAD` HEAD'
 alias gd2='git diff `git merge-base master HEAD` .'
+alias gd3='git --no-pager diff --stat `git merge-base master HEAD` .'
 alias gl='git log --decorate --graph'
 alias gla='git log --decorate --graph --all --oneline'
 alias gc='git checkout'
 alias ga='git add -A :/'
 alias gf='git fetch --all'
+alias git-ca='git add -A :/ ; git commit --amend --no-edit'
 
 git-brd()
 {
