@@ -157,7 +157,7 @@ alias gl='git log --decorate --graph'
 alias gla='git log --decorate --graph --all --oneline'
 alias gc='git checkout'
 alias ga='git add -A :/'
-alias gf='git fetch --all --prune'
+alias gf='git fetch --all --prune; gb'
 alias git-ca='git add -A :/ ; git commit --amend --no-edit'
 alias git-pub='git push -u origin `git rev-parse --abbrev-ref HEAD`'
 
