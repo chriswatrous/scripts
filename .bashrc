@@ -92,6 +92,7 @@ export GOPATH="${HOME}/.go"
 export NO_LOG_HEADER=true
 export LOGGING_206_AS_ERROR=True
 export REQUEST_STATS_FILE=~/request_stats
+export CFS_LOGS_DIR=/home/chris/gitrepos/cams/cfs-python-utils/logs
 
 # Set default editor.
 if [ -e ~/scripts/bin/find-editor ]; then
@@ -152,11 +153,21 @@ alias gb='git branch -a -vv --color=always | perl -pe '\''s/^((?:(?>(?:\e\[.*?m)
 alias gd='git diff'
 alias gd1='git diff `git merge-base master HEAD` HEAD'
 alias gd2='git diff `git merge-base master HEAD` .'
+alias gd3='git --no-pager diff --stat `git merge-base master HEAD` .'
 alias gl='git log --decorate --graph'
 alias gla='git log --decorate --graph --all --oneline'
 alias gc='git checkout'
 alias ga='git add -A :/'
-alias gf='git fetch --all'
+alias gf='git fetch --all --prune; gb'
+alias git-ca='git add -A :/ ; git commit --amend --no-edit'
+alias git-pub='git push -u origin `git rev-parse --abbrev-ref HEAD`'
+
+git-brd()
+{
+    git branch -d $1 && git push --delete origin $1
+}
+
+
 
 # aliases for changing directories
 alias cd='my_cd'
@@ -175,6 +186,8 @@ alias c3='cd ~/gitrepos/cams/cfs-python-utils'
 alias c4='cd ~/gitrepos/cams/cams-test/tools'
 alias c5='cd ~/gitrepos/cams/cams-dist/jenkins-config-manager'
 alias c6='cd ~/gitrepos/cams/cams-config'
+alias c7='cd ~/gitrepos/cams/acs-utils'
+alias c8='cd ~/gitrepos/cams/acms-registry'
 
 update_recent_dirs()
 {

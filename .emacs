@@ -47,6 +47,7 @@
 (require 'haskell-mode)
 (require 'highlight-symbol)
 (require 'linum-relative)  ; need melpa version
+(require 'markdown-mode)
 (require 'popup)
 (require 'powerline)
 (require 'powerline-evil)
@@ -145,7 +146,8 @@
              python-mode-hook
              clojure-mode-hook
              go-mode-hook
-             haskell-mode-hook))
+             haskell-mode-hook
+             yaml-mode-hook))
   (add-hook h #'rainbow-delimiters-mode)
   (add-hook h (lambda () (column-marker-1 79))))
 
