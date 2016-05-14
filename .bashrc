@@ -112,6 +112,7 @@ if [[ -e /cygdrive/c/Users/Chris ]]; then
 fi
 
 export PATH="~/bin:~/scripts/bin:~/stuff/bin:$PATH:~/gitrepos/cams/cams-test/tools:~/.go/bin:."
+export PATH="/home/chris/local-stuff/install/ghc/bin:$PATH"
 
 
 alias ag='ag --color-match "1;31"'
