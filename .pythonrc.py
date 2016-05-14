@@ -9,6 +9,7 @@ if 'pythonrc_guard' not in globals():
     import itertools
     import functools
     import psutil
+    import uuid
     from subprocess import *
     from datetime import *
     from time import *

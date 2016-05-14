@@ -234,6 +234,12 @@ if [ -e ~/.last_dir ]; then
     cd "`cat ~/.last_dir`"
 fi
 
+
+if [ -e ~/.bashrc_local ]; then
+    source ~/.bashrc_local
+fi
+
+
 # git-br()
 # {
 #   set -f
