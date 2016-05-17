@@ -229,6 +229,17 @@ select_recent_dir()
     fi
 }
 
+cdpy()
+{
+    cd $(python2 -c "from os.path import dirname; import $1; print dirname($1.__file__)")
+}
+
+cdpy3()
+{
+    cd $(python3 -c "from os.path import dirname; import $1; print(dirname($1.__file__))")
+}
+
+
 # Record the working directory aftereach command and start new bash instances in that directory
 if [ -e ~/.last_dir ]; then
     cd "`cat ~/.last_dir`"
@@ -238,6 +249,16 @@ fi
 if [ -e ~/.bashrc_local ]; then
     source ~/.bashrc_local
 fi
+
+
+if [ "$PWMAN_ASK_PASSWORD" == "true" ]; then
+    read -s -p 'Enter pwman master password: ' PWMAN_PASSWORD
+    echo
+    export PWMAN_PASSWORD
+    PS1='(pwman) '"$PS1"
+fi
+
+alias pw='PWMAN_ASK_PASSWORD=true bash'
 
 
 # git-br()
