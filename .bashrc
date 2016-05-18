@@ -252,10 +252,10 @@ fi
 
 
 if [ "$PWM_ASK_PASSWORD" == "true" ]; then
-    read -s -p 'Enter pwm master password: ' PWMAN_PASSWORD
+    read -s -p 'Enter pwm master password: ' PWM_PASSWORD
     echo
     export PWM_PASSWORD
-    PS1='(pwman) '"$PS1"
+    PS1='(pwm) '"$PS1"
 fi
 
 alias pw='PWM_ASK_PASSWORD=true bash'
