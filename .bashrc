@@ -251,14 +251,14 @@ if [ -e ~/.bashrc_local ]; then
 fi
 
 
-if [ "$PWMAN_ASK_PASSWORD" == "true" ]; then
-    read -s -p 'Enter pwman master password: ' PWMAN_PASSWORD
+if [ "$PWM_ASK_PASSWORD" == "true" ]; then
+    read -s -p 'Enter pwm master password: ' PWMAN_PASSWORD
     echo
-    export PWMAN_PASSWORD
+    export PWM_PASSWORD
     PS1='(pwman) '"$PS1"
 fi
 
-alias pw='PWMAN_ASK_PASSWORD=true bash'
+alias pw='PWM_ASK_PASSWORD=true bash'
 
 
 # git-br()
