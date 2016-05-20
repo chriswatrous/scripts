@@ -251,10 +251,12 @@ if [ -e ~/.bashrc_local ]; then
 fi
 
 
-if [ "$PWM_ASK_PASSWORD" == "true" ]; then
+if [ "$PWM_ASK_PASSWORD" == "true" ] && [ -z "$PWM_PASSWORD" ]; then
     read -s -p 'Enter pwm master password: ' PWM_PASSWORD
     echo
     export PWM_PASSWORD
+fi
+if [ -n "$PWM_PASSWORD" ]; then
     PS1='(pwm) '"$PS1"
 fi
 
