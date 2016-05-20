@@ -23,12 +23,16 @@ def file_to_edit():
 
 
 def get_editors(path):
-    cmds = []
+    cmds = [
+        ['vim', path],
+        ['vi', path],
+    ]
     if os.getenv('INSIDE_EMACS'):
-        lisp = '(find-file-other-window "{}")'.format(path)
-        cmds.append(['emacsclient', '-a', 'vim', '-e', lisp])
-    cmds.append(['vim', path])
-    cmds.append(['vi', path])
+        cmds = [[
+            'emacsclient',
+            '-a', 'vim',
+            '-e', '(find-file-other-window "{}")'.format(path),
+        ]] + cmds
     return cmds
 
 
