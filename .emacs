@@ -269,8 +269,16 @@
 
 (define-key global-map (kbd "C-S-t") (cmd (term "/bin/bash")))
 (define-key global-map (kbd "C-;") 'buffer-menu)
-(define-key global-map (kbd "C-'") 'find-file)
-(define-key global-map (kbd "C-\"") 'find-file-other-window)
+
+;; Opening files
+(defun find-file-either-window (other-window)
+  (if other-window
+      (command-execute 'find-file-other-window)
+    (command-execute 'find-file)))
+(define-key global-map (kbd "C-'")
+  (cmd (find-file-either-window (equal major-mode 'term-mode))))
+(define-key global-map (kbd "C-\"")
+  (cmd (find-file-either-window (not (equal major-mode 'term-mode)))))
 (define-key global-map (kbd "C-,") 'async-shell-command)
 
 ;; Window switching
@@ -303,8 +311,6 @@
 (define-key global-map (leader+ "w") 'highlight-symbol-remove-all)
 (define-key global-map (kbd "C->") 'highlight-symbol-next)
 (define-key global-map (kbd "C-<") 'highlight-symbol-prev)
-;; (define-key global-map (kbd "C->") 'evil-search-word-forward)
-;; (define-key global-map (kbd "C-<") 'evil-search-word-backward)
 (define-key global-map (kbd "C-S-s") (cmd (save-some-buffers t)))
 
 ;; Dired / Dired+
