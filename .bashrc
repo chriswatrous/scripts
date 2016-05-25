@@ -188,6 +188,7 @@ alias c5='cd ~/gitrepos/cams/cams-dist/jenkins-config-manager'
 alias c6='cd ~/gitrepos/cams/cams-config'
 alias c7='cd ~/gitrepos/cams/acs-utils'
 alias c8='cd ~/gitrepos/cams/acms-registry'
+alias c8='cd ~/gitrepos/cams/acms-pdp'
 
 update_recent_dirs()
 {
