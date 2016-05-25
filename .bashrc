@@ -189,6 +189,7 @@ alias c6='cd ~/gitrepos/cams/cams-config'
 alias c7='cd ~/gitrepos/cams/acs-utils'
 alias c8='cd ~/gitrepos/cams/acms-registry'
 alias c9='cd ~/gitrepos/cams/cams-pdp'
+alias c10='cd ~/gitrepos/cams/cams-watchdog'
 
 update_recent_dirs()
 {
