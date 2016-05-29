@@ -42,11 +42,12 @@ func main() {
 	fmt.Print("\n[", strings.Join(statusParts, " "), "]\n")
 }
 
-func isTreeClean() (out bool) {
+func isTreeClean(repoDir string) (out bool) {
 	cmd := exec.Command("git", "status", "-s")
 	var outbuf, errbuf bytes.Buffer
 	cmd.Stdout = &outbuf
 	cmd.Stderr = &errbuf
+	cmd.Dir = repoDir
 	err := cmd.Run()
 	check(err)
 	return strings.TrimSpace(outbuf.String() + errbuf.String()) == ""
@@ -65,7 +66,7 @@ func gitBranch() (out string) {
 		branch = strings.TrimPrefix(branch, "ref: refs/heads/")
 	}
 	var color string
-	if isTreeClean() {
+	if isTreeClean(repoDir) {
 		color = CLEAN_TREE_COLOR
 	} else {
 		color = DIRTY_TREE_COLOR
