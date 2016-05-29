@@ -159,7 +159,6 @@ alias gla='git log --decorate --graph --all --oneline'
 alias gc='git checkout'
 alias ga='git add -A :/'
 alias gf='git fetch --all --prune; gb'
-alias git-ca='git add -A :/ ; git commit --amend --no-edit'
 alias git-pub='git push -u origin `git rev-parse --abbrev-ref HEAD`'
 
 git-brd()
@@ -188,6 +187,8 @@ alias c5='cd ~/gitrepos/cams/cams-dist/jenkins-config-manager'
 alias c6='cd ~/gitrepos/cams/cams-config'
 alias c7='cd ~/gitrepos/cams/acs-utils'
 alias c8='cd ~/gitrepos/cams/acms-registry'
+alias c9='cd ~/gitrepos/cams/cams-pdp'
+alias c10='cd ~/gitrepos/cams/cams-watchdog'
 
 update_recent_dirs()
 {
