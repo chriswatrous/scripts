@@ -103,6 +103,8 @@
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (global-auto-revert-mode t)
 (unless (server-running-p) (server-start))
+(blink-cursor-mode 0)
+(set-face-attribute 'cursor nil :background "#00ff00")
 
 ;; Fix terminal window height.
 ;; This function needed to use (floor (window-screen-lines)) instead of
