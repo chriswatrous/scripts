@@ -105,6 +105,7 @@
 (unless (server-running-p) (server-start))
 (blink-cursor-mode 0)
 (set-face-attribute 'cursor nil :background "#00ff00")
+(setq auto-revert-interval 1)
 
 ;; Fix terminal window height.
 ;; This function needed to use (floor (window-screen-lines)) instead of
@@ -139,6 +140,11 @@
 
 ;; Start term mode in line mode and evil emacs mode.
 (defadvice term (after advice-term-line-mode activate)
+  (evil-normal-state)
+  (evil-emacs-state))
+
+;; Start eshell in line mode and evil emacs mode.
+(defadvice eshell (after advice-term-line-mode activate)
   (evil-normal-state)
   (evil-emacs-state))
 
@@ -271,6 +277,7 @@
 
 (define-key global-map (kbd "C-S-t") (cmd (term "/bin/bash")))
 (define-key global-map (kbd "C-;") 'buffer-menu)
+(define-key global-map (leader+ "C-e") 'eshell)
 
 ;; Opening files
 (defun find-file-either-window (other-window)

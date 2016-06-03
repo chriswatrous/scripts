@@ -1,0 +1,36 @@
+#! /usr/bin/env python3
+import sys
+import os
+import uuid
+from subprocess import call, DEVNULL
+from threading import Thread
+
+lisp = """
+(view-file-other-window "{path}")
+(cd "{cwd}")
+(setq buffer-read-only t)
+"""
+# (auto-revert-tail-mode)
+# (revert-buffer nil t)
+
+def main():
+    call(['bash', '-c', 'rm /tmp/emacs-pager-*'])
+    path = '/tmp/emacs-pager-' + uuid.uuid4().hex
+    f = open(path, 'w')
+    t = Thread(target=send_to_file, args=(f,))
+    t.start()
+    call([
+        'emacsclient',
+        '-a', 'vim',
+        '-e', lisp.format(path=path, cwd=os.getcwd()),
+    ])
+
+
+def send_to_file(f):
+    for line in sys.stdin:
+        f.write(line)
+        f.flush()
+
+
+if __name__ == '__main__':
+    main()
