@@ -31,24 +31,31 @@ shopt -s dotglob
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+
+# Prompt setup #################################################################
+
 # Set color prompt. There may be a rare terminal where this doesn't
 # work. I'll cross that bridge when I come to it.
 # See http://ascii-table.com/ansi-escape-sequences.php
 # Disble git branch in prompt if on cygwin.
-if [ -z "$WINDIR" ]; then  # if WINDER is empty
+if [ -z "$WINDIR" ]; then
     cyan='\[\e[36m\]'
     yellow='\[\e[33m\]'
     PS1="${cyan}bash> ${yellow}"
+
+    prompt_command() {
+        echo $PWD > ~/.last_dir
+        ~/scripts/prompter/prompter
+    }
+    PROMPT_COMMAND='prompt_command'
 else
+    # My go prompter program doen't work in Cygwin at the moment.
     PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[0m\]] '
+
+    prompt_command() {
+        echo $PWD > ~/.last_dir
+    }
 fi
-
-export PROMPT_COMMAND='prompt_command'
-
-prompt_command() {
-    echo $PWD > ~/.last_dir
-    ~/scripts/prompter/prompter
-}
 
 # Reset the terminal color before every command.
 trap 'echo -n -e "\e[0m"' DEBUG
@@ -69,6 +76,9 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
+
+################################################################################
 
 # Try to enable bash completion
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
@@ -93,6 +103,7 @@ export NO_LOG_HEADER=true
 export LOGGING_206_AS_ERROR=True
 export REQUEST_STATS_FILE=~/request_stats
 export CFS_LOGS_DIR=/home/chris/gitrepos/cams/cfs-python-utils/logs
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Set default editor.
 if [ -e ~/scripts/bin/find-editor ]; then
@@ -105,16 +116,40 @@ export GIT_EDITOR="$EDITOR"
 
 unset JAVA_TOOL_OPTIONS
 
+
+# PATH setup ###################################################################
+
+showpath() {
+    echo $PATH | tr ":" "\n"
+}
+
+path_prepend() {
+    export PATH="$1:$PATH"
+}
+
+path_append() {
+    export PATH="$PATH:$1"
+}
+
+path_prepend "/home/chris/local-stuff/install/ghc/bin"
+path_prepend "~/bin"
+path_prepend "~/scripts/bin"
+path_prepend "~/stuff/bin"
+
+path_append "~/gitrepos/cams/cams-test/tools"
+path_append "~/.go/bin"
+
 if [[ -e /cygdrive/c/Users/Chris ]]; then
     export PRINTER=DCP7040
-    export PATH="${PATH}:/cygdrive/c/Program Files (x86)/SMPlayer"
-    export PATH="${PATH}:/cygdrive/c/Program Files (x86)/Audacity"
-    export PATH="${PATH}:/cygdrive/c/Program Files (x86)/CSound6/bin"
+    path_append "/cygdrive/c/Program Files (x86)/SMPlayer"
+    path_append "/cygdrive/c/Program Files (x86)/Audacity"
+    path_append "/cygdrive/c/Program Files (x86)/CSound6/bin"
 fi
 
-export PATH="~/bin:~/scripts/bin:~/stuff/bin:$PATH:~/gitrepos/cams/cams-test/tools:~/.go/bin:."
-export PATH="/home/chris/local-stuff/install/ghc/bin:$PATH"
+path_append "."
 
+
+# Aliases ######################################################################
 
 alias ag='ag --color-match "1;31"'
 alias df='df -Th'
@@ -166,8 +201,6 @@ git-brd()
     git branch -d $1 && git push --delete origin $1
 }
 
-
-
 # aliases for changing directories
 alias cd='my_cd'
 alias c.='cd ..'
@@ -189,6 +222,9 @@ alias c7='cd ~/gitrepos/cams/acs-utils'
 alias c8='cd ~/gitrepos/cams/acms-registry'
 alias c9='cd ~/gitrepos/cams/cams-pdp'
 alias c10='cd ~/gitrepos/cams/cams-watchdog'
+
+
+################################################################################
 
 update_recent_dirs()
 {

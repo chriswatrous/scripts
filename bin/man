@@ -1,0 +1,14 @@
+#! /usr/bin/env python
+import sys
+import os
+from subprocess import call
+
+if os.getenv('INSIDE_EMACS'):
+    call([
+        'emacsclient',
+        '--no-wait',
+        '--eval',
+        '(progn (other-window 1) (woman "{}"))'.format(sys.argv[1]),
+    ])
+else:
+    call(['man'] + sys.argv[1:])

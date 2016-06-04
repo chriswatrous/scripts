@@ -39,6 +39,7 @@
 (require 'cider)
 (require 'column-marker)
 (require 'cython-mode)
+(require 'dash)
 (require 'dired+)
 (require 'dockerfile-mode)
 (require 'evil)
@@ -106,6 +107,23 @@
 (blink-cursor-mode 0)
 (set-face-attribute 'cursor nil :background "#00ff00")
 (setq auto-revert-interval 1)
+(setq woman-fill-frame t)
+
+;; c-mode setup
+(setf (cdr (assoc 'other c-default-style)) "python")
+;; (defun my-c-mode-hook ()
+;;   (setq c-basic-offset 4
+;;         c-indent-level 4
+;;         c-default-style "python"))
+;; (add-hook 'c-mode-common-hook 'my-c-mode-hook)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (setq c-basic-offset 4
+                  c-indent-level 4
+                  c-default-style "python"
+                  indent-tabs-mode nil
+                  comment-start "//"
+                  comment-end "")))
 
 ;; Fix terminal window height.
 ;; This function needed to use (floor (window-screen-lines)) instead of
@@ -254,7 +272,7 @@
 (define-key cider-repl-mode-map (kbd "<C-S-return>")
   'cider-repl-closing-return)
 
-(define-key global-map (leader+ "q") 'linum-relative-toggle)
+(define-key global-map (leader+ "C-q") 'linum-relative-toggle)
 
 ;; Scroll by 5
 (dolist (k '("C-S-e" "<C-down>"))
