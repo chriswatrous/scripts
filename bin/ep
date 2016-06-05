@@ -2,31 +2,47 @@
 import sys
 import os
 import uuid
-from subprocess import call, DEVNULL
+from subprocess import call, DEVNULL, check_call
 from threading import Thread
 
-lisp = """
-(view-file-other-window "{path}")
-(cd "{cwd}")
-(setq buffer-read-only t)
-"""
-# (auto-revert-tail-mode)
-# (revert-buffer nil t)
 
 def main():
-    call(['bash', '-c', 'rm /tmp/emacs-pager-*'])
-    path = '/tmp/emacs-pager-' + uuid.uuid4().hex
+    call(['bash', '-c', 'rm /tmp/ep-*'], stdout=DEVNULL, stderr=DEVNULL)
+    name = 'ep-' + uuid.uuid4().hex[:8]
+    path = '/tmp/' + name
+    writer_thread = Thread(target=send_to_file, args=(path,))
+    writer_thread.start()
+    open_pager_file(path)
+    while True:
+        writer_thread.join(timeout=1)
+        revert_buffer(name)
+        if not writer_thread.is_alive():
+            break
+
+
+def open_pager_file(path):
+    lisp = """
+        (progn (view-file-other-window "{path}")
+            (cd "{cwd}")
+            (setq buffer-read-only t))
+    """.format(path=path, cwd=os.getcwd())
+    check_call(['emacsclient', '--eval', lisp], stdout=DEVNULL)
+
+
+def revert_buffer(name):
+    lisp = """
+        (let ((old-buffer (buffer-name)))
+          (when (get-buffer "{name}")
+            (with-current-buffer "{name}"
+              (let ((at-end (equal (point) (+ (buffer-size) 1))))
+                (revert-buffer t t t)
+                (when at-end (end-of-buffer))))))
+    """.format(name=name)
+    check_call(['emacsclient', '--eval', lisp], stdout=DEVNULL)
+
+
+def send_to_file(path):
     f = open(path, 'w')
-    t = Thread(target=send_to_file, args=(f,))
-    t.start()
-    call([
-        'emacsclient',
-        '-a', 'vim',
-        '-e', lisp.format(path=path, cwd=os.getcwd()),
-    ])
-
-
-def send_to_file(f):
     for line in sys.stdin:
         f.write(line)
         f.flush()

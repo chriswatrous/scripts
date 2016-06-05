@@ -103,7 +103,7 @@ export NO_LOG_HEADER=true
 export LOGGING_206_AS_ERROR=True
 export REQUEST_STATS_FILE=~/request_stats
 export CFS_LOGS_DIR=/home/chris/gitrepos/cams/cfs-python-utils/logs
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;33:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Set default editor.
 if [ -e ~/scripts/bin/find-editor ]; then

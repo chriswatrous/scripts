@@ -34,6 +34,9 @@
  (package-list-packages)  ; list / install / uninstall packages
  )
 
+;; Must be set before loading evil.
+(setq evil-search-module 'evil-search)
+
 ;; Theses will fail if the package is not installed. Then install the package.
 (require 'clojure-mode)
 (require 'cider)
@@ -102,12 +105,15 @@
 (setq term-buffer-maximum-size 10000)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
-(global-auto-revert-mode t)
 (unless (server-running-p) (server-start))
 (blink-cursor-mode 0)
 (set-face-attribute 'cursor nil :background "#00ff00")
-(setq auto-revert-interval 1)
 (setq woman-fill-frame t)
+
+;; auto saving and loading
+(add-hook 'focus-out-hook (cmd (save-some-buffers t)))
+(setq auto-revert-interval 1)
+(global-auto-revert-mode t)
 
 ;; c-mode setup
 (setf (cdr (assoc 'other c-default-style)) "python")
@@ -147,6 +153,7 @@
 (evil-mode 1)
 (setq evil-default-cursor t)  ; fix cursor color
 (set-cursor-color "white")    ; fix cursor color
+(setq evil-search-module 'evil-search)
 
 (powerline-evil-vim-color-theme)
 
@@ -230,6 +237,7 @@
 
 ;;;; Key bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun leader+ (key) (kbd (concat "<C-return> " key)))
+(define-key global-map (kbd "<f2>") 'evil-ex-nohighlight)
 
 ;;; Disable some built in keys
 (global-unset-key (kbd "C-j"))
@@ -239,13 +247,13 @@
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
 
 ;; Map C-c to ESC in all evil states but normal and emacs.
-(defun my-esc (prompt)
-  (cond ((or (evil-insert-state-p) (evil-replace-state-p)
-             (evil-visual-state-p)) [escape])
-        (t (kbd "C-c"))))
-(define-key key-translation-map (kbd "C-c") 'my-esc)
-;; Evil operator state doesn't use the key-translation-map.
-(define-key evil-operator-state-map (kbd "C-c") 'keyboard-quit)
+;; (defun my-esc (prompt)
+;;   (cond ((or (evil-insert-state-p) (evil-replace-state-p)
+;;              (evil-visual-state-p)) [escape])
+;;         (t (kbd "C-c"))))
+;; (define-key key-translation-map (kbd "C-c") 'my-esc)
+;; ;; Evil operator state doesn't use the key-translation-map.
+;; (define-key evil-operator-state-map (kbd "C-c") 'keyboard-quit)
 
 ;;; Custom key bindings
 ;; Keys I could use (with current binding)
@@ -259,7 +267,6 @@
 ;; C-`
 ;; C-Tab
 ;; C-S-Tab
-;; F5
 ;; F6
 ;; F7
 ;; F8
@@ -273,6 +280,8 @@
   'cider-repl-closing-return)
 
 (define-key global-map (leader+ "C-q") 'linum-relative-toggle)
+(evil-define-key 'normal global-map "C-u" 'evil-scroll-up)
+
 
 ;; Scroll by 5
 (dolist (k '("C-S-e" "<C-down>"))
@@ -323,7 +332,9 @@
 (global-set-key (kbd "C-S-w") (cmd (split-window-right) (other-window 1)))
 (global-set-key (kbd "C-~") 'delete-window)
 
-(global-set-key (leader+ "C-r") 'revert-buffer)
+(global-set-key
+ (leader+ "C-r")
+ (cmd (if (buffer-modified-p) (revert-buffer) (revert-buffer t t t))))
 
 (global-set-key (leader+ "C-c")
                 (cmd (save-some-buffers t)
@@ -338,7 +349,10 @@
 (define-key global-map (leader+ "w") 'highlight-symbol-remove-all)
 (define-key global-map (kbd "C->") 'highlight-symbol-next)
 (define-key global-map (kbd "C-<") 'highlight-symbol-prev)
-(define-key global-map (kbd "C-S-s") (cmd (save-some-buffers t)))
+(define-key global-map (kbd "C-s")
+  (cmd (save-some-buffers t)
+       (unless (evil-emacs-state-p) (evil-normal-state))))
+(define-key global-map (kbd "C-S-s") 'isearch-forward)
 
 ;; Dired / Dired+
 (define-key dired-mode-map (kbd "<backspace>") 'diredp-kill-this-tree)
@@ -362,6 +376,15 @@
           (forward-char (1- (nth 1 parts)))
           (popup-tip (nth 2 parts)))
       (princ "No pep8 errors."))))
+
+
+;; Emacs pager support
+(defun ep-revert-buffer ()
+  (when (and (get-buffer ep-current-buffer)
+             (equal (buffer-name) ep-current-buffer))
+    (revert-buffer t t t))
+  (run-at-time "1 sec" ep-revert-buffer))
+(setq ep-current-buffer nil)
 
 
 ;;;; Useful Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
