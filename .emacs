@@ -155,8 +155,8 @@
 (set-cursor-color "white")    ; fix cursor color
 (setq evil-search-module 'evil-search)
 (set-face-attribute 'evil-ex-lazy-highlight nil
-                    :foreground "#ffffff"
-                    :background "#0044ff")
+                    :foreground nil
+                    :background "#0000ff")
 
 (powerline-evil-vim-color-theme)
 
@@ -352,9 +352,11 @@
 (define-key global-map (leader+ "w") 'highlight-symbol-remove-all)
 (define-key global-map (kbd "C->") 'highlight-symbol-next)
 (define-key global-map (kbd "C-<") 'highlight-symbol-prev)
-(define-key global-map (kbd "C-s")
+(define-key global-map (kbd "C-S-s")
   (cmd (save-some-buffers t)
        (unless (evil-emacs-state-p) (evil-normal-state))))
+(define-key global-map (kbd "C-c")
+  (cmd (unless (evil-emacs-state-p) (evil-normal-state))))
 (define-key global-map (kbd "C-S-s") 'isearch-forward)
 
 ;; Dired / Dired+
