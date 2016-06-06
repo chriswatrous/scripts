@@ -355,9 +355,8 @@
 (define-key global-map (kbd "C-S-s")
   (cmd (save-some-buffers t)
        (unless (evil-emacs-state-p) (evil-normal-state))))
-(define-key global-map (kbd "C-c")
-  (cmd (unless (evil-emacs-state-p) (evil-normal-state))))
-(define-key global-map (kbd "C-S-s") 'isearch-forward)
+;; (define-key global-map (kbd "C-c")
+;;   (cmd (unless (evil-emacs-state-p) (evil-normal-state))))
 
 ;; Dired / Dired+
 (define-key dired-mode-map (kbd "<backspace>") 'diredp-kill-this-tree)
