@@ -241,6 +241,7 @@
 ;;;; Key bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun leader+ (key) (kbd (concat "<C-return> " key)))
 (define-key global-map (kbd "<f2>") 'evil-ex-nohighlight)
+(define-key global-map (kbd "C-\\") nil)
 
 ;;; Disable some built in keys
 (global-unset-key (kbd "C-j"))

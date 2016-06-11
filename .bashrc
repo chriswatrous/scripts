@@ -169,6 +169,8 @@ alias vi=vim
 alias vim='vim -p'
 alias wt='watch -n 1'
 alias ports='netstat -tulpn'
+alias pspy='ps -ef | grep python'
+alias pspyt='ps -eLf | grep python'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
