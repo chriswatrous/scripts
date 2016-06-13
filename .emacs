@@ -154,9 +154,7 @@
 (setq evil-default-cursor t)  ; fix cursor color
 (set-cursor-color "white")    ; fix cursor color
 (setq evil-search-module 'evil-search)
-(set-face-attribute 'evil-ex-lazy-highlight nil
-                    :foreground nil
-                    :background "#0000ff")
+(set-face-attribute 'evil-ex-lazy-highlight nil :background "#005500")
 
 (powerline-evil-vim-color-theme)
 
