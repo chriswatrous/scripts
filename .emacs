@@ -310,6 +310,7 @@
 (define-key global-map (kbd "C-;") 'buffer-menu)
 (define-key global-map (leader+ "C-e") 'eshell)
 
+
 ;; Opening files
 (defun find-file-either-window (other-window)
   (if other-window

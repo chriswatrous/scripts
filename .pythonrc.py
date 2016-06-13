@@ -10,6 +10,7 @@ if 'pythonrc_guard' not in globals():
     import psutil
     import re
     import requests
+    import statistics
     import sys
     import threading
     import time
