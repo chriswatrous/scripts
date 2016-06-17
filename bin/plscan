@@ -1,0 +1,18 @@
+#! /bin/bash
+
+if [ "$1" == all ]; then
+    pylint -j 8 -d C -r n -f colorized $(find -name '*.py') | less -R
+else
+    pylint -j 8 -d C -r n -f colorized $(find -name '*.py') | \
+        grep -e '\*\*\*\*' \
+             -e unused-import \
+             -e undefined \
+             -e no-name-in-module \
+             -e import-error \
+             -e unused-variable \
+             -e unused-argument \
+             -e anomalous-backslash-in-string \
+             -e no-member \
+             -e global-variable-not-assigned
+
+fi
