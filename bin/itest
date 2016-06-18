@@ -1,20 +1,17 @@
 #! /usr/bin/env python3
 import requests
 from datetime import datetime
-from time import sleep
+from time import time, sleep
 
 url = 'https://www.google.com'
 
 while True:
-    start_time = datetime.now()
+    start_time = time()
     try:
         r = requests.get(url, timeout=5)
         result = str(r)
-    except KeyboardInterrupt:
-        raise
     except Exception as e:
         result = type(e).__name__
-    elapsed = '{:.2f}'.format((datetime.now() - start_time)
-                                .total_seconds())
+    elapsed = time() - start_time
     print('{} {} {} seconds'.format(url, result, elapsed))
     sleep(1)
