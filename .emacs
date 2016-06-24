@@ -339,6 +339,8 @@
  (leader+ "C-r")
  (cmd (if (buffer-modified-p) (revert-buffer) (revert-buffer t t t))))
 
+(global-set-key (leader+ "r") 'rename-buffer)
+
 (global-set-key (leader+ "C-c")
                 (cmd (save-some-buffers t)
                      (if server-buffer-clients

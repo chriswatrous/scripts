@@ -186,7 +186,7 @@ else
 fi
 
 # aliases for git
-alias g='git status'
+alias g='git status --short'
 alias gb='git branch -a -vv --color=always | perl -pe '\''s/^((?:(?>(?:\e\[.*?m)*).){'\''${COLUMNS}'\''}).*/$1\e[m/'\'
 alias gd='git diff'
 alias gd1='git diff `git merge-base master HEAD` HEAD'
