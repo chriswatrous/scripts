@@ -10,6 +10,7 @@ import (
 	"path"
 	"strconv"
 	"strings"
+	"path/filepath"
 )
 
 const DIR_COLOR = "blue"
@@ -64,7 +65,23 @@ func gitBranch() (out string) {
 	branch := strings.TrimSpace(string(head))
 	if strings.HasPrefix(branch, "ref: refs/heads/") {
 		branch = strings.TrimPrefix(branch, "ref: refs/heads/")
+	} else {
+		names := gitMatchingBranches(branch, repoDir + "/.git/refs/heads")
+		names = append(
+			names,
+			gitMatchingBranches(branch, repoDir + "/.git/refs/remotes")...
+		)
+		names = append(
+			names,
+			gitMatchingBranches(branch, repoDir + "/.git/refs/tags")...
+		)
+		if len(names) > 0 {
+			branch = "(" + strings.Join(names, " ") + ")"
+		} else {
+			branch = "(" + branch + ")"
+		}
 	}
+
 	var color string
 	if isTreeClean(repoDir) {
 		color = CLEAN_TREE_COLOR
@@ -72,6 +89,27 @@ func gitBranch() (out string) {
 		color = DIRTY_TREE_COLOR
 	}
 	return colorize(color, branch)
+}
+
+func gitMatchingBranches(commitId string, dir string) ([]string) {
+	names := make([]string, 0, 10)
+	filepath.Walk(
+		dir,
+		func(path string, info os.FileInfo, err error) error {
+			if err == nil && !info.IsDir() {
+				contents, err := ioutil.ReadFile(path)
+				check(err)
+				if commitId == strings.Trim(string(contents), " \n") {
+					names = append(
+						names,
+						strings.TrimPrefix(path, dir + "/"),
+					)
+				}
+			}
+			return nil
+		},
+	)
+	return names
 }
 
 func gitRepoDir() (out string) {
