@@ -1,0 +1,68 @@
+#! /usr/bin/env python
+import eventlet
+eventlet.monkey_patch()  # noqa
+
+import colors
+import os
+import sys
+import re
+from subprocess import call, check_output
+from os.path import basename
+
+
+repos = [
+    '/home/chris/scripts',
+    '/home/chris/gitrepos/cams/CAMS-AT',
+    '/home/chris/gitrepos/cams/acms-registry',
+    '/home/chris/gitrepos/cams/acs-utils',
+    '/home/chris/gitrepos/cams/cams-api',
+    '/home/chris/gitrepos/cams/cams-config',
+    '/home/chris/gitrepos/cams/cams-demo-app',
+    '/home/chris/gitrepos/cams/cams-dist',
+    '/home/chris/gitrepos/cams/cams-pdp',
+    '/home/chris/gitrepos/cams/cams-test',
+    '/home/chris/gitrepos/cams/cams-watchdog',
+    '/home/chris/gitrepos/cams/cfs-python-utils',
+    '/home/chris/gitrepos/cams/dashboard-factory',
+    '/home/chris/gitrepos/cams/devtest',
+]
+
+
+def main():
+    width = int(check_output(['stty', 'size']).split()[1])
+
+    if '-f' in sys.argv:
+        print 'fetching from from remotes...'
+        tasks = [eventlet.spawn(fetch, x) for x in repos]
+        for task in tasks:
+            task.wait()
+
+    for repo in repos:
+        os.chdir(repo)
+
+        print colors.cyan('=' * width)
+        print colors.yellow(basename(repo))
+        call(['git', 'status', '--short'])
+        print
+        output = check_output(['git', 'branch', '-a', '-vv', '--color=always'])
+        print '\n'.join(limit_width(x, width) for x in output.split('\n'))
+
+    print colors.cyan('=' * width)
+
+
+def limit_width(line, width):
+    # Filter out ansi color sequences.
+    filtered_line = re.sub('\x1b.*?m', '', line)
+
+    if len(filtered_line) > width:
+        return line[:width + len(line) - len(filtered_line)]
+    else:
+        return line
+
+
+def fetch(repo):
+    call(['git', 'fetch', '--all'], cwd=repo)
+
+
+if __name__ == '__main__':
+    main()
