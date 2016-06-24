@@ -1,38 +1,47 @@
 if 'pythonrc_guard' not in globals():
-    import base64
-    import collections
-    import functools
-    import itertools
-    import json
-    import multiprocessing
-    import os
-    import pdb
-    import psutil
-    import re
-    import requests
-    import statistics
-    import sys
-    import threading
-    import time
-    import uuid
-    from subprocess import *
-    from datetime import *
-    from pprint import *
-    from collections import *
-    from concurrent.futures import *
-    from base64 import *
-    from uuid import *
+    imports = [
+        'base64',
+        'base64',
+        'collections',
+        'collections',
+        'functools',
+        'itertools',
+        'json',
+        'multiprocessing',
+        'operator',
+        'os',
+        'pdb',
+        'psutil',
+        'pyrsistent',
+        're',
+        'requests',
+        'statistics',
+        'subprocess',
+        'sys',
+        'threading',
+        'time',
+        'uuid',
+        'yaml',
+    ]
+    star_imports = [
+        'concurrent.futures',
+        'datetime',
+        'pprint',
+        'pyrsistent',
+        'subprocess',
+    ]
 
-    try:
-        import pyrsistent
-        from pyrsistent import *
-    except ImportError:
-        pass
+    for name in imports:
+        try:
+            exec('import ' + name)
+        except ImportError as e:
+            print('Missing ' + e.name)
 
-    try:
-        import yaml
-    except ImportError:
-        pass
+    for name in star_imports:
+        try:
+            exec('from {} import *'.format(name))
+        except ImportError as e:
+            print('Missing ' + e.name)
 
     def pdir(obj):
         pprint(dir(obj))
@@ -80,5 +89,5 @@ if 'pythonrc_guard' not in globals():
     if os.path.exists('.pythonrc.py'):
         pythonrc_guard = None
         with open('.pythonrc.py') as f:
-            exec(f.read())
+            exec(f.read(), globals())
         del pythonrc_guard
