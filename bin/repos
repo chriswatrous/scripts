@@ -61,7 +61,7 @@ def limit_width(line, width):
 
 
 def fetch(repo):
-    call(['git', 'fetch', '--all'], cwd=repo)
+    call(['git', 'fetch', '--all', '--prune'], cwd=repo)
 
 
 if __name__ == '__main__':
