@@ -1,18 +1,41 @@
-#! /bin/bash
+#! /usr/bin/env python
+import sys
+from subprocess32 import Popen, call, check_output, PIPE
 
-if [ "$1" == all ]; then
-    pylint -j 8 -d C -r n -f colorized $(find -name '*.py') | less -R
-else
-    pylint -j 8 -d C -r n -f colorized $(find -name '*.py') | \
-        grep -e '\*\*\*\*' \
-             -e unused-import \
-             -e undefined \
-             -e no-name-in-module \
-             -e import-error \
-             -e unused-variable \
-             -e unused-argument \
-             -e anomalous-backslash-in-string \
-             -e no-member \
-             -e global-variable-not-assigned
+if 'all' in sys.argv:
+    call("pylint -j 8 -d C -r n -f colorized $(find -name '*.py') | less -R",
+         shell=True)
+else:
+    include_patterns = [
+        '\*\*\*\*',
+        'unused-import',
+        'undefined',
+        'no-name-in-module',
+        'import-error',
+        'unused-variable',
+        'unused-argument',
+        'anomalous-backslash-in-string',
+        'no-member',
+        'global-variable-not-assigned',
+    ]
+    exclude_patterns = [
+        "Instance of 'LookupDict' has no",
+        "No name 'restplus' in module 'flask.ext'",
+        "No name 'restful' in module 'flask.ext'",
+        "Unable to import 'flask.ext.restplus'",
+        "Unable to import 'flask.ext.restful'",
+        "Unable to import 'flask_restful_swagger'",
+    ]
+    files = check_output(['find', '-name', '*.py']).strip().split('\n')
+    files = [x.strip() for x in files]
 
-fi
+    p1 = Popen(
+        ['pylint', '-j', '8', '-d', 'C', '-r', 'n', '-f', 'colorized'] + files,
+        stdout=PIPE,
+    )
+    p2 = Popen(['grep'] + [x for p in include_patterns for x in ['-e', p]],
+               stdin=p1.stdout, stdout=PIPE)
+    p3 = Popen(['grep', '-v'] +
+               [x for p in exclude_patterns for x in ['-e', p]],
+               stdin=p2.stdout)
+    p3.wait()
