@@ -6,30 +6,16 @@ import colors
 import os
 import sys
 import re
+from tabulate import tabulate
 from subprocess import call, check_output
-from os.path import basename
-
-
-repos = [
-    '/home/chris/scripts',
-    '/home/chris/gitrepos/cams/CAMS-AT',
-    '/home/chris/gitrepos/cams/acms-registry',
-    '/home/chris/gitrepos/cams/acs-utils',
-    '/home/chris/gitrepos/cams/cams-api',
-    '/home/chris/gitrepos/cams/cams-config',
-    '/home/chris/gitrepos/cams/cams-demo-app',
-    '/home/chris/gitrepos/cams/cams-dist',
-    '/home/chris/gitrepos/cams/cams-pdp',
-    '/home/chris/gitrepos/cams/cams-test',
-    '/home/chris/gitrepos/cams/cams-watchdog',
-    '/home/chris/gitrepos/cams/cfs-python-utils',
-    '/home/chris/gitrepos/cams/dashboard-factory',
-    '/home/chris/gitrepos/cams/devtest',
-]
+from os.path import join, basename, expanduser
 
 
 def main():
     width = int(check_output(['stty', 'size']).split()[1])
+
+    with open(expanduser('~/.my_repos')) as f:
+        repos = f.read().strip('\n').split('\n')
 
     if '-f' in sys.argv:
         print 'fetching from from remotes...'
@@ -40,14 +26,19 @@ def main():
     for repo in repos:
         os.chdir(repo)
 
-        print colors.cyan('=' * width)
-        print colors.yellow(basename(repo))
-        call(['git', 'status', '--short'])
-        print
-        output = check_output(['git', 'branch', '-a', '-vv', '--color=always'])
-        print '\n'.join(limit_width(x, width) for x in output.split('\n'))
+        # print colors.blue('=' * width)
+        print colors.blue(basename(repo))
+        output = check_output(['git', '-c', 'color.status=always', 'status',
+                               '--short']).rstrip()
+        if output:
+            print output
+            print
 
-    print colors.cyan('=' * width)
+        branch_status(repo)
+        print
+
+
+    # print colors.blue('=' * width)
 
 
 def limit_width(line, width):
@@ -64,5 +55,47 @@ def fetch(repo):
     call(['git', 'fetch', '--all', '--prune'], cwd=repo)
 
 
+def branch_status(repo):
+    output = check_output(['git', 'branch', '-a'], cwd=repo)
+    if 'upstream/develop' in output:
+        home_branch = 'upstream/develop'
+    elif 'upstream/master' in output:
+        home_branch = 'upstream/master'
+    else:
+        home_branch = 'origin/master'
+    branches = local_branches(repo)
+    if branches:
+        b_width = max(len(x) for x in branches)
+    for branch in branches:
+        output = check_output(['git', 'rev-list', '--count', '--left-right',
+                               '{}...{}'.format(branch, home_branch)],
+                              cwd=repo)
+        ahead, behind = [int(x) for x in output.strip().split()]
+
+        if ahead == 0 and behind == 0:
+            msg = ''
+        elif ahead == 0:
+            msg = 'merged'
+        else:
+            msg = '{} ahead, {} behind'.format(ahead, behind)
+
+        print '  {} {}'.format(colors.green(branch.ljust(b_width)), msg)
+
+
+def local_branches(repo):
+    heads_dir = join(repo, '.git/refs/heads')
+    return [x[len(heads_dir)+1:] for x in get_files(heads_dir)]
+
+
+def get_files(dir):
+    out = []
+    for root, dirs, files in os.walk(dir):
+        for name in files:
+            out.append(join(root, name))
+    return out
+
+
 if __name__ == '__main__':
-    main()
+    import ipdb
+    with ipdb.launch_ipdb_on_exception():
+        main()
