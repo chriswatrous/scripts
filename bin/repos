@@ -7,13 +7,20 @@ import os
 import sys
 import re
 from tabulate import tabulate
-from subprocess import call, check_output
+from subprocess32 import call, check_output
 from os.path import join, basename, expanduser
 
 
 def main():
     width = int(check_output(['stty', 'size']).split()[1])
     repos = readfile(expanduser('~/.my_repos')).strip('\n').split('\n')
+
+    is_homes = {}
+    for repo in repos:
+        os.chdir(repo)
+        home = home_branch(repo)
+        is_homes[repo] = (check_output(['git', 'rev-parse', home]) ==
+                          check_output(['git', 'rev-parse', 'HEAD']))
 
     if '-f' in sys.argv:
         print 'fetching from from remotes...'
@@ -27,16 +34,22 @@ def main():
         os.chdir(repo)
 
         home = home_branch(repo)
+
+        status = check_output(['git', '-c', 'color.status=always', 'status',
+                               '--short']).rstrip()
+
+        if is_homes[repo] and not status.strip():
+            check_output(['bash', '-c',
+                          'git checkout {} &> /dev/null'.format(home)])
+
         msg = colors.blue(basename(repo))
         current = current_branch(repo)
         if home not in current:
             msg += ' ' + colors.yellow(current)
         print msg
 
-        output = check_output(['git', '-c', 'color.status=always', 'status',
-                               '--short']).rstrip()
-        if output:
-            print output
+        if status:
+            print status
             print
 
         branch_status(repo, home)
