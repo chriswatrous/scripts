@@ -172,6 +172,7 @@ alias ports='netstat -tulpn'
 alias pspy='ps -ef | grep python'
 alias pspyt='ps -eLf | grep python'
 alias psf='ps -ef | grep '
+alias jc='source /home/chris/gitrepos/cams/cams-dist/jenkins-config-manager/jenkins-creds.sh'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
