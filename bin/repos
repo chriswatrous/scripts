@@ -7,7 +7,7 @@ import os
 import sys
 import re
 from tabulate import tabulate
-from subprocess32 import call, check_output
+from subprocess32 import call, check_output, check_call
 from os.path import join, basename, expanduser
 
 
@@ -15,32 +15,21 @@ def main():
     width = int(check_output(['stty', 'size']).split()[1])
     repos = readfile(expanduser('~/.my_repos')).strip('\n').split('\n')
 
-    is_homes = {}
-    for repo in repos:
-        os.chdir(repo)
-        home = home_branch(repo)
-        is_homes[repo] = (check_output(['git', 'rev-parse', home]) ==
-                          check_output(['git', 'rev-parse', 'HEAD']))
-
+    # Update repos.
     if '-f' in sys.argv:
-        print 'fetching from from remotes...'
-        tasks = [eventlet.spawn(fetch, x) for x in repos]
+        print 'updating repos...'
+        tasks = [eventlet.spawn(update_repo, x) for x in repos]
         for task in tasks:
             task.wait()
 
+    # Print status of repos.
     print
-
     for repo in repos:
         os.chdir(repo)
-
         home = home_branch(repo)
 
         status = check_output(['git', '-c', 'color.status=always', 'status',
                                '--short']).rstrip()
-
-        if is_homes[repo] and not status.strip():
-            check_output(['bash', '-c',
-                          'git checkout {} &> /dev/null'.format(home)])
 
         msg = colors.blue(basename(repo))
         current = current_branch(repo)
@@ -56,8 +45,25 @@ def main():
         print
 
 
-def fetch(repo):
+def update_repo(repo):
+    home = home_branch(repo)
+    head = readfile(join(repo, '.git/HEAD')).strip()
+    home_commit = check_output(['git', 'rev-parse', home], cwd=repo).strip()
+    if (
+        head == 'ref: refs/heads/master' and
+        check_output(['git', 'status', '--short'], cwd=repo).strip() == ''
+    ):
+        action = lambda: call(['git', 'merge', home], cwd=repo)
+    elif head == home_commit:
+        action = lambda: check_call([
+            'bash', '-c',
+            'git checkout "{}" &> /dev/null'.format(home)
+        ], cwd=repo)
+    else:
+        action = lambda: None
     call(['git', 'fetch', '--all', '--prune'], cwd=repo)
+    action()
+    return home
 
 
 def current_branch(repo):
