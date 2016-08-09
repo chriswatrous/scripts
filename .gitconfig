@@ -1,0 +1,15 @@
+[user]
+	email = clwatrou@us.ibm.com
+	name = Chris Watrous
+[core]
+	editor = vim
+        pager = less -R
+	excludesfile = /home/chris/.gitignore_global
+[credential]
+	helper = cache --timeout 10000000
+[push]
+	default = simple
+[color]
+        diff = always
+[color "diff"]
+	meta = bold cyan
