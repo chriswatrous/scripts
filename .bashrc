@@ -7,12 +7,12 @@
 
 # Adjust Colors
 if [[ "$TERM" == xterm ]]; then
-    #echo -ne '\e]4;4;#8080FF\a'   # blue
-    #echo -ne '\e]4;12;#A0A0FF\a'  # bold blue
-    echo -ne '\e]4;4;#7AA8DE\a'   # blue
-    echo -ne '\e]4;12;#85BDFF\a'  # bright blue
-    echo -ne '\e]4;2;#008000\a'   # green
-    echo -ne '\e]4;10;#00FF00\a'  # bright green
+    #echo -ne '\033]4;4;#8080FF\a'   # blue
+    #echo -ne '\033]4;12;#A0A0FF\a'  # bold blue
+    echo -ne '\033]4;4;#7AA8DE\a'   # blue
+    echo -ne '\033]4;12;#85BDFF\a'  # bright blue
+    echo -ne '\033]4;2;#008000\a'   # green
+    echo -ne '\033]4;10;#00FF00\a'  # bright green
 fi
 
 # History options
@@ -39,8 +39,8 @@ shopt -s dotglob
 # See http://ascii-table.com/ansi-escape-sequences.php
 # Disble git branch in prompt if on cygwin.
 if [ -z "$WINDIR" ]; then
-    cyan='\[\e[36m\]'
-    yellow='\[\e[33m\]'
+    cyan='\[\033[36m\]'
+    yellow='\[\033[33m\]'
     PS1="${cyan}bash> ${yellow}"
 
     prompt_command() {
@@ -50,7 +50,7 @@ if [ -z "$WINDIR" ]; then
     PROMPT_COMMAND='prompt_command'
 else
     # My go prompter program doen't work in Cygwin at the moment.
-    PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[0m\]] '
+    PS1='[\[\033[3;33m\]\u@\h \[\033[01;34m\]${PWD}\[\033[0m\]] '
 
     prompt_command() {
         echo $PWD > ~/.last_dir
@@ -58,7 +58,7 @@ else
 fi
 
 # Reset the terminal color before every command.
-trap 'echo -n -e "\e[0m"' DEBUG
+trap 'echo -n -e "\033[0m"' DEBUG
 
 # Non-color prompt
 #PS1='[\u@\h ${PWD}] '
@@ -71,7 +71,7 @@ fi
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\033]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
 *)
     ;;
@@ -188,7 +188,7 @@ fi
 
 # aliases for git
 alias g='git status --short'
-alias gb='git branch -a -vv --color=always | perl -pe '\''s/^((?:(?>(?:\e\[.*?m)*).){'\''${COLUMNS}'\''}).*/$1\e[m/'\'
+alias gb='git branch -a -vv --color=always | perl -pe '\''s/^((?:(?>(?:\033\[.*?m)*).){'\''${COLUMNS}'\''}).*/$1\033[m/'\'
 alias gd='git diff'
 alias gd1='git diff `git merge-base upstream/master HEAD` HEAD'
 alias gd2='git diff `git merge-base upstream/master HEAD` .'
@@ -361,7 +361,7 @@ alias pw='PWM_ASK_PASSWORD=true bash'
 #fi
 #
 #if [ "$color_prompt" = yes ]; then
-    #PS1='[\[\e[3;33m\]\u@\h \[\e[01;34m\]${PWD}\[\e[0m\]\[\e[33m\]\[\e[0m\]] '
+    #PS1='[\[\033[3;33m\]\u@\h \[\033[01;34m\]${PWD}\[\033[0m\]\[\033[33m\]\[\033[0m\]] '
 #else
     #PS1='[\u@\h ${PWD}] '
 #fi
