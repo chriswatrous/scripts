@@ -9,6 +9,7 @@ if os.getenv('INSIDE_EMACS'):
                (if (not (woman "{}"))
                    (other-window -1)))
     """.format(sys.argv[1])
+    print(lisp)
     call(['emacsclient', '--eval', lisp], stdout=DEVNULL, stderr=DEVNULL)
 else:
     call(['man'] + sys.argv[1:])
