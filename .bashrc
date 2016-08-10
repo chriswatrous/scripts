@@ -131,6 +131,8 @@ path_append() {
     export PATH="$PATH:$1"
 }
 
+path_prepend "/usr/local/bin"
+path_prepend "/usr/local/opt/coreutils/libexec/gnubin"
 path_prepend "/home/chris/local-stuff/install/ghc/bin"
 path_prepend "~/bin"
 path_prepend "~/scripts/bin"

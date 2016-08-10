@@ -35,13 +35,13 @@ if 'pythonrc_guard' not in globals():
         try:
             exec('import ' + name)
         except ImportError as e:
-            print('Missing ' + e.name)
+            print(e)
 
     for name in star_imports:
         try:
             exec('from {} import *'.format(name))
         except ImportError as e:
-            print('Missing ' + e.name)
+            print(e)
 
     def pdir(obj):
         pprint(dir(obj))

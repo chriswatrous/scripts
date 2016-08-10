@@ -91,7 +91,7 @@
 (setq inhibit-startup-message t)  ; Bypass emacs start screen
 (setq uniquify-buffer-name-style 'reverse)
 (diredp-toggle-find-file-reuse-dir t)  ; Dired+ reuse buffer for changing dirs.
-(linum-relative-on)
+(linum-relative-toggle)
 (cond ((eq system-type 'windows-nt)
        (set-face-attribute 'default nil :font "Liberation Mono-10"))
       ((eq system-type 'gnu/linux)
