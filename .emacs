@@ -109,6 +109,7 @@
 (blink-cursor-mode 0)
 (set-face-attribute 'cursor nil :background "#00ff00")
 (setq woman-fill-frame t)
+(setq mouse-autoselect-window t)
 
 ;; auto saving and loading
 (add-hook 'focus-out-hook (cmd (save-some-buffers t)))

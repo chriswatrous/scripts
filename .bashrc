@@ -80,12 +80,6 @@ esac
 
 ################################################################################
 
-# Try to enable bash completion
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-complete -d cd
-
 # Disable handling of ^s
 stty -ixon
 
@@ -102,7 +96,7 @@ export GOPATH="${HOME}/.go"
 export NO_LOG_HEADER=true
 export LOGGING_206_AS_ERROR=True
 export REQUEST_STATS_FILE=~/request_stats
-export CFS_LOGS_DIR=/home/chris/gitrepos/cams/cfs-python-utils/logs
+export CFS_LOGS_DIR=~/projects/cams/cfs-python-utils/logs
 export GCC_COLORS='error=01;31:warning=01;33:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Set default editor.
@@ -150,6 +144,15 @@ fi
 
 path_append "."
 
+# bash completion ##############################################################
+
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+complete -d cd
 
 # Aliases ######################################################################
 
@@ -218,16 +221,16 @@ alias c......='cd ../../../../../..'
 alias r=select_recent_dir
 
 # Common directories
-alias c1='cd ~/gitrepos/cams/cams-api'
-alias c2='cd ~/gitrepos/cams/CAMS-AT'
-alias c3='cd ~/gitrepos/cams/cfs-python-utils'
-alias c4='cd ~/gitrepos/cams/cams-test'
-alias c5='cd ~/gitrepos/cams/cams-dist/jenkins-config-manager'
-alias c6='cd ~/gitrepos/cams/cams-config'
-alias c7='cd ~/gitrepos/cams/acs-utils'
-alias c8='cd ~/gitrepos/cams/acms-registry'
-alias c9='cd ~/gitrepos/cams/cams-pdp'
-alias c10='cd ~/gitrepos/cams/cams-watchdog'
+alias c1='cd ~/projects/cams/cams-api'
+alias c2='cd ~/projects/cams/CAMS-AT'
+alias c3='cd ~/projects/cams/cfs-python-utils'
+alias c4='cd ~/projects/cams/cams-test'
+alias c5='cd ~/projects/cams/cams-dist/jenkins-config-manager'
+alias c6='cd ~/projects/cams/cams-config'
+alias c7='cd ~/projects/cams/acs-utils'
+alias c8='cd ~/projects/cams/acms-registry'
+alias c9='cd ~/projects/cams/cams-pdp'
+alias c10='cd ~/projects/cams/cams-watchdog'
 
 
 ################################################################################
