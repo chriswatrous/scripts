@@ -113,6 +113,10 @@
 (setq woman-fill-frame t)
 (setq mouse-autoselect-window t)
 
+;; Workaround for PATH on mac
+(cond ((eq system-type 'darwin)
+       (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))))
+
 ;; auto saving and loading
 (add-hook 'focus-out-hook (cmd (save-some-buffers t)))
 (setq auto-revert-interval 1)
