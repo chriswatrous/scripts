@@ -1,4 +1,8 @@
-pyf ~/.vimrc.py
+if has('python')
+    pyf ~/.vimrc.py
+elseif has('python3')
+    py3f ~/.vimrc.py
+endif
 
 "function! SetFiletypeOptions()
 "    if &filetype == 'python' || &filetype == 'pyrex' || &filetype == 'sh' || &filetype == 'make' || &filetype == 'gitconfig' || &filetype == 'conf'
