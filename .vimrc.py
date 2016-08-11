@@ -61,7 +61,7 @@ vim.command('au InsertEnter * hi LineNr ctermfg=0 ctermbg=darkgreen')
 vim.command('au InsertLeave * hi LineNr ctermfg=darkgreen ctermbg=8')
 vim.command('hi LineNr ctermfg=darkgreen ctermbg=8')
 
-vim.command('autocmd BufRead * :py set_file_type()')
+vim.command('autocmd BufRead * :call RunPy("set_file_type()")')
 
 # Set spellcheck highlight color.
 vim.command('hi clear SpellBad')
@@ -372,7 +372,7 @@ key_codes = {
 def map_func(map_cmd):
     def f(key, cmd):
         if hasattr(cmd, '__call__'):
-            cmd = ':py {}()<Enter>'.format(cmd.__name__)
+            cmd = ':RunPy {}()<Enter>'.format(cmd.__name__)
         vim.command('{} {} {}'.format(map_cmd, key, cmd))
     return f
 nnoremap = map_func('nnoremap')
