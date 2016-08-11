@@ -1,4 +1,21 @@
-pyf ~/.vimrc.py
+
+if has('python')
+    function RunPyFile(path)
+        execute "pyf " . a:path
+    endfunction
+    function RunPy(func)
+        execute "py " . a:func
+    endfunction
+elseif has('python3')
+    function RunPyFile(path)
+        execute "py3f " . a:path
+    endfunction
+    function RunPy(func)
+        execute "py3 " . a:func
+    endfunction
+endif
+
+call RunPyFile("~/.vimrc.py")
 
 "function! SetFiletypeOptions()
 "    if &filetype == 'python' || &filetype == 'pyrex' || &filetype == 'sh' || &filetype == 'make' || &filetype == 'gitconfig' || &filetype == 'conf'

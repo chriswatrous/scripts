@@ -61,7 +61,7 @@ vim.command('au InsertEnter * hi LineNr ctermfg=0 ctermbg=darkgreen')
 vim.command('au InsertLeave * hi LineNr ctermfg=darkgreen ctermbg=8')
 vim.command('hi LineNr ctermfg=darkgreen ctermbg=8')
 
-vim.command('autocmd BufRead * :py set_file_type()')
+vim.command('autocmd BufRead * :call RunPy("set_file_type()")')
 
 # Set spellcheck highlight color.
 vim.command('hi clear SpellBad')
@@ -113,8 +113,8 @@ def do_keybindings():
     nnoremap('<F6>', ':checktime<Enter>')
     nnoremap('<F7>', toggle_overlength_highlight)
     nnoremap('<F8>', ':tabe .<Enter>')
-    nnoremap('<F9>', exec_current_block)
-    nnoremap('<F10>', exec_current_buffer)
+    # nnoremap('<F9>', exec_current_block)
+    # nnoremap('<F10>', exec_current_buffer)
     nnoremap('<F11>', python_shell)
     nnoremap('<F12>', ':!bash<Enter>')
 
@@ -171,7 +171,7 @@ def replace_string_contents():
         last_char = char
     _, pos = vim.current.window.cursor
     if not in_string[pos]:
-        print 'not currently in a string literal'
+        print('not currently in a string literal')
     else:
         pos1 = pos
         while in_string[pos1 - 1]:
@@ -179,7 +179,7 @@ def replace_string_contents():
         pos2 = pos
         while in_string[pos2 + 1]:
             pos2 += 1
-        print vim.current.line[pos1 : pos2 + 1]
+        print(vim.current.line[pos1 : pos2 + 1])
 
 
 # 'asdfsd' "weqrwqerqwe" 'as"dfsd' "weqr'wqerqwe" 'as\'dfsd' "weqr\"wqerqwe"
@@ -190,38 +190,38 @@ def set_file_type():
         vim.command('set filetype=python')
 
 
-def exec_current_buffer():
-    filetype = vim.eval('&filetype')
-    if filetype != 'python':
-        sys.stderr.write('Unsupported file type: ' + filetype)
-        return
-    script = '\n'.join(vim.current.buffer[:])
-    exec script in globals()
+# def exec_current_buffer():
+    # filetype = vim.eval('&filetype')
+    # if filetype != 'python':
+        # sys.stderr.write('Unsupported file type: ' + filetype)
+        # return
+    # script = '\n'.join(vim.current.buffer[:])
+    # exec script in globals()
 
 
-def exec_current_block():
-    filetype = vim.eval('&filetype')
-    if filetype != 'python':
-        sys.stderr.write('Unsupported file type: ' + filetype)
-        return
-    lines = vim.current.buffer[:]
-
-    # Find start of block.
-    L1 = vim.current.window.cursor[0] - 1
-    while (lines[L1].startswith(' ') or
-           lines[L1].startswith('#') or
-           lines[L1] == ''):
-        L1 -= 1
-
-    # Find end of block.
-    L2 = vim.current.window.cursor[0]
-    while L2 < len(lines) and (lines[L2].startswith(' ') or
-                               lines[L2].startswith('#') or
-                               lines[L2] == ''):
-        L2 += 1
-
-    script = '\n'.join(lines[L1:L2])
-    exec script in globals()
+# def exec_current_block():
+    # filetype = vim.eval('&filetype')
+    # if filetype != 'python':
+        # sys.stderr.write('Unsupported file type: ' + filetype)
+        # return
+    # lines = vim.current.buffer[:]
+# 
+    # # Find start of block.
+    # L1 = vim.current.window.cursor[0] - 1
+    # while (lines[L1].startswith(' ') or
+           # lines[L1].startswith('#') or
+           # lines[L1] == ''):
+        # L1 -= 1
+# 
+    # # Find end of block.
+    # L2 = vim.current.window.cursor[0]
+    # while L2 < len(lines) and (lines[L2].startswith(' ') or
+                               # lines[L2].startswith('#') or
+                               # lines[L2] == ''):
+        # L2 += 1
+# 
+    # script = '\n'.join(lines[L1:L2])
+    # exec script in globals()
 
 
 _ov_toggle = False
@@ -232,13 +232,13 @@ def toggle_overlength_highlight():
     if _ov_toggle:
         _ov_toggle = False
         vim.command('highlight clear OverLength')
-        print 'overlength highlight off'
+        print('overlength highlight off')
     else:
         _ov_toggle = True
         vim.command('highlight OverLength '
                     'ctermbg=red ctermfg=white guibg=#592929')
         vim.command(r'match OverLength /\%80v.\+/')
-        print 'overlength highlight on'
+        print('overlength highlight on')
 
 
 def python_shell():
@@ -253,12 +253,12 @@ def pep8_first_error():
     proc = Popen(['pep8', '-'], stdin=PIPE, stdout=PIPE)
     out, _ = proc.communicate(script)
     if proc.wait() == 0:
-        print 'no pep8 errors'
+        print('no pep8 errors')
     else:
         error = out.split('\n')[0]
         row, col = (int(x) for x in error.split(':')[1:3])
         vim.current.window.cursor = row, col - 1
-        print error
+        print(error)
 
 
 def insert_set_trace():
@@ -344,13 +344,13 @@ def move_by(rows, columns):
 
 
 def inspect(obj):
-    print type(obj)
-    print obj
+    print(type(obj))
+    print(obj)
     for attr in dir(obj):
         try:
-            print '{}: {}'.format(attr, getattr(obj, attr))
+            print('{}: {}'.format(attr, getattr(obj, attr)))
         except:
-            print '{}: could not get value'.format(attr)
+            print('{}: could not get value'.format(attr))
 
 
 key_codes = {
@@ -372,7 +372,7 @@ key_codes = {
 def map_func(map_cmd):
     def f(key, cmd):
         if hasattr(cmd, '__call__'):
-            cmd = ':py {}()<Enter>'.format(cmd.__name__)
+            cmd = ':RunPy {}()<Enter>'.format(cmd.__name__)
         vim.command('{} {} {}'.format(map_cmd, key, cmd))
     return f
 nnoremap = map_func('nnoremap')
