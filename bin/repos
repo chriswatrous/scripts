@@ -14,6 +14,7 @@ from os.path import join, basename, expanduser
 def main():
     width = int(check_output(['stty', 'size']).split()[1])
     repos = readfile(expanduser('~/.my_repos')).strip('\n').split('\n')
+    repos = [expanduser(x) for x in repos]
 
     # Update repos.
     if '-f' in sys.argv:
