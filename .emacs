@@ -58,6 +58,7 @@
 (require 'projectile)
 (require 'python-mode)
 (require 'rainbow-delimiters)
+(require 's)
 (require 'uniquify)
 (require 'server)
 (require 'smooth-scrolling)
@@ -114,8 +115,20 @@
 (setq mouse-autoselect-window t)
 
 ;; Workaround for PATH on mac
-(cond ((eq system-type 'darwin)
-       (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))))
+(when (eq system-type 'darwin)
+  (let (emacs-path-dir?
+        not-emacs-path-dir?
+        dirs
+        emacs-dirs
+        non-emacs-dirs
+        new-dirs)
+    (defun emacs-path-dir? (x) (s-starts-with? "/Applications/Emacs.app" x))
+    (defun not-emacs-path-dir? (x) (not (emacs-path-dir? x)))
+    (setq dirs (s-split ":" (getenv "PATH")))
+    (setq emacs-dirs (-filter 'emacs-path-dir? dirs))
+    (setq non-emacs-dirs (-filter 'not-emacs-path-dir? dirs))
+    (setq new-dirs (-concat emacs-dirs '("/usr/local/bin") non-emacs-dirs))
+    (setenv "PATH" (s-join ":" new-dirs))))
 
 ;; auto saving and loading
 (add-hook 'focus-out-hook (cmd (save-some-buffers t)))
