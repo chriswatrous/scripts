@@ -131,7 +131,7 @@ path_prepend "~/bin"
 path_prepend "~/scripts/bin"
 path_prepend "~/stuff/bin"
 
-path_append "~/gitrepos/cams/cams-test/tools"
+path_append "~/projects/cams/cams-test/tools"
 path_append "~/.go/bin"
 
 if [[ -e /cygdrive/c/Users/Chris ]]; then
