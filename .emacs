@@ -327,6 +327,7 @@
 (define-key global-map (kbd "C-S-t") (cmd (term "/bin/bash")))
 (define-key global-map (kbd "C-;") 'buffer-menu)
 (define-key global-map (leader+ "C-e") 'eshell)
+(define-key global-map (leader+ "C-g") 'rgrep)
 
 
 ;; Opening files

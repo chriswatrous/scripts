@@ -203,6 +203,7 @@ alias gc='git checkout'
 alias ga='git add -A :/'
 alias gf='git fetch --all --prune; gb'
 alias git-pub='git push -u origin `git rev-parse --abbrev-ref HEAD`'
+alias gls='ls -l $(git ls-files)'
 
 git-brd()
 {
