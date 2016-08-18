@@ -83,12 +83,14 @@ esac
 # Disable handling of ^s
 stty -ixon
 
+stty erase ^?
+
 export LC_ALL=C
 export LESS='-M -R -c'
 export PAGER=less
 export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONIOENCODING=utf_8
-export PYTHONPATH=.
+export PYTHONPATH=.:~/scripts/pylib
 export GOPATH="${HOME}/.go"
 
 # Work related stuff.
