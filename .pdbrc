@@ -1,3 +1,5 @@
 alias ss s;;ll;;pp locals()
 alias nn n;;ll;;pp locals()
 alias ww w;;ll;;pp locals()
+alias kk import os; os.kill(os.getpid(), 9)
+alias kkk import subprocess; subprocess.call(['killall', '-9', 'python', 'Python'])
