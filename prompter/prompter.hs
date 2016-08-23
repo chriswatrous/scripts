@@ -52,9 +52,10 @@ matchingRefMsg commitId dir = fmap (parenWrap . unwords)
                                    (fullMatchingRefs commitId dir)
 
 fullMatchingRefs :: String -> FilePath -> IO [String]
-fullMatchingRefs commitId dir =
-  concatMapM (\x -> matchingRefs commitId (dir </> ".git/refs" </> x))
-             ["heads", "remotes", "tags"]
+fullMatchingRefs commitId dir = do
+  refs <- concatMapM (\x -> matchingRefs commitId (dir </> ".git/refs" </> x))
+                     ["heads", "remotes", "tags"]
+  return $ if null refs then [commitId] else refs
 
 matchingRefs :: String -> FilePath -> IO [String]
 matchingRefs commitId dir = do
