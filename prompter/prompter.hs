@@ -16,7 +16,7 @@ main = do
   putStrLn $ "\n[" ++ (unwords parts) ++ "]"
 
 promptParts :: IO [String]
-promptParts = sequenceMaybes [fmap Just cwdPart, gitPart]
+promptParts = fmap catMaybes . sequence $ [fmap Just cwdPart, gitPart]
 
 cwdPart :: IO String
 cwdPart = do
@@ -111,9 +111,6 @@ dullColor color msg = (A.setSGRCode [A.SetColor A.Foreground A.Dull color]) ++
 
 -- maybeApply :: (a -> Maybe a) -> a -> a
 -- maybeApply func x = fromMaybe x (func x)
-
-sequenceMaybes :: Monad m => [m (Maybe a)] -> m [a]
-sequenceMaybes = fmap catMaybes . sequence
 
 onFailure :: ExitCode -> (Int -> IO ()) -> IO ()
 onFailure (ExitFailure x) func = func x
