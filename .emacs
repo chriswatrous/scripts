@@ -79,6 +79,7 @@
 (defun work-windows? () (file-exists-p "C:/Users/IBM_ADMIN"))
 (defun work-linux? () (file-exists-p "/media/sf_VirtualBox_Share"))
 (defun home-linux? () (file-exists-p "/home/chris/stuff"))
+(defun osx? () (eq system-type 'darwin))
 
 
 ;;;; Options ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -375,9 +376,10 @@
 (define-key global-map (leader+ "w") 'highlight-symbol-remove-all)
 (define-key global-map (kbd "C->") 'highlight-symbol-next)
 (define-key global-map (kbd "C-<") 'highlight-symbol-prev)
-(define-key global-map (kbd "C-S-s")
+(define-key global-map (kbd "s-s")
   (cmd (save-some-buffers t)
-       (unless (evil-emacs-state-p) (evil-normal-state))))
+       (unless (evil-emacs-state-p) (evil-normal-state))
+       (message "all files saved")))
 ;; (define-key global-map (kbd "C-c")
 ;;   (cmd (unless (evil-emacs-state-p) (evil-normal-state))))
 
