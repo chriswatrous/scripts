@@ -130,6 +130,7 @@
     (setq non-emacs-dirs (-filter 'not-emacs-path-dir? dirs))
     (setq new-dirs (-concat emacs-dirs '("/usr/local/bin") non-emacs-dirs))
     (setenv "PATH" (s-join ":" new-dirs))))
+(setq exec-path (-snoc exec-path "/usr/local/bin"))
 
 ;; auto saving and loading
 (add-hook 'focus-out-hook (cmd (save-some-buffers t)))
