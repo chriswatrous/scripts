@@ -79,11 +79,10 @@
 (defun work-windows? () (file-exists-p "C:/Users/IBM_ADMIN"))
 (defun work-linux? () (file-exists-p "/media/sf_VirtualBox_Share"))
 (defun home-linux? () (file-exists-p "/home/chris/stuff"))
-(defun osx? () (eq system-type 'darwin))
+(setq osx? (eq system-type 'darwin))
 
 
 ;;;; Options ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (elpy-enable)
 (setq default-tab-width 4)
 (tool-bar-mode -1)  ; Turn off toolbar
 (menu-bar-mode -1)  ; Turn off menu
@@ -130,7 +129,7 @@
     (setq non-emacs-dirs (-filter 'not-emacs-path-dir? dirs))
     (setq new-dirs (-concat emacs-dirs '("/usr/local/bin") non-emacs-dirs))
     (setenv "PATH" (s-join ":" new-dirs))))
-(setq exec-path (-snoc exec-path "/usr/local/bin"))
+(setq exec-path (-cons* exec-path "/usr/local/bin"))
 
 ;; auto saving and loading
 (add-hook 'focus-out-hook (cmd (save-some-buffers t)))
@@ -216,6 +215,15 @@
 (add-hook 'cider-docview-mode-hook #'evil-emacs-state)
 (add-hook 'cider-repl-mode-hook #'evil-emacs-state)
 (add-hook 'cider-stacktrace-mode-hook #'evil-emacs-state)
+
+;; Elpy setup
+(elpy-enable)
+(define-key elpy-mode-map (kbd "<C-return>") nil)
+(when (file-exists-p "/Users/chris/venv")
+  (pyvenv-activate "/Users/chris/venv/"))
+(setq flymake-no-changes-timeout 3)
+(setq python-check-command "flake8")
+(setq elpy-rpc-backed "jedi")
 
 
 ;;;; Colors ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -305,6 +313,7 @@
 
 (define-key global-map (leader+ "C-q") 'linum-relative-toggle)
 (evil-define-key 'normal global-map "C-u" 'evil-scroll-up)
+;; (evil-define-key 'normal global-map "M-." nil)
 
 
 ;; Scroll by 5
@@ -377,7 +386,7 @@
 (define-key global-map (leader+ "w") 'highlight-symbol-remove-all)
 (define-key global-map (kbd "C->") 'highlight-symbol-next)
 (define-key global-map (kbd "C-<") 'highlight-symbol-prev)
-(define-key global-map (kbd "s-s")
+(define-key global-map (kbd "C-S-s")
   (cmd (save-some-buffers t)
        (unless (evil-emacs-state-p) (evil-normal-state))
        (message "all files saved")))

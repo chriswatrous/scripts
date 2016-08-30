@@ -1,0 +1,17 @@
+ansicolors
+futures
+ipdb
+ipython
+jedi
+nose
+pep8
+psutil
+pyflakes
+pylint
+pyrsistent
+pyyaml
+requests
+rope
+statistics
+subprocess32
+tabulate

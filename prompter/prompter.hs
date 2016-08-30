@@ -60,7 +60,7 @@ fullMatchingRefs commitId dir = do
 matchingRefs :: String -> FilePath -> IO [String]
 matchingRefs commitId dir = do
   files <- findFiles dir >>= filterM (isRefMatching commitId)
-  return $ map (stripPrefixSafe $ addTrailingPathSeparator dir) files
+  return $ map (tryStripPrefix $ addTrailingPathSeparator dir) files
 
 isRefMatching :: String -> String -> IO Bool
 isRefMatching commitId path = fmap (== commitId) (readFileStrip path)
@@ -91,8 +91,8 @@ isGitRoot dir = doesDirectoryExist $ dir </> ".git"
 -- data helpers
 --
 
-stripPrefixSafe :: String -> String -> String
-stripPrefixSafe prefix s = fromMaybe s (stripPrefix prefix s)
+tryStripPrefix :: Eq a => [a] -> [a] -> [a]
+tryStripPrefix prefix = tryMaybe (stripPrefix prefix)
 
 parenWrap :: String -> String
 parenWrap s = "(" ++ s ++ ")"
@@ -116,6 +116,9 @@ dullColor color msg = (A.setSGRCode [A.SetColor A.Foreground A.Dull color]) ++
 onFailure :: ExitCode -> (Int -> IO ()) -> IO ()
 onFailure (ExitFailure x) func = func x
 onFailure ExitSuccess _ = return ()
+
+tryMaybe :: (a -> Maybe a) -> a -> a
+tryMaybe func x = fromMaybe x (func x)
 
 -------------------------------------------------------------------------------
 --

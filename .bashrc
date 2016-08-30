@@ -100,6 +100,13 @@ export LOGGING_206_AS_ERROR=True
 export REQUEST_STATS_FILE=~/request_stats
 export CFS_LOGS_DIR=~/projects/cams/cfs-python-utils/logs
 export GCC_COLORS='error=01;31:warning=01;33:note=01;36:caret=01;32:locus=01:quote=01'
+export NVM_DIR=~/.nvm
+
+nvm_script="$(brew --prefix nvm)/nvm.sh"
+if [ -e $nvm_script ]; then
+    source $nvm_script
+    # nvm use v4.4.4
+fi
 
 # Set default editor.
 if [ -e ~/scripts/bin/find-editor ]; then
@@ -145,6 +152,15 @@ fi
 
 path_append "."
 
+# virtualenv setup #############################################################
+#
+# This must be done after path setup
+#
+
+if [ -e /Users/chris/venv/bin/activate ]; then
+    source /Users/chris/venv/bin/activate
+fi
+
 # bash completion ##############################################################
 
 if [ -f /etc/bash_completion ]; then
@@ -175,8 +191,8 @@ alias vi=vim
 alias vim='vim -p'
 alias wt='watch -n 1'
 alias ports='netstat -tulpn'
-alias pspy='ps -ef | grep python'
-alias pspyt='ps -eLf | grep python'
+alias psy='ps -ef | grep -i python'
+alias psyt='ps -eLf | grep -i python'  # only works on linux
 alias psf='ps -ef | grep -i'
 alias jc='source /home/chris/gitrepos/cams/cams-dist/jenkins-config-manager/jenkins-creds.sh'
 alias kpy='killall -9 python Python'
