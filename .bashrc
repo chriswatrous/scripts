@@ -32,52 +32,6 @@ shopt -s dotglob
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 
-# Prompt setup #################################################################
-
-# Set color prompt. There may be a rare terminal where this doesn't
-# work. I'll cross that bridge when I come to it.
-# See http://ascii-table.com/ansi-escape-sequences.php
-# Disble git branch in prompt if on cygwin.
-if [ -z "$WINDIR" ]; then
-    cyan='\[\033[36m\]'
-    yellow='\[\033[33m\]'
-    PS1="${cyan}bash> ${yellow}"
-
-    prompt_command() {
-        echo $PWD > ~/.last_dir
-        ~/scripts/prompter/prompter
-    }
-    PROMPT_COMMAND='prompt_command'
-else
-    # My go prompter program doen't work in Cygwin at the moment.
-    PS1='[\[\033[3;33m\]\u@\h \[\033[01;34m\]${PWD}\[\033[0m\]] '
-
-    prompt_command() {
-        echo $PWD > ~/.last_dir
-    }
-fi
-
-# Reset the terminal color before every command.
-trap 'echo -n -e "\033[0m"' DEBUG
-
-# Non-color prompt
-#PS1='[\u@\h ${PWD}] '
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\033]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-
 ################################################################################
 
 # Disable handling of ^s
@@ -160,6 +114,51 @@ path_append "."
 if [ -e /Users/chris/venv/bin/activate ]; then
     source /Users/chris/venv/bin/activate
 fi
+
+# Prompt setup #################################################################
+
+# Set color prompt. There may be a rare terminal where this doesn't
+# work. I'll cross that bridge when I come to it.
+# See http://ascii-table.com/ansi-escape-sequences.php
+# Disble git branch in prompt if on cygwin.
+if [ -z "$WINDIR" ]; then
+    cyan='\[\033[36m\]'
+    yellow='\[\033[33m\]'
+    PS1="${cyan}bash> ${yellow}"
+
+    prompt_command() {
+        echo $PWD > ~/.last_dir
+        ~/scripts/prompter/prompter
+    }
+    PROMPT_COMMAND='prompt_command'
+else
+    # My go prompter program doen't work in Cygwin at the moment.
+    PS1='[\[\033[3;33m\]\u@\h \[\033[01;34m\]${PWD}\[\033[0m\]] '
+
+    prompt_command() {
+        echo $PWD > ~/.last_dir
+    }
+fi
+
+# Reset the terminal color before every command.
+trap 'echo -n -e "\033[0m"' DEBUG
+
+# Non-color prompt
+#PS1='[\u@\h ${PWD}] '
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\033]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
 
 # bash completion ##############################################################
 
@@ -327,6 +326,10 @@ fi
 
 alias pw='PWM_ASK_PASSWORD=true bash'
 
+
+if [ -e ~/.bashrc-local ]; then
+    source ~/.bashrc-local
+fi
 
 # git-br()
 # {
