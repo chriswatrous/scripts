@@ -239,16 +239,15 @@ alias c......='cd ../../../../../..'
 alias r=select_recent_dir
 
 # Common directories
-alias c1='cd ~/projects/cams/cams-api'
-alias c2='cd ~/projects/cams/CAMS-AT'
-alias c3='cd ~/projects/cams/cfs-python-utils'
+alias c1='cd ~/projects/cams/cfs-python-utils'
+alias c2='cd ~/projects/cams/acs-utils'
+alias c3='cd ~/projects/cams/cams-config'
 alias c4='cd ~/projects/cams/cams-test'
 alias c5='cd ~/projects/cams/cams-dist/jenkins-config-manager'
-alias c6='cd ~/projects/cams/cams-config'
-alias c7='cd ~/projects/cams/acs-utils'
-alias c8='cd ~/projects/cams/acms-registry'
-alias c9='cd ~/projects/cams/cams-pdp'
-alias c10='cd ~/projects/cams/cams-watchdog'
+alias c6='cd ~/projects/cams/cams-pdp'
+alias c7='cd ~/projects/cams/access-management'
+alias c8='cd ~/projects/cams/PEP_python_lib'
+alias c9='cd ~/projects/cams/PEP_node_lib'
 
 
 ################################################################################

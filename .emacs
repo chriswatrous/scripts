@@ -50,6 +50,7 @@
 (require 'go-mode)
 (require 'haskell-mode)
 (require 'highlight-symbol)
+(require 'json-mode)
 (require 'linum-relative)  ; need melpa version
 (require 'markdown-mode)
 (require 'popup)
@@ -225,6 +226,9 @@
 (setq python-check-command "flake8")
 (setq elpy-rpc-backed "jedi")
 
+;; json-mode setup
+(add-hook 'json-mode-hook (cmd (make-local-variable 'js-indent-level)
+                               (setq js-indent-level 2)))
 
 ;;;; Colors ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Default colors for new frames
