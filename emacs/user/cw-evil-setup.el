@@ -28,3 +28,11 @@
 (add-hook 'cider-docview-mode-hook #'evil-emacs-state)
 (add-hook 'cider-repl-mode-hook #'evil-emacs-state)
 (add-hook 'cider-stacktrace-mode-hook #'evil-emacs-state)
+
+;; Key bindings
+(macroexpand '(evil-define-key 'normal global-map "C-u" 'evil-scroll-up))
+
+;; (evil-define-key 'normal global-map "M-." nil)
+
+;; Try to make escape behave like C-g everywhere except in evil mode.
+(define-key global-map (kbd "<escape>") 'keyboard-escape-quit)

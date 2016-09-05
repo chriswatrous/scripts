@@ -34,23 +34,11 @@
 (setq woman-fill-frame t)
 (setq mouse-autoselect-window t)
 (unless (server-running-p) (server-start))
+(setq blink-matching-paren nil)
 
-;; Workaround for PATH on mac
-(when (eq system-type 'darwin)
-  (let (emacs-path-dir?
-        not-emacs-path-dir?
-        dirs
-        emacs-dirs
-        non-emacs-dirs
-        new-dirs)
-    (defun emacs-path-dir? (x) (s-starts-with? "/Applications/Emacs.app" x))
-    (defun not-emacs-path-dir? (x) (not (emacs-path-dir? x)))
-    (setq dirs (s-split ":" (getenv "PATH")))
-    (setq emacs-dirs (-filter 'emacs-path-dir? dirs))
-    (setq non-emacs-dirs (-filter 'not-emacs-path-dir? dirs))
-    (setq new-dirs (-concat emacs-dirs '("/usr/local/bin") non-emacs-dirs))
-    (setenv "PATH" (s-join ":" new-dirs))))
-(setq exec-path (-cons* exec-path "/usr/local/bin"))
+;; Clean up PATH and load-path
+(setenv "PATH" (call-process-str "~/scripts/path.py"))
+(setq exec-path (s-split ":" (getenv "PATH")))
 
 ;; auto saving and loading
 (add-hook 'focus-out-hook (cmd (save-some-buffers t)))
@@ -66,3 +54,6 @@
 
 ;; Add space after line numbers when used from terminal.
 (unless window-system (setq linum-format "%d "))
+
+;; Disable bell
+(setq ring-bell-function 'ignore)

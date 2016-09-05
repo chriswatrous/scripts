@@ -1,5 +1,9 @@
 (provide 'cw-colors)
 
+;;;; Info
+;; (list-colors-display)   ; list color names
+;; (list-faces-display)    ; list current faces
+
 ;; default colors for new frames
 (add-to-list 'default-frame-alist '(foreground-color . "#E0E0E0"))
 (add-to-list 'default-frame-alist '(background-color . "#000000"))
@@ -44,12 +48,12 @@
   (set-face-attribute s nil :foreground "white" :background "red"))
 
 (dolist (hook '(emacs-lisp-mode-hook
-             python-mode-hook
-             clojure-mode-hook
-             go-mode-hook
-             haskell-mode-hook
-             yaml-mode-hook
-             json-mode-hook
-             js-mode-hook))
+                python-mode-hook
+                clojure-mode-hook
+                go-mode-hook
+                haskell-mode-hook
+                yaml-mode-hook
+                json-mode-hook
+                js-mode-hook))
   (add-hook hook #'rainbow-delimiters-mode)
   (add-hook hook (lambda () (column-marker-1 79))))

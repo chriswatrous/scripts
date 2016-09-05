@@ -8,8 +8,13 @@ from edit_helpers import run_editor
 
 def main():
     path = file_to_edit()
-    cmds = get_editors(path)
-    run_editor(cmds)
+    if os.getenv('INSIDE_EMACS'):
+        call([
+            'emacsclient',
+            '-e', '(find-file-other-window "{}")'.format(path),
+        ])
+    else:
+        call(['emacsclient', '--no-wait', path])
 
 
 def file_to_edit():
@@ -17,23 +22,23 @@ def file_to_edit():
         print('Specify the file to edit.')
         sys.exit(1)
     elif len(sys.argv) > 2:
-        print('This program requires exactly argument.')
+        print('This program only takes 1 argument.')
         sys.exit(1)
     return sys.argv[1]
 
 
-def get_editors(path):
-    cmds = [
-        ['vim', path],
-        ['vi', path],
-    ]
-    if os.getenv('INSIDE_EMACS'):
-        cmds = [[
-            'emacsclient',
-            '-a', 'vim',
-            '-e', '(find-file-other-window "{}")'.format(path),
-        ]] + cmds
-    return cmds
+# def get_editors(path):
+#     cmds = [
+#         ['vim', path],
+#         ['vi', path],
+#     ]
+#     if os.getenv('INSIDE_EMACS'):
+#         cmds = [[
+#             'emacsclient',
+#             '-a', 'vim',
+#             '-e', '(find-file-other-window "{}")'.format(path),
+#         ]] + cmds
+#     return cmds
 
 
 if __name__ == '__main__':

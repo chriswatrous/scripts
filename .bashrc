@@ -47,6 +47,10 @@ export PYTHONIOENCODING=utf_8
 export PYTHONPATH=.:~/scripts/pylib
 export GOPATH="${HOME}/.go"
 
+if [[ -e /cygdrive/c/Users/Chris ]]; then
+    export PRINTER=DCP7040
+fi
+
 # Work related stuff.
 # export DB_NAME=chris_local
 export NO_LOG_HEADER=true
@@ -88,23 +92,9 @@ path_append() {
     export PATH="$PATH:$1"
 }
 
-path_prepend "/usr/local/opt/coreutils/libexec/gnubin"
-path_prepend "/home/chris/local-stuff/install/ghc/bin"
-path_prepend "~/bin"
-path_prepend "~/scripts/bin"
-path_prepend "~/stuff/bin"
+export PATH=$(~/scripts/path.py)
 
-path_append "~/projects/cams/cams-test/tools"
-path_append "~/.go/bin"
-
-if [[ -e /cygdrive/c/Users/Chris ]]; then
-    export PRINTER=DCP7040
-    path_append "/cygdrive/c/Program Files (x86)/SMPlayer"
-    path_append "/cygdrive/c/Program Files (x86)/Audacity"
-    path_append "/cygdrive/c/Program Files (x86)/CSound6/bin"
-fi
-
-path_append "."
+# path_append "."
 
 # virtualenv setup #############################################################
 #

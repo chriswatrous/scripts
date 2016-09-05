@@ -76,24 +76,27 @@
       (goto-char old-pos)
       (- (length s) (length (lstrip s))))))
 
-(defun str* (str n)
-  "Repeat the string str n times."
-  (let ((retval ""))
-    (dotimes (i n) (setq retval (concat retval str)))
-    retval))
-
 (defun call-process-buffer-str (cmd &rest args)
   "Call an external program, sending the current buffer as input and returning
    the output as a string."
+  (--call-process cmd args '(call-process-region 1 (buffer-end 1))))
+
+(defun call-process-str (cmd &rest args)
+  "Call an external program and return the output as a string"
+  (--call-process cmd args '(call-process)))
+
+(defun --call-process (cmd args call-expr)
   (let ((b-name (format "temp-%d" (random 1000000000)))
-        linum column message)
-    (eval (append '(call-process-region 1 (buffer-end 1) cmd
-                                        nil b-name nil)
-                  args))
+        linum column message result)
+    (eval (append call-expr '(cmd nil b-name nil) args))
+    (setq result (buffer-to-str b-name))
+    (kill-buffer b-name)
+    result))
+
+(defun buffer-to-str (b-name)
+  "Return the text in a buffer as a string"
     (with-current-buffer b-name
-      (let ((result (buffer-substring-no-properties 1 (buffer-end 1))))
-        (kill-buffer b-name)
-        result))))
+      (buffer-substring-no-properties 1 (buffer-end 1))))
 
 (defun str-find-char (str char)
   "Return a list of the indices in str matching char."
@@ -124,3 +127,11 @@ buffer is not visiting a file."
       (find-file (concat "/sudo:root@localhost:"
                          (ido-read-file-name "Find file(as root): ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
+;; Emacs pager support
+;; (defun ep-revert-buffer ()
+;;   (when (and (get-buffer ep-current-buffer)
+;;              (equal (buffer-name) ep-current-buffer))
+;;     (revert-buffer t t t))
+;;   (run-at-time "1 sec" ep-revert-buffer))
+;; (setq ep-current-buffer nil)

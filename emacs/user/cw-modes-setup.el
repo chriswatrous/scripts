@@ -38,10 +38,27 @@
                   comment-start "//"
                   comment-end "")))
 
-;; python-mode
+;; python-mode / elpy
 (add-hook 'python-mode-hook
-          (cmd (highlight-regexp "import ipdb; ipdb\.set_trace()"
+          (cmd (highlight-regexp "import i?pdb; i?pdb\.set_trace()"
                                  'highlight)))
+(elpy-enable)
+(elpy-use-ipython)
+(define-key elpy-mode-map (kbd "<C-return>") nil)
+(define-key elpy-mode-map (kbd "C-S-d") 'elpy-goto-definition)
+(when (file-exists-p "/Users/chris/venv")
+  (pyvenv-activate "/Users/chris/venv/"))
+;; (setq flymake-no-changes-timeout 3)
+;; (setq python-check-command "flake8")
+;; (setq elpy-rpc-backed "jedi")
 
 ;; dired
 (add-hook 'dired-mode-hook #'dired-omit-mode)
+
+;; cider
+(require 'cider)
+; Change cider-repl C-return to C-S-return so it doesn't interfere with my
+; leader key.
+(define-key cider-repl-mode-map (kbd "<C-return>") nil)
+(define-key cider-repl-mode-map (kbd "<C-S-return>")
+  'cider-repl-closing-return)
