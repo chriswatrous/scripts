@@ -19,34 +19,14 @@
         (setq result (append (list (car lform) result)
                              (cdr lform)))))))
 
-
-;; predicates for telling which system I am on
 (setq osx? (eq system-type 'darwin))
 
 (defun list-wrap (x) (if (listp x) x (list x)))
 
-
-;;;; Useful Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun print-list (list)
   (dolist (item list)
     (princ item)
     (princ "\n")))
-
-(defun lstrip (s)
-  (let ((l (length s))
-        (i 0))
-    (while (and (< i l)
-                (whitespace-char? (aref s i)))
-      (setq i (1+ i)))
-    (substring s i l)))
-
-(defun rstrip (s)
-  (let ((i (length s)))
-    (while (and (> i 0) (whitespace-char? (aref s (1- i))))
-      (setq i (1- i)))
-    (substring s 0 i)))
-
-(defun strip (s) (rstrip (lstrip s)))
 
 (defun whitespace-char? (c) (or (= c ? ) (= c ?\t) (= c ?\n)))
 
@@ -59,7 +39,7 @@
     (forward-line -1)))
 
 (defun current-line-whitespace? ()
-  (= (length (strip (current-line))) 0))
+  (= (length (s-trim (current-line))) 0))
 
 (defun at-first-line? () (= (line-beginning-position) 1))
 (defun at-last-line? () (= (line-end-position) (buffer-end 1)))
@@ -74,7 +54,7 @@
     (move-down-to-nonempty-line)
     (let ((s (current-line)))
       (goto-char old-pos)
-      (- (length s) (length (lstrip s))))))
+      (- (length s) (length (s-trim-left s))))))
 
 (defun call-process-buffer-str (cmd &rest args)
   "Call an external program, sending the current buffer as input and returning

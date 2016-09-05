@@ -114,7 +114,7 @@
 ;; Go to first pep8 error
 (define-key-cmd python-mode-map (kbd "<f5>")
   (let ((result (call-process-buffer-str "pep8" "-")))
-    (if (/= (length (strip result)) 0)
+    (if (/= (length (s-trim result)) 0)
         (let ((parts (parse-pep8 result)))
           (beginning-of-buffer)
           (forward-line (1- (nth 0 parts)))
