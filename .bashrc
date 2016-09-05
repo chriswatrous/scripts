@@ -32,6 +32,79 @@ shopt -s dotglob
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 
+################################################################################
+
+# Disable handling of ^s
+stty -ixon
+
+stty erase ^?
+
+export LC_ALL=C
+export LESS='-M -R -c'
+export PAGER=less
+export PYTHONSTARTUP=~/.pythonrc.py
+export PYTHONIOENCODING=utf_8
+export PYTHONPATH=.:~/scripts/pylib
+export GOPATH="${HOME}/.go"
+
+if [[ -e /cygdrive/c/Users/Chris ]]; then
+    export PRINTER=DCP7040
+fi
+
+# Work related stuff.
+# export DB_NAME=chris_local
+export NO_LOG_HEADER=true
+export LOGGING_206_AS_ERROR=True
+export REQUEST_STATS_FILE=~/request_stats
+export CFS_LOGS_DIR=~/projects/cams/cfs-python-utils/logs
+export GCC_COLORS='error=01;31:warning=01;33:note=01;36:caret=01;32:locus=01:quote=01'
+export NVM_DIR=~/.nvm
+
+nvm_script="$(brew --prefix nvm)/nvm.sh"
+if [ -e $nvm_script ]; then
+    source $nvm_script
+    # nvm use v4.4.4
+fi
+
+# Set default editor.
+if [ -e ~/scripts/bin/find-editor ]; then
+    export EDITOR="$HOME/scripts/bin/find-editor"
+else
+    export EDITOR=vim
+fi
+export VISUAL="$EDITOR"
+export GIT_EDITOR="$EDITOR"
+
+unset JAVA_TOOL_OPTIONS
+
+
+# PATH setup ###################################################################
+
+showpath() {
+    echo $PATH | tr ":" "\n"
+}
+
+path_prepend() {
+    export PATH="$1:$PATH"
+}
+
+path_append() {
+    export PATH="$PATH:$1"
+}
+
+export PATH=$(~/scripts/path.py)
+
+# path_append "."
+
+# virtualenv setup #############################################################
+#
+# This must be done after path setup
+#
+
+if [ -e /Users/chris/venv/bin/activate ]; then
+    source /Users/chris/venv/bin/activate
+fi
+
 # Prompt setup #################################################################
 
 # Set color prompt. There may be a rare terminal where this doesn't
@@ -77,74 +150,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-
-################################################################################
-
-# Disable handling of ^s
-stty -ixon
-
-stty erase ^?
-
-export LC_ALL=C
-export LESS='-M -R -c'
-export PAGER=less
-export PYTHONSTARTUP=~/.pythonrc.py
-export PYTHONIOENCODING=utf_8
-export PYTHONPATH=.:~/scripts/pylib
-export GOPATH="${HOME}/.go"
-
-# Work related stuff.
-# export DB_NAME=chris_local
-export NO_LOG_HEADER=true
-export LOGGING_206_AS_ERROR=True
-export REQUEST_STATS_FILE=~/request_stats
-export CFS_LOGS_DIR=~/projects/cams/cfs-python-utils/logs
-export GCC_COLORS='error=01;31:warning=01;33:note=01;36:caret=01;32:locus=01:quote=01'
-
-# Set default editor.
-if [ -e ~/scripts/bin/find-editor ]; then
-    export EDITOR="$HOME/scripts/bin/find-editor"
-else
-    export EDITOR=vim
-fi
-export VISUAL="$EDITOR"
-export GIT_EDITOR="$EDITOR"
-
-unset JAVA_TOOL_OPTIONS
-
-
-# PATH setup ###################################################################
-
-showpath() {
-    echo $PATH | tr ":" "\n"
-}
-
-path_prepend() {
-    export PATH="$1:$PATH"
-}
-
-path_append() {
-    export PATH="$PATH:$1"
-}
-
-path_prepend "/usr/local/opt/coreutils/libexec/gnubin"
-path_prepend "/home/chris/local-stuff/install/ghc/bin"
-path_prepend "~/bin"
-path_prepend "~/scripts/bin"
-path_prepend "~/stuff/bin"
-
-path_append "~/projects/cams/cams-test/tools"
-path_append "~/.go/bin"
-
-if [[ -e /cygdrive/c/Users/Chris ]]; then
-    export PRINTER=DCP7040
-    path_append "/cygdrive/c/Program Files (x86)/SMPlayer"
-    path_append "/cygdrive/c/Program Files (x86)/Audacity"
-    path_append "/cygdrive/c/Program Files (x86)/CSound6/bin"
-fi
-
-path_append "."
-
 # bash completion ##############################################################
 
 if [ -f /etc/bash_completion ]; then
@@ -175,10 +180,11 @@ alias vi=vim
 alias vim='vim -p'
 alias wt='watch -n 1'
 alias ports='netstat -tulpn'
-alias pspy='ps -ef | grep python'
-alias pspyt='ps -eLf | grep python'
-alias psf='ps -ef | grep '
+alias psy='ps -ef | grep -i python'
+alias psyt='ps -eLf | grep -i python'  # only works on linux
+alias psf='ps -ef | grep -i'
 alias jc='source /home/chris/gitrepos/cams/cams-dist/jenkins-config-manager/jenkins-creds.sh'
+alias kpy='killall -9 python Python'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
@@ -223,16 +229,15 @@ alias c......='cd ../../../../../..'
 alias r=select_recent_dir
 
 # Common directories
-alias c1='cd ~/projects/cams/cams-api'
-alias c2='cd ~/projects/cams/CAMS-AT'
-alias c3='cd ~/projects/cams/cfs-python-utils'
+alias c1='cd ~/projects/cams/cfs-python-utils'
+alias c2='cd ~/projects/cams/acs-utils'
+alias c3='cd ~/projects/cams/cams-config'
 alias c4='cd ~/projects/cams/cams-test'
 alias c5='cd ~/projects/cams/cams-dist/jenkins-config-manager'
-alias c6='cd ~/projects/cams/cams-config'
-alias c7='cd ~/projects/cams/acs-utils'
-alias c8='cd ~/projects/cams/acms-registry'
-alias c9='cd ~/projects/cams/cams-pdp'
-alias c10='cd ~/projects/cams/cams-watchdog'
+alias c6='cd ~/projects/cams/cams-pdp'
+alias c7='cd ~/projects/cams/access-management'
+alias c8='cd ~/projects/cams/PEP_python_lib'
+alias c9='cd ~/projects/cams/PEP_node_lib'
 
 
 ################################################################################
@@ -310,6 +315,10 @@ fi
 
 alias pw='PWM_ASK_PASSWORD=true bash'
 
+
+if [ -e ~/.bashrc-local ]; then
+    source ~/.bashrc-local
+fi
 
 # git-br()
 # {
