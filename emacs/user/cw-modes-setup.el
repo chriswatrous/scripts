@@ -45,7 +45,7 @@
 (elpy-enable)
 (elpy-use-ipython)
 (define-key elpy-mode-map (kbd "<C-return>") nil)
-(define-key elpy-mode-map (kbd "C-S-d") 'elpy-goto-definition)
+(define-key elpy-mode-map (kbd "C-S-d") 'elpy-goto-definition-other-window)
 (when (file-exists-p "/Users/chris/venv")
   (pyvenv-activate "/Users/chris/venv/"))
 ;; (setq flymake-no-changes-timeout 3)
@@ -62,3 +62,6 @@
 (define-key cider-repl-mode-map (kbd "<C-return>") nil)
 (define-key cider-repl-mode-map (kbd "<C-S-return>")
   'cider-repl-closing-return)
+
+;; emacs-lisp-mode
+(modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table)

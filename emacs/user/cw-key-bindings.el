@@ -83,7 +83,8 @@
                 (cmd (save-some-buffers t)
                      (if server-buffer-clients
                          (server-edit)
-                       (kill-this-buffer))))
+                       (kill-this-buffer))
+                     (buffer-menu)))
 
 (global-set-key (leader+ "C-f") 'make-frame)
 

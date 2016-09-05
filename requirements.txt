@@ -2,6 +2,7 @@ ansicolors
 futures
 ipdb
 ipython
+importmagic
 jedi
 nose
 pep8

@@ -12,20 +12,22 @@
 (setq evil-default-cursor t)
 (set-cursor-color "white")
 
-; search highlight color
-(set-face-attribute 'evil-ex-lazy-highlight nil :background "#005500")
-
-
 ;; Go into emacs state after starting these modes.
-(defadvice term (after advice-term-line-mode activate)
-  (evil-normal-state)
-  (evil-emacs-state))
+(dolist (mode '(term eshell ielm))
+  (eval `(defadvice ,mode (after advice-term-line-mode activate)
+           (evil-normal-state)
+           (evil-emacs-state))))
 
-(defadvice eshell (after advice-term-line-mode activate)
-  (evil-normal-state)
-  (evil-emacs-state))
+;; (defadvice term (after advice-term-line-mode activate)
+;;   (evil-normal-state)
+;;   (evil-emacs-state))
+
+;; (defadvice eshell (after advice-term-line-mode activate)
+;;   (evil-normal-state)
+;;   (evil-emacs-state))
 
 (add-hook 'cider-docview-mode-hook #'evil-emacs-state)
+(add-hook 'ielm-mode-hook #'evil-emacs-state)
 (add-hook 'cider-repl-mode-hook #'evil-emacs-state)
 (add-hook 'cider-stacktrace-mode-hook #'evil-emacs-state)
 

@@ -4,11 +4,18 @@
 ;; (list-colors-display)   ; list color names
 ;; (list-faces-display)    ; list current faces
 
+(set-face-attribute 'cursor nil :background "#00ff00")
+
+; search highlight color
+(set-face-attribute 'evil-ex-lazy-highlight nil
+                    :background "#008800"
+                    :foreground "#ffffff")
+
 ;; default colors for new frames
 (add-to-list 'default-frame-alist '(foreground-color . "#E0E0E0"))
 (add-to-list 'default-frame-alist '(background-color . "#000000"))
 
-(set-face-attribute 'linum nil :foreground "#00cc00")
+(set-face-attribute 'linum nil :foreground "#00dd00")
 (set-face-attribute 'fringe nil :background "#111133")
 (set-face-attribute 'highlight nil :background "#005500")
 
@@ -20,6 +27,7 @@
           (cmd (set-face-attribute 'term-color-blue nil
                                    :foreground "#55aaff"
                                    :background "#55aaff")))
+
 
 ;; colunm-marker
 (set-face-attribute 'column-marker-1 nil :background "red" :foreground "white")
@@ -54,6 +62,7 @@
                 haskell-mode-hook
                 yaml-mode-hook
                 json-mode-hook
-                js-mode-hook))
+                js-mode-hook
+                ielm-mode-hook))
   (add-hook hook #'rainbow-delimiters-mode)
   (add-hook hook (lambda () (column-marker-1 79))))
