@@ -41,7 +41,8 @@
 ;; python-mode / elpy
 (add-hook 'python-mode-hook
           (cmd (highlight-regexp "import i?pdb; i?pdb\.set_trace()"
-                                 'highlight)))
+                                 'highlight)
+               (call-interactively 'highlight-indentation-mode)))
 (elpy-enable)
 (elpy-use-ipython)
 (define-key elpy-mode-map (kbd "<C-return>") nil)

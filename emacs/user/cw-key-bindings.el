@@ -1,6 +1,5 @@
 (provide 'cw-key-bindings)
 
-;;;; Key bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun leader+ (key) (kbd (concat "<C-return> " key)))
 (define-key global-map (kbd "<f2>") 'evil-ex-nohighlight)
 (define-key global-map (kbd "C-\\") nil)
@@ -125,3 +124,6 @@
 
 ;; Make escape quit from the minibuffer.
 (define-key minibuffer-local-map (kbd "<escape>") 'keyboard-escape-quit)
+
+
+;; On linux, S-insert in term calls term-paste
