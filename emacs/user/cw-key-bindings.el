@@ -122,3 +122,6 @@
           (forward-char (1- (nth 1 parts)))
           (popup-tip (nth 2 parts)))
       (princ "No pep8 errors."))))
+
+;; Make escape quit from the minibuffer.
+(define-key minibuffer-local-map (kbd "<escape>") 'keyboard-escape-quit)
