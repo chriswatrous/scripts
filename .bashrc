@@ -168,7 +168,7 @@ alias hd='hexdump -C'
 alias install='sudo apt-get install -y'
 alias l='ls -alh'
 alias ls='ls -F --color=auto'
-alias o="octave -q"
+alias o="octave -q --no-gui"
 alias pdb='python -m pdb'
 alias tree='tree -C'
 alias vi=vim
