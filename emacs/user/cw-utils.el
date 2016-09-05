@@ -19,7 +19,7 @@
         (setq result (append (list (car lform) result)
                              (cdr lform)))))))
 
-(setq osx? (eq system-type 'darwin))
+(defconst osx? (eq system-type 'darwin))
 
 (defun list-wrap (x) (if (listp x) x (list x)))
 

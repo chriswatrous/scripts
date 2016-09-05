@@ -124,6 +124,3 @@
 
 ;; Make escape quit from the minibuffer.
 (define-key minibuffer-local-map (kbd "<escape>") 'keyboard-escape-quit)
-
-
-;; On linux, S-insert in term calls term-paste

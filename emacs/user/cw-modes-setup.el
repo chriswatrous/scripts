@@ -1,5 +1,7 @@
 (provide 'cw-modes-setup)
 
+(require 'cw-utils)
+
 ;; powerline
 (require 'powerline)
 (require 'powerline-evil)
@@ -21,6 +23,10 @@
 	    (/= term-width (term-window-width)))
     (term-reset-size (floor (window-screen-lines)) (term-window-width))
     (set-process-window-size process term-height term-width)))
+; fix paste on mac
+(when osx?
+  (add-hook 'term-mode-hook
+            (lambda () (define-key term-raw-map (kbd "s-v") 'term-paste))))
 
 ;; c-mode
 (setf (cdr (assoc 'other c-default-style)) "python")
