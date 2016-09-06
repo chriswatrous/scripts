@@ -1,6 +1,7 @@
 (provide 'cw-key-bindings)
 
-(defun leader+ (key) (kbd (concat "<C-return> " key)))
+(require 'cw-utils)
+
 (define-key global-map (kbd "<f2>") 'evil-ex-nohighlight)
 (define-key global-map (kbd "C-\\") nil)
 
@@ -101,26 +102,6 @@
 
 ;; Dired / Dired+
 (define-key dired-mode-map (kbd "<backspace>") 'diredp-kill-this-tree)
-
-;; python-mode insert breakpoint
-(define-key-cmd python-mode-map (leader+ "C-b")
-  (let ((indent (current-indent)))
-    (beginning-of-line)
-    (insert (concat (s-repeat indent " ")
-                    "import ipdb; ipdb.set_trace()\n"))
-    (forward-line -1)
-    (forward-char indent)))
-
-;; Go to first pep8 error
-(define-key-cmd python-mode-map (kbd "<f5>")
-  (let ((result (call-process-buffer-str "pep8" "-")))
-    (if (/= (length (s-trim result)) 0)
-        (let ((parts (parse-pep8 result)))
-          (beginning-of-buffer)
-          (forward-line (1- (nth 0 parts)))
-          (forward-char (1- (nth 1 parts)))
-          (popup-tip (nth 2 parts)))
-      (princ "No pep8 errors."))))
 
 ;; Make escape quit from the minibuffer.
 (define-key minibuffer-local-map (kbd "<escape>") 'keyboard-escape-quit)

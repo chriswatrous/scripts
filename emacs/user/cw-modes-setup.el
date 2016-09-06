@@ -45,6 +45,8 @@
                   comment-end "")))
 
 ;; python-mode / elpy
+(require 'python-mode)
+(require 'elpy)
 (add-hook 'python-mode-hook
           (cmd (highlight-regexp "import i?pdb; i?pdb\.set_trace()"
                                  'highlight)
@@ -58,6 +60,25 @@
 ;; (setq flymake-no-changes-timeout 3)
 ;; (setq python-check-command "flake8")
 ;; (setq elpy-rpc-backed "jedi")
+; python-mode insert breakpoint
+(define-key-cmd python-mode-map (leader+ "C-b")
+  (let ((indent (current-indent)))
+    (beginning-of-line)
+    (insert (concat (s-repeat indent " ")
+                    "import ipdb; ipdb.set_trace()\n"))
+    (forward-line -1)
+    (forward-char indent)))
+; Go to first pep8 error
+(define-key-cmd python-mode-map (kbd "<f5>")
+  (let ((result (call-process-buffer-str "pep8" "-")))
+    (if (/= (length (s-trim result)) 0)
+        (let ((parts (parse-pep8 result)))
+          (beginning-of-buffer)
+          (forward-line (1- (nth 0 parts)))
+          (forward-char (1- (nth 1 parts)))
+          (popup-tip (nth 2 parts)))
+      (princ "No pep8 errors."))))
+
 
 ;; dired
 (add-hook 'dired-mode-hook #'dired-omit-mode)

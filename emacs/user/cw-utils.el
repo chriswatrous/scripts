@@ -115,3 +115,5 @@ buffer is not visiting a file."
 ;;     (revert-buffer t t t))
 ;;   (run-at-time "1 sec" ep-revert-buffer))
 ;; (setq ep-current-buffer nil)
+
+(defun leader+ (key) (kbd (concat "<C-return> " key)))
