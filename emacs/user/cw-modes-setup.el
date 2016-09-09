@@ -13,7 +13,6 @@
                                (setq js-indent-level 2)))
 
 ;; javascript-mode
-(require 'javascript-mode)
 (setq js-indent-level 2)
 
 ;; term

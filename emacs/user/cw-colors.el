@@ -64,5 +64,15 @@
                 json-mode-hook
                 js-mode-hook
                 ielm-mode-hook))
-  (add-hook hook #'rainbow-delimiters-mode)
-  (add-hook hook (lambda () (column-marker-1 79))))
+  (add-hook hook #'rainbow-delimiters-mode))
+
+(dolist (hook '(emacs-lisp-mode-hook
+                clojure-mode-hook
+                go-mode-hook
+                haskell-mode-hook
+                yaml-mode-hook
+                json-mode-hook
+                js-mode-hook
+                ielm-mode-hook))
+  (add-hook hook (lambda () (column-marker-1 80))))
+(add-hook 'python-mode-hook (lambda () (column-marker-1 79)))
