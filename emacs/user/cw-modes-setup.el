@@ -93,3 +93,4 @@
 
 ;; emacs-lisp-mode
 (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table)
+(define-key emacs-lisp-mode-map (kbd "<tab>") 'completion-at-point)
