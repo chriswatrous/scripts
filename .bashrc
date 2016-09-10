@@ -103,8 +103,8 @@ export PATH=$(~/scripts/path.py)
 # This must be done after path setup
 #
 
-if [ -e /Users/chris/venv/bin/activate ]; then
-    source /Users/chris/venv/bin/activate
+if [ -e ~/venv/bin/activate ]; then
+    source ~/venv/bin/activate
 fi
 
 # Prompt setup #################################################################
@@ -213,7 +213,6 @@ alias gc='git checkout'
 alias ga='git add -A :/'
 alias gf='git fetch --all --prune; gb'
 alias git-pub='git push -u origin `git rev-parse --abbrev-ref HEAD`'
-alias gls='ls -l $(git ls-files)'
 
 git-brd()
 {
