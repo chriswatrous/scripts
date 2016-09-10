@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+from subprocess import check_output, call
+from argparse import ArgumentParser
+
+
+
+files = check_output(['git', 'ls-files']).strip().split('\n')
+files.sort()
+call(['ls', '-lahF', '--color=auto'] + files)
+
+
+def get_options():
+    parser = ArgumentParser()
+    parser.add_argument
+
+
+if __name__ == '__main__':
+    main()
