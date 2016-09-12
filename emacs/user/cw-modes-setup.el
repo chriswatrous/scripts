@@ -58,8 +58,8 @@
 (elpy-use-ipython)
 (define-key elpy-mode-map (kbd "<C-return>") nil)
 (define-key elpy-mode-map (kbd "C-S-d") 'elpy-goto-definition-other-window)
-(when (file-exists-p "/Users/chris/venv")
-  (pyvenv-activate "/Users/chris/venv/"))
+(when (file-exists-p "~/venv")
+  (pyvenv-activate "~/venv/"))
 ;; (setq flymake-no-changes-timeout 3)
 ;; (setq python-check-command "flake8")
 ;; (setq elpy-rpc-backed "jedi")
@@ -96,3 +96,4 @@
 
 ;; emacs-lisp-mode
 (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table)
+(define-key emacs-lisp-mode-map (kbd "<tab>") 'completion-at-point)

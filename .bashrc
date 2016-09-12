@@ -103,8 +103,8 @@ export PATH=$(~/scripts/path.py)
 # This must be done after path setup
 #
 
-if [ -e /Users/chris/venv/bin/activate ]; then
-    source /Users/chris/venv/bin/activate
+if [ -e ~/venv/bin/activate ]; then
+    source ~/venv/bin/activate
 fi
 
 # Prompt setup #################################################################
@@ -225,9 +225,6 @@ alias git-pub='git push -u origin `git rev-parse --abbrev-ref HEAD`'
 
 # Fetch all branches and remove deleted remote branches.
 alias gf='git fetch --all --prune; gb'
-
-# List all files tracked by git.
-alias gls='ls -l $(git ls-files)'
 
 alias gc='git checkout'
 alias gd1='git diff `git merge-base upstream/master HEAD` HEAD'
