@@ -12,6 +12,9 @@
 (add-hook 'json-mode-hook (cmd (make-local-variable 'js-indent-level)
                                (setq js-indent-level 2)))
 
+;; javascript-mode
+(setq js-indent-level 2)
+
 ;; term
 (require 'term)
 ; Fix terminal window height.

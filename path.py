@@ -15,6 +15,7 @@ def uniq(L):
 
 
 paths = [
+    './node_modules/.bin',
     '~/bin',
     '~/stuff/bin',
     '~/scripts/bin',

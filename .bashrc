@@ -200,19 +200,36 @@ else
     alias p3=python3
 fi
 
-# aliases for git
+# git aliases ##################################################################
+
+# show status in short foramt
 alias g='git status --short'
+
+# show local and remote branches with current commit ids and messages
 alias gb='git branch -a -vv --color=always | perl -pe '\''s/^((?:(?>(?:\033\[.*?m)*).){'\''${COLUMNS}'\''}).*/$1\033[m/'\'
+
+# diff between staging area and working dir
 alias gd='git diff'
+
+# Show log
+alias gl='git log --decorate --graph'
+
+# Show log with all branches in a more compact format
+alias gla='git log --decorate --graph --all --oneline'
+
+# Add all modified, new, and deleted files.
+alias ga='git add -A :/'
+
+# Put current branch on fork.
+alias git-pub='git push -u origin `git rev-parse --abbrev-ref HEAD`'
+
+# Fetch all branches and remove deleted remote branches.
+alias gf='git fetch --all --prune; gb'
+
+alias gc='git checkout'
 alias gd1='git diff `git merge-base upstream/master HEAD` HEAD'
 alias gd2='git diff `git merge-base upstream/master HEAD` .'
 alias gd3='git --no-pager diff --stat `git merge-base upstream/master HEAD` .'
-alias gl='git log --decorate --graph'
-alias gla='git log --decorate --graph --all --oneline'
-alias gc='git checkout'
-alias ga='git add -A :/'
-alias gf='git fetch --all --prune; gb'
-alias git-pub='git push -u origin `git rev-parse --abbrev-ref HEAD`'
 
 git-brd()
 {

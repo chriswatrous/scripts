@@ -93,12 +93,11 @@
 (define-key global-map (leader+ "w") 'highlight-symbol-remove-all)
 (define-key global-map (kbd "C->") 'highlight-symbol-next)
 (define-key global-map (kbd "C-<") 'highlight-symbol-prev)
-(define-key global-map (kbd "C-S-s")
+
+(define-key global-map (kbd (if osx? "s-s" "C-S-s"))
   (cmd (save-some-buffers t)
        (unless (evil-emacs-state-p) (evil-normal-state))
        (message "all files saved")))
-;; (define-key global-map (kbd "C-c")
-;;   (cmd (unless (evil-emacs-state-p) (evil-normal-state))))
 
 ;; Dired / Dired+
 (define-key dired-mode-map (kbd "<backspace>") 'diredp-kill-this-tree)
