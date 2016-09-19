@@ -187,6 +187,7 @@ alias psyt='ps -eLf | grep -i python'  # only works on linux
 alias psf='ps -ef | grep -i'
 alias jc='source /home/chris/gitrepos/cams/cams-dist/jenkins-config-manager/jenkins-creds.sh'
 alias kpy='killall -9 python Python'
+alias i=idea
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then

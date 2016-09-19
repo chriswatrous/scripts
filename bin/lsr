@@ -1,0 +1,134 @@
+#!/usr/bin/env python
+import os
+import sys
+import uuid
+from argparse import ArgumentParser
+from os.path import join, splitext
+from subprocess import call, check_output
+
+import colors
+from pyrsistent import m, v
+
+
+ignored_dirs = ['.git']
+
+
+def main():
+    options = get_options()
+    out_lines = []
+
+    if options.a:
+        out_lines.append(colors.red('ignoring ' + ', '.join(ignored_dirs)))
+        files = get_most_files()
+    else:
+        files = get_git_files()
+
+    if options.c or options.extension:
+        files = categorize_files(files)
+        if options.extension:
+            ext = '.' + options.extension
+            if ext not in files:
+                print colors.red('no files found')
+                sys.exit(1)
+            files = {ext: files[ext]}
+        out_lines.append(show_categorized_files(files))
+    elif options.e:
+        for x in sorted(categorize_files(files).iterkeys()):
+            out_lines.append(ext_header(x))
+    else:
+        out_lines.append(show_files(files))
+
+    maybe_page('\n'.join(out_lines))
+
+
+def maybe_page(s):
+    if sum(1 for x in s if x == '\n') < get_height() - 5:
+        print s
+    else:
+        filepath = '/tmp/lsr-' + uuid.uuid4().hex
+        with open(filepath, 'w') as f:
+            f.write(s)
+        call(['less', filepath])
+        os.remove(filepath)
+
+
+def get_height():
+    return int(check_output(['stty', 'size']).split()[0])
+
+
+def show_categorized_files(files):
+    lines = []
+    for i, ext in enumerate(sorted(files)):
+        if i > 0:
+            lines.append('')
+        lines.append(ext_header(ext))
+        lines.append(show_files(files[ext]))
+    return '\n'.join(lines)
+
+
+def show_files(files):
+    return check_output(['ls', '-lahF', '--color=always'] + files).strip('\n')
+
+
+def ext_header(ext):
+    if ext:
+        return colors.green(colors.bold(ext))
+    else:
+        return colors.green(colors.bold('no extension'))
+
+
+def categorize_files(files):
+    out = {}
+    for f in files:
+        key = splitext(f)[1]
+        if key not in out:
+            out[key] = []
+        out[key].append(f)
+    return out
+
+
+def get_most_files():
+    return sorted(
+        x for x in (
+            join(d[2:], f)
+            for d, ds, fs in os.walk('.')
+            for f in fs
+        ) if not x.startswith('.git/')
+    )
+
+
+def get_git_files():
+    return sorted(check_output(['git', 'ls-files']).strip().split('\n'))
+
+
+def get_options():
+    arguments = v(
+        m(
+            opts=['-c'],
+            action='store_true',
+            help='categorize file by extension',
+        ),
+        m(
+            opts=['-a'],
+            action='store_true',
+            help='show all files, except for those in {}'
+                 .format(', '.join(ignored_dirs)),
+        ),
+        m(
+            opts=['-e'],
+            action='store_true',
+            help='show extensions',
+        ),
+        m(
+            opts=['extension'],
+            nargs='?',
+        ),
+    )
+
+    parser = ArgumentParser()
+    for spec in arguments:
+        parser.add_argument(*spec.opts, **spec.discard('opts'))
+    return parser.parse_args()
+
+if __name__ == '__main__':
+    main()
