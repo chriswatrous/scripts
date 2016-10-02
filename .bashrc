@@ -39,7 +39,7 @@ stty -ixon
 
 stty erase ^?
 
-export LC_ALL=C
+export LC_ALL=en_US.UTF-8
 export LESS='-M -R -c'
 export PAGER=less
 export PYTHONSTARTUP=~/.pythonrc.py
