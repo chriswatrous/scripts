@@ -34,6 +34,7 @@
 (setq mouse-autoselect-window t)
 (unless (server-running-p) (server-start))
 (setq blink-matching-paren nil)
+(put 'narrow-to-region 'disabled nil)
 
 ;; Clean up PATH and load-path
 (setenv "PATH" (call-process-str "~/scripts/path.py"))
