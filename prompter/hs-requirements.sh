@@ -1,4 +1,3 @@
 #!/bin/bash
 
-cabal install split
-cabal install extra
+cabal install split extra
