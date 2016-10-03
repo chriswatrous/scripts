@@ -1,74 +1,59 @@
 import qualified System.Console.ANSI as A
-import Control.Monad (filterM, when)
-import Control.Monad.Extra (concatMapM)
-import Data.List (intercalate, stripPrefix)
+import Control.Monad (filterM)
+import Data.List (isPrefixOf, stripPrefix)
 import Data.Maybe (listToMaybe, isJust, fromJust, fromMaybe, catMaybes)
 import Data.String.Utils (strip)
-import GHC.IO.Handle (hGetContents)
-import System.Directory (getCurrentDirectory, doesDirectoryExist, findFile)
-import System.Directory.PathWalk (pathWalkLazy)
+import System.Directory (getCurrentDirectory, doesDirectoryExist)
 import System.Exit (ExitCode(ExitSuccess, ExitFailure))
-import System.FilePath ((</>), takeDirectory, addTrailingPathSeparator)
+import System.FilePath ((</>), takeDirectory)
+import System.IO (hGetContents)
 import System.Process (runInteractiveProcess, waitForProcess)
 
+main :: IO ()
 main = do
-  parts <- promptParts
+  parts <- sequenceMaybes [cwdPart, gitPart]
   putStrLn $ "\n[" ++ (unwords parts) ++ "]"
 
-promptParts :: IO [String]
-promptParts = fmap catMaybes . sequence $ [fmap Just cwdPart, gitPart]
-
-cwdPart :: IO String
-cwdPart = do
-  cwd <- getCurrentDirectory
-  return $ dullColor A.Blue cwd
+cwdPart :: IO (Maybe String)
+cwdPart = Just . dullColor A.Blue <$> getCurrentDirectory
 
 gitPart :: IO (Maybe String)
-gitPart = gitRoot >>= mapM gitBranch
+gitPart = gitRoot >>= mapM gitBranchMsg
 
-gitBranch :: FilePath -> IO String
-gitBranch dir = do
-  head <- gitHead dir
-  let stripped = stripPrefix "ref: refs/heads/" head in do
+gitBranchMsg :: FilePath -> IO String
+gitBranchMsg dir = do
+  commitId <- gitHead dir
+  let stripped = stripPrefix "ref: refs/heads/" commitId in do
     msg <- if isJust stripped
            then return $ fromJust stripped
-           else matchingRefMsg head dir
+           else matchingRefMsg commitId
     clean <- isRepoClean dir
     return $ dullColor (if clean then A.Green else A.Red) msg
 
 isRepoClean :: FilePath -> IO Bool
 isRepoClean dir = do
-  (_, stdout, stderr, proc') <- runInteractiveProcess
-    "git" ["status", "--short"] (Just dir) Nothing
-  out <- hGetContents stdout
-  err <- hGetContents stderr
-  code <- waitForProcess proc'
-  onFailure code (\x -> error . concat $ [
-    "'git status --short' failed with exit code ", show x, ":\n", out, err])
+  (out, err) <- getCmdOutErr "git" ["status", "--short"] (Just dir)
   return . null . concatMap strip $ [out, err]
 
-matchingRefMsg :: String -> FilePath -> IO String
-matchingRefMsg commitId dir = fmap (parenWrap . unwords)
-                                   (fullMatchingRefs commitId dir)
+gitShowRef :: IO [(String, String)]
+gitShowRef = do
+  out <- getCmdOut "git" ["show-ref", "--dereference"] Nothing
+  return . fmap (split1 " ") . lines $ out
 
-fullMatchingRefs :: String -> FilePath -> IO [String]
-fullMatchingRefs commitId dir = do
-  refs <- concatMapM (\x -> matchingRefs commitId (dir </> ".git/refs" </> x))
-                     ["heads", "remotes", "tags"]
-  return $ if null refs then [commitId] else refs
+matchingRefs :: String -> IO [String]
+matchingRefs commitId = doFiltering <$> gitShowRef where
+  doFiltering = fmap cleanupRef .
+                fmap snd .
+                filter (\x -> fst x == commitId)
 
-matchingRefs :: String -> FilePath -> IO [String]
-matchingRefs commitId dir = do
-  files <- findFiles dir >>= filterM (isRefMatching commitId)
-  return $ map (tryStripPrefix $ addTrailingPathSeparator dir) files
+cleanupRef :: String -> String
+cleanupRef = tryStripPrefix "refs/heads/" .
+             tryStripPrefix "refs/remotes/" .
+             tryStripPrefix "refs/tags/" .
+             tryStripSuffix "^{}"
 
-isRefMatching :: String -> String -> IO Bool
-isRefMatching commitId path = fmap (== commitId) (readFileStrip path)
-
-findFiles :: FilePath -> IO [FilePath]
-findFiles dir = do
-  steps <- pathWalkLazy dir
-  return $ concatMap (\(dir, dirs, files) -> map (dir </>) files) steps
+matchingRefMsg :: String -> IO String
+matchingRefMsg commitId = parenWrap . unwords <$> matchingRefs commitId
 
 gitHead :: FilePath -> IO String
 gitHead dir = readFileStrip $ dir </> ".git/HEAD"
@@ -79,7 +64,7 @@ readFileStrip = fmap strip . readFile
 gitRoot :: IO (Maybe FilePath)
 gitRoot = do
   cwd <- getCurrentDirectory
-  dirs <- filterM isGitRoot (selfAndParents cwd)
+  dirs <- filterM isGitRoot (dirAndParents cwd)
   return $ listToMaybe dirs
 
 isGitRoot :: FilePath -> IO Bool
@@ -92,18 +77,34 @@ isGitRoot dir = doesDirectoryExist $ dir </> ".git"
 --
 
 tryStripPrefix :: Eq a => [a] -> [a] -> [a]
-tryStripPrefix prefix = tryMaybe (stripPrefix prefix)
+tryStripPrefix = tryMaybe . stripPrefix
+
+tryStripSuffix :: Eq a => [a] -> [a] -> [a]
+tryStripSuffix prefix s = reverse (tryStripPrefix (reverse prefix) (reverse s))
 
 parenWrap :: String -> String
 parenWrap s = "(" ++ s ++ ")"
 
-selfAndParents :: FilePath -> [FilePath]
-selfAndParents dir = let p = takeDirectory dir in
-  if p == dir then [dir] else dir : selfAndParents p
+dirAndParents :: FilePath -> [FilePath]
+dirAndParents dir = let p = takeDirectory dir in
+  if p == dir then [dir] else dir : dirAndParents p
 
 dullColor :: A.Color -> String -> String
 dullColor color msg = (A.setSGRCode [A.SetColor A.Foreground A.Dull color]) ++
                       msg ++ (A.setSGRCode [A.Reset])
+
+split1 :: Eq a => [a] -> [a] -> ([a], [a])
+split1 delim s = (take i s, drop (i + (length delim)) s) where
+  i = fromJust (findSublist delim s)
+
+findSublist :: Eq a => [a] -> [a] -> Maybe Int
+findSublist sublist whole = findSublist' 0 whole where
+  maxI = (length whole) - (length sublist)
+  findSublist' i wh
+    | i >= maxI               = Nothing
+    | sublist `isPrefixOf` wh = Just i
+    | otherwise               = findSublist' (i + 1) (tail wh)
+
 
 -------------------------------------------------------------------------------
 --
@@ -120,10 +121,36 @@ onFailure ExitSuccess _ = return ()
 tryMaybe :: (a -> Maybe a) -> a -> a
 tryMaybe func x = fromMaybe x (func x)
 
+sequenceMaybes :: Monad m => [m (Maybe a)] -> m [a]
+sequenceMaybes = fmap catMaybes . sequence
+
+
+-------------------------------------------------------------------------------
+--
+-- IO helpers
+--
+
+getCmdOutErr :: FilePath -> [String] -> Maybe FilePath -> IO (String, String)
+getCmdOutErr cmd args workingDir = do
+  (_, stdout, stderr, proc') <- runInteractiveProcess
+    cmd args workingDir Nothing
+  out <- hGetContents stdout
+  err <- hGetContents stderr
+  code <- waitForProcess proc'
+  onFailure code (\x -> error . concat $ [
+    cmd, " ", (unwords args), " failed with exit code ",
+    show x, ":\n", out, err
+    ])
+  return (out, err)
+
+getCmdOut :: FilePath -> [String] -> Maybe FilePath -> IO String
+getCmdOut cmd args workingDir = fst <$> getCmdOutErr cmd args workingDir
+
+
 -------------------------------------------------------------------------------
 --
 -- dev utils
 --
 
-printList :: Show a => [a] -> IO ()
-printList = mapM_ print
+-- printList :: Show a => [a] -> IO ()
+-- printList = mapM_ print
