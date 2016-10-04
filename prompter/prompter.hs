@@ -53,7 +53,9 @@ cleanupRef = tryStripPrefix "refs/heads/" .
              tryStripSuffix "^{}"
 
 matchingRefMsg :: String -> IO String
-matchingRefMsg commitId = parenWrap . unwords <$> matchingRefs commitId
+matchingRefMsg commitId = do
+  matching <- matchingRefs commitId
+  return . parenWrap $ if matching == [] then commitId else (unwords matching)
 
 gitHead :: FilePath -> IO String
 gitHead dir = readFileStrip $ dir </> ".git/HEAD"
