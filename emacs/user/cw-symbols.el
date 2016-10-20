@@ -24,6 +24,6 @@
 (defun symbol-search (pattern)
   (show-symbols (lambda (x) (s-match pattern (symbol-name x)))))
 
-(symbol-search ".-map$" (symbol-name x))
+(symbol-search ".-map$")
 (show-symbols (lambda (x) (and (boundp x) (keymapp (symbol-value x)))))
 (symbol-search "^evil-.*-map$")

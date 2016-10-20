@@ -97,3 +97,13 @@
 ;; emacs-lisp-mode
 (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table)
 (define-key emacs-lisp-mode-map (kbd "<tab>") 'completion-at-point)
+
+;; nxml-mode
+(setq nxml-child-indent 4
+      nxml-attribute-indent 4)
+
+
+;; restclient-mode
+(add-function :after (symbol-function 'restclient-mode)
+              (lambda () (define-key restclient-mode-map (kbd "C-M-x")
+                           'restclient-http-send-current-stay-in-window)))
