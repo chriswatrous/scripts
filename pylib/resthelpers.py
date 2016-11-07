@@ -5,6 +5,7 @@ from pygments import highlight, lexers, formatters
 
 
 def restcall(**kwargs):
+    print colors.faint('=' * 120)
     r = request(**kwargs)
 
     print colors.green(r.request.method + ' ' + r.request.url)
@@ -30,7 +31,7 @@ def restcall(**kwargs):
     else:
         color = colors.red
     print color('{} {}'.format(r.status_code, r.reason))
-    print_headers(r.headers, True)
+    print_headers(r.headers, format_names=True)
     print
     try:
         print_json(r.json())

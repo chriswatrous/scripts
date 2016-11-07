@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+from signal import SIGTERM
+from psutil import process_iter, ZombieProcess, AccessDenied
+
+for proc in process_iter():
+    try:
+        cmd = proc.cmdline()
+        if cmd and cmd[0].lower().endswith('java'):
+            print 'killing {}'.format(proc.pid)
+            try:
+                proc.send_signal(SIGTERM)
+            except Exception as e:
+                print ('got {} when trying to kill {}'
+                       .format(type(e).__name__, proc.pid))
+                raise
+    except (ZombieProcess, AccessDenied) as e:
+        pass
