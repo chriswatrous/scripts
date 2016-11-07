@@ -104,6 +104,6 @@
 
 
 ;; restclient-mode
-(add-function :after (symbol-function 'restclient-mode)
-              (lambda () (define-key restclient-mode-map (kbd "C-M-x")
-                           'restclient-http-send-current-stay-in-window)))
+;; (add-function :after (symbol-function 'restclient-mode)
+              ;; (lambda () (define-key restclient-mode-map (kbd "C-M-x")
+                           ;; 'restclient-http-send-current-stay-in-window)))
