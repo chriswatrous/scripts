@@ -257,8 +257,7 @@ alias c4='cd ~/projects/cams/cams-test'
 alias c5='cd ~/projects/cams/cams-dist/jenkins-config-manager'
 alias c6='cd ~/projects/cams/cams-pdp'
 alias c7='cd ~/projects/cams/access-management'
-alias c8='cd ~/projects/cams/PEP_python_lib'
-alias c9='cd ~/projects/cams/PEP_node_lib'
+alias c8='cd ~/projects/cams/xacml-ms'
 
 
 ################################################################################
