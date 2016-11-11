@@ -1,4 +1,7 @@
 if 'pythonrc_guard' not in globals():
+    import sys
+    from pprint import *
+
     imports = [
         'base64',
         'base64',
@@ -17,7 +20,6 @@ if 'pythonrc_guard' not in globals():
         'requests',
         'statistics',
         'subprocess',
-        'sys',
         'threading',
         'time',
         'uuid',
@@ -26,7 +28,6 @@ if 'pythonrc_guard' not in globals():
     star_imports = [
         'concurrent.futures',
         'datetime',
-        'pprint',
         'pyrsistent',
         'subprocess',
     ]
