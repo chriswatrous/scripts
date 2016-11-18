@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+import os
+import colors
+
+for key in sorted(os.environ.iterkeys()):
+    print colors.green(key) + colors.faint('=') + os.environ[key]

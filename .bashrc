@@ -60,13 +60,15 @@ export CFS_LOGS_DIR=~/projects/cams/cfs-python-utils/logs
 export GCC_COLORS='error=01;31:warning=01;33:note=01;36:caret=01;32:locus=01:quote=01'
 export NVM_DIR=~/.nvm
 
-# if which brew &> /dev/null; then
-#     nvm_script="$(brew --prefix nvm)/nvm.sh"
-#     if [ -e $nvm_script ]; then
-#         source $nvm_script
-#         # nvm use v4.4.4
-#     fi
-# fi
+nvm-setup() {
+    if which brew &> /dev/null; then
+        nvm_script="$(brew --prefix nvm)/nvm.sh"
+        if [ -e $nvm_script ]; then
+            source $nvm_script
+            nvm use v4.4.4
+        fi
+    fi
+}
 
 # Set default editor.
 if [ -e ~/scripts/bin/find-editor ]; then
@@ -190,6 +192,7 @@ alias jc='source /home/chris/gitrepos/cams/cams-dist/jenkins-config-manager/jenk
 alias kpy='killall -9 python Python'
 alias i=idea
 alias findlogs="find -regex '.*\.log\(\.[0-9]+\)?'"
+alias gr=gradle
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then

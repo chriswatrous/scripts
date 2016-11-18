@@ -137,6 +137,9 @@ def readfile(path):
 
 
 if __name__ == '__main__':
-    # import ipdb
-    # with ipdb.launch_ipdb_on_exception():
-    main()
+    try:
+        main()
+    except Exception as e:
+        _, _ , tb = sys.exc_info()
+        import ipdb
+        ipdb.post_mortem(tb)
