@@ -40,7 +40,7 @@ stty -ixon
 stty erase ^?
 
 export LC_ALL=en_US.UTF-8
-export LESS='-M -R -c'
+export LESS='-M -R -c -i'
 export PAGER=less
 export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONIOENCODING=utf_8

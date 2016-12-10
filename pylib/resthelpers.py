@@ -13,8 +13,9 @@ def restcall(**kwargs):
     print
 
     if 'data' in kwargs:
-        print colors.faint('Form data:')
-        print_headers(kwargs['data'])
+        # print colors.faint('Form data:')
+        # print_headers(kwargs['data'])
+        print kwargs['data']
     elif 'json' in kwargs:
         print_json(kwargs['json'])
     else:

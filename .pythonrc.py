@@ -18,6 +18,7 @@ if 'pythonrc_guard' not in globals():
         'pyrsistent',
         're',
         'requests',
+        'signal',
         'statistics',
         'subprocess',
         'threading',
