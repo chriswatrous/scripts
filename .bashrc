@@ -193,6 +193,7 @@ alias kpy='killall -9 python Python'
 alias i=idea
 alias findlogs="find -regex '.*\.log\(\.[0-9]+\)?'"
 alias gr=gradle
+alias tokens='python -m acs_utils.build.get_test_info'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
