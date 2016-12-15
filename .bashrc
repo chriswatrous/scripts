@@ -60,6 +60,8 @@ export CFS_LOGS_DIR=~/projects/cams/cfs-python-utils/logs
 export GCC_COLORS='error=01;31:warning=01;33:note=01;36:caret=01;32:locus=01:quote=01'
 export NVM_DIR=~/.nvm
 
+export VEGETA_HTML_OPENER='open'
+
 nvm-setup() {
     if which brew &> /dev/null; then
         nvm_script="$(brew --prefix nvm)/nvm.sh"
@@ -194,6 +196,7 @@ alias i=idea
 alias findlogs="find -regex '.*\.log\(\.[0-9]+\)?'"
 alias gr=gradle
 alias tokens='python -m acs_utils.build.get_test_info'
+alias uuid='python -c "import uuid; print uuid.uuid4().hex"'
 
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
