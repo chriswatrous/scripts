@@ -20,6 +20,7 @@ if 'pythonrc_guard' not in globals():
         'requests',
         'signal',
         'statistics',
+        'streams',
         'subprocess',
         'threading',
         'time',

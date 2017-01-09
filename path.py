@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import sys
 import os
-from os.path import exists
+from os.path import exists, expanduser
 
 
 def uniq(L):
@@ -39,6 +39,7 @@ if exists('/cygdrive/c/Users/Chris'):
     ]
 
 paths = uniq(paths)
+paths = [expanduser(x) for x in paths]
 
 sys.stdout.write(':'.join(paths))
 sys.stdout.flush()
