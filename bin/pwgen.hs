@@ -7,7 +7,7 @@ import Data.Random (
   )
 
 main :: IO ()
-main = choices 10 chars >>= putStr
+main = fmap (++ "\n") (choices 10 chars) >>= putStr
 
 chars :: [Char]
 chars = ['0'..'9'] ++ ['a'..'z']

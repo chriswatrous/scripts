@@ -62,14 +62,10 @@ export NVM_DIR=~/.nvm
 
 export VEGETA_HTML_OPENER='open'
 
-nvm-setup() {
-    if which brew &> /dev/null; then
-        nvm_script="$(brew --prefix nvm)/nvm.sh"
-        if [ -e $nvm_script ]; then
-            source $nvm_script
-            nvm use v4.4.4
-        fi
-    fi
+nvm() {
+    # This function will be replaced by the real nvm.
+    source $(brew --prefix nvm)/nvm.sh
+    nvm use v4.4.4
 }
 
 # Set default editor.
@@ -342,7 +338,4 @@ fi
 
 alias pw='PWM_ASK_PASSWORD=true bash'
 
-
-if [ -e ~/.bashrc-local ]; then
-    source ~/.bashrc-local
-fi
+source ~/.bashrc-local.sh
