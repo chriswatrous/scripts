@@ -165,7 +165,8 @@ complete -d cd
 # Aliases ######################################################################
 
 alias ag='ag --color-match "1;31"'
-alias agj='ag -G java$'
+alias agj='ag -G .java$'
+alias agpy='ag -G .py$'
 alias df='df -Th'
 alias du2='du -BM -d 1 | sort -n'
 alias du='du -BM'
