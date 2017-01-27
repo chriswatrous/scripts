@@ -1,4 +1,4 @@
-if 'pythonrc_guard' not in globals():
+if 'sys' not in globals():
     import sys
     from pprint import *
 
@@ -48,6 +48,11 @@ if 'pythonrc_guard' not in globals():
             exec('from {} import *'.format(name))
         except ImportError as e:
             print(e)
+
+    try:
+        from streams import Stream
+    except ImportError:
+        pass
 
     def pdir(obj):
         pprint(dir(obj))
