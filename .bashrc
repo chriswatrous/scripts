@@ -263,6 +263,21 @@ alias c6='cd ~/projects/cams/cams-pdp'
 alias c7='cd ~/projects/cams/access-management'
 alias c8='cd ~/projects/cams/xacml-ms'
 
+# docker aliases
+alias dcim='docker images | sort'
+
+# cf aliases
+alias cfs1='cf set-target -f staging1 && cf target'
+alias cfs2='cf set-target -f staging2 && cf target'
+alias cfps='cf set-target -f prestaging && cf target'
+alias cfap='cf set-target -f alchemy-production && cf target'
+alias ici='cf ic init'
+alias icim='cf ic images | sort'
+alias icin='cf ic inspect'
+alias icgl='cf ic group list'
+alias icps='cf ic ps -a'
+alias icgi='cf ic group inspect'
+
 
 ################################################################################
 
