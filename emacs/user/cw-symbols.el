@@ -2,6 +2,8 @@
 
 (require 'cw-utils)
 
+;; Functions
+
 (defun show-symbols (&optional pred)
   (buffer-print-list
    "*symbols*"
@@ -24,6 +26,20 @@
 (defun symbol-search (pattern)
   (show-symbols (lambda (x) (s-match pattern (symbol-name x)))))
 
-(symbol-search ".-map$")
-(show-symbols (lambda (x) (and (boundp x) (keymapp (symbol-value x)))))
-(symbol-search "^evil-.*-map$")
+
+;; Examples
+
+(comment
+ (symbol-search ".-map$")
+ (show-symbols (lambda (x) (and (boundp x) (keymapp (symbol-value x)))))
+ (symbol-search "^evil-.*-map$")
+
+ (symbol-search ".-map$" (symbol-name x))
+
+ (show-symbols (lambda (x) (and (boundp x) (keymapp (symbol-value x)))))
+
+ (symbol-search "^evil-.*-map$")
+
+ (symbol-search "hook")
+
+ )

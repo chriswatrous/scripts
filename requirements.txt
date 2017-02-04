@@ -1,8 +1,9 @@
 ansicolors
+beautifulsoup4
 futures
+importmagic
 ipdb
 ipython
-importmagic
 jedi
 nose
 pep8

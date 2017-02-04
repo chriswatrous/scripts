@@ -6,6 +6,7 @@
 (require 'cw-general-options)
 (require 'cw-modes-setup)
 (require 'cw-key-bindings)
+(require 'cw-symbols)
 
 ;; Theses will fail if the package is not installed. Then install the package.
 (require 'clojure-mode)

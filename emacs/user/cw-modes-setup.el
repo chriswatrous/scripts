@@ -93,6 +93,7 @@
 (define-key cider-repl-mode-map (kbd "<C-return>") nil)
 (define-key cider-repl-mode-map (kbd "<C-S-return>")
   'cider-repl-closing-return)
+(add-hook 'cider-mode-hook (cmd (modify-syntax-entry ?- "w")))
 
 ;; emacs-lisp-mode
 (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table)
