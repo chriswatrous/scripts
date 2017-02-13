@@ -13,7 +13,7 @@ def utc_offset():
 if len(sys.argv) > 1:
     url = sys.argv[1]
 else:
-    url = 'https://www.ibm.com'
+    url = 'https://www.httpbin.org/ip'
 
 if not re.match('https?://', url):
     url = 'http://' + url
