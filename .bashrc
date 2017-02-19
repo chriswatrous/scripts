@@ -355,4 +355,6 @@ fi
 
 alias pw='PWM_ASK_PASSWORD=true bash'
 
-source ~/.bashrc-local.sh
+if [ -e ~/.bashrc-local.sh ]; then
+    source ~/.bashrc-local.sh
+fi
