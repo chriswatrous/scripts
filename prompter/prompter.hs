@@ -32,7 +32,8 @@ gitBranchMsg dir = do
 
 isRepoClean :: FilePath -> IO Bool
 isRepoClean dir = do
-  (out, err) <- getCmdOutErr "git" ["status", "--short"] (Just dir)
+  (out, err) <- getCmdOutErr "bash"
+      ["-c", "git status --short | head"] (Just dir)
   return . null . concatMap strip $ [out, err]
 
 gitShowRef :: IO [(String, String)]
