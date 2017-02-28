@@ -195,6 +195,11 @@ alias gr=gradle
 alias tokens='python -m acs_utils.build.get_test_info'
 alias uuid='python -c "import uuid; print uuid.uuid4().hex"'
 
+alias itest-mccp='itest https://mccp.ng.bluemix.net/info'
+alias itest-mccp-staging='itest https://mccp.stage1.ng.bluemix.net/info'
+alias itest-mccp-london='itest https://mccp.eu-gb.bluemix.net/info'
+
+
 # Use ipython if it exists.
 if which ipython &> /dev/null; then
     alias p=ipython
@@ -271,6 +276,7 @@ alias cfs1='cf set-target -f staging1 && cf target'
 alias cfs2='cf set-target -f staging2 && cf target'
 alias cfps='cf set-target -f prestaging && cf target'
 alias cfpr='cf set-target -f production && cf target'
+alias cfpl='cf set-target -f production-london && cf target'
 alias cfsks='cf set-target -f skelkey-prestaging && cf target'
 alias ici='cf ic init'
 alias icim='cf ic images | sort'
