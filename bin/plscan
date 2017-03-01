@@ -36,6 +36,9 @@ def main():
             "Unable to import 'flask.ext.restplus'",
             "Unable to import 'flask.ext.restful'",
             "Unable to import 'flask_restful_swagger'",
+            "Instance of 'PSet' has no",
+            "Instance of 'tuple' has no",
+            "Instance of 'PythonPVector' has no",
         )
         run_pipe(
             pylint_command + get_python_files(),
