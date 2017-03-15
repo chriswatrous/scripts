@@ -259,6 +259,7 @@ alias c......='cd ../../../../../..'
 alias r=select_recent_dir
 
 # Common directories
+alias c0='cd ~/projects/cams'
 alias c1='cd ~/projects/cams/cfs-python-utils'
 alias c2='cd ~/projects/cams/acs-utils'
 alias c3='cd ~/projects/cams/cams-config'
