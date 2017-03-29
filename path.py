@@ -28,6 +28,7 @@ paths = [
 ] + os.getenv('PATH', '').split(':') + [
     '~/projects/cams/cams-test/tools',
     '~/.go/bin',
+    '~/projects/cams/iam-automation/scripts/performance/',
     '.',
 ]
 
