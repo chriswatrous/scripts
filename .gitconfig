@@ -13,3 +13,5 @@
         diff = always
 [color "diff"]
 	meta = bold cyan
+[advice]
+	detachedHead = false
