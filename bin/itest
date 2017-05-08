@@ -5,6 +5,8 @@ import re
 from datetime import datetime
 from time import time, sleep
 
+TIMEOUT = 5  # seconds
+
 
 def utc_offset():
     return int(round((datetime.now() - datetime.utcnow()).total_seconds() /
@@ -22,7 +24,7 @@ if not re.match('https?://', url):
 while True:
     start_time = time()
     try:
-        r = requests.get(url, timeout=5)
+        r = requests.get(url, timeout=TIMEOUT)
         result = str(r)
     except Exception as e:
         result = type(e).__name__
