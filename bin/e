@@ -2,12 +2,14 @@
 import os
 import sys
 from subprocess import call, DEVNULL
+from os.path import exists, isdir
 
 from edit_helpers import run_editor
 
 
 def main():
     path = file_to_edit()
+    validate_path(path)
     if os.getenv('INSIDE_EMACS'):
         call([
             'emacsclient',
@@ -25,6 +27,16 @@ def file_to_edit():
         print('This program only takes 1 argument.')
         sys.exit(1)
     return sys.argv[1]
+
+
+def validate_path(path):
+    if not exists(path):
+        print('Path {} does not exist.'.format(repr(path)))
+        sys.exit(1)
+    if isdir(path) and not path.endswith('/'):
+        print("Path {} is a directory. To open it, put '/' at the end of the "
+              "path.".format(repr(path)))
+        sys.exit(1)
 
 
 # def get_editors(path):
