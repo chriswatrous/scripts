@@ -243,11 +243,6 @@ alias gd1='git diff `git merge-base upstream/master HEAD` HEAD'
 alias gd2='git diff `git merge-base upstream/master HEAD` .'
 alias gd3='git --no-pager diff --stat `git merge-base upstream/master HEAD` .'
 
-git-brd()
-{
-    git branch -d $1 && git push --delete origin $1
-}
-
 # aliases for changing directories
 alias cd='my_cd'
 alias c.='cd ..'

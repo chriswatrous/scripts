@@ -1,0 +1,77 @@
+#!/usr/bin/env python
+import sys
+from subprocess import check_call, check_output, STDOUT, CalledProcessError
+from os.path import realpath, exists, join, dirname
+
+
+def main():
+    if len(sys.argv) > 1:
+        _cleanup_branch(sys.argv[1])
+    else:
+        if not _is_repo_clean():
+            _fail('Working dir is not clean!')
+        branch = _branch_name()
+        _validate_branch_merged(branch)
+        check_call(['git', 'checkout', _get_home_branch()])
+        _cleanup_branch(branch)
+
+
+def _cleanup_branch(branch):
+    check_call(['git', 'branch', '-d', branch])
+    check_call(['git', 'push', '--delete', 'origin', branch])
+
+
+def _validate_branch_merged(branch):
+    home_branch = _get_home_branch()
+    if branch not in _merged_branches(home_branch):
+        _fail('Branch {} is not merged into {}!'.format(branch, home_branch))
+
+
+def _merged_branches(branch):
+    return [x[2:].rstrip()
+            for x in check_output(['git', 'branch', '--merged', branch])]
+
+
+def _get_home_branch():
+    if _find_repo_root().endswith('/cfs-python-utils'):
+        return 'upstream/develop'
+    else:
+        return 'upstream/master'
+
+
+def _is_repo_clean():
+    try:
+        return (check_output(['git', 'status', '-s'], stderr=STDOUT).strip()
+                == '')
+    except CalledProcessError:
+        _fail('Not in a git repo!')
+
+
+def _branch_name():
+    prefix = 'refs/heads/'
+    try:
+        ref = check_output(['git', 'symbolic-ref', 'HEAD'],
+                           stderr=STDOUT).strip()
+        if not ref.startswith(prefix):
+            _fail('HEAD should start with "{}". Got {}.'.format(prefix, ref))
+        return ref[len(prefix):]
+    except CalledProcessError as e:
+        _fail('Not in a git repo or HEAD is not a branch!')
+
+
+def _find_repo_root():
+    path = realpath('.')
+    while path != '/':
+        if exists(join(path, '.git')):
+            return path
+        path = dirname(path)
+    _fail('Not in a git repo!')
+
+
+def _fail(message):
+    print message
+    sys.exit(1)
+
+
+if __name__ == '__main__':
+    main()
