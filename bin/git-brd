@@ -28,8 +28,8 @@ def _validate_branch_merged(branch):
 
 
 def _merged_branches(branch):
-    return [x[2:].rstrip()
-            for x in check_output(['git', 'branch', '--merged', branch])]
+    lines =  check_output(['git', 'branch', '--merged', branch]).splitlines()
+    return [x[2:].strip() for x in lines]
 
 
 def _get_home_branch():
