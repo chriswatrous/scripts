@@ -65,7 +65,7 @@ export VEGETA_HTML_OPENER='open'
 nvm() {
     # This function will be replaced by the real nvm.
     source $(brew --prefix nvm)/nvm.sh
-    nvm use v4.4.4
+    nvm "@$"
 }
 
 # Set default editor.
@@ -280,6 +280,7 @@ alias icin='cf ic inspect'
 alias icgl='cf ic group list'
 alias icps='cf ic ps -a'
 alias icgi='cf ic group inspect'
+alias icgin='cf ic group instances'
 
 
 ################################################################################
