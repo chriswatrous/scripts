@@ -9,17 +9,19 @@ import re
 from tabulate import tabulate
 from subprocess32 import call, check_output, check_call
 from os.path import join, basename, expanduser
+from streams import Stream
+from pyrsistent import pvector
 
 
 def main():
     width = int(check_output(['stty', 'size']).split()[1])
-    repos = readfile(expanduser('~/.my_repos')).strip('\n').split('\n')
+    repos = _readfile(expanduser('~/.my_repos')).strip('\n').split('\n')
     repos = [expanduser(x) for x in repos]
 
     # Update repos.
     if '-f' in sys.argv:
         print 'updating repos...'
-        tasks = [eventlet.spawn(update_repo, x) for x in repos]
+        tasks = [eventlet.spawn(_update_repo, x) for x in repos]
         for task in tasks:
             task.wait()
 
@@ -27,13 +29,13 @@ def main():
     print
     for repo in repos:
         os.chdir(repo)
-        home = home_branch(repo)
+        home = _home_branch(repo)
 
-        status = check_output(['git', '-c', 'color.status=always', 'status',
-                               '--short']).rstrip()
+        status = _git_output('-c', 'color.status=always', 'status', '--short'
+                             ).rstrip()
 
         msg = colors.blue(basename(repo))
-        current = current_branch(repo)
+        current = _current_branch(repo)
         if home not in current:
             msg += ' ' + colors.yellow(current)
         print msg
@@ -42,19 +44,19 @@ def main():
             print status
             print
 
-        branch_status(repo, home)
+        _branch_status(repo, home)
         print
 
 
-def update_repo(repo):
-    home = home_branch(repo)
-    head = readfile(join(repo, '.git/HEAD')).strip()
-    home_commit = check_output(['git', 'rev-parse', home], cwd=repo).strip()
+def _update_repo(repo):
+    home = _home_branch(repo)
+    head = _readfile(join(repo, '.git/HEAD')).strip()
+    home_commit = _git_output('rev-parse', home, cwd=repo).strip()
     if (
         head == 'ref: refs/heads/master' and
-        check_output(['git', 'status', '--short'], cwd=repo).strip() == ''
+        _git_output('status', '--short', cwd=repo).strip() == ''
     ):
-        action = lambda: call(['git', 'merge', home], cwd=repo)
+        action = lambda: _git('merge', home, cwd=repo)
     elif head == home_commit:
         action = lambda: check_call([
             'bash', '-c',
@@ -62,40 +64,52 @@ def update_repo(repo):
         ], cwd=repo)
     else:
         action = lambda: None
-    call(['git', 'fetch', '--all', '--prune'], cwd=repo)
+    _git('fetch', '--all', '--prune', cwd=repo)
     action()
     return home
 
 
-def current_branch(repo):
-    head = readfile(join(repo, '.git/HEAD')).strip()
+def _current_branch(repo):
+    head = _readfile(join(repo, '.git/HEAD')).strip()
+
     prefix = 'ref: refs/heads/'
     if head.startswith(prefix):
         return head[len(prefix):]
     else:
-        branches = (matching_branches(join(repo, '.git/refs/remotes/'), head) +
-                    matching_branches(join(repo, '.git/refs/tags'), head))
-        if branches:
-            return '({})'.format(' '.join(branches))
+        refs = _refs_for_commit_id(head, repo)
+        if refs:
+            return '({})'.format(' '.join(refs))
         else:
             return head
 
 
-def matching_branches(dir, commit_id):
-    if not dir.endswith('/'):
-        dir += '/'
-    return [x[len(dir):] for x in get_files(dir)
-            if readfile(x).strip() == commit_id]
+def _refs_for_commit_id(commit_id, cwd):
+    return pvector(
+        Stream(_git_output('show-ref', '--dereference', cwd=cwd).strip()
+               .splitlines())
+        .filter(lambda x: x.startswith(commit_id))
+        .map(lambda x: x.strip().split()[1])
+        .map(lambda x: _strip_prefix('refs/heads/', x))
+        .map(lambda x: _strip_prefix('refs/remotes/', x))
+        .map(lambda x: _strip_prefix('refs/tags/', x))
+    )
 
 
-def branch_status(repo, home_b):
-    branches = local_branches(repo)
+def _strip_prefix(prefix, text):
+    if text.startswith(prefix):
+        return text[len(prefix):]
+    else:
+        return text
+
+
+def _branch_status(repo, home_b):
+    branches = _local_branches(repo)
     if branches:
         b_width = max(len(x) for x in branches)
     for branch in branches:
-        output = check_output(['git', 'rev-list', '--count', '--left-right',
-                               '{}...{}'.format(branch, home_b)],
-                              cwd=repo)
+        output = _git_output('rev-list', '--count', '--left-right',
+                             '{}...{}'.format(branch, home_b),
+                             cwd=repo)
         ahead, behind = [int(x) for x in output.strip().split()]
 
         if ahead == 0 and behind == 0:
@@ -108,8 +122,8 @@ def branch_status(repo, home_b):
         print '  {} {}'.format(colors.green(branch.ljust(b_width)), msg)
 
 
-def home_branch(repo):
-    output = check_output(['git', 'branch', '-a'], cwd=repo)
+def _home_branch(repo):
+    output = _git_output('branch', '-a', cwd=repo)
     if 'upstream/develop' in output:
         return 'upstream/develop'
     elif 'upstream/master' in output:
@@ -118,12 +132,15 @@ def home_branch(repo):
         return 'origin/master'
 
 
-def local_branches(repo):
-    heads_dir = join(repo, '.git/refs/heads')
-    return [x[len(heads_dir)+1:] for x in get_files(heads_dir)]
+def _local_branches(repo):
+    return pvector(
+        Stream(_git_output('branch', cwd=repo).strip('\n').splitlines())
+        .map(lambda x: x[2:].strip())
+        .filter(lambda x: not x.startswith('('))
+    )
 
 
-def get_files(dir):
+def _get_files(dir):
     out = []
     for root, dirs, files in os.walk(dir):
         for name in files:
@@ -131,15 +148,26 @@ def get_files(dir):
     return out
 
 
-def readfile(path):
+def _readfile(path):
     with open(path) as f:
         return f.read()
+
+
+def _git(*command, **kwargs):
+    cwd = kwargs.get('cwd')
+    return call(('git',) + command, cwd=cwd)
+
+
+def _git_output(*command, **kwargs):
+    cwd = kwargs.get('cwd')
+    return check_output(('git',) + command, cwd=cwd)
 
 
 if __name__ == '__main__':
     try:
         main()
     except Exception as e:
+        print '{}: {}'.format(type(e).__name__, e)
         _, _ , tb = sys.exc_info()
         import ipdb
         ipdb.post_mortem(tb)
