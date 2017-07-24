@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+import sys
+from subprocess import check_call, check_output, STDOUT
+from time import sleep
+
+
+def main():
+    remote = sys.argv[1]
+    branch = sys.argv[2]
+    while True:
+        try:
+            _fetch_from_remote(remote, branch)
+        except Exception as e:
+            print '{}: {}'.format(type(e).__name__, e)
+        sleep(15)
+
+
+def _fetch_from_remote(remote, branch):
+    if _has_local_changes():
+        print 'Local repo not clean!'
+        return
+    _fetch(remote)
+    _checkout('{}/{}'.format(remote, branch))
+
+
+def _has_local_changes():
+    return bool(_git_output('status', '-s').strip())
+
+
+def _fetch(remote):
+    _git('fetch', remote)
+
+
+def _checkout(ref):
+    _git('checkout', ref)
+
+
+def _git(*args):
+    check_call(['git'] + list(args))
+
+
+def _git_output(*args):
+    return check_output(['git'] + list(args), stderr=STDOUT)
+
+
+if __name__ == '__main__':
+    main()

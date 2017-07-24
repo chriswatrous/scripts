@@ -1,0 +1,4 @@
+#!/bin/bash
+
+dot -Tpdf build/reports/visteg.dot > /tmp/visteg.pdf
+open /tmp/visteg.pdf

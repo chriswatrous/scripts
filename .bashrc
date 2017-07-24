@@ -282,6 +282,8 @@ alias icps='cf ic ps -a'
 alias icgi='cf ic group inspect'
 alias icgin='cf ic group instances'
 
+alias format-kibana4='pbpaste | jq -c .responses[0].hits.hits[]._source | formatlogs'
+
 
 ################################################################################
 

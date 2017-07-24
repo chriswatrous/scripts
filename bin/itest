@@ -24,7 +24,7 @@ if not re.match('https?://', url):
 while True:
     start_time = time()
     try:
-        r = requests.get(url, timeout=TIMEOUT)
+        r = requests.get(url, timeout=TIMEOUT, headers={'Authorization': '@ibm.com'})
         result = str(r)
     except Exception as e:
         result = type(e).__name__
