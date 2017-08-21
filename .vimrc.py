@@ -25,6 +25,7 @@ vim.command('set ruler')
 vim.command('set scrolloff=5')
 vim.command('set showtabline=2')
 vim.command('let mapleader="-"')
+vim.command('set spellfile="~/scripts/vim-spelling/en.utf-8.add"')
 
 # Comma separated list of regexes.
 vim.command(r"let g:netrw_list_hide='\.sw.$,\.pyc$'")

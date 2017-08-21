@@ -14,6 +14,7 @@
 
 ;; javascript-mode
 (setq js-indent-level 2)
+(modify-syntax-entry ?` "\"" js-mode-syntax-table)
 
 ;; term
 (require 'term)
