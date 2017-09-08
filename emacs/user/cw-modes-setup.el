@@ -14,7 +14,10 @@
 
 ;; javascript-mode
 (setq js-indent-level 2)
-(modify-syntax-entry ?` "\"" js-mode-syntax-table)
+(add-hook 'js-mode-hook
+          (lambda ()
+            (modify-syntax-entry ?` "\"" js-mode-syntax-table)
+            (modify-syntax-entry ?_ "w")))
 
 ;; term
 (require 'term)
