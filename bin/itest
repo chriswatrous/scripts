@@ -27,7 +27,7 @@ while True:
         r = requests.get(url, timeout=TIMEOUT, headers={'Authorization': '@ibm.com'})
         result = str(r)
     except Exception as e:
-        result = type(e).__name__
+        result = '{}: {}'.format(type(e).__name__, e)
     elapsed = time() - start_time
     now = datetime.now()
     offset = utc_offset()

@@ -194,6 +194,7 @@ alias findlogs="find -regex '.*\.log\(\.[0-9]+\)?'"
 alias gr=gradle
 alias tokens='python -m acs_utils.build.get_test_info'
 alias uuid='python -c "import uuid; print uuid.uuid4().hex"'
+alias n='node'
 
 alias itest-mccp='itest https://mccp.ng.bluemix.net/info'
 alias itest-mccp-staging='itest https://mccp.stage1.ng.bluemix.net/info'
