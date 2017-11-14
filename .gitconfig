@@ -15,3 +15,5 @@
 	meta = bold cyan
 [advice]
 	detachedHead = false
+[diff]
+	statGraphWidth = 160

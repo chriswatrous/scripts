@@ -73,8 +73,8 @@
                 haskell-mode-hook
                 yaml-mode-hook
                 json-mode-hook
-                js-mode-hook
                 ielm-mode-hook
                 markdown-mode-hook))
   (add-hook hook (lambda () (column-marker-1 80))))
+(add-hook 'js-mode-hook (lambda () (column-marker-1 150)))
 (add-hook 'python-mode-hook (lambda () (column-marker-1 79)))

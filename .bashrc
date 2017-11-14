@@ -364,3 +364,7 @@ alias pw='PWM_ASK_PASSWORD=true bash'
 if [ -e ~/.bashrc-local.sh ]; then
     source ~/.bashrc-local.sh
 fi
+
+jwtd() {
+    jwt --no-verify $1 | jq
+}
