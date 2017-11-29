@@ -31,12 +31,15 @@ def get_files_to_edit():
 
 def validate_path(path):
     if not exists(path):
-        print('Path {} does not exist.'.format(repr(path)))
-        sys.exit(1)
-    if isdir(path) and not path.endswith('/'):
-        print("Path {} is a directory. To open it, put '/' at the end of the "
-              "path.".format(repr(path)))
-        sys.exit(1)
+        response = input('Path {} does not exist. Open anyway? (y/n) '
+                         .format(repr(path)))
+        if not response.lower().startswith('y'):
+            sys.exit(1)
+    if isdir(path):
+        response = input('Path {} is a directory. Open anyway? (y/n) '
+                         .format(repr(path)))
+        if not response.lower().startswith('y'):
+            sys.exit(1)
 
 
 # def get_editors(path):

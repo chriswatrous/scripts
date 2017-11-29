@@ -202,16 +202,8 @@ alias itest-mccp-london='itest https://mccp.eu-gb.bluemix.net/info'
 
 
 # Use ipython if it exists.
-if which ipython &> /dev/null; then
-    alias p=ipython
-else
-    alias p=python
-fi
-if which ipython3 &> /dev/null; then
-    alias p3=ipython3
-else
-    alias p3=python3
-fi
+alias p='python -m IPython || python'
+alias p3='python3 -m IPython || python3'
 
 # git aliases ##################################################################
 
