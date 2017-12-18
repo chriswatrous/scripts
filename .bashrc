@@ -195,6 +195,8 @@ alias gr=gradle
 alias tokens='python -m acs_utils.build.get_test_info'
 alias uuid='python -c "import uuid; print uuid.uuid4().hex"'
 alias n='node'
+alias diff='git --no-pager diff --no-index'
+alias pwgen2='python -c "import base64, uuid; print base64.b64encode(uuid.uuid4().bytes).strip(\"=\")"'
 
 alias itest-mccp='itest https://mccp.ng.bluemix.net/info'
 alias itest-mccp-staging='itest https://mccp.stage1.ng.bluemix.net/info'
@@ -360,3 +362,6 @@ fi
 jwtd() {
     jwt --no-verify $1 | jq
 }
+
+### Added by the Bluemix CLI
+source /usr/local/Bluemix/bx/bash_autocomplete
