@@ -195,6 +195,8 @@ alias gr=gradle
 alias tokens='python -m acs_utils.build.get_test_info'
 alias uuid='python -c "import uuid; print uuid.uuid4().hex"'
 alias n='node'
+alias diff='git --no-pager diff --no-index'
+alias pwgen2='python -c "import base64, uuid; print base64.b64encode(uuid.uuid4().bytes).strip(\"=\")"'
 
 alias itest-mccp='itest https://mccp.ng.bluemix.net/info'
 alias itest-mccp-staging='itest https://mccp.stage1.ng.bluemix.net/info'
@@ -202,16 +204,8 @@ alias itest-mccp-london='itest https://mccp.eu-gb.bluemix.net/info'
 
 
 # Use ipython if it exists.
-if which ipython &> /dev/null; then
-    alias p=ipython
-else
-    alias p=python
-fi
-if which ipython3 &> /dev/null; then
-    alias p3=ipython3
-else
-    alias p3=python3
-fi
+alias p='python -m IPython || python'
+alias p3='python3 -m IPython || python3'
 
 # git aliases ##################################################################
 
@@ -364,3 +358,10 @@ alias pw='PWM_ASK_PASSWORD=true bash'
 if [ -e ~/.bashrc-local.sh ]; then
     source ~/.bashrc-local.sh
 fi
+
+jwtd() {
+    jwt --no-verify $1 | jq
+}
+
+### Added by the Bluemix CLI
+source /usr/local/Bluemix/bx/bash_autocomplete

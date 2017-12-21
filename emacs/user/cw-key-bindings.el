@@ -94,7 +94,7 @@
 (define-key global-map (kbd "C->") 'highlight-symbol-next)
 (define-key global-map (kbd "C-<") 'highlight-symbol-prev)
 
-(define-key global-map (kbd (if osx? "s-s" "C-S-s"))
+(define-key global-map (kbd "C-S-s")
   (cmd (save-some-buffers t)
        (unless (evil-emacs-state-p) (evil-normal-state))
        (message "all files saved")))

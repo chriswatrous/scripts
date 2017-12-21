@@ -7,6 +7,7 @@ if 'sys' not in globals():
         'base64',
         'collections',
         'collections',
+        'datetime',
         'functools',
         'itertools',
         'json',
@@ -32,7 +33,6 @@ if 'sys' not in globals():
     ]
     star_imports = [
         'concurrent.futures',
-        'datetime',
         'pyrsistent',
         'subprocess',
     ]
