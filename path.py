@@ -16,7 +16,6 @@ def uniq(L):
 
 paths = [
     '~/.nvm/versions/node/v6.11.0/bin',
-    './node_modules/.bin',
     '~/bin',
     '~/stuff/bin',
     '~/scripts/bin',

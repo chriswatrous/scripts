@@ -65,7 +65,7 @@ export VEGETA_HTML_OPENER='open'
 nvm() {
     # This function will be replaced by the real nvm.
     source $(brew --prefix nvm)/nvm.sh
-    nvm "@$"
+    nvm "$@"
 }
 
 # Set default editor.
@@ -97,15 +97,6 @@ path_append() {
 export PATH=$(~/scripts/path.py)
 
 # path_append "."
-
-# virtualenv setup #############################################################
-#
-# This must be done after path setup
-#
-
-if [ -e ~/venv/bin/activate ]; then
-    source ~/venv/bin/activate
-fi
 
 # Prompt setup #################################################################
 
@@ -152,6 +143,31 @@ xterm*|rxvt*)
     ;;
 esac
 
+# virtualenv setup #############################################################
+#
+# This must be done after path setup
+#
+
+old_ps1="$PS1"
+if [ "$USE_VENV_IN_CURRENT_DIR" == "true" ]; then
+    if [ ! -e venv/bin/activate ]; then
+        echo 'venv/bin/activate not found'
+        exit 1
+    fi
+    source venv/bin/activate
+    PS1="($(basename "$PWD") venv) $old_ps1"
+    unset USE_VENV_IN_CURRENT_DIR
+elif [ -e ~/venv/bin/activate ]; then
+    source ~/venv/bin/activate
+    PS1="$old_ps1"
+fi
+unset old_ps1
+
+va() {
+    export USE_VENV_IN_CURRENT_DIR=true
+    bash
+}
+
 # bash completion ##############################################################
 
 if [ -f /etc/bash_completion ]; then
@@ -197,6 +213,7 @@ alias uuid='python -c "import uuid; print uuid.uuid4().hex"'
 alias n='node'
 alias diff='git --no-pager diff --no-index'
 alias pwgen2='python -c "import base64, uuid; print base64.b64encode(uuid.uuid4().bytes).strip(\"=\")"'
+alias nvm.='nvm use $(cat package.json | jq -r .engines.node)'
 
 alias itest-mccp='itest https://mccp.ng.bluemix.net/info'
 alias itest-mccp-staging='itest https://mccp.stage1.ng.bluemix.net/info'
@@ -276,6 +293,9 @@ alias icgl='cf ic group list'
 alias icps='cf ic ps -a'
 alias icgi='cf ic group inspect'
 alias icgin='cf ic group instances'
+
+alias bxls='bx login --sso -a https://api.stage1.ng.bluemix.net'
+alias bxlp='bx login --sso -a https://api.ng.bluemix.net'
 
 alias format-kibana4='pbpaste | jq -c .responses[0].hits.hits[]._source | formatlogs'
 

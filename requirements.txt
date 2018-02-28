@@ -5,6 +5,7 @@ importmagic
 ipdb
 ipython
 jedi
+msgpack
 nose
 pep8
 psutil

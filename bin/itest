@@ -5,7 +5,7 @@ import re
 from datetime import datetime
 from time import time, sleep
 
-TIMEOUT = 5  # seconds
+TIMEOUT = 20  # seconds
 
 
 def utc_offset():

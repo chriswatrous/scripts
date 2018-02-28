@@ -4,13 +4,12 @@ if 'sys' not in globals():
 
     imports = [
         'base64',
-        'base64',
-        'collections',
         'collections',
         'datetime',
         'functools',
         'itertools',
         'json',
+        'msgpack',
         'multiprocessing',
         'operator',
         'os',
@@ -21,6 +20,7 @@ if 'sys' not in globals():
         'requests',
         'signal',
         'socket',
+        'sqlite3',
         'ssl',
         'statistics',
         'streams',
