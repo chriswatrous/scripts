@@ -383,5 +383,6 @@ jwtd() {
     jwt --no-verify $1 | jq
 }
 
-### Added by the Bluemix CLI
-source /usr/local/Bluemix/bx/bash_autocomplete
+if [ -e /usr/local/Bluemix/bx/bash_autocomplete ]; then
+    source /usr/local/Bluemix/bx/bash_autocomplete
+fi
