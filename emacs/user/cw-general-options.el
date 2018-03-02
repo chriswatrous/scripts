@@ -19,7 +19,7 @@
       ((eq system-type 'gnu/linux)
        (set-face-attribute 'default nil :font "Liberation Mono-11"))
       ((eq system-type 'darwin)
-       (set-face-attribute 'default nil :font "Monaco-13")))
+       (set-face-attribute 'default nil :font "Inconsolata-17")))
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
 (setq smooth-scroll-margin 5)

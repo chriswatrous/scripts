@@ -12,6 +12,7 @@ psutil
 pyflakes
 pylint
 pyrsistent
+pystreams
 pyyaml
 requests
 rope

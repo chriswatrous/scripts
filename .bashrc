@@ -2,6 +2,13 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+i13247598234758=0
+log-time() {
+    echo -n $i13247598234758 ' '
+    date +%s.%N
+    let "i13247598234758++"
+}
+
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
@@ -147,7 +154,6 @@ esac
 #
 # This must be done after path setup
 #
-
 old_ps1="$PS1"
 if [ "$USE_VENV_IN_CURRENT_DIR" == "true" ]; then
     if [ ! -e venv/bin/activate ]; then
@@ -174,7 +180,8 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 if which brew &> /dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
+    # . $(brew --prefix)/etc/bash_completion
+    . /usr/local/Cellar/bash-completion/1.3_3/etc/bash_completion.test
 fi
 complete -d cd
 
