@@ -181,7 +181,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 if which brew &> /dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
     # . $(brew --prefix)/etc/bash_completion
-    . /usr/local/Cellar/bash-completion/1.3_3/etc/bash_completion.test
+    time . /usr/local/Cellar/bash-completion/1.3_3/etc/bash_completion.test
 fi
 complete -d cd
 

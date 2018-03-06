@@ -45,3 +45,17 @@
 (split-window-right)
 ;; (other-window 1)
 ;; (term "bash")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (web-mode zoom-frm yaml-mode smooth-scrolling s rjsx-mode restclient rainbow-delimiters python-mode projectile powerline-evil popup npm-mode multi-term markdown-preview-mode linum-relative json-mode highlight-symbol haskell-mode groovy-mode go-mode feature-mode evil-magit elpy dockerfile-mode dired+ cython-mode column-marker cider))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
