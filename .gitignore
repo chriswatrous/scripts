@@ -4,3 +4,4 @@ __pycache__
 *.hi
 *.o
 *.pyc
+emacs/local/
