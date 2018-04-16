@@ -117,3 +117,9 @@ buffer is not visiting a file."
 ;; (setq ep-current-buffer nil)
 
 (defun leader+ (key) (kbd (concat "<C-return> " key)))
+
+
+(defun read-file (path)
+  (with-temp-buffer
+    (insert-file-contents path)
+    (buffer-string)))
