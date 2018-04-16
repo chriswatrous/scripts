@@ -8,18 +8,15 @@ from edit_helpers import run_editor
 
 
 def main():
-    paths = get_files_to_edit()
-    for path in paths:
-        validate_path(path)
+    try:
+        paths = get_files_to_edit()
+        for path in paths:
+            validate_path(path)
 
-    for path in paths:
-        if os.getenv('INSIDE_EMACS'):
-            call([
-                'emacsclient',
-                '-e', '(find-file-other-window "{}")'.format(path),
-            ])
-        else:
-            call(['emacsclient', '--no-wait', path])
+        call(['atom', '-f'] + paths)
+    except KeyboardInterrupt:
+        print()
+        sys.exit(1)
 
 
 def get_files_to_edit():
@@ -40,20 +37,6 @@ def validate_path(path):
                          .format(repr(path)))
         if not response.lower().startswith('y'):
             sys.exit(1)
-
-
-# def get_editors(path):
-#     cmds = [
-#         ['vim', path],
-#         ['vi', path],
-#     ]
-#     if os.getenv('INSIDE_EMACS'):
-#         cmds = [[
-#             'emacsclient',
-#             '-a', 'vim',
-#             '-e', '(find-file-other-window "{}")'.format(path),
-#         ]] + cmds
-#     return cmds
 
 
 if __name__ == '__main__':

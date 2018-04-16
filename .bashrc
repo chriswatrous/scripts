@@ -255,7 +255,7 @@ alias ga='git add -A :/'
 alias git-pub='git push -u origin `git rev-parse --abbrev-ref HEAD`'
 
 # Fetch all branches and remove deleted remote branches.
-alias gf='git fetch --all --prune; gb'
+alias gf='git fetch --all --prune && gb'
 
 alias gc='git checkout'
 alias gd1='git diff `git merge-base upstream/master HEAD` HEAD'

@@ -33,8 +33,13 @@ def _merged_branches(branch):
 
 
 def _get_home_branch():
-    if _find_repo_root().endswith('/cfs-python-utils'):
+    repo_root = _find_repo_root()
+    if repo_root.endswith('/cfs-python-utils'):
         return 'upstream/develop'
+    elif repo_root.endswith('/catalogonboarding-backend'):
+        return 'upstream/develop'
+    elif repo_root.endswith('/catalogonboarding-frontend'):
+        return 'upstream/dev'
     else:
         return 'upstream/master'
 
