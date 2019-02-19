@@ -5,43 +5,43 @@ from subprocess import check_call, check_output, STDOUT
 
 
 def main():
-    if not _is_working_dir_clean():
-        _fail('Working directory is not clean!')
+    if not is_working_dir_clean():
+        fail('Working directory is not clean!')
     if len(sys.argv) > 1:
-        _get_new_pr_branch()
+        get_new_pr_branch()
     else:
-        _update_existing_pr_branch()
+        update_existing_pr_branch()
 
 
-def _get_new_pr_branch():
+def get_new_pr_branch():
     num = sys.argv[1]
     check_call(['git', 'fetch', 'upstream', 'refs/pull/{}/head'.format(num)])
     check_call(['git', 'checkout', 'FETCH_HEAD'])
     check_call(['git', 'checkout', '-b', 'pr{}'.format(num)])
 
 
-def _update_existing_pr_branch():
-    branch = _current_branch()
+def update_existing_pr_branch():
+    branch = current_branch()
     match = re.match(r'^pr(\d+)$', branch)
     if not match:
-        _fail('Not a PR branch.')
+        fail('Not a PR branch.')
     pr_num = match.groups()[0]
     check_call(['git', 'fetch', 'upstream',
                 'refs/pull/{}/head'.format(pr_num)])
     check_call(['git', 'reset', '--hard', 'FETCH_HEAD'])
 
 
-def _fail(msg):
+def fail(msg):
     print msg
     sys.exit(1)
 
 
-def _is_working_dir_clean():
+def is_working_dir_clean():
     out = check_output(['git', 'status', '--short'], stderr=STDOUT)
     return out.strip() == ''
 
 
-def _current_branch():
+def current_branch():
     branch = check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'])
     if branch == 'HEAD':
         branch = check_output(['git', 'rev-parse', 'HEAD'])

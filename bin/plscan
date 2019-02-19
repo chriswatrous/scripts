@@ -79,8 +79,11 @@ def is_python_file(path):
 
 
 def read_first_line(path):
-    with open(path) as f:
-        return f.readline()
+    try:
+        with open(path) as f:
+            return f.readline()
+    except:
+        return ''
 
 
 def recursively_iterate_through_files(path):

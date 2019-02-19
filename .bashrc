@@ -1,14 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
-i13247598234758=0
-log-time() {
-    echo -n $i13247598234758 ' '
-    date +%s.%N
-    let "i13247598234758++"
-}
-
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
@@ -54,21 +43,6 @@ export PYTHONIOENCODING=utf_8
 export PYTHONPATH=.:~/scripts/pylib
 export GOPATH="${HOME}/.go"
 
-if [[ -e /cygdrive/c/Users/Chris ]]; then
-    export PRINTER=DCP7040
-fi
-
-# Work related stuff.
-# export DB_NAME=chris_local
-export NO_LOG_HEADER=true
-export LOGGING_206_AS_ERROR=True
-export REQUEST_STATS_FILE=~/request_stats
-export CFS_LOGS_DIR=~/projects/cams/cfs-python-utils/logs
-export GCC_COLORS='error=01;31:warning=01;33:note=01;36:caret=01;32:locus=01:quote=01'
-export NVM_DIR=~/.nvm
-
-export VEGETA_HTML_OPENER='open'
-
 nvm() {
     # This function will be replaced by the real nvm.
     source $(brew --prefix nvm)/nvm.sh
@@ -76,59 +50,24 @@ nvm() {
 }
 
 # Set default editor.
-if [ -e ~/scripts/bin/find-editor ]; then
-    export EDITOR="$HOME/scripts/bin/find-editor"
-else
-    export EDITOR=vim
-fi
+export EDITOR=vim
 export VISUAL="$EDITOR"
 export GIT_EDITOR="$EDITOR"
 
 unset JAVA_TOOL_OPTIONS
 
-
-# PATH setup ###################################################################
-
-showpath() {
-    echo $PATH | tr ":" "\n"
-}
-
-path_prepend() {
-    export PATH="$1:$PATH"
-}
-
-path_append() {
-    export PATH="$PATH:$1"
-}
-
-export PATH=$(~/scripts/path.py)
-
-# path_append "."
-
 # Prompt setup #################################################################
 
-# Set color prompt. There may be a rare terminal where this doesn't
-# work. I'll cross that bridge when I come to it.
-# See http://ascii-table.com/ansi-escape-sequences.php
-# Disble git branch in prompt if on cygwin.
-if [ -z "$WINDIR" ]; then
-    cyan='\[\033[36m\]'
-    yellow='\[\033[33m\]'
-    PS1="${cyan}bash> ${yellow}"
+prompt_command() {
+    echo $PWD > ~/.last_dir
+    ~/scripts/prompter/prompter
+}
+PROMPT_COMMAND='prompt_command'
 
-    prompt_command() {
-        echo $PWD > ~/.last_dir
-        ~/scripts/prompter/prompter
-    }
-    PROMPT_COMMAND='prompt_command'
-else
-    # My go prompter program doen't work in Cygwin at the moment.
-    PS1='[\[\033[3;33m\]\u@\h \[\033[01;34m\]${PWD}\[\033[0m\]] '
+cyan='\[\033[36m\]'
+yellow='\[\033[33m\]'
 
-    prompt_command() {
-        echo $PWD > ~/.last_dir
-    }
-fi
+PS1="${cyan}bash> ${yellow}"
 
 # Reset the terminal color before every command.
 trap 'echo -n -e "\033[0m"' DEBUG
@@ -149,6 +88,34 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
+# bash completion ##############################################################
+
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+if which brew &> /dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+complete -d cd
+
+
+# PATH setup ###################################################################
+
+showpath() {
+    echo $PATH | tr ":" "\n"
+}
+
+path_prepend() {
+    export PATH="$1:$PATH"
+}
+
+path_append() {
+    export PATH="$PATH:$1"
+}
+
+export PATH=$(~/scripts/path.py)
+
 
 # virtualenv setup #############################################################
 #
@@ -174,16 +141,6 @@ va() {
     bash
 }
 
-# bash completion ##############################################################
-
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-if which brew &> /dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
-    # . $(brew --prefix)/etc/bash_completion
-    time . /usr/local/Cellar/bash-completion/1.3_3/etc/bash_completion.test
-fi
-complete -d cd
 
 # Aliases ######################################################################
 
@@ -226,6 +183,8 @@ alias itest-mccp='itest https://mccp.ng.bluemix.net/info'
 alias itest-mccp-staging='itest https://mccp.stage1.ng.bluemix.net/info'
 alias itest-mccp-london='itest https://mccp.eu-gb.bluemix.net/info'
 
+alias grasp='~/.nvm/versions/node/v10.7.0/bin/node ~/.nvm/versions/node/v10.7.0/lib/node_modules/grasp/bin/grasp'
+alias graspr='grasp -r --exclude "node_modules/**"'
 
 # Use ipython if it exists.
 alias p='python -m IPython || python'
@@ -257,10 +216,10 @@ alias git-pub='git push -u origin `git rev-parse --abbrev-ref HEAD`'
 # Fetch all branches and remove deleted remote branches.
 alias gf='git fetch --all --prune && gb'
 
-alias gc='git checkout'
 alias gd1='git diff `git merge-base upstream/master HEAD` HEAD'
 alias gd2='git diff `git merge-base upstream/master HEAD` .'
 alias gd3='git --no-pager diff --stat `git merge-base upstream/master HEAD` .'
+alias git-show-merged='git log --decorate | grep "commit.*(.*)"'
 
 # aliases for changing directories
 alias cd='my_cd'
@@ -285,26 +244,9 @@ alias c8='cd ~/projects/cams/xacml-ms'
 
 # docker aliases
 alias dcim='docker images | sort'
+alias dcps='docker ps -a'
 
-# cf aliases
-alias cfs1='cf set-target -f staging1 && cf target'
-alias cfs2='cf set-target -f staging2 && cf target'
-alias cfps='cf set-target -f prestaging && cf target'
-alias cfpr='cf set-target -f production && cf target'
-alias cfpl='cf set-target -f production-london && cf target'
-alias cfsks='cf set-target -f skelkey-prestaging && cf target'
-alias ici='cf ic init'
-alias icim='cf ic images | sort'
-alias icin='cf ic inspect'
-alias icgl='cf ic group list'
-alias icps='cf ic ps -a'
-alias icgi='cf ic group inspect'
-alias icgin='cf ic group instances'
-
-alias bxls='bx login --sso -a https://api.stage1.ng.bluemix.net'
-alias bxlp='bx login --sso -a https://api.ng.bluemix.net'
-
-alias format-kibana4='pbpaste | jq -c .responses[0].hits.hits[]._source | formatlogs'
+alias only='ag "\.only\b"'
 
 
 ################################################################################
@@ -386,10 +328,8 @@ if [ -e ~/.bashrc-local.sh ]; then
     source ~/.bashrc-local.sh
 fi
 
-jwtd() {
-    jwt --no-verify $1 | jq
-}
-
 if [ -e /usr/local/Bluemix/bx/bash_autocomplete ]; then
     source /usr/local/Bluemix/bx/bash_autocomplete
 fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

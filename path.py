@@ -14,8 +14,11 @@ def uniq(L):
     return out
 
 
+old_paths = os.getenv('PATH', '').split(':')
+old_paths = [x for x in old_paths if '.nvm' not in x]
+
 paths = [
-    '~/.nvm/versions/node/v6.11.0/bin',
+    '~/.nvm/versions/node/v8.11.4/bin',
     '~/bin',
     '~/stuff/bin',
     '~/scripts/bin',
@@ -27,10 +30,12 @@ paths = [
     '/Applications/Emacs.app/Contents/MacOS/libexec-x86_64-10_9',
     '/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9',
     '/usr/local/bin',
-] + os.getenv('PATH', '').split(':') + [
+]
+paths.extend(old_paths)
+paths.extend([
     '~/projects/cams/cams-test/tools',
     '~/.go/bin',
-]
+])
 
 if exists('/cygdrive/c/Users/Chris'):
     paths = paths + [

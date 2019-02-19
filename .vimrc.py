@@ -2,7 +2,6 @@
 import vim
 import sys
 import re
-from subprocess import Popen, call, PIPE
 
 # Set this option first.
 vim.command('set nocompatible')
@@ -206,21 +205,21 @@ def set_file_type():
         # sys.stderr.write('Unsupported file type: ' + filetype)
         # return
     # lines = vim.current.buffer[:]
-# 
+#
     # # Find start of block.
     # L1 = vim.current.window.cursor[0] - 1
     # while (lines[L1].startswith(' ') or
            # lines[L1].startswith('#') or
            # lines[L1] == ''):
         # L1 -= 1
-# 
+#
     # # Find end of block.
     # L2 = vim.current.window.cursor[0]
     # while L2 < len(lines) and (lines[L2].startswith(' ') or
                                # lines[L2].startswith('#') or
                                # lines[L2] == ''):
         # L2 += 1
-# 
+#
     # script = '\n'.join(lines[L1:L2])
     # exec script in globals()
 
@@ -243,6 +242,7 @@ def toggle_overlength_highlight():
 
 
 def python_shell():
+    from subprocess import call
     if call('which ipython &> /dev/null', shell=True) == 0:
         vim.command('!ipython')
     else:
@@ -250,6 +250,7 @@ def python_shell():
 
 
 def pep8_first_error():
+    from subprocess import Popen, PIPE
     script = '\n'.join(vim.current.buffer[:]) + '\n'
     proc = Popen(['pep8', '-'], stdin=PIPE, stdout=PIPE)
     out, _ = proc.communicate(script)
@@ -263,6 +264,7 @@ def pep8_first_error():
 
 
 def insert_set_trace():
+    from subprocess import call
     # Do we have ipdb?
     if call('which ipdb > /dev/null 2>&1', shell=True) == 0:
         lib = 'ipdb'
