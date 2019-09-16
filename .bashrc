@@ -220,6 +220,8 @@ alias gd1='git diff `git merge-base upstream/master HEAD` HEAD'
 alias gd2='git diff `git merge-base upstream/master HEAD` .'
 alias gd3='git --no-pager diff --stat `git merge-base upstream/master HEAD` .'
 alias git-show-merged='git log --decorate | grep "commit.*(.*)"'
+alias gu='git checkout upstream/master'
+alias gru='git rebase upstream/master'
 
 # aliases for changing directories
 alias cd='my_cd'
@@ -243,10 +245,12 @@ alias c7='cd ~/projects/cams/access-management'
 alias c8='cd ~/projects/cams/xacml-ms'
 
 # docker aliases
-alias dcim='docker images | sort'
+alias dcim='docker images | grep -v REPOSITORY | sort'
 alias dcps='docker ps -a'
 
 alias only='ag "\.only\b"'
+
+alias kimages='kubectl describe deployments | grep Image'
 
 
 ################################################################################

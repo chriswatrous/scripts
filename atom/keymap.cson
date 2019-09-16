@@ -1,0 +1,92 @@
+# Your keymap
+#
+# Atom keymaps work similarly to style sheets. Just as style sheets use
+# selectors to apply styles to elements, Atom keymaps use selectors to associate
+# keystrokes with events in specific contexts. Unlike style sheets however,
+# each selector can only be declared once.
+#
+# You can create a new keybinding in this file by typing "key" and then hitting
+# tab.
+#
+# Here's an example taken from Atom's built-in keymap:
+#
+# 'atom-text-editor':
+#   'enter': 'editor:newline'
+#
+# 'atom-workspace':
+#   'ctrl-shift-p': 'core:move-up'
+#   'ctrl-p': 'core:move-down'
+#
+# You can find more information about keymaps in these guides:
+# * http://flight-manual.atom.io/using-atom/sections/basic-customization/#customizing-keybindings
+# * http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/
+#
+# If you're having trouble with your keybindings not working, try the
+# Keybinding Resolver: `Cmd+.` on macOS and `Ctrl+.` on other platforms. See the
+# Debugging Guide for more information:
+# * http://flight-manual.atom.io/hacking-atom/sections/debugging/#check-the-keybindings
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#configuring-with-cson
+'atom-workspace':
+  'ctrl-i': 'cursor-history:next-within-editor'
+  'ctrl-o': 'cursor-history:prev-within-editor'
+  'cmd-ctrl-o': 'application:reopen-project'
+  'cmd-enter': 'disable'
+'atom-text-editor':
+  'ctrl-shift-l': 'window:focus-pane-on-right'
+  'ctrl-shift-h': 'window:focus-pane-on-left'
+  'ctrl-shift-k': 'window:focus-pane-above'
+  'ctrl-shift-j': 'window:focus-pane-below'
+  'ctrl-shift-a': 'application:about'
+  'cmd-enter': 'disable'
+'atom-text-editor.vim-mode-plus.normal-mode':
+  'g f': 'open-this:here'
+'body':
+  'cmd-q': 'core:save'
+  'cmd-q cmd-q': 'application:quit'
+
+# Proto-repl
+'atom-text-editor.vim-mode-plus[data-grammar="source clojure"]':
+  'cmd-shift-k': 'proto-repl:clear-repl'
+  'cmd-shift-d': 'proto-repl:print-var-documentation'
+  'cmd-shift-j': 'proto-repl-custom:switch-to-shadow-cljs-app-repl'
+  'cmd-shift-j': 'proto-repl-custom:switch-to-shadow-cljs-app-repl'
+  'cmd-alt-shift-j': 'proto-repl-custom:exit-cljs-repl'
+'atom-text-editor.vim-mode-plus.normal-mode[data-grammar="source clojure"]':
+  'cmd-enter': 'proto-repl:execute-top-block'
+  'shift-enter': 'proto-repl:execute-selected-text'
+'atom-text-editor.vim-mode-plus.visual-mode[data-grammar="source clojure"]':
+  'shift-enter': 'proto-repl:execute-selected-text'
+'atom-text-editor.vim-mode-plus.insert-mode[data-grammar="source clojure"]':
+  'cmd-enter': 'proto-repl:execute-top-block'
+  'shift-enter': 'proto-repl:execute-selected-text'
+
+# Chlorine
+# 'atom-text-editor.vim-mode-plus.normal-mode[data-grammar="source clojure"]':
+#   'g f':          'chlorine:go-to-var-definition'
+#   'ctrl-d':       'chlorine:doc-for-var'
+#   'space c':      'chlorine:connect-clojure-socket-repl'
+#   'space d':      'chlorine:connect-clojurescript-socket-repl'
+#   'space q':      'chlorine:disconnect'
+#   'space l':      'chlorine:clear-console'
+#   'shift-enter':  'chlorine:evaluate-block'
+#   'ctrl-enter':   'chlorine:evaluate-top-block'
+#   'ctrl-shift-enter': 'chlorine:load-file'
+#   'ctrl-c':       'chlorine:break-evaluation'
+#   'space space':  'inline-results:clear-all'
+#   'space x':      'chlorine:run-tests-in-ns'
+#   'space t':      'chlorine:run-test-for-var'
+# 'atom-text-editor.vim-mode-plus.visual-mode[data-grammar="source clojure"]':
+#   'shift-enter': 'chlorine:evaluate-selection'
+# 'atom-text-editor.vim-mode-plus.insert-mode[data-grammar="source clojure"]':
+#   'shift-enter': 'chlorine:evaluate-block'
+#   'ctrl-enter': 'chlorine:evaluate-top-block'
+
+'terminal-view':
+  'cmd-c': 'terminal:copy'
+  'cmd-v': 'terminal:paste'
+  'cmd-shift-k': 'terminal:clear'
+  'cmd-w': 'terminal:close'

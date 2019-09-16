@@ -18,7 +18,7 @@ old_paths = os.getenv('PATH', '').split(':')
 old_paths = [x for x in old_paths if '.nvm' not in x]
 
 paths = [
-    '~/.nvm/versions/node/v8.11.4/bin',
+    '~/.nvm/versions/node/v10.15.3/bin',
     '~/bin',
     '~/stuff/bin',
     '~/scripts/bin',

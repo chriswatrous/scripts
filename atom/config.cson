@@ -1,0 +1,156 @@
+"*":
+  "autocomplete-plus":
+    fileBlacklist: [
+      ".*"
+      "*.txt"
+      "*.md"
+      "untitled"
+    ]
+  autosave:
+    enabled: true
+  "bracket-colorizer": {}
+  "bracket-matcher":
+    autocompleteBrackets: false
+  chlorine:
+    "refresh-mode": "simple"
+    "refresh-on-save": false
+  core:
+    allowPendingPaneItems: false
+    audioBeep: false
+    disabledPackages: [
+      "bracket-colorizer"
+      "snippets"
+      "autocomplete-snippets"
+      "atom-keyboard-macros-vim"
+      "terminal-plus"
+      "indent-guide-improved"
+      "prompt-big-file"
+    ]
+    ignoredNames: [
+      ".git"
+      "node_modules"
+    ]
+    packagesWithKeymapsDisabled: [
+      "yaml-sortkey"
+      "lisp-paredit"
+      "restart-atom"
+      "chlorine"
+      "terminal-tab-plus"
+    ]
+    projectHome: "/Users/chris/projects"
+    telemetryConsent: "limited"
+  editor:
+    fontFamily: "Inconsolata"
+    fontSize: 15
+    lineHeight: 1.6
+    nonWordCharacters: "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?…"
+    preferredLineLength: 150
+    scrollPastEnd: true
+    softWrap: true
+    tabType: "soft"
+  "exception-reporting":
+    userId: "aac87d19-8428-48f3-820b-818e9ff411ce"
+  "find-and-replace":
+    useRipgrep: true
+  "highlight-column":
+    lineMode: true
+  "highlight-selected": {}
+  "language-babel": {}
+  "linter-ui-default":
+    panelHeight: 107
+    showPanel: true
+  "lisp-paredit":
+    enabled: false
+    indentationForms: [
+      "try"
+      "catch"
+      "finally"
+      "/^let/"
+      "are"
+      "/^def/"
+      "fn"
+      "cond"
+      "condp"
+      "/^if.*/"
+      "/.*\\/for/"
+      "for"
+      "for-all"
+      "/^when.*/"
+      "testing"
+      "doseq"
+      "dotimes"
+      "ns"
+      "routes"
+      "GET"
+      "POST"
+      "PUT"
+      "DELETE"
+      "extend-protocol"
+      "loop"
+      "do"
+      "case"
+      "with-bindings"
+      "checking"
+      "with-open"
+    ]
+  "prompt-big-file":
+    Threshold: 0
+  "proto-repl":
+    autoPrettyPrint: true
+    displayHelpText: false
+    leinPath: "/Users/chris/bin/lein"
+    refreshBeforeRunningSingleTest: false
+    refreshBeforeRunningTestFile: false
+    refreshOnReplStart: false
+    showInlineResults: false
+  "rainbow-delimiters": {}
+  "relative-numbers":
+    showAbsoluteNumbers: true
+    showAbsoluteNumbersInInsertMode: false
+    softWrapsCount: false
+    trueNumberCurrentLine: false
+  "spell-check":
+    addKnownWords: true
+    knownWords: [
+      "noninfringement"
+    ]
+  "terminal-plus":
+    core:
+      autoRunCommand: "bash"
+    toggles: {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  "vim-mode-plus":
+    automaticallyEscapeInsertModeOnActivePaneItemChange: true
+    useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false
+".clojure.source":
+  editor:
+    autoIndent: false
+    autoIndentOnPaste: false
+    nonWordCharacters: "()\"':,;~@#$%^&{}[]`"
+    preferredLineLength: 100
+    tabLength: 1
+".groovy.source":
+  editor:
+    tabLength: 4
+".lua.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".nginx.source":
+  editor:
+    tabLength: 4
+".python.regexp.source":
+  editor:
+    preferredLineLength: 15
+".python.source":
+  editor:
+    preferredLineLength: 79
+".text.xml":
+  editor:
+    tabLength: 4
+".text.xml.xsl":
+  editor:
+    tabLength: 4

@@ -1,0 +1,79 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+
+
+/*
+ * Examples
+ * (To see them, uncomment and save)
+ */
+
+// style the background color of the tree view
+.tree-view {
+  // background-color: whitesmoke;
+}
+
+// style the background and foreground colors on the atom-text-editor-element itself
+atom-text-editor {
+  color: #DDDDDD;
+  background-color: #000000;
+  .cursor {
+    border-color: red;
+  }
+  .gutter {
+    background-color: #111111;
+  }
+  .gutter .line-number {
+    // color: #00FF00;
+    color: #BBBBFF;
+  }
+  .gutter .line-number.cursor-line {
+    // color: #DDFFDD;
+    color: #FFFFFF;
+  }
+}
+
+atom-text-editor.editor .show-absolute .absolute {
+  // color: #BBBBFF;
+  color: #00FF00;
+}
+
+.tab-bar .tab {
+  font-size: 13px;
+  color: #DDDDDD;
+}
+.tab-bar .tab.active .title {
+  color: #FFFFFF;
+  background-color: #222266;
+}
+
+atom-workspace {
+  font-family: ;
+}
+
+.pane-item {
+   font-size: 16px;
+ }
+
+atom-text-editor.editor .highlight.find-result .region {
+  background: #777700;
+}
+
+.proto-repl-repl::shadow .lisp-syntax-error .region {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+ink-console {
+  background-color: hsl(225, 40%, 7%)
+}
+
+code, kbd, pre, samp {
+  font-family: Inconsolata;
+}
