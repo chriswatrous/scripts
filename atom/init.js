@@ -6,9 +6,7 @@
 //
 
 atom.commands.add('atom-workspace', 'proto-repl-custom:switch-to-shadow-cljs-app-repl', () =>
-  protoRepl.executeCodeInNs('(shadow.cljs.devtools.api/nrepl-select :dev)', {allSessions: true}));
+  protoRepl.eval('(shadow.cljs.devtools.api/nrepl-select :dev)'));
 
 atom.commands.add('atom-workspace', 'proto-repl-custom:exit-cljs-repl', () =>
-  protoRepl.executeCodeInNs(':cljs/quit', {allSessions: true}));
-
-// protoRepl.executeCodeInNs('(shadow.cljs.devtools.api/nrepl-select :dev)', {allSessions: true});
+  protoRepl.eval(':cljs/quit'));

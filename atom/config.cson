@@ -1,5 +1,9 @@
 "*":
+  "atom-ide-ui":
+    "atom-ide-code-format":
+      formatOnSave: true
   "autocomplete-plus":
+    extraWordCharacters: "-"
     fileBlacklist: [
       ".*"
       "*.txt"
@@ -12,6 +16,7 @@
   "bracket-matcher":
     autocompleteBrackets: false
   chlorine:
+    "experimental-features": true
     "refresh-mode": "simple"
     "refresh-on-save": false
   core:
@@ -24,7 +29,12 @@
       "atom-keyboard-macros-vim"
       "terminal-plus"
       "indent-guide-improved"
-      "prompt-big-file"
+      "tree-view-filter"
+      "tree-view-search-bar"
+      "linter-joker"
+      "proto-repl-charts"
+      "proto-repl-sayid"
+      "rainbow-delimiters"
     ]
     ignoredNames: [
       ".git"
@@ -44,21 +54,31 @@
     fontSize: 15
     lineHeight: 1.6
     nonWordCharacters: "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?…"
-    preferredLineLength: 150
     scrollPastEnd: true
     softWrap: true
+    tabLength: 4
     tabType: "soft"
   "exception-reporting":
     userId: "aac87d19-8428-48f3-820b-818e9ff411ce"
   "find-and-replace":
+    searchContextLineCountAfter: 20
+    searchContextLineCountBefore: 20
     useRipgrep: true
+  "go-plus":
+    panel:
+      displayMode: "closed"
+      focusOnFailure: false
+    test:
+      runTestsOnSave: false
   "highlight-column":
     lineMode: true
   "highlight-selected": {}
   "language-babel": {}
+  "linter-pycodestyle":
+    convertAllErrorsToWarnings: false
+    maxLineLength: 100
   "linter-ui-default":
-    panelHeight: 107
-    showPanel: true
+    panelHeight: 300
   "lisp-paredit":
     enabled: false
     indentationForms: [
@@ -94,7 +114,7 @@
       "with-open"
     ]
   "prompt-big-file":
-    Threshold: 0
+    Threshold: 0.5
   "proto-repl":
     autoPrettyPrint: true
     displayHelpText: false
@@ -113,18 +133,26 @@
     addKnownWords: true
     knownWords: [
       "noninfringement"
+      "Tekton"
+      "Cloudant"
     ]
   "terminal-plus":
     core:
       autoRunCommand: "bash"
     toggles: {}
   "tree-view":
-    hideVcsIgnoredFiles: true
+    squashDirectoryNames: true
+  "tree-view-filter":
+    caseInsensitive: true
+    fuzzySearch: true
+    liveUpdate: true
   "vim-mode-plus":
     automaticallyEscapeInsertModeOnActivePaneItemChange: true
     useSmartcaseForSearch: true
   welcome:
     showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
 ".clojure.source":
   editor:
     autoIndent: false
@@ -132,13 +160,24 @@
     nonWordCharacters: "()\"':,;~@#$%^&{}[]`"
     preferredLineLength: 100
     tabLength: 1
+".go.source":
+  editor:
+    preferredLineLength: 150
+    showInvisibles: false
+    tabType: "hard"
 ".groovy.source":
   editor:
     tabLength: 4
+".json.source":
+  editor:
+    tabLength: 2
 ".lua.source":
   editor:
     preferredLineLength: 100
     tabLength: 4
+".mod.source":
+  editor:
+    tabType: "auto"
 ".nginx.source":
   editor:
     tabLength: 4
@@ -147,7 +186,16 @@
     preferredLineLength: 15
 ".python.source":
   editor:
-    preferredLineLength: 79
+    preferredLineLength: 100
+".shell.source":
+  editor:
+    tabLength: 2
+".source.sum":
+  editor:
+    tabType: "auto"
+".source.yaml":
+  editor:
+    tabLength: 2
 ".text.xml":
   editor:
     tabLength: 4

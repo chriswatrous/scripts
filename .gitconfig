@@ -17,3 +17,7 @@
 	detachedHead = false
 [diff]
 	statGraphWidth = 160
+[url "ssh://git@github.ibm.com/"]
+	insteadOf = https://github.ibm.com/
+[url "git@github.com:"]
+	insteadOf = https://github.com/

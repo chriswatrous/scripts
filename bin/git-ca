@@ -1,11 +1,15 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 import sys
 from subprocess import check_output, check_call
 
-author = check_output(['git', '--no-pager', 'show', '-s',
-                       "--format=%an <%ae>", 'HEAD']).strip()
+author = (
+    check_output(['git', '--no-pager', 'show', '-s', "--format=%an <%ae>", 'HEAD'])
+    .decode('utf-8')
+    .strip()
+)
+
 if not author.startswith('Chris Watrous'):
-    print 'Not your commit! (author = {})'.format(author)
+    print('Not your commit! (author = {})'.format(author))
     sys.exit(1)
 
 check_call(['git', 'add', '-A', ':/'])

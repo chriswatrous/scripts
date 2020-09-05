@@ -50,6 +50,12 @@ nvm() {
 }
 
 # Set default editor.
+# function use-editor-atom() {
+#   echo 'atom --wait' > ~/.editor
+# }
+# function use-editor-vim() {
+#   echo vim > ~/.editor
+# }
 export EDITOR=vim
 export VISUAL="$EDITOR"
 export GIT_EDITOR="$EDITOR"
@@ -222,6 +228,7 @@ alias gd3='git --no-pager diff --stat `git merge-base upstream/master HEAD` .'
 alias git-show-merged='git log --decorate | grep "commit.*(.*)"'
 alias gu='git checkout upstream/master'
 alias gru='git rebase upstream/master'
+alias git-ignored='git ls-files . --ignored --exclude-standard --others'
 
 # aliases for changing directories
 alias cd='my_cd'
@@ -337,3 +344,5 @@ if [ -e /usr/local/Bluemix/bx/bash_autocomplete ]; then
 fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export IKS_BETA_VERSION=1

@@ -44,6 +44,7 @@
   'cmd-enter': 'disable'
 'atom-text-editor.vim-mode-plus.normal-mode':
   'g f': 'open-this:here'
+  'cmd-shift-l': 'linter-ui-default:next'
 'body':
   'cmd-q': 'core:save'
   'cmd-q cmd-q': 'application:quit'
@@ -52,7 +53,6 @@
 'atom-text-editor.vim-mode-plus[data-grammar="source clojure"]':
   'cmd-shift-k': 'proto-repl:clear-repl'
   'cmd-shift-d': 'proto-repl:print-var-documentation'
-  'cmd-shift-j': 'proto-repl-custom:switch-to-shadow-cljs-app-repl'
   'cmd-shift-j': 'proto-repl-custom:switch-to-shadow-cljs-app-repl'
   'cmd-alt-shift-j': 'proto-repl-custom:exit-cljs-repl'
 'atom-text-editor.vim-mode-plus.normal-mode[data-grammar="source clojure"]':
@@ -76,7 +76,7 @@
 #   'ctrl-enter':   'chlorine:evaluate-top-block'
 #   'ctrl-shift-enter': 'chlorine:load-file'
 #   'ctrl-c':       'chlorine:break-evaluation'
-#   'space space':  'inline-results:clear-all'
+#   'space space':  'chlorine:clear-inline-results'
 #   'space x':      'chlorine:run-tests-in-ns'
 #   'space t':      'chlorine:run-test-for-var'
 # 'atom-text-editor.vim-mode-plus.visual-mode[data-grammar="source clojure"]':
