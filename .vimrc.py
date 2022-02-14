@@ -158,7 +158,7 @@ def replace_string_contents():
     current_quote = None
     last_char = ''
     for char in vim.current.line:
-        if current_quote == None:
+        if current_quote is None:
             if char in ['"', "'"]:
                 current_quote = char
             in_string.append(False)
@@ -179,7 +179,7 @@ def replace_string_contents():
         pos2 = pos
         while in_string[pos2 + 1]:
             pos2 += 1
-        print(vim.current.line[pos1 : pos2 + 1])
+        print(vim.current.line[pos1:pos2 + 1])
 
 
 # 'asdfsd' "weqrwqerqwe" 'as"dfsd' "weqr'wqerqwe" 'as\'dfsd' "weqr\"wqerqwe"
@@ -191,37 +191,37 @@ def set_file_type():
 
 
 # def exec_current_buffer():
-    # filetype = vim.eval('&filetype')
-    # if filetype != 'python':
-        # sys.stderr.write('Unsupported file type: ' + filetype)
-        # return
-    # script = '\n'.join(vim.current.buffer[:])
-    # exec script in globals()
+#     filetype = vim.eval('&filetype')
+#     if filetype != 'python':
+#         sys.stderr.write('Unsupported file type: ' + filetype)
+#         return
+#     script = '\n'.join(vim.current.buffer[:])
+#     exec script in globals()
 
 
 # def exec_current_block():
-    # filetype = vim.eval('&filetype')
-    # if filetype != 'python':
-        # sys.stderr.write('Unsupported file type: ' + filetype)
-        # return
-    # lines = vim.current.buffer[:]
+#     filetype = vim.eval('&filetype')
+#     if filetype != 'python':
+#         sys.stderr.write('Unsupported file type: ' + filetype)
+#         return
+#     lines = vim.current.buffer[:]
 #
-    # # Find start of block.
-    # L1 = vim.current.window.cursor[0] - 1
-    # while (lines[L1].startswith(' ') or
-           # lines[L1].startswith('#') or
-           # lines[L1] == ''):
-        # L1 -= 1
+#     # Find start of block.
+#     L1 = vim.current.window.cursor[0] - 1
+#     while (lines[L1].startswith(' ') or
+#            lines[L1].startswith('#') or
+#            lines[L1] == ''):
+#         L1 -= 1
 #
-    # # Find end of block.
-    # L2 = vim.current.window.cursor[0]
-    # while L2 < len(lines) and (lines[L2].startswith(' ') or
-                               # lines[L2].startswith('#') or
-                               # lines[L2] == ''):
-        # L2 += 1
+#     # Find end of block.
+#     L2 = vim.current.window.cursor[0]
+#     while L2 < len(lines) and (lines[L2].startswith(' ') or
+#                                lines[L2].startswith('#') or
+#                                lines[L2] == ''):
+#         L2 += 1
 #
-    # script = '\n'.join(lines[L1:L2])
-    # exec script in globals()
+#     script = '\n'.join(lines[L1:L2])
+#     exec script in globals()
 
 
 _ov_toggle = False
@@ -284,7 +284,7 @@ def insert_set_trace():
     vim.current.range[0:0] = [
         ' ' * indent + 'import ' + lib + '; ' + lib + '.set_trace()']
 
-    move_by(-1,0)
+    move_by(-1, 0)
 
 
 def comment_line():
@@ -301,7 +301,7 @@ def comment_line():
                 break
             row -= 1
         vim.current.line = vim.current.line[:indent] + comment_start + ' ' + \
-                           vim.current.line[indent:]
+            vim.current.line[indent:]
     move_by(1, 0)
 
 
@@ -378,6 +378,8 @@ def map_func(map_cmd):
             cmd = ':RunPy {}()<Enter>'.format(cmd.__name__)
         vim.command('{} {} {}'.format(map_cmd, key, cmd))
     return f
+
+
 nnoremap = map_func('nnoremap')
 vnoremap = map_func('vnoremap')
 inoremap = map_func('inoremap')

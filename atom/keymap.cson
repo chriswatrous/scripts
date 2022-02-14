@@ -35,6 +35,7 @@
   'ctrl-o': 'cursor-history:prev-within-editor'
   'cmd-ctrl-o': 'application:reopen-project'
   'cmd-enter': 'disable'
+  'ctrl-shift-d': 'custom-commands:dismiss-notifications'
 'atom-text-editor':
   'ctrl-shift-l': 'window:focus-pane-on-right'
   'ctrl-shift-h': 'window:focus-pane-on-left'
@@ -42,6 +43,7 @@
   'ctrl-shift-j': 'window:focus-pane-below'
   'ctrl-shift-a': 'application:about'
   'cmd-enter': 'disable'
+  'ctrl-shift-f2': 'bookmarks:view-all'
 'atom-text-editor.vim-mode-plus.normal-mode':
   'g f': 'open-this:here'
   'cmd-shift-l': 'linter-ui-default:next'

@@ -10,3 +10,8 @@ atom.commands.add('atom-workspace', 'proto-repl-custom:switch-to-shadow-cljs-app
 
 atom.commands.add('atom-workspace', 'proto-repl-custom:exit-cljs-repl', () =>
   protoRepl.eval(':cljs/quit'));
+
+atom.commands.add('atom-workspace', 'custom-commands:dismiss-notifications', () => {
+  atom.notifications.getNotifications().forEach(n => n.dismiss());
+  atom.notifications.clear();
+});
