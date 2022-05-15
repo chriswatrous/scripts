@@ -51,6 +51,7 @@
     telemetryConsent: "limited"
   editor:
     fontFamily: "Inconsolata"
+    fontSize: 15
     lineHeight: 1.6
     nonWordCharacters: "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?…"
     preferredLineLength: 150
@@ -117,6 +118,7 @@
   "linter-ui-default":
     panelHeight: 300
   "lisp-paredit":
+    enabled: false
     indentationForms: [
       "try"
       "catch"

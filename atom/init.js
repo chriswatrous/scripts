@@ -6,7 +6,7 @@
 //
 
 atom.commands.add('atom-workspace', 'proto-repl-custom:switch-to-shadow-cljs-app-repl', () =>
-  protoRepl.eval('(shadow.cljs.devtools.api/nrepl-select :dev)'));
+  protoRepl.eval('(shadow.cljs.devtools.api/nrepl-select :app)'));
 
 atom.commands.add('atom-workspace', 'proto-repl-custom:exit-cljs-repl', () =>
   protoRepl.eval(':cljs/quit'));
