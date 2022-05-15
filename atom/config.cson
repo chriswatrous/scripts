@@ -55,6 +55,7 @@
     fontSize: 15
     lineHeight: 1.6
     nonWordCharacters: "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?…"
+    preferredLineLength: 150
     scrollPastEnd: true
     softWrap: true
     tabLength: 4
@@ -66,6 +67,43 @@
     searchContextLineCountBefore: 20
     useRipgrep: true
   "go-plus":
+    autocomplete:
+      suppressActivationForCharacters: [
+        "comma"
+        "newline"
+        "space"
+        "tab"
+        "/"
+        ", ("
+        ")"
+        "\""
+        "'"
+        ":"
+        ";"
+        "<"
+        ">"
+        "~"
+        "!"
+        "@"
+        "#"
+        "$"
+        "%"
+        "^"
+        "&"
+        "*"
+        "|"
+        "+"
+        "="
+        "["
+        "]"
+        "{"
+        "}"
+        "`"
+        "~"
+        "?"
+        "-"
+      ]
+      suppressBuiltinAutocompleteProvider: false
     panel:
       displayMode: "closed"
       focusOnFailure: false
@@ -118,6 +156,7 @@
     Threshold: 0.5
   "proto-repl":
     autoPrettyPrint: true
+    autoScroll: false
     displayHelpText: false
     leinPath: "/Users/chris/bin/lein"
     refreshBeforeRunningSingleTest: false
@@ -161,6 +200,13 @@
     nonWordCharacters: "()\"':,;~@#$%^&{}[]`"
     preferredLineLength: 100
     tabLength: 1
+".css.scss.source":
+  editor:
+    nonWordCharacters: "/\\()\"':,.;<>~!#%^&*|+=[]{}`?…"
+    tabLength: 2
+".gfm.source":
+  editor:
+    tabLength: 2
 ".go.source":
   editor:
     preferredLineLength: 150
@@ -169,6 +215,18 @@
 ".groovy.source":
   editor:
     tabLength: 4
+".js.jsx.source":
+  editor:
+    nonWordCharacters: "/\\()\"':,.;<>~!@#%^&*|+=[]{}`?-…"
+    preferredLineLength: 150
+    tabLength: 2
+".js.source":
+  editor:
+    nonWordCharacters: "/\\()\"':,.;<>~!#@%^&*|+=[]{}`?-…"
+    tabLength: 2
+".jsdoc.source":
+  editor:
+    preferredLineLength: 150
 ".json.source":
   editor:
     tabLength: 2
@@ -188,6 +246,13 @@
 ".python.source":
   editor:
     preferredLineLength: 100
+".sass.source":
+  editor:
+    nonWordCharacters: "/\\()\"':,.;<>~!#%^&*|+=[]{}`?…"
+    tabLength: 2
+".sassdoc.source":
+  editor:
+    tabLength: 2
 ".shell.source":
   editor:
     tabLength: 2
@@ -197,6 +262,9 @@
 ".source.yaml":
   editor:
     tabLength: 2
+".text.vim-help":
+  editor:
+    tabLength: 8
 ".text.xml":
   editor:
     tabLength: 4
