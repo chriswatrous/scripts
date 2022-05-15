@@ -35,6 +35,7 @@
       "proto-repl-charts"
       "proto-repl-sayid"
       "rainbow-delimiters"
+      "linter-pycodestyle"
     ]
     ignoredNames: [
       ".git"
